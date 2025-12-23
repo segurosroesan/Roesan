@@ -9,7 +9,7 @@ export function Footer() {
             <Container>
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-3">
-                        <div className="relative h-8 w-32 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                        <div className="relative h-8 w-32 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all brightness-0">
                             <Image
                                 src="/logo-roesan.png"
                                 alt="Roesan"

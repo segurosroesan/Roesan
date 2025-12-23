@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { Container } from "./ui/Container";
 import Image from "next/image";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,15 +19,19 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Home page has a light background, others have a dark hero section
+    const isHome = pathname === "/";
+    const forceLightMode = isHome || isScrolled;
+
     return (
         <nav
-            className={`fixed top-0 z-40 w-full transition-all duration-300 ${isScrolled ? "glass-panel shadow-sm" : "bg-transparent"
+            className={`fixed top-0 z-40 w-full transition-all duration-300 ${isScrolled ? "glass-panel shadow-sm py-2" : "bg-transparent py-4"
                 }`}
         >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="flex h-20 items-center justify-between">
                     <Link href="/" className="flex items-center gap-3 group cursor-pointer">
-                        <div className="relative h-12 w-48">
+                        <div className={`relative h-12 w-48 transition-all duration-300 ${forceLightMode ? "brightness-0 opacity-80" : ""}`}>
                             <Image
                                 src="/logo-roesan.png"
                                 alt="Roesan Seguros"
@@ -39,17 +44,27 @@ export function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center gap-8">
-                        <Link href="/" className="text-sm font-medium text-slate-600 hover:text-navy-800 transition-colors">
-                            Inicio
-                        </Link>
-                        <Link href="/nosotros" className="text-sm font-medium text-slate-600 hover:text-navy-800 transition-colors">
-                            Nosotros
-                        </Link>
-                        <Link href="/servicios" className="text-sm font-medium text-slate-600 hover:text-navy-800 transition-colors">
-                            Servicios
-                        </Link>
+                        {[
+                            { name: "Inicio", href: "/" },
+                            { name: "Nosotros", href: "/nosotros" },
+                            { name: "Servicios", href: "/servicios" },
+                        ].map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className={`text-sm font-medium transition-colors duration-300 ${forceLightMode
+                                    ? "text-slate-600 hover:text-navy-800"
+                                    : "text-white/80 hover:text-white"
+                                    }`}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
                         <Link href="/contacto">
-                            <button className="bg-navy-800 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-navy-900 transition-all hover:scale-105 hover:shadow-lg flex items-center gap-2 group">
+                            <button className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 group hover:scale-105 hover:shadow-lg ${forceLightMode
+                                ? "bg-navy-800 text-white hover:bg-navy-900"
+                                : "bg-white text-navy-800 hover:bg-slate-50"
+                                }`}>
                                 <span>Contáctanos</span>
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                             </button>
@@ -60,7 +75,7 @@ export function Navbar() {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-navy-800 hover:text-navy-900"
+                            className={`transition-colors duration-300 ${forceLightMode ? "text-navy-800" : "text-white"}`}
                         >
                             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                         </button>
@@ -70,39 +85,30 @@ export function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden glass-panel border-t border-slate-200">
-                    <div className="space-y-1 px-4 pb-3 pt-2">
-                        <Link
-                            href="/"
-                            className="block rounded-md px-3 py-2 text-base font-medium text-navy-800 hover:bg-slate-50"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Inicio
-                        </Link>
-                        <Link
-                            href="/nosotros"
-                            className="block rounded-md px-3 py-2 text-base font-medium text-navy-800 hover:bg-slate-50"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Nosotros
-                        </Link>
-                        <Link
-                            href="/servicios"
-                            className="block rounded-md px-3 py-2 text-base font-medium text-navy-800 hover:bg-slate-50"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Servicios
-                        </Link>
-                        <Link
-                            href="/contacto"
-                            className="block rounded-md px-3 py-2 text-base font-medium text-gold-500 hover:bg-slate-50"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Contáctanos
-                        </Link>
+                <div className="md:hidden glass-panel border-t border-slate-200 animate-in fade-in slide-in-from-top-4 duration-300">
+                    <div className="space-y-1 px-4 pb-6 pt-4">
+                        {[
+                            { name: "Inicio", href: "/" },
+                            { name: "Nosotros", href: "/nosotros" },
+                            { name: "Servicios", href: "/servicios" },
+                            { name: "Contáctanos", href: "/contacto", special: true },
+                        ].map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${link.special
+                                    ? "bg-navy-800 text-white mt-4"
+                                    : "text-navy-800 hover:bg-slate-50"
+                                    }`}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
                     </div>
                 </div>
             )}
         </nav>
     );
 }
+

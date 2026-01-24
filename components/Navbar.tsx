@@ -53,7 +53,7 @@ export function Navbar() {
                                 key={link.name}
                                 href={link.href}
                                 className={`text-sm font-medium transition-colors duration-300 ${forceLightMode
-                                    ? "text-slate-600 hover:text-navy-800"
+                                    ? "text-slate-600 hover:text-purple-800"
                                     : "text-white/80 hover:text-white"
                                     }`}
                             >
@@ -62,8 +62,8 @@ export function Navbar() {
                         ))}
                         <Link href="/contacto">
                             <button className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 group hover:scale-105 hover:shadow-lg ${forceLightMode
-                                ? "bg-navy-800 text-white hover:bg-navy-900"
-                                : "bg-white text-navy-800 hover:bg-slate-50"
+                                ? "bg-purple-800 text-white hover:bg-purple-900"
+                                : "bg-white text-purple-800 hover:bg-slate-50"
                                 }`}>
                                 <span>Contáctanos</span>
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -75,7 +75,7 @@ export function Navbar() {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className={`transition-colors duration-300 ${forceLightMode ? "text-navy-800" : "text-white"}`}
+                            className={`transition-colors duration-300 ${forceLightMode ? "text-purple-800" : "text-white"}`}
                         >
                             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                         </button>
@@ -97,8 +97,8 @@ export function Navbar() {
                                 key={link.name}
                                 href={link.href}
                                 className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${link.special
-                                    ? "bg-navy-800 text-white mt-4"
-                                    : "text-navy-800 hover:bg-slate-50"
+                                    ? "bg-purple-800 text-white mt-4"
+                                    : "text-purple-800 hover:bg-slate-50"
                                     }`}
                                 onClick={() => setIsOpen(false)}
                             >

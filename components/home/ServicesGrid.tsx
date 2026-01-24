@@ -18,7 +18,7 @@ export function ServicesGrid() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="font-serif text-3xl font-medium tracking-tight text-navy-800 sm:text-4xl lg:text-5xl">
+                        <h2 className="font-serif text-3xl font-medium tracking-tight text-purple-800 sm:text-4xl lg:text-5xl">
                             Nuestras Soluciones
                         </h2>
                         <p className="mt-4 text-xl text-slate-500 max-w-2xl mx-auto font-light">
@@ -42,14 +42,14 @@ export function ServicesGrid() {
                                     <service.icon className={`h-7 w-7 ${service.color}`} />
                                 </div>
 
-                                <h3 className="font-serif text-xl font-medium text-navy-800 mb-2">
+                                <h3 className="font-serif text-xl font-medium text-purple-800 mb-2">
                                     {service.title}
                                 </h3>
                                 <p className="text-sm text-slate-500 leading-relaxed mb-6">
                                     {service.shortDescription}
                                 </p>
 
-                                <div className="flex items-center text-sm font-medium text-gold-500 group-hover:text-gold-400 transition-colors">
+                                <div className="flex items-center text-sm font-medium text-cyan-500 group-hover:text-cyan-400 transition-colors">
                                     Ver detalles <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                 </div>
                             </motion.div>

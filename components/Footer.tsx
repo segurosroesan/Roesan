@@ -24,16 +24,16 @@ export function Footer() {
                     </div>
 
                     <div className="flex gap-6">
-                        <Link href="#" className="text-slate-400 hover:text-navy-800 transition-colors">
+                        <Link href="#" className="text-slate-400 hover:text-purple-800 transition-colors">
                             <Twitter className="w-5 h-5" />
                         </Link>
-                        <Link href="#" className="text-slate-400 hover:text-navy-800 transition-colors">
+                        <Link href="#" className="text-slate-400 hover:text-purple-800 transition-colors">
                             <Linkedin className="w-5 h-5" />
                         </Link>
-                        <Link href="#" className="text-slate-400 hover:text-navy-800 transition-colors">
+                        <Link href="#" className="text-slate-400 hover:text-purple-800 transition-colors">
                             <Instagram className="w-5 h-5" />
                         </Link>
-                        <Link href="#" className="text-slate-400 hover:text-navy-800 transition-colors">
+                        <Link href="#" className="text-slate-400 hover:text-purple-800 transition-colors">
                             <Facebook className="w-5 h-5" />
                         </Link>
                     </div>

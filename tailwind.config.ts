@@ -12,20 +12,27 @@ export default {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
                 primary: {
-                    DEFAULT: '#1a2332', // Navy 800
+                    DEFAULT: '#514b84', // Morado Roesan
                     foreground: '#ffffff',
                 },
                 secondary: {
-                    DEFAULT: '#d4af37', // Gold 400
-                    foreground: '#0f1621',
+                    DEFAULT: '#01bbef', // Cyan Roesan
+                    foreground: '#ffffff',
                 },
-                navy: {
-                    800: '#1a2332',
-                    900: '#0f1621',
+                purple: {
+                    400: '#6b67a8',  // Lighter variation
+                    500: '#514b84',  // Primary
+                    600: '#3f3a6e',  // Darker variation
+                    800: '#2a2960',  // Dark purple
+                    900: '#1e1d4a',  // Darkest
                 },
-                gold: {
-                    400: '#d4af37',
-                    500: '#c5a028',
+                cyan: {
+                    400: '#20febe',  // Turquoise light
+                    500: '#01bbef',  // Primary cyan
+                    600: '#0099cc',  // Darker cyan
+                },
+                yellow: {
+                    400: '#f6ef45',  // Accent yellow
                 },
             },
             fontFamily: {

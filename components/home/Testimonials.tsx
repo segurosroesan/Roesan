@@ -67,7 +67,7 @@ export function Testimonials() {
                                 {/* Rating stars could go here */}
                                 <div className="flex gap-1">
                                     {[1, 2, 3, 4, 5].map(s => (
-                                        <span key={s} className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                                        <span key={s} className="h-1.5 w-1.5 rounded-full bg-yellow-400" />
                                     ))}
                                 </div>
                             </div>

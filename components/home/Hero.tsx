@@ -21,16 +21,16 @@ export function Hero() {
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         className="space-y-8 max-w-2xl"
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-medium text-navy-800 mb-2">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-medium text-purple-800 mb-2">
                             <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-400"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
                             </span>
                             Nueva Experiencia Digital
                         </div>
 
-                        <h1 className="font-serif text-5xl lg:text-7xl font-medium tracking-tight text-navy-800 leading-[1.1]">
-                            Protección que se adapta a <span className="italic text-gold-500">tu vida</span>.
+                        <h1 className="font-serif text-5xl lg:text-7xl font-medium tracking-tight text-purple-800 leading-[1.1]">
+                            Protección que se adapta a <span className="italic text-cyan-500">tu vida</span>.
                         </h1>
 
                         <p className="text-lg lg:text-xl text-slate-500 leading-relaxed max-w-lg">
@@ -39,14 +39,14 @@ export function Hero() {
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">
                             <Link href="/contacto">
-                                <button className="w-full sm:w-auto bg-navy-800 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-navy-900 transition-all hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 group relative overflow-hidden">
+                                <button className="w-full sm:w-auto bg-purple-800 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-purple-900 transition-all hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 group relative overflow-hidden">
                                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
                                     <span>Solicitar Asesoría</span>
                                     <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                                 </button>
                             </Link>
                             <Link href="/servicios">
-                                <button className="w-full sm:w-auto bg-white border border-slate-200 text-navy-800 px-8 py-4 rounded-full text-base font-medium hover:bg-slate-50 transition-all hover:border-slate-300 flex items-center justify-center gap-2">
+                                <button className="w-full sm:w-auto bg-white border border-slate-200 text-purple-800 px-8 py-4 rounded-full text-base font-medium hover:bg-slate-50 transition-all hover:border-slate-300 flex items-center justify-center gap-2">
                                     <Shield className="w-4 h-4" />
                                     <span>Ver Coberturas</span>
                                 </button>
@@ -89,7 +89,7 @@ export function Hero() {
                             transition={{ delay: 0.4, duration: 0.8 }}
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-100 p-0 overflow-hidden transform transition-all duration-700 hover:scale-105 z-20"
                         >
-                            <div className="bg-navy-800 p-4 flex justify-between items-center">
+                            <div className="bg-purple-800 p-4 flex justify-between items-center">
                                 <div className="flex gap-2">
                                     <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
                                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
@@ -99,7 +99,7 @@ export function Hero() {
                             </div>
                             <div className="p-6">
                                 <div className="flex items-center justify-between mb-6">
-                                    <h3 className="font-serif text-lg font-medium text-navy-800">Todo bajo control</h3>
+                                    <h3 className="font-serif text-lg font-medium text-purple-800">Todo bajo control</h3>
                                     <span className="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full border border-green-100 flex items-center gap-1">
                                         <CheckCircle2 className="w-3 h-3" /> Activo
                                     </span>
@@ -129,7 +129,7 @@ export function Hero() {
 
                         {/* Floating Elements */}
                         <div className="absolute top-20 left-10 p-3 bg-white shadow-lg rounded-xl animate-float">
-                            <Shield className="w-6 h-6 text-gold-500" />
+                            <Shield className="w-6 h-6 text-cyan-500" />
                         </div>
                     </div>
                 </div>

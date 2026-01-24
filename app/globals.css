@@ -23,17 +23,17 @@
   /* Slate 900 */
 
   /* Roesan Brand Colors */
-  --primary: #1e3a8a;
-  /* Deep Blue */
+  --primary: #514b84;
+  /* Morado Roesan */
   --primary-foreground: #ffffff;
 
-  --secondary: #0ea5e9;
-  /* Sky Blue */
+  --secondary: #01bbef;
+  /* Cyan/Turquesa Roesan */
   --secondary-foreground: #ffffff;
 
-  --accent: #f59e0b;
-  /* Warm Amber for CTAs */
-  --accent-foreground: #ffffff;
+  --accent: #f6ef45;
+  /* Amarillo Roesan */
+  --accent-foreground: #2a2960;
 
   --muted: #f1f5f9;
   /* Slate 100 */

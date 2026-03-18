@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/Hero";
 import { TrustBar } from "@/components/home/TrustBar";
+import { StatsSection } from "@/components/home/StatsSection";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Button } from "@/components/ui/Button";
@@ -10,6 +11,7 @@ export default function Home() {
     <>
       <Hero />
       <TrustBar />
+      <StatsSection />
       <ServicesGrid />
       <Testimonials />
 

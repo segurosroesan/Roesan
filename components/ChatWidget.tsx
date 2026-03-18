@@ -1,17 +1,13 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { MessageCircle, X, Send, User, Bot } from 'lucide-react';
-import { init, tx, id } from '@instantdb/react';
-import schema from '../instant.schema';
-
-// Initialize InstantDB
-// CRITICAL: Ensure NEXT_PUBLIC_INSTANT_APP_ID is in .env.local
-const db = init({ appId: process.env.NEXT_PUBLIC_INSTANT_APP_ID!, schema });
+import { tx, id } from '@instantdb/react';
+import { db } from '@/lib/instant';
 
 export default function ChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
@@ -100,8 +96,7 @@ export default function ChatWidget() {
                         </div>
                         <Button
                             variant="ghost"
-                            size="icon"
-                            className="h-8 w-8 text-white hover:bg-white/20"
+                            className="h-8 w-8 p-1 text-white hover:bg-white/20"
                             onClick={() => setIsOpen(false)}
                         >
                             <X size={18} />
@@ -137,12 +132,12 @@ export default function ChatWidget() {
                             <div className="flex gap-2">
                                 <Input
                                     value={input}
-                                    onChange={(e) => setInput(e.target.value)}
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
                                     onKeyDown={handleKeyPress}
                                     placeholder="Escribe tu mensaje..."
                                     className="flex-1 focus-visible:ring-primary"
                                 />
-                                <Button size="icon" onClick={handleSend} className="bg-primary hover:bg-primary/90 text-white">
+                                <Button onClick={handleSend} className="bg-primary hover:bg-primary/90 text-white p-2">
                                     <Send size={18} />
                                 </Button>
                             </div>

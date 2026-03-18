@@ -42,3 +42,12 @@ const db = init({ appId, schema });
 import { id } from '@instantdb/react';
 db.transact(db.tx.contacts[id()].create({ name: 'John' }));
 ```
+
+# Autenticación y API de Softseguros (Reglas AI)
+CRITICAL: Softseguros utiliza un sistema muy restrictivo de permisos.
+1. **Autenticación**: Auth por Token. Obtén el token enviando `username/password` a `POST /api-token-auth/`. El header a enviar en peticiones subsiguientes es `Authorization: Token {token}`.
+2. **Rol de Gerente no implica Rol API**: Si obtienes un Error 401 o 404 al consultar un cliente o póliza, NO es un error, significa que la API oculta registros que NO fueron creados por ese usuario específico. Debe pedirse permiso de acceso global a soporte.
+3. **Estructura Cíclica (Datos Extra CRM)**: Los teléfonos y correos NO viven en el objeto `cliente`. Flujo obligatorio:
+   - 1. Buscar `<id>` del cliente.
+   - 2. Obtener `<id_celular>` o `<id_email>` con `GET /api/cliente/<id>/dato_extra_crm/`.
+   - 3. Actualizar con `PATCH /api/dato_extra_celular/<id_celular>/`.

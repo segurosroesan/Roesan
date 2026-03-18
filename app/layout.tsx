@@ -3,6 +3,7 @@ import { Roboto, Philosopher } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
+import Script from "next/script";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -81,6 +82,18 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <ChatWidget />
+
+        {/* Google Analytics */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DYVNSM6WJ2" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-DYVNSM6WJ2');
+          `}
+        </Script>
       </body>
     </html>
   );

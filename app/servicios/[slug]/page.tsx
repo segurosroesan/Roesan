@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { ArrowLeft, CheckCircle2, Shield } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import QuoteFunnel from "@/components/home/QuoteFunnel";
 
 // Using native Next.js params typing
 type Props = {
@@ -122,23 +123,25 @@ export default async function ServiceDetailPage({ params }: Props) {
 
                     {/* Sidebar CTA */}
                     <div>
-                        <div className="sticky top-24 rounded-3xl bg-white p-8 shadow-lg ring-1 ring-slate-900/5">
-                            <h3 className="text-lg font-bold text-slate-900 mb-2">Solicita tu cotización</h3>
-                            <p className="text-slate-600 text-sm mb-6">
-                                Déjanos tus datos y un experto en {service.title} te contactará.
+                        <div className="sticky top-24 rounded-3xl bg-white p-2 sm:p-4 shadow-xl ring-1 ring-slate-900/5">
+                            <h3 className="text-xl font-bold text-slate-900 mb-2 px-4 pt-4">Solicita tu cotización</h3>
+                            <p className="text-slate-600 text-sm mb-6 px-4">
+                                Ingresa tus datos básicos y te presentaremos las mejores opciones en {service.title}.
                             </p>
 
-                            <div className="space-y-4">
-                                <Button className="w-full justify-center" size="lg">
-                                    Cotizar por Whatsapp
-                                </Button>
-                                <Button variant="outline" className="w-full justify-center" size="lg">
-                                    Enviar Correo
-                                </Button>
+                            <div className="w-full">
+                                <QuoteFunnel 
+                                    initialType={
+                                        service.slug === 'vehiculos' ? 'auto' : 
+                                        service.slug === 'vida-y-salud' ? 'salud' : 
+                                        service.slug === 'empresariales' ? 'empresarial' : 
+                                        'auto'
+                                    } 
+                                />
                             </div>
 
-                            <div className="mt-6 flex items-center justify-center gap-2 text-xs text-slate-400">
-                                <Shield className="h-4 w-4" /> Tus datos están seguros
+                            <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-400 pb-2">
+                                <Shield className="h-4 w-4" /> Tus datos están en un entorno seguro
                             </div>
                         </div>
                     </div>

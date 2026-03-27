@@ -7,7 +7,7 @@ const footerLinks = {
     servicios: [
         { label: "Vida y Salud", href: "/servicios/vida-y-salud" },
         { label: "Vehículos", href: "/servicios/vehiculos" },
-        { label: "Empresariales", href: "/servicios/empresariales" },
+        { label: "Empresariales", href: "/servicios/empresas" },
         { label: "Personas y Hogar", href: "/servicios/personas" },
     ],
     empresa: [
@@ -116,13 +116,13 @@ export function Footer() {
                             >
                                 <MessageCircle className="w-4 h-4" />
                             </a>
-                            <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all" aria-label="Facebook">
+                            <a href="https://facebook.com/roesan" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all" aria-label="Facebook">
                                 <Facebook className="w-4 h-4" />
                             </a>
-                            <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all" aria-label="Instagram">
+                            <a href="https://instagram.com/roesan" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all" aria-label="Instagram">
                                 <Instagram className="w-4 h-4" />
                             </a>
-                            <a href="#" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-700 hover:text-white transition-all" aria-label="LinkedIn">
+                            <a href="https://linkedin.com/company/roesan" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-700 hover:text-white transition-all" aria-label="LinkedIn">
                                 <Linkedin className="w-4 h-4" />
                             </a>
                         </div>

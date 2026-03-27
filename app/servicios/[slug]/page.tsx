@@ -7,6 +7,7 @@ import { ArrowLeft, CheckCircle2, Shield } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import QuoteFunnel from "@/components/home/QuoteFunnel";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 // Using native Next.js params typing
 type Props = {
@@ -63,10 +64,22 @@ export default async function ServiceDetailPage({ params }: Props) {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
                 </div>
 
-                <Container className="relative">
-                    <Link href="/servicios" className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors text-sm font-medium">
-                        <ArrowLeft className="mr-2 h-4 w-4" /> Volver a Servicios
-                    </Link>
+                <Container className="relative pt-8">
+                    <div className="mb-8">
+                        {/* We use a custom dark theme version or just render it since the background is dark */}
+                        <div className="text-white/80">
+                            <Breadcrumbs 
+                                variant="dark"
+                                items={[
+                                    { 
+                                        label: service.category === 'empresa' ? 'Seguros Empresas' : 'Seguros Personas', 
+                                        href: service.category === 'empresa' ? '/servicios/empresas' : '/servicios/personas' 
+                                    },
+                                    { label: service.title }
+                                ]} 
+                            />
+                        </div>
+                    </div>
 
                     <div className="max-w-3xl">
                         <div className="flex items-center gap-4 mb-6">

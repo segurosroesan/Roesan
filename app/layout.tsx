@@ -94,6 +94,30 @@ export default function RootLayout({
             gtag('config', 'G-DYVNSM6WJ2');
           `}
         </Script>
+
+        {/* Schema Markup */}
+        <Script id="schema-local-business" type="application/ld+json" strategy="afterInteractive">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Roesan Seguros",
+              "image": "https://roesan.com.co/logo-roesan.png",
+              "description": "Agencia de seguros fundada en 1982. Más de 40 años protegiendo el patrimonio y la tranquilidad de familias y empresas colombianas.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Calle 109 #19-36 of. 203",
+                "addressLocality": "Bogotá",
+                "addressCountry": "CO"
+              },
+              "telephone": "+576016294040",
+              "areaServed": ["CO"],
+              "currenciesAccepted": "COP",
+              "openingHours": "Mo-Fr 08:30-17:30",
+              "url": "https://roesan.com.co"
+            }
+          `}
+        </Script>
       </body>
     </html>
   );

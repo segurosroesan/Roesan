@@ -16,6 +16,7 @@ export default function ContactPage() {
         message: ""
     });
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [acceptedTerms, setAcceptedTerms] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -181,6 +182,25 @@ export default function ContactPage() {
                                         />
                                     </div>
 
+                                    {/* HABEAS DATA */}
+                                    <div className="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                                        <input
+                                            type="checkbox"
+                                            id="acceptedTerms"
+                                            checked={acceptedTerms}
+                                            onChange={(e) => setAcceptedTerms(e.target.checked)}
+                                            className="mt-0.5 h-4 w-4 rounded border-slate-300 text-purple-700 focus:ring-purple-600 shrink-0 cursor-pointer"
+                                            required
+                                        />
+                                        <label htmlFor="acceptedTerms" className="text-xs text-slate-600 leading-relaxed cursor-pointer">
+                                            Acepto el{" "}
+                                            <a href="/privacidad" target="_blank" className="text-purple-700 underline hover:text-purple-900 font-medium">
+                                                tratamiento de mis datos personales
+                                            </a>
+                                            {" "}conforme a la Ley 1581 de 2012 (Habeas Data). Entiendo que la información suministrada será usada para fines de asesoría en seguros.
+                                        </label>
+                                    </div>
+
                                     <Button
                                         size="lg"
                                         className="w-full gap-2 rounded-xl group"
@@ -211,7 +231,29 @@ export default function ContactPage() {
 
                 </div>
             </Container>
+
+            {/* Google Maps */}
+            <div className="w-full">
+                <div className="bg-slate-900 py-8">
+                    <Container>
+                        <h2 className="text-xl font-bold text-white mb-2">¿Cómo llegar?</h2>
+                        <p className="text-slate-400 text-sm">Calle 109 #19-36 of. 203, Bogotá D.C.</p>
+                    </Container>
+                </div>
+                <div className="relative w-full" style={{ height: "420px" }}>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.337396!2d-74.0535512!3d4.6954958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ab82e0f7677%3A0xdecfb384e0964bb2!2sAgencia%20de%20Seguros%20ROESAN%20ltda.!5e0!3m2!1ses!2sco!4v1711000000000!5m2!1ses!2sco"
+                        width="100%"
+                        height="420"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Ubicación Roesan Seguros"
+                        className="w-full"
+                    />
+                </div>
+            </div>
         </div>
     );
 }
-

@@ -70,6 +70,7 @@ export default function QuoteFunnel({ initialType = 'auto' }: QuoteFunnelProps) 
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [acceptedDataTerms, setAcceptedDataTerms] = useState(false);
 
   const {
     register,
@@ -363,9 +364,23 @@ export default function QuoteFunnel({ initialType = 'auto' }: QuoteFunnelProps) 
                     <Input type="email" {...register('email')} placeholder="tu@correo.com" className={errors.email ? 'border-red-500' : ''} />
                     {errors.email && <span className="text-red-500 text-xs">{errors.email.message}</span>}
                   </div>
-                  <p className="text-xs text-gray-500 text-center mt-4">
-                    Tus datos están protegidos. No hacemos spam, solo agilizamos tu cotización.
-                  </p>
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-gray-100 mt-2">
+                    <input
+                      type="checkbox"
+                      id="acceptedDataTerms"
+                      checked={acceptedDataTerms}
+                      onChange={(e) => setAcceptedDataTerms(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 rounded border-slate-300 text-purple-700 shrink-0 cursor-pointer"
+                      required
+                    />
+                    <label htmlFor="acceptedDataTerms" className="text-xs text-gray-500 leading-relaxed cursor-pointer">
+                      Acepto el{" "}
+                      <a href="/privacidad" target="_blank" className="text-purple-700 underline font-medium hover:text-purple-900">
+                        tratamiento de mis datos personales
+                      </a>
+                      {" "}conforme a la Ley 1581 de 2012 (Habeas Data) para recibir asesoría en seguros.
+                    </label>
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -388,7 +403,7 @@ export default function QuoteFunnel({ initialType = 'auto' }: QuoteFunnelProps) 
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             ) : (
-              <Button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-primary/90 text-white min-w-[150px]">
+              <Button type="submit" disabled={isSubmitting || !acceptedDataTerms} className="bg-primary hover:bg-primary/90 text-white min-w-[150px]">
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />

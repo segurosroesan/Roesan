@@ -13,6 +13,7 @@ const footerLinks = {
     empresa: [
         { label: "Nosotros", href: "/nosotros" },
         { label: "Servicios", href: "/servicios" },
+        { label: "Blog", href: "/blog" },
         { label: "Contacto", href: "/contacto" },
     ],
 };
@@ -132,8 +133,9 @@ export function Footer() {
                 <div className="border-t border-slate-800 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-600">
                     <p>© {new Date().getFullYear()} Roesan Seguros. Todos los derechos reservados.</p>
                     <div className="flex gap-6">
-                        <Link href="#" className="hover:text-slate-400 transition-colors">Política de Privacidad</Link>
-                        <Link href="#" className="hover:text-slate-400 transition-colors">Términos y Condiciones</Link>
+                        <Link href="/privacidad" className="hover:text-slate-400 transition-colors">Política de Privacidad</Link>
+                        <Link href="/terminos" className="hover:text-slate-400 transition-colors">Términos y Condiciones</Link>
+                        <Link href="/aviso-legal" className="hover:text-slate-400 transition-colors">Aviso Legal</Link>
                     </div>
                 </div>
             </Container>

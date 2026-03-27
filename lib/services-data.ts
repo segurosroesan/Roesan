@@ -250,6 +250,144 @@ export const servicesData: ServiceData[] = [
             { question: "¿Si mi casa es alquilada, puedo comprar el seguro?", answer: "Claro que sí. Puedes asegurar únicamente los 'Contenidos' (muebles y electrodomésticos) que te pertenecen, dejando de lado la propiedad física (inmueble)." },
             { question: "¿Qué hace la asistencia de hogar?", answer: "Si pierdes las llaves o un tubo explota, llamas a la asistencia y te envían rápidamente hasta tu puerta y sin costo, al técnico, asumiendo su arreglo." }
         ]
+    },
+    {
+        slug: "exequial",
+        category: "persona",
+        quoteType: "auto",
+        title: "Seguro Exequial",
+        shortDescription: "Proteccion economica para cubrir gastos y servicios funerarios en momentos dificiles.",
+        fullDescription: "El seguro exequial cubre el traslado del cuerpo, sala de velacion, cofre funerario, servicios religiosos y tramites legales. En momentos dificiles, te liberamos de la carga economica.",
+        icon: Shield,
+        color: "text-slate-600",
+        bg: "bg-slate-100",
+        gradient: "from-slate-600 to-slate-800",
+        image: "/images/service-health.png",
+        features: [
+            { title: "Traslado del Cuerpo", desc: "Servicio de traslado hasta el lugar de velacion o inhumacion." },
+            { title: "Sala y Cofre Funerario", desc: "Uso de sala de velacion y provision del cofre funerario." },
+            { title: "Tramites Legales", desc: "Gestion de documentos legales y transporte de familiares directos." }
+        ],
+        seoKeywords: ["seguro exequial colombia", "poliza funeraria bogota", "cobertura gastos funerarios"],
+        faqs: [
+            { question: "Cubre a toda la familia?", answer: "Dependiendo del plan puede cubrir titular, conyuge, hijos y padres." },
+            { question: "Hay periodo de carencia?", answer: "Algunos planes tienen espera de 30 dias para fallecimientos por enfermedad, no para accidentes." }
+        ]
+    },
+    {
+        slug: "mascotas",
+        category: "persona",
+        quoteType: "auto",
+        title: "Seguro de Mascotas",
+        shortDescription: "Cubre los danos que tu mascota cause a terceros con responsabilidad civil.",
+        fullDescription: "El seguro de mascotas cubre la responsabilidad civil frente a terceros: si tu perro muerde a alguien o causa danos en propiedad ajena, la poliza responde economicamente.",
+        icon: Heart,
+        color: "text-orange-500",
+        bg: "bg-orange-50",
+        gradient: "from-orange-400 to-amber-500",
+        image: "/images/service-health.png",
+        features: [
+            { title: "Responsabilidad Civil", desc: "Indemnizacion si tu mascota lesiona a una persona o dana propiedad de terceros." },
+            { title: "Gastos Medicos a Terceros", desc: "Cobertura de gastos medicos causados por tu mascota." },
+            { title: "Defensa Juridica", desc: "Respaldo legal ante demandas relacionadas con tu mascota." }
+        ],
+        seoKeywords: ["seguro de mascotas colombia", "responsabilidad civil perros", "poliza mascotas bogota"],
+        faqs: [
+            { question: "Solo cubre perros?", answer: "La cobertura principal aplica para perros. Consulta condiciones para otras mascotas." },
+            { question: "Que pasa si mi perro muerde a alguien?", answer: "La poliza cubre gastos medicos y posibles demandas del afectado." }
+        ]
+    },
+    {
+        slug: "educativo",
+        category: "persona",
+        quoteType: "vida",
+        title: "Seguro Educativo",
+        shortDescription: "Garantiza la educacion futura de tus hijos con ahorro programado y proteccion.",
+        fullDescription: "El seguro educativo combina ahorro programado con cobertura de vida para que tus hijos accedan a la educacion universitaria sin importar lo que ocurra.",
+        icon: GraduationCap,
+        color: "text-indigo-500",
+        bg: "bg-indigo-50",
+        gradient: "from-indigo-500 to-purple-600",
+        image: "/images/service-health.png",
+        features: [
+            { title: "Ahorro Programado", desc: "Aportes periodicos que se acumulan para el futuro educativo." },
+            { title: "Proteccion por Fallecimiento", desc: "En caso de muerte del asegurado, la aseguradora sigue aportando al fondo." },
+            { title: "Pago de Universidad", desc: "El fondo acumulado financia la matricula y costos de educacion superior." }
+        ],
+        seoKeywords: ["seguro educativo colombia", "ahorro para universidad hijos", "poliza educativa bogota"],
+        faqs: [
+            { question: "Desde que edad puedo contratar?", answer: "Desde recien nacido hasta los 12 anos del nino, ajustando el tiempo de ahorro." },
+            { question: "Genera rentabilidad?", answer: "Si, los fondos acumulados generan rentabilidad segun la aseguradora seleccionada." }
+        ]
+    },
+    {
+        slug: "vida-deudor",
+        category: "persona",
+        quoteType: "vida",
+        title: "Seguro Vida Deudor",
+        shortDescription: "Garantiza el pago de tu credito hipotecario en caso de fallecimiento o incapacidad.",
+        fullDescription: "El seguro vida deudor protege a tu familia de heredar deudas. Si ocurre un fallecimiento o incapacidad total y permanente, la poliza cancela el saldo de la deuda ante el banco.",
+        icon: Home,
+        color: "text-teal-600",
+        bg: "bg-teal-50",
+        gradient: "from-teal-500 to-cyan-600",
+        image: "/images/service-business.png",
+        features: [
+            { title: "Cancelacion de Deuda", desc: "La aseguradora paga el saldo pendiente del credito en caso de fallecimiento." },
+            { title: "Incapacidad Total", desc: "Proteccion si una incapacidad te impide trabajar y cumplir la obligacion." },
+            { title: "Tranquilidad Familiar", desc: "Tu familia no heredara deudas hipotecarias ni presiones financieras." }
+        ],
+        seoKeywords: ["seguro vida deudor hipotecario", "poliza deudor colombia", "seguro credito hipotecario"],
+        faqs: [
+            { question: "Es obligatorio para un credito?", answer: "Muchos bancos en Colombia exigen el seguro vida deudor para aprobar creditos hipotecarios." },
+            { question: "Puedo comprarlo fuera del banco?", answer: "Si, y generalmente es mas economico a traves de intermediarios como Roesan." }
+        ]
+    },
+    {
+        slug: "colectivos",
+        category: "empresa",
+        quoteType: "empresarial",
+        title: "Seguros Colectivos de Empleados",
+        shortDescription: "Proteccion grupal para empleados: vida, salud y accidentes personales.",
+        fullDescription: "Los seguros colectivos permiten proteger grupos de empleados con beneficios en vida, salud y accidentes personales a precios mas competitivos que los individuales.",
+        icon: User,
+        color: "text-violet-600",
+        bg: "bg-violet-50",
+        gradient: "from-violet-600 to-purple-700",
+        image: "/images/service-business.png",
+        features: [
+            { title: "Vida Grupo", desc: "Respaldo economico para familias de colaboradores en caso de fallecimiento." },
+            { title: "Salud Colectiva", desc: "Acceso a planes de salud complementarios para el equipo." },
+            { title: "Accidentes Personales", desc: "Cobertura ante accidentes dentro y fuera del trabajo." }
+        ],
+        seoKeywords: ["seguros colectivos empresas colombia", "poliza vida grupo empleados", "beneficios laborales seguros bogota"],
+        faqs: [
+            { question: "Cuantos empleados minimo?", answer: "Generalmente desde 5 personas ya es posible acceder a tarifas de grupo." },
+            { question: "Reemplaza la ARL?", answer: "No, la ARL es obligatoria. Los seguros colectivos son voluntarios y complementarios." }
+        ]
+    },
+    {
+        slug: "arl-vida-grupo",
+        category: "empresa",
+        quoteType: "empresarial",
+        title: "ARL y Vida Grupo Empresarial",
+        shortDescription: "Cumple la normatividad laboral colombiana y protege integralmente a tu equipo.",
+        fullDescription: "La ARL (Administradora de Riesgos Laborales) es cobertura obligatoria en Colombia que protege ante accidentes de trabajo y enfermedades laborales. Complementada con Vida Grupo da respaldo economico a las familias.",
+        icon: Briefcase,
+        color: "text-emerald-700",
+        bg: "bg-emerald-50",
+        gradient: "from-emerald-600 to-teal-700",
+        image: "/images/service-business.png",
+        features: [
+            { title: "ARL Obligatoria", desc: "Cobertura legal ante accidentes de trabajo y enfermedades laborales en Colombia." },
+            { title: "Vida Grupo", desc: "Seguro adicional que amplia la proteccion economica de las familias." },
+            { title: "Cumplimiento Normativo", desc: "Garantiza el cumplimiento de la legislacion laboral colombiana." }
+        ],
+        seoKeywords: ["arl colombia empresas", "vida grupo empleados bogota", "seguro obligatorio empleados colombia"],
+        faqs: [
+            { question: "La ARL la paga el empleador?", answer: "En Colombia si, la ARL la paga el empleador segun el nivel de riesgo de las actividades." },
+            { question: "Podemos elegir la ARL?", answer: "Si, como empleador puedes seleccionar entre las ARL habilitadas por la Superintendencia Financiera." }
+        ]
     }
-];
 
+];

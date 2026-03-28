@@ -2,7 +2,7 @@ import { blogPosts } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import Link from "next/link";
-import { ArrowLeft, Clock, Calendar, Tag, MessageCircle } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Tag, MessageCircle, BookOpen, ShieldCheck, HeartPulse, Shield } from "lucide-react";
 import type { Metadata } from "next";
 
 interface Props {
@@ -34,6 +34,24 @@ function formatDate(dateStr: string) {
         day: "numeric",
     });
 }
+
+const getCategoryIconSmall = (category: string) => {
+    switch (category) {
+        case "Educación Financiera": return <BookOpen className="w-6 h-6 text-white" />;
+        case "Seguros de Autos": return <ShieldCheck className="w-6 h-6 text-white" />;
+        case "Seguro de Vida": return <HeartPulse className="w-6 h-6 text-white" />;
+        default: return <Shield className="w-6 h-6 text-white" />;
+    }
+};
+
+const getCategoryGradient = (category: string) => {
+    switch (category) {
+        case "Educación Financiera": return "from-blue-600 to-indigo-900";
+        case "Seguros de Autos": return "from-teal-600 to-emerald-900";
+        case "Seguro de Vida": return "from-rose-500 to-purple-900";
+        default: return "from-slate-700 to-slate-900";
+    }
+};
 
 export default async function BlogPostPage({ params }: Props) {
     const { slug } = await params;
@@ -173,7 +191,9 @@ export default async function BlogPostPage({ params }: Props) {
                                         href={`/blog/${related.slug}`}
                                         className="group flex gap-4 p-4 rounded-xl border border-slate-100 hover:border-purple-200 hover:bg-purple-50/50 transition-all"
                                     >
-                                        <span className="text-3xl shrink-0">{related.emoji}</span>
+                                        <div className={`w-12 h-12 rounded-lg shrink-0 flex items-center justify-center bg-gradient-to-br ${getCategoryGradient(related.category)} shadow-inner`}>
+                                            {getCategoryIconSmall(related.category)}
+                                        </div>
                                         <div>
                                             <p className="font-semibold text-slate-800 group-hover:text-purple-700 transition-colors text-sm leading-snug">
                                                 {related.title}

@@ -6,7 +6,6 @@ export interface BlogPost {
     readTime: string;
     category: string;
     categoryColor: string;
-    emoji: string;
     content: BlogSection[];
 }
 
@@ -26,7 +25,6 @@ export const blogPosts: BlogPost[] = [
         readTime: "4 min",
         category: "Educación Financiera",
         categoryColor: "bg-blue-100 text-blue-700",
-        emoji: "🟦",
         content: [
             {
                 type: "intro",
@@ -101,7 +99,6 @@ export const blogPosts: BlogPost[] = [
         readTime: "5 min",
         category: "Seguros de Autos",
         categoryColor: "bg-cyan-100 text-cyan-700",
-        emoji: "🚗",
         content: [
             {
                 type: "intro",
@@ -198,7 +195,6 @@ export const blogPosts: BlogPost[] = [
         readTime: "4 min",
         category: "Seguro de Vida",
         categoryColor: "bg-rose-100 text-rose-700",
-        emoji: "❤️",
         content: [
             {
                 type: "intro",

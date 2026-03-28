@@ -1,7 +1,7 @@
 import { blogPosts } from "@/lib/blog-data";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { ArrowRight, Clock, Tag } from "lucide-react";
+import { ArrowRight, Clock, Tag, BookOpen, ShieldCheck, HeartPulse, Shield } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,6 +22,24 @@ function formatDate(dateStr: string) {
         day: "numeric",
     });
 }
+
+const getCategoryIcon = (category: string) => {
+    switch (category) {
+        case "Educación Financiera": return <BookOpen className="w-12 h-12 text-white/90 drop-shadow-md" />;
+        case "Seguros de Autos": return <ShieldCheck className="w-12 h-12 text-white/90 drop-shadow-md" />;
+        case "Seguro de Vida": return <HeartPulse className="w-12 h-12 text-white/90 drop-shadow-md" />;
+        default: return <Shield className="w-12 h-12 text-white/90 drop-shadow-md" />;
+    }
+};
+
+const getCategoryGradient = (category: string) => {
+    switch (category) {
+        case "Educación Financiera": return "from-blue-600 to-indigo-900";
+        case "Seguros de Autos": return "from-teal-600 to-emerald-900";
+        case "Seguro de Vida": return "from-rose-500 to-purple-900";
+        default: return "from-slate-700 to-slate-900";
+    }
+};
 
 export default function BlogPage() {
     return (
@@ -56,8 +74,12 @@ export default function BlogPage() {
                                 className="group block bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                             >
                                 {/* Card Header */}
-                                <div className="bg-gradient-to-br from-purple-700 to-slate-800 p-8 flex items-center justify-center">
-                                    <span className="text-6xl">{post.emoji}</span>
+                                <div className={`bg-gradient-to-br ${getCategoryGradient(post.category)} p-10 flex items-center justify-center relative overflow-hidden`}>
+                                    <div className="absolute inset-0 bg-black/10 mix-blend-multiply transition-opacity group-hover:opacity-0" />
+                                    <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 rounded-full bg-white/10 blur-2xl group-hover:scale-150 transition-transform duration-700" />
+                                    <div className="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
+                                        {getCategoryIcon(post.category)}
+                                    </div>
                                 </div>
 
                                 {/* Card Body */}

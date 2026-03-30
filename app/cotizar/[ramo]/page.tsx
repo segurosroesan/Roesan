@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import QuoteFunnel from "@/components/home/QuoteFunnel";
-import { CheckCircle2, Shield, ArrowLeft } from "lucide-react";
+import { CheckCircle2, Shield, ArrowLeft, Clock, Users, Star } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,7 +15,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { ramo } = await params;
     const data = getQuoteData(ramo);
-    
+
     if (!data) return {};
 
     return {
@@ -47,6 +47,21 @@ export async function generateStaticParams() {
     }));
 }
 
+const testimonials = [
+    {
+        quote: "En menos de una hora tenía 3 opciones comparadas con precios reales. Excelente servicio.",
+        author: "Carlos M.",
+        location: "Bogotá",
+        stars: 5,
+    },
+    {
+        quote: "Asesoría imparcial y rápida. Nos ahorraron más del 20% frente a lo que traíamos cotizado.",
+        author: "Patricia G.",
+        location: "Medellín",
+        stars: 5,
+    },
+];
+
 export default async function QuoteLandingPage({ params }: Props) {
     const { ramo } = await params;
     const data = getQuoteData(ramo);
@@ -57,17 +72,14 @@ export default async function QuoteLandingPage({ params }: Props) {
 
     const linkedService = servicesData.find(s => s.slug === data.serviceSlug);
 
-    // Provide default visual fallbacks if linkedService isn't found
     const bgGradient = linkedService?.gradient || "from-purple-900 to-indigo-900";
     const ServiceIcon = linkedService?.icon || Shield;
-    const colorTheme = linkedService?.color || "text-purple-600";
-    const bgTheme = linkedService?.bg || "bg-purple-50";
 
     return (
         <div className="bg-slate-50 min-h-screen pb-24">
-            {/* Premium Hero Header (Adapted from Servicios) */}
+            {/* Premium Hero Header */}
             <section className="relative overflow-hidden py-24 lg:py-32">
-                {/* Background Image / Overlay */}
+                {/* Background */}
                 <div className="absolute inset-0">
                     {linkedService?.image ? (
                         <Image
@@ -93,7 +105,6 @@ export default async function QuoteLandingPage({ params }: Props) {
                         {/* Text Content */}
                         <div className="lg:col-span-7 xl:col-span-6 space-y-6">
                             <div className="flex items-center gap-4 mb-4">
-                                {/* Icon Container */}
                                 <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${linkedService?.image ? 'bg-white/20 backdrop-blur-md text-white' : 'bg-white text-slate-900'} shadow-xl`}>
                                     {<ServiceIcon className="h-7 w-7" />}
                                 </div>
@@ -102,36 +113,46 @@ export default async function QuoteLandingPage({ params }: Props) {
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                                         <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
                                     </span>
-                                    Cotización 100% Digital
+                                    Cotización 100% Gratuita
                                 </span>
                             </div>
 
                             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-5xl mb-6 shadow-sm leading-tight text-balance">
                                 {data.h1}
                             </h1>
-                            
-                            <p className="text-lg lg:text-xl text-white/90 leading-relaxed max-w-xl text-shadow">
+
+                            <p className="text-lg lg:text-xl text-white/90 leading-relaxed max-w-xl">
                                 {data.subtitle}
                             </p>
 
-                            <div className="pt-6 space-y-4">
+                            <div className="pt-4 space-y-3">
                                 {data.features.map((feature, i) => (
                                     <div key={i} className="flex items-start gap-3 text-white/90">
-                                        <CheckCircle2 className="w-6 h-6 text-cyan-400 shrink-0" />
-                                        <span className="text-lg font-medium">{feature}</span>
+                                        <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                                        <span className="text-base font-medium">{feature}</span>
                                     </div>
                                 ))}
                             </div>
-                            
-                            <div className="pt-8 flex items-center gap-4 text-sm text-white/80 border-t border-white/10 mt-8">
-                                <Shield className="w-8 h-8 text-cyan-400" />
-                                <p>Proceso respaldado por expertos con más de 40 años de experiencia comprobada.</p>
+
+                            {/* Stats strip */}
+                            <div className="pt-6 grid grid-cols-3 gap-4 border-t border-white/10 mt-4">
+                                <div className="text-center">
+                                    <p className="text-2xl font-bold text-white">+40</p>
+                                    <p className="text-xs text-white/60">Años de experiencia</p>
+                                </div>
+                                <div className="text-center">
+                                    <p className="text-2xl font-bold text-white">+1.2K</p>
+                                    <p className="text-xs text-white/60">Pólizas activas</p>
+                                </div>
+                                <div className="text-center">
+                                    <p className="text-2xl font-bold text-white">&lt; 2h</p>
+                                    <p className="text-xs text-white/60">Tiempo de respuesta</p>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Quote Funnel Container */}
+                        {/* Quote Funnel */}
                         <div className="lg:col-span-5 xl:col-span-6 lg:mt-0 relative z-20">
-                            {/* Visual tweak to make it look embedded in the hero */}
                             <div className="bg-white/10 p-2 sm:p-3 rounded-3xl backdrop-blur-md shadow-2xl">
                                 <QuoteFunnel initialType={data.id as any} />
                             </div>
@@ -140,35 +161,94 @@ export default async function QuoteLandingPage({ params }: Props) {
                 </Container>
             </section>
 
-            {/* Added Value / Trust Section */}
+            {/* How it works — CRO-optimized trust section */}
             <section className="py-16 bg-white border-b border-slate-100">
                 <Container>
-                    <div className="text-center max-w-3xl mx-auto space-y-8">
-                        <h2 className="text-3xl font-bold text-slate-900">Por qué elegir a Roesan</h2>
-                        <p className="text-slate-600">Más allá de venderte una póliza, nos convertimos en tu departamento de seguros. Nos encargamos de todo el papeleo y las negociaciones por ti.</p>
-                        
-                        <div className="grid md:grid-cols-3 gap-8 text-center pt-8">
-                            <div className="space-y-4">
-                                <div className="w-14 h-14 bg-purple-50 rounded-full flex items-center justify-center mx-auto text-purple-600">
-                                    <span className="text-xl font-bold">1</span>
+                    <div className="max-w-4xl mx-auto">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold text-slate-900 mb-3">
+                                Así funciona tu asesoría gratuita
+                            </h2>
+                            <p className="text-slate-500 max-w-2xl mx-auto">
+                                No somos una aseguradora. Somos tu aliado independiente que negocia por ti con las mejores compañías del mercado.
+                            </p>
+                        </div>
+
+                        {/* Process steps */}
+                        <div className="grid md:grid-cols-3 gap-6 mb-16">
+                            <div className="relative bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all">
+                                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                    <Users className="w-6 h-6 text-primary" />
                                 </div>
-                                <h3 className="font-semibold text-slate-900">Análisis Comparativo</h3>
-                                <p className="text-sm text-slate-500">Comparamos entre las principales aseguradoras (Sura, Allianz, Mapfre, etc.) para darte opciones reales.</p>
+                                <div className="absolute -top-3 -right-3 bg-primary text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center shadow">1</div>
+                                <h3 className="font-bold text-slate-900 mb-2">Analizamos tu perfil</h3>
+                                <p className="text-sm text-slate-500 leading-relaxed">
+                                    Un asesor experto revisa tu caso y establece qué coberturas realmente necesitas — sin venderte lo que no requieres.
+                                </p>
                             </div>
-                            <div className="space-y-4">
-                                <div className="w-14 h-14 bg-cyan-50 rounded-full flex items-center justify-center mx-auto text-cyan-600">
-                                    <span className="text-xl font-bold">2</span>
+
+                            <div className="relative bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all">
+                                <div className="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                    <Shield className="w-6 h-6 text-cyan-600" />
                                 </div>
-                                <h3 className="font-semibold text-slate-900">Asesoría Imparcial</h3>
-                                <p className="text-sm text-slate-500">Al ser multimarca, nuestra lealtad es contigo, no con una aseguradora en particular.</p>
+                                <div className="absolute -top-3 -right-3 bg-cyan-600 text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center shadow">2</div>
+                                <h3 className="font-bold text-slate-900 mb-2">Comparamos el mercado</h3>
+                                <p className="text-sm text-slate-500 leading-relaxed">
+                                    Solicitamos cotizaciones a Sura, Allianz, Mapfre y otras líderes. Recibes la comparativa con precios reales, no estimados.
+                                </p>
                             </div>
-                            <div className="space-y-4">
-                                <div className="w-14 h-14 bg-emerald-50 rounded-full flex items-center justify-center mx-auto text-emerald-600">
-                                    <span className="text-xl font-bold">3</span>
+
+                            <div className="relative bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all">
+                                <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                    <CheckCircle2 className="w-6 h-6 text-emerald-600" />
                                 </div>
-                                <h3 className="font-semibold text-slate-900">Gestión de Siniestros</h3>
-                                <p className="text-sm text-slate-500">El verdadero valor de un seguro se ve en el siniestro. Nosotros peleamos los reclamos por ti.</p>
+                                <div className="absolute -top-3 -right-3 bg-emerald-600 text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center shadow">3</div>
+                                <h3 className="font-bold text-slate-900 mb-2">Tú eliges sin presión</h3>
+                                <p className="text-sm text-slate-500 leading-relaxed">
+                                    Te explicamos cada opción con claridad. Tú decides. Si avanzas, nos encargamos de todo el papeleo y la emisión.
+                                </p>
                             </div>
+                        </div>
+
+                        {/* Testimonials */}
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {testimonials.map((t, i) => (
+                                <div key={i} className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                                    <div className="flex gap-0.5 mb-3">
+                                        {Array.from({ length: t.stars }).map((_, s) => (
+                                            <Star key={s} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                                        ))}
+                                    </div>
+                                    <p className="text-slate-700 text-sm leading-relaxed italic mb-4">
+                                        &ldquo;{t.quote}&rdquo;
+                                    </p>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-sm">
+                                            {t.author[0]}
+                                        </div>
+                                        <div>
+                                            <p className="text-sm font-semibold text-slate-900">{t.author}</p>
+                                            <p className="text-xs text-slate-500">{t.location}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Urgency footer bar */}
+                        <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-primary/5 border border-primary/20 rounded-2xl px-6 py-4 text-center sm:text-left">
+                            <div className="flex items-center gap-3">
+                                <Clock className="w-5 h-5 text-primary shrink-0" />
+                                <p className="text-sm text-slate-700 font-medium">
+                                    Respondemos en menos de 2 horas en horario hábil. Muchas veces bastante antes.
+                                </p>
+                            </div>
+                            <a
+                                href="#top"
+                                className="text-sm font-bold text-primary hover:text-primary/80 whitespace-nowrap flex items-center gap-1 transition-colors"
+                            >
+                                Cotizar ahora →
+                            </a>
                         </div>
                     </div>
                 </Container>

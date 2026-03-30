@@ -76,7 +76,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${roboto.variable} ${philosopher.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-white selection:bg-accent selection:text-accent-foreground`}
+        className={`${roboto.variable} ${philosopher.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-slate-50 relative bg-grid-pattern selection:bg-accent selection:text-accent-foreground`}
       >
         <Navbar />
         <main className="flex-1">{children}</main>

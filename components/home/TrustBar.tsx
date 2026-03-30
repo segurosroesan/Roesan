@@ -4,20 +4,25 @@ import React from "react";
 import { Container } from "../ui/Container";
 import { motion } from "framer-motion";
 
+import Image from "next/image";
+
 const partners = [
-    { name: "SURA", accent: "#0080C9" },
-    { name: "ALLIANZ", accent: "#003781" },
-    { name: "MAPFRE", accent: "#D30F00" },
-    { name: "AXA COLPATRIA", accent: "#E6000F" },
-    { name: "SEGUROS BOLÍVAR", accent: "#E4002B" },
-    { name: "LIBERTY", accent: "#2D9CDB" },
-    { name: "ZURICH", accent: "#1C69D4" },
-    { name: "CHUBB", accent: "#002D62" },
+    { name: "SURA", file: "Sura.jpeg" },
+    { name: "ALLIANZ", file: "Allianz.jpeg" },
+    { name: "MAPFRE", file: "Mapfre.jpeg" },
+    { name: "AXA COLPATRIA", file: "AXXA.jpeg" },
+    { name: "SEGUROS BOLÍVAR", file: "Seguros_Bolivar.jpeg" },
+    { name: "LIBERTY", file: "Liverty.jpeg" },
+    { name: "HDI", file: "HDI_Seguros.jpeg" },
+    { name: "ESTADO", file: "Seguros del estado.jpeg" },
+    { name: "QUALITAS", file: "Qualitas.jpeg" },
+    { name: "SBS", file: "SBS.jpeg" },
+    { name: "MUNDIAL", file: "Seguros_mudial.jpeg" },
 ];
 
 export function TrustBar() {
     return (
-        <section className="border-y border-slate-100 bg-white py-14">
+        <section className="border-y border-slate-200/50 bg-white/50 backdrop-blur-sm py-14 overflow-hidden">
             <Container>
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
@@ -27,30 +32,23 @@ export function TrustBar() {
                 >
                     Respaldados por las mejores aseguradoras de Colombia
                 </motion.p>
-                <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-                    {partners.map((partner, idx) => (
-                        <motion.div
-                            key={partner.name}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.05 }}
-                            whileHover={{ scale: 1.08 }}
-                            className="group relative flex items-center justify-center px-5 py-2.5 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:border-slate-200 hover:shadow-md transition-all duration-300 cursor-default"
-                        >
-                            <span
-                                className="text-sm font-extrabold tracking-wider text-slate-300 group-hover:text-opacity-100 transition-colors duration-300"
-                                style={{ color: `${partner.accent}60` }}
+                
+                {/* Looping Carousel via CSS animation for better UX with many logos */}
+                <div className="relative flex overflow-hidden w-full group mask-image-fade">
+                    <div className="flex w-max animate-marquee space-x-8 md:space-x-12 items-center hover:[animation-play-state:paused] py-4">
+                        {[...partners, ...partners].map((partner, idx) => (
+                            <div
+                                key={`${partner.name}-${idx}`}
+                                className="relative flex items-center justify-center w-32 h-16 md:w-40 md:h-20 transition-all duration-300 group/logo"
                             >
-                                <span
-                                    className="group-hover:opacity-100 opacity-50 transition-opacity duration-300"
-                                    style={{ color: partner.accent }}
-                                >
-                                    {partner.name}
-                                </span>
-                            </span>
-                        </motion.div>
-                    ))}
+                                <img
+                                    src={`/images/${partner.file}`}
+                                    alt={`Logo de ${partner.name}`}
+                                    className="max-w-full max-h-full object-contain filter grayscale opacity-60 mix-blend-multiply transition-all duration-500 ease-out group-hover/logo:grayscale-0 group-hover/logo:opacity-100 group-hover/logo:scale-110"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </Container>
         </section>

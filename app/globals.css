@@ -14,6 +14,17 @@
   .text-shadow-sm {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
+
+  .mask-image-fade {
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(var(--muted-foreground) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-attachment: fixed;
+    opacity: 0.05;
+  }
 }
 
 :root {
@@ -56,6 +67,17 @@
   --font-sans: var(--font-roboto);
   --font-serif: var(--font-philosopher);
   --font-mono: var(--font-geist-mono);
+
+  --animate-marquee: marquee 35s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
 }
 
 body {

@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .luxury-gradient {
+    background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .mask-image-fade {
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(rgba(100, 116, 139, 0.15) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-attachment: fixed;
+  }
+}
+
+:root {
+  /* Base - Clean White Theme */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  /* Slate 900 */
+
+  /* Roesan Brand Colors */
+  --primary: #51408d;
+  /* Morado Roesan Principal */
+  --primary-foreground: #ffffff;
+
+  --secondary: #61bbe4;
+  /* Cyan Roesan */
+  --secondary-foreground: #ffffff;
+
+  --accent: #fddf45;
+  /* Amarillo Roesan */
+  --accent-foreground: #2a2960;
+
+  --muted: #f1f5f9;
+  /* Slate 100 */
+  --muted-foreground: #64748b;
+  /* Slate 500 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --font-sans: var(--font-roboto);
+  --font-serif: var(--font-philosopher);
+  --font-mono: var(--font-geist-mono);
+
+  --animate-marquee: marquee 35s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}

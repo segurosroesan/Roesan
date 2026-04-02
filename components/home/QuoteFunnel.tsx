@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/Button';
 import { tx, id } from '@instantdb/react';
 import { db } from '@/lib/instant';
+import { enviarLeadAlCRM } from '@/lib/crmIntegration';
 
 // ─── Zod Schemas ──────────────────────────────────────────────────────────────
 const Step1Schema = z.object({
@@ -138,10 +139,27 @@ export default function QuoteFunnel({ initialType = 'auto' }: QuoteFunnelProps) 
       const leadId = id();
       const createdAt = Date.now();
 
+      // 1. Guardar en la base de datos del sitio web (insurance_leads)
       await db.transact(
         tx.insurance_leads[leadId].update({ ...data, status: 'nuevo', createdAt })
       );
 
+      // 2. Enviar al CRM de Roesan (leads + tasks) — fire & forget
+      enviarLeadAlCRM({
+        nombre: data.name || 'Sin nombre',
+        telefono: data.phone,
+        email: data.email,
+        notas: [
+          data.type ? `Ramo: ${data.type}` : '',
+          data.city ? `Ciudad: ${data.city}` : '',
+          data.vehiclePlate ? `Placa: ${data.vehiclePlate} (${data.vehicleYear})` : '',
+          data.patientAge ? `Edad paciente: ${data.patientAge} | Cobertura: ${data.healthCoverage}` : '',
+          data.companySector ? `Sector: ${data.companySector} | Empleados: ${data.companyEmployees}` : '',
+          data.contractType ? `Contrato: ${data.contractType} | Valor: $${data.contractValue}` : '',
+        ].filter(Boolean).join(' | ') || 'Lead capturado desde formulario web.',
+      }).catch(console.error);
+
+      // 3. Disparar webhook n8n (Google Sheets) — fire & forget
       if (process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL) {
         fetch(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL, {
           method: 'POST',

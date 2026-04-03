@@ -139,9 +139,14 @@ export default function QuoteFunnel({ initialType = 'auto' }: QuoteFunnelProps) 
       const leadId = id();
       const createdAt = Date.now();
 
+      // Remover undefined values para evitar que InstantDB falle el update
+      const cleanData = Object.fromEntries(
+        Object.entries(data).filter(([_, v]) => v !== undefined)
+      ) as FormData;
+
       // 1. Guardar en la base de datos del sitio web (insurance_leads)
       await db.transact(
-        tx.insurance_leads[leadId].update({ ...data, status: 'nuevo', createdAt })
+        tx.insurance_leads[leadId].update({ ...cleanData, status: 'nuevo', createdAt })
       );
 
       // 2. Enviar al CRM de Roesan (leads + tasks) — fire & forget

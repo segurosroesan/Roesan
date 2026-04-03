@@ -83,7 +83,7 @@ export default function ChatWidget() {
     return (
         <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-4">
             {isOpen && (
-                <Card className="w-80 md:w-96 shadow-xl border-primary/20 animate-in slide-in-from-bottom-10 fade-in duration-300">
+                <Card className="w-80 md:w-96 bg-white shadow-2xl border-primary/20 animate-in slide-in-from-bottom-10 fade-in duration-300">
                     <CardHeader className="bg-primary text-primary-foreground p-4 rounded-t-lg flex flex-row justify-between items-center">
                         <div className="flex items-center gap-2">
                             <div className="bg-white/20 p-1.5 rounded-full">
@@ -128,7 +128,7 @@ export default function ChatWidget() {
                                 </div>
                             ))}
                         </ScrollArea>
-                        <div className="p-3 border-t bg-background">
+                        <div className="p-3 border-t bg-white">
                             <div className="flex gap-2">
                                 <Input
                                     value={input}

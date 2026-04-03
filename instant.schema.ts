@@ -33,6 +33,7 @@ const _schema = i.schema({
             vehicleModel: i.string().optional(),
             vehicleYear: i.string().optional(),
             vehicleUse: i.string().optional(),
+            driverBirthDate: i.string().optional(),
             // Salud
             patientAge: i.string().optional(),
             healthCoverage: i.string().optional(),

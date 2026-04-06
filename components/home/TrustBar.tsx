@@ -35,7 +35,7 @@ export function TrustBar() {
                 
                 {/* Looping Carousel via CSS animation for better UX with many logos */}
                 <div className="relative flex overflow-hidden w-full group mask-image-fade">
-                    <div className="flex w-max animate-marquee space-x-8 md:space-x-12 items-center hover:[animation-play-state:paused] py-4">
+                    <div className="flex w-max animate-marquee space-x-8 md:space-x-12 items-center hover:[animation-play-state:paused] py-4 will-change-transform">
                         {[...partners, ...partners].map((partner, idx) => (
                             <div
                                 key={`${partner.name}-${idx}`}

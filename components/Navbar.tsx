@@ -31,9 +31,9 @@ export function Navbar() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="flex h-20 items-center justify-between">
                     <Link href="/" className="flex items-center gap-3 group cursor-pointer">
-                        <div className={`relative h-12 w-48 transition-all duration-300 ${forceLightMode ? "brightness-0 opacity-80" : ""}`}>
+                        <div className="relative h-12 w-48 transition-all duration-300">
                             <Image
-                                src="/logo-roesan.png"
+                                src={forceLightMode ? "/logo-roesan.png" : "/logo-roesan-blanco.png"}
                                 alt="Roesan Seguros"
                                 fill
                                 className="object-contain transition-transform duration-500 group-hover:scale-105"
@@ -46,9 +46,10 @@ export function Navbar() {
                     <div className="hidden md:flex items-center gap-8">
                         {[
                             { name: "Inicio", href: "/" },
-                            { name: "Nosotros", href: "/nosotros" },
-                            { name: "Seguros Empresas", href: "/servicios/empresas" },
                             { name: "Seguros Personas", href: "/servicios/personas" },
+                            { name: "Empresas", href: "/servicios/empresas" },
+                            { name: "Quiénes Somos", href: "/nosotros" },
+                            { name: "Contacto", href: "/contacto" },
                             { name: "Blog", href: "/blog" },
                         ].map((link) => (
                             <Link
@@ -91,19 +92,16 @@ export function Navbar() {
                     <div className="space-y-1 px-4 pb-6 pt-4">
                         {[
                             { name: "Inicio", href: "/" },
-                            { name: "Nosotros", href: "/nosotros" },
-                            { name: "Seguros Empresas", href: "/servicios/empresas" },
                             { name: "Seguros Personas", href: "/servicios/personas" },
+                            { name: "Empresas", href: "/servicios/empresas" },
+                            { name: "Quiénes Somos", href: "/nosotros" },
+                            { name: "Contacto", href: "/contacto" },
                             { name: "Blog", href: "/blog" },
-                            { name: "Contáctanos", href: "/contacto", special: true },
                         ].map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${link.special
-                                    ? "bg-purple-800 text-white mt-4"
-                                    : "text-purple-800 hover:bg-slate-50"
-                                    }`}
+                                className="block rounded-xl px-4 py-3 text-base font-medium transition-colors text-purple-800 hover:bg-slate-50"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}

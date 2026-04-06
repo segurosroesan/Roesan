@@ -2,7 +2,8 @@
 
 @layer utilities {
   .luxury-gradient {
-    background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+    background: linear-gradient(135deg, rgba(245, 247, 250, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+    backdrop-filter: blur(8px);
   }
 
   .glass-panel {
@@ -80,7 +81,7 @@
 }
 
 body {
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;

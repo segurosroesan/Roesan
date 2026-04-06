@@ -77,7 +77,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${roboto.variable} ${philosopher.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-slate-50 selection:bg-accent selection:text-accent-foreground`}
+        className={`${roboto.variable} ${philosopher.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-transparent selection:bg-accent selection:text-accent-foreground`}
       >
         <UnicornBackground />
         <Navbar />

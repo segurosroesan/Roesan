@@ -1,12 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Shield } from "lucide-react";
 import Link from "next/link";
 import { Container } from "../ui/Container";
 import QuoteFunnel from "./QuoteFunnel";
 
 export function Hero() {
+    const words = ["Tu familia", "Tu empresa", "Tu patrimonio"];
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setIndex((prev) => (prev + 1) % words.length);
+        }, 2500);
+        return () => clearInterval(intervalId);
+    }, []);
+
     return (
         <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden luxury-gradient">
             {/* Background Decor */}
@@ -30,8 +41,23 @@ export function Hero() {
                             Cotización Rápida y 100% Digital
                         </div>
 
-                        <h1 className="font-serif text-5xl lg:text-7xl font-medium tracking-tight text-purple-800 leading-[1.1]">
-                            Protegemos lo que más <span className="italic text-cyan-500">valoras</span>.
+                        <h1 className="font-serif text-5xl lg:text-7xl font-medium tracking-tight text-purple-800 leading-[1.2]">
+                            Protegemos lo que más <span>Valoras</span>:
+                            <br className="hidden sm:block" />
+                            <span className="block mt-2 sm:mt-4 h-[1.2em] relative overflow-hidden">
+                                <AnimatePresence mode="wait">
+                                    <motion.span
+                                        key={index}
+                                        initial={{ y: 50, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        exit={{ y: -50, opacity: 0 }}
+                                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                                        className="absolute left-0 text-cyan-400 italic"
+                                    >
+                                        {words[index]}
+                                    </motion.span>
+                                </AnimatePresence>
+                            </span>
                         </h1>
 
                         <p className="text-lg lg:text-xl text-slate-500 leading-relaxed max-w-lg">

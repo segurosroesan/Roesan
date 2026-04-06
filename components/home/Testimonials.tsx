@@ -47,7 +47,7 @@ function StarRating({ count }: { count: number }) {
 
 export function Testimonials() {
     return (
-        <section className="relative overflow-hidden bg-slate-900 py-24 lg:py-32">
+        <section className="relative overflow-hidden bg-slate-900/80 backdrop-blur-md py-24 lg:py-32">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.05]" />
             <div className="absolute top-0 right-0 -mr-24 -mt-24 h-96 w-96 rounded-full bg-purple-600 blur-[100px] opacity-15" />
@@ -91,7 +91,7 @@ export function Testimonials() {
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
                             whileHover={{ y: -6 }}
-                            className="relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 flex flex-col"
+                            className="relative rounded-2xl border border-white/10 bg-white/10 p-8 backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:border-white/30 flex flex-col"
                         >
                             {/* Large decorative quote */}
                             <div className="absolute top-6 right-6 text-7xl leading-none text-white/5 font-serif select-none">"</div>

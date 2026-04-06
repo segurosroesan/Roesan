@@ -16,7 +16,7 @@ export default function Home() {
       <Testimonials />
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-white text-center">
+      <section className="py-20 bg-white/70 backdrop-blur-md text-center">
         <Container>
           <div className="mx-auto max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900">

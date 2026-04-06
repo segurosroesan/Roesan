@@ -81,7 +81,7 @@ const stats = [
 
 export function StatsSection() {
     return (
-        <section className="relative py-24 bg-white overflow-hidden">
+        <section className="relative py-24 bg-white/60 backdrop-blur-md overflow-hidden">
             {/* Decorative blobs */}
             <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-purple-50 opacity-60 blur-3xl pointer-events-none" />
             <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-cyan-50 opacity-60 blur-3xl pointer-events-none" />
@@ -110,7 +110,7 @@ export function StatsSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             whileHover={{ y: -6 }}
-                            className={`relative group rounded-2xl border ${stat.border} bg-white p-8 shadow-sm hover:shadow-xl transition-all duration-300 text-center overflow-hidden`}
+                            className={`relative group rounded-2xl border ${stat.border} bg-white/80 backdrop-blur-sm p-8 shadow-sm hover:shadow-xl transition-all duration-300 text-center overflow-hidden`}
                         >
                             {/* Background glow on hover */}
                             <div className={`absolute inset-0 ${stat.bg} opacity-0 group-hover:opacity-50 transition-opacity duration-300`} />

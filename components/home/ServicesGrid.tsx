@@ -9,7 +9,7 @@ import { servicesData } from "@/lib/services-data";
 
 export function ServicesGrid() {
     return (
-        <section className="py-24 bg-slate-50" id="servicios">
+        <section className="py-24 bg-slate-50/70 backdrop-blur-md" id="servicios">
             <Container>
                 <div className="text-center md:mb-16 mb-10">
                     <motion.div
@@ -39,7 +39,7 @@ export function ServicesGrid() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: idx * 0.1 }}
                                     whileHover={{ y: -8 }}
-                                    className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 h-full relative overflow-hidden flex flex-col"
+                                    className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 h-full relative overflow-hidden flex flex-col"
                                 >
                                     <div className={`w-14 h-14 rounded-xl flex shrink-0 items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${service.bg}`}>
                                         <service.icon className={`h-7 w-7 ${service.color}`} />
@@ -73,7 +73,7 @@ export function ServicesGrid() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: idx * 0.1 }}
                                     whileHover={{ y: -8 }}
-                                    className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 h-full relative overflow-hidden flex flex-col"
+                                    className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 h-full relative overflow-hidden flex flex-col"
                                 >
                                     <div className={`w-14 h-14 rounded-xl flex shrink-0 items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${service.bg}`}>
                                         <service.icon className={`h-7 w-7 ${service.color}`} />

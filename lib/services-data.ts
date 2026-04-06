@@ -46,92 +46,94 @@ export const servicesData: ServiceData[] = [
         slug: "transporte",
         category: "empresa",
         quoteType: "empresarial",
-        title: "Seguro de Transporte de Mercancías",
-        shortDescription: "Asegura tu carga y mercancía durante su movilización nacional o internacional.",
-        fullDescription: "Minimiza las pérdidas económicas de tu empresa causadas por riesgos de trayecto. Nuestro seguro de transporte cubre tu mercancía movilizada vía terrestre, marítima o aérea desde el punto de origen hasta su destino, ideal para importadores, exportadores y distribuidores en Colombia.",
+        title: "Seguro de Transporte",
+        shortDescription: "Protege las mercancías durante su traslado, ya sea a nivel nacional o internacional.",
+        fullDescription: "Protege las mercancías y el inventario de tu negocio durante su traslado, ya sea a nivel nacional o internacional. Es esencial para empresas que movilizan productos y quieren asegurar su cadena logística eliminando los riesgos del trayecto.",
         icon: Truck,
         color: "text-amber-600",
         bg: "bg-amber-50",
         gradient: "from-amber-500 to-orange-600",
         image: "/images/service-business.png",
         features: [
-            { title: "Pérdida Total o Daños", desc: "Cobertura frente a accidentes del vehículo transportador." },
-            { title: "Saqueo y Hurto", desc: "Indemnización en caso de robo durante el transporte." },
-            { title: "Carga y Descarga", desc: "Amparo durante maniobras de movilización inicial y final." }
+            { title: "Robo y Saqueo", desc: "Cubrimiento directo en caso de que la mercancía sea hurtada durante su transporte." },
+            { title: "Daños en Trayecto", desc: "Respaldo ante afectaciones por accidentes viales o mala manipulación." },
+            { title: "Pérdidas Totales o Parciales", desc: "Indemnización conforme al valor de la carga afectada o destruida." }
         ],
-        seoKeywords: ["seguro de transporte de mercancias", "poliza de transporte colombia", "seguridad en carga logistica", "seguro para importadores bogota"],
+        seoKeywords: ["seguro de transporte de mercancias", "poliza de transporte colombia", "seguridad en carga logistica", "seguro para logistica"],
         faqs: [
-            { question: "¿Cubre movilización internacional?", answer: "Sí, dependiendo de la póliza y término de negociación (Incoterms), podemos asegurar transporte marítimo y aéreo internacional." },
-            { question: "¿Qué tipo de mercancía se puede asegurar?", answer: "Aseguramos materias primas, productos terminados, maquinaria, y bienes en general, sujeto a la evaluación de riesgos." }
+            { question: "¿Cubre movilización internacional marítima y aérea?", answer: "Sí, protegiendo tus productos en todo el ciclo logístico ya sea para procesos de importación o exportación." },
+            { question: "¿Qué tipo de mercancía asegura?", answer: "Aseguramos una gran variedad de cargas comerciales, desde materias primas hasta equipo tecnológico terminado." }
         ]
     },
     {
         slug: "cumplimiento",
         category: "empresa",
         quoteType: "cumplimiento",
-        title: "Seguro de Cumplimiento (Pólizas y Fianzas)",
-        shortDescription: "Garantiza tus contratos estatales y comerciales rápida y fácilmente.",
-        fullDescription: "La Póliza de Cumplimiento es fundamental para empresas contratistas en Colombia. Respaldamos tus obligaciones derivadas de contratos con entidades del Estado o particulares. Cubrimos seriedad de la oferta, buen manejo de anticipo, cumplimiento, calidad del servicio y pago de salarios.",
+        title: "Seguro de Cumplimiento",
+        shortDescription: "Garantiza el cumplimiento de obligaciones contractuales frente a terceros o entidades.",
+        fullDescription: "Esta póliza asegura y garantiza el cumplimiento de obligaciones contractuales que tu empresa adquiere frente a terceros o entidades. Brinda confianza a los clientes y un sólido respaldo financiero en contratos importantes.",
         icon: Briefcase,
         color: "text-slate-700",
         bg: "bg-slate-50",
         gradient: "from-slate-700 to-slate-900",
         image: "/images/service-business.png",
         features: [
-            { title: "Seriedad de Oferta", desc: "Exigible en procesos de licitación pública y contrataciones." },
-            { title: "Buen Manejo de Anticipo", desc: "Garantiza la correcta destinación de los fondos entregados." },
-            { title: "Pago de Salarios", desc: "Ampara a los empleados del contratista ante incumplimientos laborales." }
+            { title: "Contratos Estatales y Privados", desc: "Requisito para licitaciones públicas y convenios con empresas privadas." },
+            { title: "Cobertura de Anticipos", desc: "Ampara el buen manejo y la destinación de dineros entregados por adelantado." },
+            { title: "Calidad y Estabilidad", desc: "Garantiza la calidad de los materiales y estabilidad de la obra/producto." },
+            { title: "Cumplimiento de Entregas", desc: "Respaldo ante demoras u omisiones en el plazo estipulado del contrato." }
         ],
         seoKeywords: ["poliza de cumplimiento colombia", "seguro para licitaciones", "garantia de contratos estado", "cotizar poliza de cumplimiento online"],
         faqs: [
-            { question: "¿Cuánto tarda la emisión de una póliza de cumplimiento?", answer: "Con tu cupo preaprobado y la exigencia del contrato, la emisión puede tardar solo un par de horas." },
-            { question: "¿Se puede expedir a nombre de consorcios?", answer: "Sí, aseguramos la partición consorciada según el porcentaje de participación." }
+            { question: "¿Cuánto tarda la emisión de una póliza de cumplimiento?", answer: "Con la documentación en regla de tu empresa, el proceso de cupo y emisión se gestiona de manera muy ágil." },
+            { question: "¿Respaldan contratos frente a entidades estatales?", answer: "Sí, emitimos las garantías exigidas por el Estado bajo todas las modalidades de contratación vigentes." }
         ]
     },
     {
         slug: "responsabilidad-civil-empresarial",
         category: "empresa",
         quoteType: "empresarial",
-        title: "Responsabilidad Civil Extracontractual (RCE) para Empresas",
-        shortDescription: "Protege el patrimonio de tu empresa frente a demandas y daños a terceros.",
-        fullDescription: "Cualquier negocio está expuesto a causar daños o perjuicios a un tercero operativo, ambiental o patronalmente. La póliza de RCE resguarda el patrimonio de tu empresa pagando las indemnizaciones y gastos de defensa jurídica a raíz de demandas por daños o lesiones en el ejercicio de tu labor comercial.",
+        title: "Responsabilidad Civil",
+        shortDescription: "Protege a la empresa frente a reclamaciones de terceros por daños personales, materiales o económicos.",
+        fullDescription: "Protege a la empresa frente a reclamaciones de terceros por daños personales, materiales o perjuicios económicos ocasionados en el desarrollo de su actividad. Es clave para cualquier empresa que interactúe con terceros, ya que un solo evento puede generar pérdidas millonarias.",
         icon: Scale,
         color: "text-teal-600",
         bg: "bg-teal-50",
         gradient: "from-teal-600 to-emerald-800",
         image: "/images/office-building.png",
         features: [
-            { title: "Predios y Labores", desc: "Daños ocasionados en tu sede a visitantes o clientes." },
-            { title: "RCE Patronal", desc: "Indemnizaciones por muerte o lesiones a tus propios empleados." },
-            { title: "Gastos de Defensa", desc: "Pago de honorarios de abogados ante procesos judiciales." }
+            { title: "Daños a Clientes o Visitantes", desc: "Cubre los daños generados a terceros dentro del desarrollo de la operación." },
+            { title: "Perjuicios Causados por Empleados", desc: "Amparo civil por daños que tus trabajadores ocasionen trabajando." },
+            { title: "Gastos Legales y Jurídicos", desc: "Pago de defensa jurídica y honorarios requeridos durante una demanda." }
         ],
         seoKeywords: ["responsabilidad civil extracontractual empresas", "poliza rce comercial colombia", "seguro demandas empresas", "rce patronal y predios"],
         faqs: [
-            { question: "¿Qué pasa si un cliente se accidenta en mi local?", answer: "Si la empresa resulta responsable, el seguro de RCE Predios y Labores ampara los gastos médicos o indemnizaciones del cliente." },
-            { question: "¿Incluye responsabilidad por productos?", answer: "Sí, como cobertura opcional podemos amparar los daños que un producto fabricado o vendido por tu empresa cause a terceros." }
+            { question: "¿Qué pasa si un cliente se accidenta en mi local?", answer: "Si la empresa resulta responsable, el seguro ampara los gastos médicos o las reclamaciones patrimoniales del afectado." },
+            { question: "¿Por qué es clave esta póliza?", answer: "Un solo evento de afectación severa a un tercero puede significar una indemnización millonaria que ponga en riesgo la supervivencia de la empresa." }
         ]
     },
     {
         slug: "empresariales",
         category: "empresa",
         quoteType: "empresarial",
-        title: "Seguro Multirriesgo Empresarial & PYME",
-        shortDescription: "Cobertura completa (Todo Riesgo Daño Material) para tus activos comerciales.",
-        fullDescription: "La póliza Multirriesgo o Todoriesgo Daño Material está diseñada para proteger tu maquinaria, equipos, adecuaciones, inventarios y edificios ante sucesos imprevistos como incendio, terremoto, explosión, robo y lucro cesante, manteniendo a flote la economía de tu PYME o gran empresa.",
+        title: "Todo Riesgo: Daños Materiales",
+        shortDescription: "Ampara los bienes de la empresa frente a eventos inesperados que puedan afectar su operación.",
+        fullDescription: "Ampara los bienes e instalaciones de la empresa frente a eventos inesperados de gran magnitud. Garantiza la continuidad del negocio ante imprevistos naturales, accidentales o malintencionados que puedan detener la operación mercantil.",
         icon: Building2,
         color: "text-sky-600",
         bg: "bg-sky-50",
         gradient: "from-sky-500 to-blue-600",
         image: "/images/service-business.png",
         features: [
-            { title: "Daños Materiales", desc: "Protege frente a incendios, caídas de rayos, temblores e inundaciones." },
-            { title: "Lucro Cesante", desc: "Cubre los ingresos que tu empresa deje de percibir por la materialización de un riesgo amparado." },
-            { title: "Equipo Eléctrico", desc: "Cobertura por picos de voltaje en tus equipos y computadores." }
+            { title: "Exposición a Desastres", desc: "Respalda frente a afectaciones por Incendio, explosión o terremoto." },
+            { title: "Equipos Tecnológicos", desc: "Cobertura ante daños eléctricos de aparatos corporativos." },
+            { title: "Robo y Vandalismo", desc: "Protección integral frente a asaltos, motines o acciones malintencionadas." },
+            { title: "Maquinaria e Instalaciones", desc: "Amparo a la maquinaria y a la infraestructura ante eventos súbitos." }
         ],
-        seoKeywords: ["seguro multirriesgo pyme colombia", "poliza todo riesgo empresa", "aseguradora para pequeñas empresas", "cobertura lucro cesante negocios"],
+        seoKeywords: ["seguro todo riesgo empresa colombia", "poliza todoriesgo pyme", "seguro bodegas colombia", "seguro daño material empresas"],
         faqs: [
-            { question: "¿El seguro Pyme es adecuado para cualquier tipo de comercio?", answer: "Sí, estructuramos planes, desde oficinas, comercios, bodegas, hasta fábricas industriales, según el análisis de tu riesgo." },
-            { question: "¿Qué bienes no se cubren normalmente?", answer: "Por defecto, no se cubren desgastes naturales, dolo del asegurado, ni multas, pero ciertas maquinarias específicas pueden requerir un anexo en la póliza (rotura de maquinaria)." }
+            { question: "¿Este seguro protege a la industria pesada?", answer: "Sí, podemos estructurar planes para bodegas, grandes superficies y líneas industriales especializadas." },
+            { question: "¿Qué pasa si mi negocio debe cerrar por los daños?", answer: "Dependiendo del esquema, cubrimos no solo las reparaciones físicas, sino que podemos proteger frente al 'lucro cesante'." }
         ]
     },
 
@@ -140,23 +142,35 @@ export const servicesData: ServiceData[] = [
         slug: "vida",
         category: "persona",
         quoteType: "vida",
-        title: "Seguro de Vida Individual",
-        shortDescription: "La mejor herencia: Tranquilidad garantizada para quienes amas.",
-        fullDescription: "Tu vida es el motor económico de tu familia. Asegura su futuro económico y tu propia red de soporte frente a eventualidades. El Seguro de Vida no solo te paga a ti por invalidez o enfermedades graves, sino que brinda el dinero acordado a los tuyos si tú ya no estás.",
+        title: "Seguro de Vida",
+        shortDescription: "Protección económica a su familia en caso de incapacidad o fallecimiento.",
+        fullDescription: "Tu vida es el motor económico de tu hogar. El Seguro de Vida garantiza que tus seres queridos mantengan su nivel de vida y puedan cumplir sus metas (como pagar el estudio o una hipoteca) en caso de que llegues a faltar. Más importante aún, es un seguro que te protege a ti en vida: entrega capital de respaldo de manera anticipada si sufres una incapacidad que te impida volver a trabajar o si eres diagnosticado con una enfermedad grave o crítica, brindándote tranquilidad financiera cuando más la necesitas.",
         icon: Heart,
         color: "text-rose-600",
         bg: "bg-rose-50",
         gradient: "from-rose-500 to-pink-600",
         image: "/images/service-health.png",
         features: [
-            { title: "Amparo Básico", desc: "Indemnización económica a los beneficiarios en caso de fallecimiento por cualquier causa." },
-            { title: "Enfermedades Graves", desc: "Pago en vida para tratamiento de cáncer, infartos y otras patologías severas." },
-            { title: "Incapacidad Total", desc: "Respaldo en caso de accidente o enfermedad que impida tu futura labor." }
+            { title: "Fallecimiento por cualquier motivo", desc: "Entrega del valor asegurado a los beneficiarios designados en caso de muerte por enfermedad o accidente." },
+            { title: "Incapacidad total o permanente", desc: "Pago del 100% del capital asegurado si un accidente o enfermedad te impide volver a ejercer tu ocupación." },
+            { title: "Anticipos por enfermedades críticas", desc: "Un adelanto del capital asegurado para cubrir tratamientos urgentes o costosos." },
+            { title: "Renta por incapacidad", desc: "Ingreso mensual para solventar tus gastos durante una recuperación prolongada." },
+            { title: "Enfermedades graves", desc: "Indemnización en vida al ser diagnosticado con enfermedades complejas (como cáncer, infartos o afecciones neurológicas)." }
         ],
-        seoKeywords: ["seguro de vida en colombia", "cotizar poliza de vida", "seguro enfermedades graves integral", "cobertura incapacidad total"],
+        seoKeywords: [
+            "seguro de vida en colombia",
+            "poliza de vida",
+            "cotizar poliza de vida", 
+            "seguro enfermedades graves integral", 
+            "cobertura incapacidad total",
+            "seguro de vida familiar",
+            "seguro de fallecimiento"
+        ],
         faqs: [
-            { question: "¿Puedo recibir el dinero yo mismo?", answer: "Sí, coberturas como Enfermedades Graves o Incapacidad Total y Permanente, el beneficiario es el propio asegurado para disponer en vida de los recursos." },
-            { question: "¿Debo hacerme exámenes médicos?", answer: "Depende de tu edad, preexistencias y del valor económico que deseas asegurar. Muchas pólizas se aprueban solo con una declaración de salud en el formulario." }
+            { question: "¿Puedo cobrar el seguro de vida estando vivo?", answer: "¡Por supuesto! Coberturas como Incapacidad Total y Permanente y Enfermedades Graves e indemnizaciones por rentas se te pagan directamente a ti para que tengas libertad financiera durante un tratamiento o recuperación." },
+            { question: "¿Debo hacerme exámenes médicos para que me lo aprueben?", answer: "Todo depende de tu edad, tus antecedentes médicos (preexistencias) y el monto asegurado que solicites. La mayoría de los pólizas tradicionales solo exigen diligenciar una declaración de salud escrita que se firma de buena fe." },
+            { question: "¿A quién puedo nombrar como beneficiario?", answer: "Tienes total libertad. Puedes nombrar a tu cónyuge, hijos, padres, hermanos o cualquier persona e incluso distribuir el porcentaje que cada uno recibirá libremente. Además, puedes modificar a los beneficiarios en un futuro cuando desees." },
+            { question: "¿El seguro de vida es embargable?", answer: "No. En Colombia el dinero que reciben los beneficiarios de un seguro de vida es de uso libre, no forma parte de la masa sucesoral (herencia) y, por lo tanto, es inembargable y no entra en juicios de sucesión, asegurando que llegue directo y rápido a tus seres queridos." }
         ]
     },
     {
@@ -164,45 +178,73 @@ export const servicesData: ServiceData[] = [
         category: "persona",
         quoteType: "salud",
         title: "Póliza de Salud y Medicina Prepagada",
-        shortDescription: "Garantiza un acceso médico prioritario y exclusivo para ti y los tuyos.",
-        fullDescription: "Supera los tiempos de espera del sistema EPS tradicional. Con nuestras soluciones de Medicina Prepagada y Pólizas de Salud obtienes autorizaciones ágiles, acceso directo a especialistas, medicina domiciliaria, y la posibilidad de elegir la clínica de tu preferencia.",
+        shortDescription: "Acceso a atención médica de alta calidad, prioritaria y exclusiva para ti y tu familia.",
+        fullDescription: "Supera los largos tiempos de espera del sistema tradicional (EPS). Una Póliza de Salud o un plan de Medicina Prepagada te brinda acceso a la mejor red hospitalaria y clínica de Colombia y el exterior. Contarás con autorizaciones médicas ágiles, acceso directo a médicos especialistas sin pasar por consulta general, y comodidades como habitación individual, atención médica domiciliaria y cobertura en el extranjero, garantizando tu bienestar y el de tu familia en cualquier eventualidad médica.",
         icon: Stethoscope,
         color: "text-emerald-500",
         bg: "bg-emerald-50",
         gradient: "from-emerald-400 to-teal-600",
         image: "/images/service-health.png",
         features: [
-            { title: "Red de Especialistas", desc: "Directorio médico amplio con acceso sin necesidad de médico general." },
-            { title: "Urgencias y Hospitalización", desc: "Habitación individual y cobertura en clínicas VIP de tu ciudad." },
-            { title: "Asistencia Internacional (Asistencia al Viajero)", desc: "Tranquilidad y respaldo en caso de urgencias médicas fuera de Colombia." }
+            { title: "Atención médica y exámenes", desc: "Acceso directo a consultas médicas, laboratorio clínico y medios de diagnóstico de alta tecnología." },
+            { title: "Hospitalización y cirugías", desc: "Cobertura total en red de clínicas premium, incluyendo habitación hospitalaria individual y pago de honorarios." },
+            { title: "Urgencias y especialista directos", desc: "Atención prioritaria y agendamiento ágil con especialistas sin remisión previa de médico general." },
+            { title: "Medicamentos, maternidad y terapias", desc: "Respaldo en medicamentos especializados, cobertura integral del embarazo, parto y sesiones de rehabilitación." },
+            { title: "Cobertura internacional", desc: "Tranquilidad fuera del país con asistencia médica al viajero frente a urgencias o enfermedades repentinas." }
         ],
-        seoKeywords: ["poliza de salud sura colombia", "seguro de salud particular", "medicina prepagada economica", "planes complementarios de salud eps"],
+        seoKeywords: [
+            "poliza de salud sura colombia", 
+            "seguro de salud particular", 
+            "medicina prepagada economica", 
+            "planes complementarios de salud eps",
+            "comprar seguro de salud",
+            "cotizar medicina prepagada",
+            "cobertura internacional salud"
+        ],
         faqs: [
-            { question: "¿Cuál es la diferencia entre Póliza de Salud y EPS?", answer: "La EPS es el sistema de seguridad social básico obligatorio. La póliza es un seguro privado voluntario que funciona como complemento 'VIP' que ofrece redes adicionales exclusivas y habitación individual." },
-            { question: "¿Qué pasa si tengo una preexistencia?", answer: "Deberá ser declarada al inicio. Dependiendo del diagnóstico y la aseguradora, es normal que se genere una exclusión para ese diagnóstico específico, o una 'extraprima'." }
+            { question: "¿Cuál es la diferencia entre Póliza de Salud y EPS?", answer: "La EPS es el sistema de seguridad social básico que atiende en redes generales. La póliza de salud es un seguro privado voluntario ('VIP') que te ofrece acceso a clínicas de alto nivel, citas mucho más rápido y comodidades como habitación individual en caso de hospitalización." },
+            { question: "¿Qué sucede si tengo una preexistencia médica?", answer: "Debes declararla al momento de afiliarte. Dependiendo de la política de la aseguradora elegida, el diagnóstico previo puede generar una exclusión, o puede ampararse mediante el pago de un valor adicional (extraprima)." },
+            { question: "¿Puedo asegurar solo a mis hijos o debo incluir a todo el grupo familiar?", answer: "Existen planes que permiten afiliar de manera individual a un solo miembro de la familia, pero en muchos casos incluir al grupo familiar completo otorga descuentos importantes en la tarifa final." },
+            { question: "¿Existen copagos o cuotas moderadoras?", answer: "Sí, dependiendo del diseño del plan. Muchos establecen un bono o bono (copago) de valor fijo para las citas y exámenes de rutina, mientras que para urgencias severas, hospitalizaciones y cirugías complejas el cubrimiento suele ser del 100% sin cobro." }
         ]
     },
     {
         slug: "autos",
         category: "persona",
         quoteType: "auto",
-        title: "Seguro Todo Riesgo Vehículos",
-        shortDescription: "Viaja seguro cubriendo cualquier daño, choque, robo o asistencia vial 24/7.",
-        fullDescription: "Nunca sabes lo que pasará en la vía. El Seguro de Autos Todo Riesgo resguarda el capital que invertiste en tu vehículo y, más importante, asume gastos astronómicos ante choques y demandas de terceros lesionados tras un accidente. Desde daños simples, robos, hasta conductor elegido.",
+        title: "Seguro Todo Riesgo para Autos",
+        shortDescription: "Protección integral para su vehículo y su responsabilidad frente a terceros, cubriendo daños, hurto y asistencias premium.",
+        fullDescription: "Un Seguro Todo Riesgo para Autos es la única manera de proteger realmente tu inversión vehicular y tu patrimonio ante imprevistos en la vía. Esta póliza va mucho más allá del SOAT, asumiendo los elevados costos de reparación por daños mecánicos accidentales o totales, gastos legales en demandas por responsabilidad civil extracontractual a terceros, y cobertura económica por hurto. Al cotizar con nosotros, comparamos las mejores aseguradoras de Colombia para ofrecerte un seguro a tu medida con todas las asistencias 24/7.",
         icon: Car,
         color: "text-blue-600",
         bg: "bg-blue-50",
         gradient: "from-blue-500 to-cyan-600",
         image: "/images/service-auto.png",
         features: [
-            { title: "Cobertura frente a Daños de Terceros (RCE)", desc: "Paga reparaciones, demandas legales e indemnizaciones a terceros heridos." },
-            { title: "Pérdida Parcial y Total", desc: "Arreglo o indemnización en caso de hurto total o reparación alta." },
-            { title: "Asistencias Especializadas", desc: "Grúa por daños, llaves dentro del auto, pinchazos, conductor elegido, y revisiones preventivas." }
+            { title: "Daños a su vehículo", desc: "Cobertura para reparar arreglos y abolladuras tras un accidente o choque." },
+            { title: "Responsabilidad civil a terceros", desc: "Protección integral frente a demandas y daños ocasionados a bienes o personas." },
+            { title: "Pérdida total por hurto", desc: "Indemnización conforme al valor comercial de su auto en caso de ser robado." },
+            { title: "Pérdida total por daños", desc: "Indemnización económica si su vehículo sufre daños severos irreparables." },
+            { title: "Asistencia en carretera", desc: "Servicio de grúa, carro taller, cerrajería y paso de corriente en cualquier emergencia." },
+            { title: "Vehículo de reemplazo", desc: "Carro sustituto durante los días en que su auto esté en el taller autorizado." },
+            { title: "Conductor elegido", desc: "Servicio para regresar a casa de forma segura cuando usted no pueda manejar." },
+            { title: "Gastos médicos ocupantes", desc: "Protección en salud y atención clínica para los pasajeros de su vehículo en caso de accidente." }
         ],
-        seoKeywords: ["seguro todo riesgo para autos", "comprar soat y todoriesgo", "cotizador de seguro automoviles", "aseguradora robo carros", "vehiculos colombia poliza"],
+        seoKeywords: [
+            "seguro todo riesgo para autos", 
+            "seguro de vehiculos colombia",
+            "comprar soat y todoriesgo", 
+            "cotizador de seguro automoviles", 
+            "aseguradora robo carros", 
+            "vehiculos colombia poliza",
+            "seguro de auto",
+            "seguro contra todo riesgo carro"
+        ],
         faqs: [
-            { question: "¿El Todo Riesgo me cubre el Soat?", answer: "No, son independientes. El SOAT es obligatorio para circular (daños físicos de personas) y el Todo Riesgo es patrimonial: paga bienes o demandas donde el SOAT no alcanza." },
-            { question: "¿Deben revisar mi vehículo (Inspección)?", answer: "Sí, comúnmente, si es un carro usado, las aseguradoras exigen una inspección virtual (fotos) o física en talleres aliados para expedir la póliza." }
+            { question: "¿Cuál es la diferencia entre el Seguro Todo Riesgo y el SOAT?", answer: "El SOAT es un seguro obligatorio por ley que cubre únicamente atención médica inicial de víctimas en un accidente. El Seguro Todo Riesgo es voluntario y protege tu bolsillo al cubrir los daños a tu carro, reposición en caso de robo, y pagar las demandas de terceros si chocas a alguien." },
+            { question: "¿Deben inspeccionar mi carro antes de asegurarlo?", answer: "Sí. Para vehículos usados, las aseguradoras exigen una inspección preventiva, la cual hoy en día puede realizarse de forma 100% digital a través de fotos desde tu celular, o acudiendo a un centro de diagnóstico certificado." },
+            { question: "¿Me prestan otro carro si el mío se accidenta?", answer: "¡Sí! La mayoría de los planes Todo Riesgo que asesoramos incluyen la cobertura de Vehículo de Reemplazo (Carro Sustituto) hasta por 15 o 30 días mientras reparan tu auto o te indemnizan." },
+            { question: "¿Se cubre el robo de accesorios (espejos, llantas)?", answer: "Depende de la configuración de la póliza. Muchos planes incluyen auxilio de pérdida de llaves y reposición de espejos o llantas por hurto de partes, pero es importante declararlo al momento de la cotización." }
         ]
     },
     {
@@ -231,24 +273,37 @@ export const servicesData: ServiceData[] = [
     {
         slug: "hogar",
         category: "persona",
-        quoteType: "auto", // Can reuse general pipeline later 
-        title: "Seguro de Hogar y Bienes Personales",
-        shortDescription: "Cuida tu casa y tus objetos valiosos ante incendios, corto circuitos, goteras y hurtos.",
-        fullDescription: "Tu casa (propia o alquilada) puede ser asegurada junto con todos sus muebles y electrodomésticos adentro (contenidos). Sea por temblores, asonadas, o robos desde la fachada, la póliza de hogar cuida lo tuyo e incluye servicios gratuitos del día a día como plomería, electricista o cerrajero urgentes.",
+        quoteType: "auto",
+        title: "Seguro de Hogar",
+        shortDescription: "Protege tu vivienda y tus bienes más preciados frente a diversos riesgos cotidianos y desastres.",
+        fullDescription: "Tu casa es el refugio de tu familia y seguramente uno de tus mayores esfuerzos económicos. Ya seas propietario o arrendatario, el Seguro de Hogar está diseñado para brindarte un blindaje total tanto para la estructura física del inmueble (paredes, techos) como para tus contenidos (muebles, electrodomésticos, ropa). Te protegemos ante desastres naturales, accidentes caseros y robos, además de brindarte Asistencia en el Hogar 24/7 para emergencias de plomería, electricidad y cerrajería.",
         icon: Home,
         color: "text-fuchsia-600",
         bg: "bg-fuchsia-50",
-        gradient: "from-cyan-500 to-emerald-500",
+        gradient: "from-fuchsia-500 to-pink-600",
         image: "/images/service-business.png",
         features: [
-            { title: "Robo e Inseguridad", desc: "Reembolso por sustracción de muebles, computadores, joyas, o bicicletas del interior de la casa." },
-            { title: "Desastres Medioambientales", desc: "Incendios por cortocircuito, explosiones de gas, y sismos severos." },
-            { title: "Asistencia y Daños a Terceros", desc: "Servicio tipo 'plomero' si se rompe un tubo, además de cubrir el daño a los vecinos o a sus techos." }
+            { title: "Incendio y Rayo", desc: "Indemnización en caso de que las llamas o la caída de un rayo afecten gravemente la estructura de tu casa o tus bienes." },
+            { title: "Terremoto y Temblores", desc: "Protección patrimonial si un sismo debilita la estructura de tu vivienda o destruye los enseres en su interior." },
+            { title: "Hurto y Sustracción", desc: "Cobertura económica si roban objetos de valor, equipos de tecnología o muebles forzando el ingreso a tu hogar." },
+            { title: "Daños por agua", desc: "Reparación y reposición en caso de que una rotura repentina de tuberías inunde tu casa dañando pisos o enseres." },
+            { title: "RC Familiar (Responsabilidad Civil)", desc: "Pago de daños legales y médicos si un incidente en tu casa (ej: una gotera, una caída) afecta a un vecino o a un tercero." },
+            { title: "Daños Eléctricos", desc: "Respaldo ante cortocircuitos o picos de voltaje en tu zona que averíen tus electrodomésticos, computadores o televisores." }
         ],
-        seoKeywords: ["seguro de hogar bogota", "asegurar apartamento contra terremoto", "seguro arrendamientos", "proteccion robo vivienda poliza"],
+        seoKeywords: [
+            "seguro de hogar en colombia",
+            "asegurar apartamento contra terremoto",
+            "seguro de arrendamiento y vivienda",
+            "proteccion robo de vivienda",
+            "poliza seguro de casa",
+            "cotizar seguro para hogar",
+            "seguro de daños a terceros en casa"
+        ],
         faqs: [
-            { question: "¿Si mi casa es alquilada, puedo comprar el seguro?", answer: "Claro que sí. Puedes asegurar únicamente los 'Contenidos' (muebles y electrodomésticos) que te pertenecen, dejando de lado la propiedad física (inmueble)." },
-            { question: "¿Qué hace la asistencia de hogar?", answer: "Si pierdes las llaves o un tubo explota, llamas a la asistencia y te envían rápidamente hasta tu puerta y sin costo, al técnico, asumiendo su arreglo." }
+            { question: "¿Si vivo en arriendo tiene sentido comprar este seguro?", answer: "¡Totalmente! Como arrendatario no tienes que asegurar la estructura física, pero SÍ puedes asegurar exclusivamente tus 'Contenidos' (televisores, computadores, ropa, enseres), blindando el fruto de tu trabajo en caso de hurto o incendio." },
+            { question: "¿El seguro cubre los arreglos si se rompe un tubo de agua?", answer: "Sí, estas pólizas suelen incluir un servicio gratuito de 'Asistencia al Hogar' que te envía un plomero certificado 24/7 para frenar daños por roturas accidentales y fallas eléctricas menores." },
+            { question: "¿Qué pasa si se incendia mi apartamento y debo salir?", answer: "La gran mayoría de nuestras pólizas de Hogar incluyen una cobertura de 'Alojamiento Temporal'. Esto significa que la aseguradora asume los gastos de tu estadía en un hotel o una vivienda en alquiler mientras reparan tu hogar." },
+            { question: "¿La Responsabilidad Civil Familiar cobija a mis hijos o empleada doméstica?", answer: "Sí, la cobertura de RC Familiar ampara los actos accidentales descuidados que realicen tus dependientes (hijos menores de edad), tu empleada de servicio, e incluso tu mascota (salvo razas catalogadas de manejo especial) frente a los vecinos." }
         ]
     },
     {
@@ -256,45 +311,68 @@ export const servicesData: ServiceData[] = [
         category: "persona",
         quoteType: "auto",
         title: "Seguro Exequial",
-        shortDescription: "Proteccion economica para cubrir gastos y servicios funerarios en momentos dificiles.",
-        fullDescription: "El seguro exequial cubre el traslado del cuerpo, sala de velacion, cofre funerario, servicios religiosos y tramites legales. En momentos dificiles, te liberamos de la carga economica.",
+        shortDescription: "Protección para cubrir gastos y servicios funerarios en momentos difíciles.",
+        fullDescription: "En los momentos más difíciles, nadie debería preocuparse por presiones económicas ni trámites burocráticos complejos. El Seguro Exequial es una protección integral diseñada para cubrir el 100% de los gastos funerarios y brindar un acompañamiento respetuoso a tu familia tras la pérdida de un ser querido. Nos encargamos de toda la gestión administrativa y coordinación de los servicios mortuorios desde el primer momento, asegurando que tú y los tuyos puedan vivir el duelo con total tranquilidad financiera y emocional.",
         icon: Shield,
         color: "text-slate-600",
         bg: "bg-slate-100",
         gradient: "from-slate-600 to-slate-800",
         image: "/images/service-health.png",
         features: [
-            { title: "Traslado del Cuerpo", desc: "Servicio de traslado hasta el lugar de velacion o inhumacion." },
-            { title: "Sala y Cofre Funerario", desc: "Uso de sala de velacion y provision del cofre funerario." },
-            { title: "Tramites Legales", desc: "Gestion de documentos legales y transporte de familiares directos." }
+            { title: "Traslado del cuerpo", desc: "Servicio de recogida y transporte a nivel nacional hasta el lugar de velación y destino final previsto (inhumación o cremación)." },
+            { title: "Sala de velación y cofre funerario", desc: "Suministro del cofre o urna cineraria, uso de salas de velación con todos los protocolos y arreglo floral." },
+            { title: "Servicios religiosos", desc: "Coordinación de actos y ceremonias religiosas con total respeto a las creencias de la familia." },
+            { title: "Trámites legales y transporte familiar", desc: "Gestión completa de los documentos de defunción ante notarías o entidades de salud y transporte para los acompañantes el día del funeral." }
         ],
-        seoKeywords: ["seguro exequial colombia", "poliza funeraria bogota", "cobertura gastos funerarios"],
+        seoKeywords: [
+            "seguro exequial colombia",
+            "poliza funeraria",
+            "cobertura gastos funerarios",
+            "seguro de sepelio",
+            "pago de exequias",
+            "seguro funerario familiar",
+            "servicios funerarios integrales"
+        ],
         faqs: [
-            { question: "Cubre a toda la familia?", answer: "Dependiendo del plan puede cubrir titular, conyuge, hijos y padres." },
-            { question: "Hay periodo de carencia?", answer: "Algunos planes tienen espera de 30 dias para fallecimientos por enfermedad, no para accidentes." }
+            { question: "¿A quiénes puedo incluir en mi plan Exequial?", answer: "Normalmente los seguros exequiales ofrecen planes familiares donde puedes afiliar a tu cónyuge e hijos, e incluso planes ampliados para añadir a tus padres o suegros por una tarifa mensual muy competitiva." },
+            { question: "¿Existe algún límite de edad para afiliarse?", answer: "Generalmente sí. La mayoría de aseguradoras permiten el ingreso inicial hasta los 65 o 70 años. No obstante, una vez que la persona queda afiliada y asegurada, goza de protección por el resto de su vida (siempre que el plan se mantenga al día)." },
+            { question: "¿Qué significa el período de carencia?", answer: "Es el tiempo que debes esperar, desde que inicias el plan, antes de poder usarlo por muerte natural o enfermedad (usualmente entre 30 a 90 días). Sin embargo, si el fallecimiento ocurre por un accidente, ¡estarás cubierto desde el primer día!" },
+            { question: "¿La póliza obliga a un tipo de servicio (entierro o cremación)?", answer: "No. El familiar encargado o beneficiario puede elegir el destino final del cuerpo conforme a sus deseos, garantizando total respeto, ya sea inhumación (entierro) en lote/bóveda temporal o cremación con urna de cenizas." }
         ]
     },
     {
         slug: "mascotas",
         category: "persona",
         quoteType: "auto",
-        title: "Seguro de Mascotas",
-        shortDescription: "Cubre los danos que tu mascota cause a terceros con responsabilidad civil.",
-        fullDescription: "El seguro de mascotas cubre la responsabilidad civil frente a terceros: si tu perro muerde a alguien o causa danos en propiedad ajena, la poliza responde economicamente.",
+        title: "Seguro para Mascotas",
+        shortDescription: "Protege a tu peludo ante emergencias veterinarias y cubre tu responsabilidad civil si causa daños a terceros.",
+        fullDescription: "Tu perro o gato es un miembro más de la familia, pero su curiosidad puede resultar en accidentes costosos o visitas inesperadas al veterinario. El Seguro para Mascotas está diseñado para darte tranquilidad financiera: no solo cubre los gastos médicos y quirúrgicos frente a enfermedades o accidentes propios del animal, sino que asume el pago de indemnizaciones y abogados si tu mascota muerde a un tercero o daña propiedad ajena (Responsabilidad Civil).",
         icon: Heart,
         color: "text-orange-500",
         bg: "bg-orange-50",
         gradient: "from-orange-400 to-amber-500",
         image: "/images/service-health.png",
         features: [
-            { title: "Responsabilidad Civil", desc: "Indemnizacion si tu mascota lesiona a una persona o dana propiedad de terceros." },
-            { title: "Gastos Medicos a Terceros", desc: "Cobertura de gastos medicos causados por tu mascota." },
-            { title: "Defensa Juridica", desc: "Respaldo legal ante demandas relacionadas con tu mascota." }
+            { title: "Responsabilidad Civil Extracontractual", desc: "Pago de indemnizaciones legales y gastos médicos a terceros si tu mascota lastima a otra persona, a otro animal, o daña propiedad ajena." },
+            { title: "Defensa Jurídica", desc: "Respaldo y asesoría legal con abogados especializados frente a cualquier demanda o citación en inspecciones de policía relacionada con tu mascota." },
+            { title: "Gastos Veterinarios y Accidentes", desc: "Cobertura para consultas de urgencia, hospitalización, exámenes diagnósticos y cirugías derivadas de accidentes o enfermedades inesperadas." },
+            { title: "Asistencia de Búsqueda", desc: "Apoyo económico e impresión de volantes en caso de que tu mascota se pierda o sea extraviada." },
+            { title: "Guardería por Hospitalización", desc: "Si tú como cuidador principal debes ser hospitalizado, la póliza cubre los días de guardería para que tu mascota no se quede sola." }
         ],
-        seoKeywords: ["seguro de mascotas colombia", "responsabilidad civil perros", "poliza mascotas bogota"],
+        seoKeywords: [
+            "seguro de mascotas colombia",
+            "responsabilidad civil perros",
+            "poliza mascotas bogota",
+            "seguro veterinario para perros y gatos",
+            "seguro responsabilidad civil perros peligrosos",
+            "asegurar a mi mascota",
+            "cotizar seguro para perros"
+        ],
         faqs: [
-            { question: "Solo cubre perros?", answer: "La cobertura principal aplica para perros. Consulta condiciones para otras mascotas." },
-            { question: "Que pasa si mi perro muerde a alguien?", answer: "La poliza cubre gastos medicos y posibles demandas del afectado." }
+            { question: "¿La póliza cubre gastos de vacunas o de estética rutinaria?", answer: "No, las pólizas de mascotas tradicionales no funcionan como 'planes prepagados' para prevención, sino como seguros para riesgos mayores e inminentes (accidentes repentinos, enfermedades sorpresivas y demandas de terceros)." },
+            { question: "¿Es obligatorio asegurar a algunas razas de perros?", answer: "En Colombia, la ley exige que las razas de manejo especial (anteriormente llamadas potencialmente peligrosas) deben contar obligatoriamente con una póliza de Responsabilidad Civil Extracontractual para transitar por el espacio público." },
+            { question: "¿Se puede asegurar cualquier animal?", answer: "La mayoría de aseguradoras tienen diseñado este producto exclusivamente para perros y gatos de compañía. Si tienes animales exóticos o equinos, se requieren pólizas de líneas comerciales distintas." },
+            { question: "¿Cuáles son los límites de edad para asegurar a mi mascota?", answer: "Usualmente puedes asegurar a tu mascota (perros y gatos) a partir de los 2 o 3 meses de vida. La edad de ingreso máxima suele limitarse a los 9 o 10 años, pero si aseguras a tu peludo estando joven, la póliza se renueva anualmente durante el resto de su vida." }
         ]
     },
     {
@@ -302,22 +380,32 @@ export const servicesData: ServiceData[] = [
         category: "persona",
         quoteType: "vida",
         title: "Seguro Educativo",
-        shortDescription: "Garantiza la educacion futura de tus hijos con ahorro programado y proteccion.",
-        fullDescription: "El seguro educativo combina ahorro programado con cobertura de vida para que tus hijos accedan a la educacion universitaria sin importar lo que ocurra.",
+        shortDescription: "Garantiza la educación futura y universitaria de tus hijos sin importar los imprevistos económicos.",
+        fullDescription: "El futuro profesional de tus hijos es una prioridad, pero la educación superior es cada día más costosa. El Seguro Educativo es un sistema de ahorro garantizado a largo plazo que asegura el pago total de las metas universitarias de tus hijos, sumando una cobertura de vida fundamental: si llegas a faltar, la aseguradora aportará el dinero faltante hasta que tu hijo llegue a la universidad.",
         icon: GraduationCap,
         color: "text-indigo-500",
         bg: "bg-indigo-50",
         gradient: "from-indigo-500 to-purple-600",
         image: "/images/service-health.png",
         features: [
-            { title: "Ahorro Programado", desc: "Aportes periodicos que se acumulan para el futuro educativo." },
-            { title: "Proteccion por Fallecimiento", desc: "En caso de muerte del asegurado, la aseguradora sigue aportando al fondo." },
-            { title: "Pago de Universidad", desc: "El fondo acumulado financia la matricula y costos de educacion superior." }
+            { title: "Ahorro Programado", desc: "Aportes estructurados de acuerdo a tus finanzas que se capitalizan para crear el fondo necesario para la universidad." },
+            { title: "Protección por Fallecimiento", desc: "Si el asegurado (mamá o papá) falta o se incapacita, la póliza exime del pago de primas y garantiza el 100% del fondo a los hijos." },
+            { title: "Pago de Estudios Universitarios", desc: "Desembolso garantizado del capital asegurado para cubrir los semestres en la universidad, manutención o incluso la educación en el exterior." }
         ],
-        seoKeywords: ["seguro educativo colombia", "ahorro para universidad hijos", "poliza educativa bogota"],
+        seoKeywords: [
+            "seguro educativo colombia",
+            "ahorro universidad para hijos",
+            "poliza educativa y ahorro",
+            "seguro estudios universitarios",
+            "garantizar educacion hijos",
+            "seguro de educacion superior",
+            "fondo de ahorro educativo"
+        ],
         faqs: [
-            { question: "Desde que edad puedo contratar?", answer: "Desde recien nacido hasta los 12 anos del nino, ajustando el tiempo de ahorro." },
-            { question: "Genera rentabilidad?", answer: "Si, los fondos acumulados generan rentabilidad segun la aseguradora seleccionada." }
+            { question: "¿Desde qué edad de mi hijo puedo contratar el seguro?", answer: "Lo ideal es comenzar lo más pronto posible (desde meses de gestación) para que el esfuerzo de ahorro mensual sea mucho menor y la rentabilidad mayor. Usualmente se pueden iniciar hasta que el hijo tenga unos 12 años." },
+            { question: "¿Qué pasa si llegado el tiempo mi hijo decide no estudiar?", answer: "¡El dinero ahorrado no se pierde! Si llegado a los 18 años el beneficiario decide emprender un negocio u otra alternativa, la compañía aseguradora entrega el capital acumulado al asegurado." },
+            { question: "¿La póliza le transfiere el dinero directo a la universidad?", answer: "Puede ser así si se compra la figura clásica ('pago de semestres'), aunque hoy las pólizas de Vida Ahorro Educativo más modernas entregan la totalidad del monto ('Suma Asegurada') acumulado para pagar cualquier carrera, pregrado o posgrado de libre elección ya sea en Colombia o el extranjero." },
+            { question: "¿Qué sucede si sufro un accidente muy grave mientras ahorro?", answer: "Si sufres una Incapacidad Total y Permanente, la cláusula de 'Exención de Pago de Primas' asume los aportes restantes y el seguro de todas formas entregará el monto completo al finalizar el plazo o, dependiendo de las coberturas, puedes recibir tú la indemnización en vida." }
         ]
     },
     {
@@ -325,68 +413,79 @@ export const servicesData: ServiceData[] = [
         category: "persona",
         quoteType: "vida",
         title: "Seguro Vida Deudor",
-        shortDescription: "Garantiza el pago de tu credito hipotecario en caso de fallecimiento o incapacidad.",
-        fullDescription: "El seguro vida deudor protege a tu familia de heredar deudas. Si ocurre un fallecimiento o incapacidad total y permanente, la poliza cancela el saldo de la deuda ante el banco.",
+        shortDescription: "Garantiza el pago de la deuda de tu vivienda en caso de eventos graves como fallecimiento o incapacidad.",
+        fullDescription: "Un crédito hipotecario es un compromiso a largo plazo. El Seguro de Vida Deudor es la garantía de que tus seres queridos no heredarán obligaciones financieras impagables. Este seguro especializado garantiza el pago total del saldo de la deuda de tu vivienda en caso de que sufras eventos graves como fallecimiento o una incapacidad total y permanente, librando a tu familia de perder su patrimonio por no poder cumplir con el banco.",
         icon: Home,
         color: "text-teal-600",
         bg: "bg-teal-50",
         gradient: "from-teal-500 to-cyan-600",
         image: "/images/service-business.png",
         features: [
-            { title: "Cancelacion de Deuda", desc: "La aseguradora paga el saldo pendiente del credito en caso de fallecimiento." },
-            { title: "Incapacidad Total", desc: "Proteccion si una incapacidad te impide trabajar y cumplir la obligacion." },
-            { title: "Tranquilidad Familiar", desc: "Tu familia no heredara deudas hipotecarias ni presiones financieras." }
+            { title: "Fallecimiento", desc: "La aseguradora salda inmediatamente el total de la deuda hipotecaria pendiente con la entidad financiera si llegas a faltar." },
+            { title: "Incapacidad Total y Permanente", desc: "Protección en vida: si una enfermedad severa o accidente te impide volver a trabajar, el seguro asume y cancela tu deuda habitacional." },
+            { title: "Tranquilidad Patrimonial", desc: "Impide que el banco embargue o remate la vivienda por cesación de pagos, asegurando que tu familia conserve su hogar." },
+            { title: "Mejora de Tasas (Endoso)", desc: "Las pólizas contratadas fuera del banco (con nosotros) suelen ser mucho más económicas que los seguros cobrados directamente en el extracto del crédito." }
         ],
-        seoKeywords: ["seguro vida deudor hipotecario", "poliza deudor colombia", "seguro credito hipotecario"],
+        seoKeywords: [
+            "seguro vida deudor hipotecario",
+            "poliza deudor colombia",
+            "seguro credito hipotecario",
+            "endoso seguro de vida deudor",
+            "seguro para deuda vivienda",
+            "poliza vida credito banco",
+            "cotizar seguro hipotecario"
+        ],
         faqs: [
-            { question: "Es obligatorio para un credito?", answer: "Muchos bancos en Colombia exigen el seguro vida deudor para aprobar creditos hipotecarios." },
-            { question: "Puedo comprarlo fuera del banco?", answer: "Si, y generalmente es mas economico a traves de intermediarios como Roesan." }
+            { question: "¿Es obligatorio tener un Seguro de Vida Deudor para un crédito?", answer: "Sí, la gran mayoría de entidades financieras en Colombia exigen un seguro ligado a la deuda para desembolsar un crédito hipotecario o leasing habitacional." },
+            { question: "¿Tengo que comprarle el seguro obligatoriamente al banco?", answer: "¡Absolutamente NO! Tienes el derecho legal de escoger tu propia aseguradora (Derecho a la Libre Elección) y presentarla al banco mediante un trámite llamado 'Endoso'. Comprarlo por tu cuenta suele ser hasta un 40% más barato." },
+            { question: "¿Puedo endosar mi seguro actual si ya lo tengo cobrado con el banco?", answer: "Sí, en cualquier momento puedes solicitar la cancelación del que te cobra el banco, cotizando y presentando una póliza nueva que lo reemplace de inmediato." },
+            { question: "¿El Seguro Vida Deudor entrega dinero a mi familia?", answer: "A diferencia de un Seguro de Vida Individual tradicional (que deja el dinero de libre inversión a los herederos), el Vida Deudor le paga de manera prioritaria al banco acreedor para saldar el saldo pendiente exacto de la hipoteca." }
         ]
     },
     {
         slug: "colectivos",
         category: "empresa",
         quoteType: "empresarial",
-        title: "Seguros Colectivos de Empleados",
-        shortDescription: "Proteccion grupal para empleados: vida, salud y accidentes personales.",
-        fullDescription: "Los seguros colectivos permiten proteger grupos de empleados con beneficios en vida, salud y accidentes personales a precios mas competitivos que los individuales.",
+        title: "Seguros Colectivos",
+        shortDescription: "Protección para grupos de empleados con beneficios y costos más competitivos.",
+        fullDescription: "Protección estructurada para grupos de empleados o miembros de una organización, permitiendo acceder a beneficios de vida, salud y coberturas accidentales con costos altamente competitivos. Son una herramienta clave para atraer y fidelizar talento, además de brindar bienestar y sentido de pertenencia a los colaboradores.",
         icon: User,
         color: "text-violet-600",
         bg: "bg-violet-50",
         gradient: "from-violet-600 to-purple-700",
         image: "/images/service-business.png",
         features: [
-            { title: "Vida Grupo", desc: "Respaldo economico para familias de colaboradores en caso de fallecimiento." },
-            { title: "Salud Colectiva", desc: "Acceso a planes de salud complementarios para el equipo." },
-            { title: "Accidentes Personales", desc: "Cobertura ante accidentes dentro y fuera del trabajo." }
+            { title: "Vida Grupo", desc: "Respaldo y amparo económico vital para las familias en caso de fallecimiento." },
+            { title: "Salud / EPS", desc: "Acceso diferencial a redes integrales de atención médica Premium." },
+            { title: "Accidentes Personales", desc: "Amparo para eventos accidentales ocurridos a los colaboradores." }
         ],
-        seoKeywords: ["seguros colectivos empresas colombia", "poliza vida grupo empleados", "beneficios laborales seguros bogota"],
+        seoKeywords: ["seguros colectivos empresas colombia", "poliza vida grupo empleados", "beneficios laborales seguros bogota", "seguro grupal corporativo"],
         faqs: [
-            { question: "Cuantos empleados minimo?", answer: "Generalmente desde 5 personas ya es posible acceder a tarifas de grupo." },
-            { question: "Reemplaza la ARL?", answer: "No, la ARL es obligatoria. Los seguros colectivos son voluntarios y complementarios." }
+            { question: "¿Desde cuántos empleados se puede armar una póliza colectiva?", answer: "Las aseguradoras permiten formar grupos accediendo a descuentos por volumen desde números muy reducidos, ideal para PyMEs." },
+            { question: "¿El costo del seguro colectivo quién lo asume?", answer: "La empresa puede decidir pagar el 100% como incentivo, o armar un esquema mixto pagando una parte y deduciendo a nómina al empleado." }
         ]
     },
     {
         slug: "arl-vida-grupo",
         category: "empresa",
         quoteType: "empresarial",
-        title: "ARL y Vida Grupo Empresarial",
-        shortDescription: "Cumple la normatividad laboral colombiana y protege integralmente a tu equipo.",
-        fullDescription: "La ARL (Administradora de Riesgos Laborales) es cobertura obligatoria en Colombia que protege ante accidentes de trabajo y enfermedades laborales. Complementada con Vida Grupo da respaldo economico a las familias.",
+        title: "ARL / Vida Grupo",
+        shortDescription: "Soluciones de protección del talento humano frente a riesgos laborales y eventos de vida.",
+        fullDescription: "Completo esquema orientado a salvaguardar al talento humano de los eventos diarios. Una combinación entre la Administradora de Riesgos Laborales (ARL), que es la cobertura obligatoria en Colombia ante accidentes laborales; más una póliza de Vida Grupo, proporcionando respaldo económico. Así tu empresa cumple la normatividad laboral al tiempo que fortalece la protección integral del equipo.",
         icon: Briefcase,
         color: "text-emerald-700",
         bg: "bg-emerald-50",
         gradient: "from-emerald-600 to-teal-700",
         image: "/images/service-business.png",
         features: [
-            { title: "ARL Obligatoria", desc: "Cobertura legal ante accidentes de trabajo y enfermedades laborales en Colombia." },
-            { title: "Vida Grupo", desc: "Seguro adicional que amplia la proteccion economica de las familias." },
-            { title: "Cumplimiento Normativo", desc: "Garantiza el cumplimiento de la legislacion laboral colombiana." }
+            { title: "ARL Obligatoria", desc: "Administradora de Riesgos Laborales que atiende a los colaboradores accidentados." },
+            { title: "Vida Grupo Complementario", desc: "Poliza voluntaria que respalda económicamente de forma independiente y paralela a la ARL." },
+            { title: "Cumplimiento Legal", desc: "Evita graves multas ante el Estado por el incumplimiento de protección del trabajador." }
         ],
-        seoKeywords: ["arl colombia empresas", "vida grupo empleados bogota", "seguro obligatorio empleados colombia"],
+        seoKeywords: ["arl colombia empresas", "vida grupo empleados bogota", "seguro obligatorio empleados colombia", "riesgos laborales colombia"],
         faqs: [
-            { question: "La ARL la paga el empleador?", answer: "En Colombia si, la ARL la paga el empleador segun el nivel de riesgo de las actividades." },
-            { question: "Podemos elegir la ARL?", answer: "Si, como empleador puedes seleccionar entre las ARL habilitadas por la Superintendencia Financiera." }
+            { question: "¿Es suficiente solo tener la ARL?", answer: "La ARL solo cubre riesgos en horarios y entornos de trabajo. El Vida Grupo garantiza respaldo 24/7 incluso si el evento es por enfermedad común o un fin de semana fuera de su labor." },
+            { question: "¿Quién asume los costos de cada protección?", answer: "Legalmente, la ARL es 100% asumida y pagada por la empresa cotizante. El Vida Grupo suele estructurarse como un beneficio adicional también pagado por recursos extra de la compañía." }
         ]
     }
 

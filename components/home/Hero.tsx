@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Shield } from "lucide-react";
+import { ChevronRight, Shield, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { Container } from "../ui/Container";
 import QuoteFunnel from "./QuoteFunnel";
@@ -64,11 +64,26 @@ export function Hero() {
                             Cotiza tu seguro en minutos con el respaldo de más de 40 años de experiencia. Asesoría experta, sin complicaciones, y con las mejores aseguradoras del país.
                         </p>
 
+                        <div className="flex flex-col gap-3 py-2">
+                            {[
+                                "Asesoría personalizada según necesidades",
+                                "Comparación entre aseguradoras",
+                                "Acompañamiento en siniestros",
+                            ].map((benefit, i) => (
+                                <div key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                                    <div className="h-6 w-6 rounded-full bg-cyan-50 flex items-center justify-center flex-shrink-0">
+                                        <CheckCircle2 className="w-4 h-4 text-cyan-600" />
+                                    </div>
+                                    <span className="text-base">{benefit}</span>
+                                </div>
+                            ))}
+                        </div>
+
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 hidden lg:flex">
                             <Link href="#servicios">
                                 <button className="w-full sm:w-auto bg-white border border-slate-200 text-purple-800 px-8 py-4 rounded-full text-base font-medium hover:bg-slate-50 transition-all hover:border-slate-300 flex items-center justify-center gap-2">
                                     <Shield className="w-4 h-4" />
-                                    <span>Conocer Diferenciales</span>
+                                    <span>Conoce los cubrimientos</span>
                                 </button>
                             </Link>
                         </div>

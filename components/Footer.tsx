@@ -45,11 +45,11 @@ export function Footer() {
                                 </div>
                                 +57 601 629 4040
                             </a>
-                            <a href="mailto:administrativo@roesan.com.co" className="flex items-center gap-3 text-sm hover:text-white transition-colors group">
+                            <a href="mailto:comercial@roesan.com" className="flex items-center gap-3 text-sm hover:text-white transition-colors group">
                                 <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-purple-700 transition-colors">
                                     <Mail className="w-3.5 h-3.5" />
                                 </div>
-                                administrativo@roesan.com.co
+                                comercial@roesan.com
                             </a>
                             <div className="flex items-start gap-3 text-sm">
                                 <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center flex-shrink-0 mt-0.5">

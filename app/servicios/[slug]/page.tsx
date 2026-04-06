@@ -152,9 +152,13 @@ export default async function ServiceDetailPage({ params }: Props) {
                     {/* Sidebar CTA */}
                     <div>
                         <div className="sticky top-24 rounded-3xl bg-white p-2 sm:p-4 shadow-xl ring-1 ring-slate-900/5">
-                            <h3 className="text-xl font-bold text-slate-900 mb-2 px-4 pt-4">Solicita tu cotización</h3>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2 px-4 pt-4">
+                                {service.category === 'empresa' ? 'Solicita asesoría empresarial' : 'Solicita tu cotización'}
+                            </h3>
                             <p className="text-slate-600 text-sm mb-6 px-4">
-                                Ingresa tus datos básicos y te presentaremos las mejores opciones en {service.title}.
+                                {service.category === 'empresa'
+                                    ? `Ingresa tus datos corporativos y un asesor experto se contactará contigo para estructurar tu plan de ${service.title}.`
+                                    : `Ingresa tus datos básicos y te presentaremos las mejores opciones en ${service.title}.`}
                             </p>
 
                             <div className="w-full">

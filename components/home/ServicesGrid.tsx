@@ -22,7 +22,7 @@ export function ServicesGrid() {
                             Nuestras Soluciones
                         </h2>
                         <p className="mt-4 text-xl text-slate-500 max-w-2xl mx-auto font-light">
-                            Diseñamos cada póliza pensando en tu tranquilidad y seguridad, tanto para tu negocio como para tu familia.
+                            Te asesoramos para elegir la póliza que mejor se adapte a tus necesidades, pensando en tu tranquilidad y la de tu negocio.
                         </p>
                     </motion.div>
                 </div>

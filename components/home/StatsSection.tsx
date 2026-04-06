@@ -119,7 +119,7 @@ export function StatsSection() {
                                 <stat.icon className="w-7 h-7" />
                             </div>
 
-                            <div className={`relative text-5xl font-black ${stat.color} leading-none mb-3`}>
+                            <div className={`relative text-5xl font-bold tracking-tight ${stat.color} leading-none mb-3`}>
                                 <CountUp target={stat.value} suffix={stat.suffix} />
                             </div>
 

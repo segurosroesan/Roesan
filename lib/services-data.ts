@@ -419,7 +419,7 @@ export const servicesData: ServiceData[] = [
         color: "text-teal-600",
         bg: "bg-teal-50",
         gradient: "from-teal-500 to-cyan-600",
-        image: "/images/service-business.png",
+        image: "/images/card-vida-deudor.png",
         features: [
             { title: "Fallecimiento", desc: "La aseguradora salda inmediatamente el total de la deuda hipotecaria pendiente con la entidad financiera si llegas a faltar." },
             { title: "Incapacidad Total y Permanente", desc: "Protección en vida: si una enfermedad severa o accidente te impide volver a trabajar, el seguro asume y cancela tu deuda habitacional." },

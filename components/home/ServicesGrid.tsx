@@ -28,7 +28,7 @@ const cardImages: Record<string, string> = {
     mascotas: "/images/card-mascotas.png",
     hogar: "/images/card-hogar.png",
     educativo: "/images/card-educativo.png",
-    "vida-deudor": "/images/card-cumplimiento.png",
+    "vida-deudor": "/images/card-vida-deudor.png",
 };
 
 // Color accents for the cards

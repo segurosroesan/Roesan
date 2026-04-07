@@ -1,109 +1,166 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Shield, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
+import { ChevronRight, ChevronLeft, Shield } from "lucide-react";
 import { Container } from "../ui/Container";
+import Image from "next/image";
 import QuoteFunnel from "./QuoteFunnel";
 
-export function Hero() {
-    const words = ["Tu familia", "Tu empresa", "Tu patrimonio"];
-    const [index, setIndex] = useState(0);
+const slides = [
+    {
+        image: "/images/hero-familia.png",
+        tag: "Seguros para Personas",
+        title: "Protegemos lo que más valoras",
+        subtitle: "Tu familia merece tranquilidad ante cualquier imprevisto. Más de 40 años cuidando hogares colombianos.",
+        overlayColor: "from-purple-950/80 via-purple-900/60 to-transparent",
+    },
+    {
+        image: "/images/hero-empresa.png",
+        tag: "Seguros Empresariales",
+        title: "Tu empresa, blindada",
+        subtitle: "Soluciones integrales para proteger tu operación, empleados y patrimonio con el respaldo de las mejores aseguradoras.",
+        overlayColor: "from-slate-950/80 via-slate-900/60 to-transparent",
+    },
+    {
+        image: "/images/hero-auto.png",
+        tag: "Seguro de Vehículos",
+        title: "Viaja con total confianza",
+        subtitle: "Cotiza tu seguro de auto en minutos. Comparamos entre las mejores aseguradoras para darte la tarifa ideal.",
+        overlayColor: "from-cyan-950/70 via-slate-900/50 to-transparent",
+    },
+];
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setIndex((prev) => (prev + 1) % words.length);
-        }, 2500);
-        return () => clearInterval(intervalId);
+export function Hero() {
+    const [current, setCurrent] = useState(0);
+
+    const next = useCallback(() => {
+        setCurrent((prev) => (prev + 1) % slides.length);
     }, []);
 
+    const prev = useCallback(() => {
+        setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+    }, []);
+
+    useEffect(() => {
+        const timer = setInterval(next, 6000);
+        return () => clearInterval(timer);
+    }, [next]);
+
+    const slide = slides[current];
+
     return (
-        <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden luxury-gradient">
-            {/* Background Decor */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50 opacity-50 skew-x-12 translate-x-32 pointer-events-none" />
+        <section className="relative min-h-screen pt-20 overflow-hidden bg-slate-900">
+            {/* Background Images — Crossfade */}
+            <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                    key={current}
+                    initial={{ opacity: 0, scale: 1.08 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="absolute inset-0"
+                >
+                    <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        className="object-cover object-center"
+                        priority={current === 0}
+                        sizes="100vw"
+                    />
+                    {/* Horizontal overlay: dark on left, clear on right */}
+                    <div className={`absolute inset-0 bg-gradient-to-r ${slide.overlayColor}`} />
+                    {/* Vertical overlay bottom */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30" />
+                </motion.div>
+            </AnimatePresence>
 
-            <Container className="relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Content */}
+            <Container className="relative z-10 py-16 lg:py-24">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-5rem)]">
 
-                    {/* Text Content */}
+                    {/* Left: Animated text */}
+                    <div className="flex flex-col justify-center">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={current}
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="space-y-6"
+                            >
+                                {/* Tag */}
+                                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold uppercase tracking-widest text-white/90">
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
+                                    </span>
+                                    {slide.tag}
+                                </div>
+
+                                {/* Title */}
+                                <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1]">
+                                    {slide.title}
+                                </h1>
+
+                                {/* Subtitle */}
+                                <p className="text-lg lg:text-xl text-white/75 leading-relaxed max-w-md">
+                                    {slide.subtitle}
+                                </p>
+
+                                {/* Trust indicator */}
+                                <div className="flex items-center gap-3 text-sm text-white/60 pt-2">
+                                    <Shield className="w-4 h-4 text-cyan-400" />
+                                    Más de 2,000 familias y empresas protegidas desde 1982
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+
+                        {/* Slide controls */}
+                        <div className="flex items-center gap-6 mt-12">
+                            {/* Dots */}
+                            <div className="flex items-center gap-2.5">
+                                {slides.map((_, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => setCurrent(idx)}
+                                        className={`transition-all duration-500 rounded-full ${
+                                            idx === current
+                                                ? "w-10 h-3 bg-white"
+                                                : "w-3 h-3 bg-white/35 hover:bg-white/55"
+                                        }`}
+                                        aria-label={`Slide ${idx + 1}`}
+                                    />
+                                ))}
+                            </div>
+                            {/* Arrows */}
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={prev}
+                                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all"
+                                    aria-label="Anterior"
+                                >
+                                    <ChevronLeft className="w-4 h-4" />
+                                </button>
+                                <button
+                                    onClick={next}
+                                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all"
+                                    aria-label="Siguiente"
+                                >
+                                    <ChevronRight className="w-4 h-4" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right: QuoteFunnel */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="space-y-8 max-w-2xl"
-                    >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-medium text-purple-800 mb-2">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
-                            </span>
-                            Cotización Rápida y 100% Digital
-                        </div>
-
-                        <h1 className="font-serif text-5xl lg:text-7xl font-medium tracking-tight text-purple-800 leading-[1.2]">
-                            Protegemos lo que más <span>Valoras</span>:
-                            <br className="hidden sm:block" />
-                            <span className="block mt-2 sm:mt-4 h-[1.2em] relative overflow-hidden">
-                                <AnimatePresence mode="wait">
-                                    <motion.span
-                                        key={index}
-                                        initial={{ y: 50, opacity: 0 }}
-                                        animate={{ y: 0, opacity: 1 }}
-                                        exit={{ y: -50, opacity: 0 }}
-                                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                                        className="absolute left-0 text-cyan-400 italic"
-                                    >
-                                        {words[index]}
-                                    </motion.span>
-                                </AnimatePresence>
-                            </span>
-                        </h1>
-
-                        <p className="text-lg lg:text-xl text-slate-500 leading-relaxed max-w-lg">
-                            Cotiza tu seguro en minutos con el respaldo de más de 40 años de experiencia. Asesoría experta, sin complicaciones, y con las mejores aseguradoras del país.
-                        </p>
-
-                        <div className="flex flex-col gap-3 py-2">
-                            {[
-                                "Asesoría personalizada según necesidades",
-                                "Comparación entre aseguradoras",
-                                "Acompañamiento en siniestros",
-                            ].map((benefit, i) => (
-                                <div key={i} className="flex items-center gap-3 text-slate-700 font-medium">
-                                    <div className="h-6 w-6 rounded-full bg-cyan-50 flex items-center justify-center flex-shrink-0">
-                                        <CheckCircle2 className="w-4 h-4 text-cyan-600" />
-                                    </div>
-                                    <span className="text-base">{benefit}</span>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4 hidden lg:flex">
-                            <Link href="#servicios">
-                                <button className="w-full sm:w-auto bg-white border border-slate-200 text-purple-800 px-8 py-4 rounded-full text-base font-medium hover:bg-slate-50 transition-all hover:border-slate-300 flex items-center justify-center gap-2">
-                                    <Shield className="w-4 h-4" />
-                                    <span>Conoce los cubrimientos</span>
-                                </button>
-                            </Link>
-                        </div>
-
-                        <div className="pt-8 flex items-center gap-4 text-sm text-slate-400">
-                            <div className="flex -space-x-2">
-                                <div className="w-8 h-8 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[10px] font-bold text-slate-500">A</div>
-                                <div className="w-8 h-8 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center text-[10px] font-bold text-slate-500">B</div>
-                                <div className="w-8 h-8 rounded-full bg-slate-400 border-2 border-white flex items-center justify-center text-[10px] font-bold text-slate-500">C</div>
-                            </div>
-                            <p>Únete a las más de 2,000 familias e instituciones protegidas por Roesan</p>
-                        </div>
-                    </motion.div>
-
-                    {/* Funnel Content */}
-                    <motion.div 
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3, duration: 0.8 }}
-                        className="relative w-full lg:max-w-xl mx-auto xl:mr-0 z-20"
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                        className="relative z-20"
                     >
                         <QuoteFunnel />
                     </motion.div>

@@ -12,20 +12,21 @@ import { servicesData } from "@/lib/services-data";
 const cardImages: Record<string, string> = {
     // Empresas
     copropiedades: "/images/card-empresarial.png",
-    transporte: "/images/card-cumplimiento.png",
+    transporte: "/images/card-todo-riesgo-autos.png",
     cumplimiento: "/images/card-cumplimiento.png",
-    "responsabilidad-civil-empresarial": "/images/card-empresarial.png",
+    "responsabilidad-civil-empresarial": "/images/card-responsabilidad-civil.png",
+    "todo-riesgo": "/images/card-todo-riesgo-autos.png",
     empresariales: "/images/card-empresarial.png",
     colectivos: "/images/card-salud.png",
     "arl-vida-grupo": "/images/card-vida-educativo.png",
     // Personas
-    vehiculos: "/images/card-vehiculos.png",
+    vehiculos: "/images/card-todo-riesgo-autos.png",
     salud: "/images/card-salud.png",
-    excequial: "/images/card-vida-educativo.png",
+    excequial: "/images/card-exequial.png",
     mascotas: "/images/card-mascotas.png",
     hogar: "/images/card-hogar.png",
     "vida-deudor": "/images/card-cumplimiento.png",
-    "seguro-educativo": "/images/card-vida-educativo.png",
+    "seguro-educativo": "/images/card-educativo.png",
 };
 
 // Color accents for the cards

@@ -53,7 +53,7 @@ export default function BlogPage() {
                     <span className="inline-block rounded-full bg-purple-700/30 px-4 py-1.5 text-sm font-medium text-purple-300 mb-6">
                         Blog & Educación
                     </span>
-                    <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    <h1 className="font-serif text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]">
                         Blog de Seguros
                     </h1>
                     <p className="mt-6 text-xl text-slate-300 max-w-2xl mx-auto">

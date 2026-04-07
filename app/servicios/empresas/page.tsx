@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, HelpCircle } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { servicesData } from "@/lib/services-data";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
@@ -33,7 +34,7 @@ export default function EmpresasHubPage() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
+                        className="font-serif text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]"
                     >
                         Seguros para Empresas
                     </motion.h1>
@@ -55,26 +56,35 @@ export default function EmpresasHubPage() {
                         {empresasServices.map((service, idx) => (
                             <Link key={service.slug} href={`/servicios/${service.slug}`} className="block h-full group">
                                 <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                    whileHover={{ y: -8 }}
-                                    className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 h-full relative overflow-hidden flex flex-col"
+                                    transition={{ duration: 0.5, delay: idx * 0.08 }}
+                                    className="relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 h-full min-h-[300px]"
                                 >
-                                    <div className={`w-14 h-14 rounded-xl flex shrink-0 items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${service.bg}`}>
-                                        <service.icon className={`h-7 w-7 ${service.color}`} />
+                                    <div className="absolute inset-0">
+                                        <Image
+                                            src={service.image}
+                                            alt={service.title}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
                                     </div>
 
-                                    <h4 className="font-serif text-xl font-medium text-purple-800 mb-2">
-                                        {service.title}
-                                    </h4>
-                                    <p className="text-sm text-slate-500 leading-relaxed mb-6 flex-grow">
-                                        {service.shortDescription}
-                                    </p>
+                                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10 flex flex-col justify-end h-full">
+                                        <div className="w-8 h-1 bg-purple-500 rounded-full mb-3 group-hover:w-12 transition-all duration-500" />
+                                        <h4 className="font-serif text-xl font-medium text-white mb-2">
+                                            {service.title}
+                                        </h4>
+                                        <p className="text-white/80 text-sm leading-relaxed mb-4 line-clamp-2">
+                                            {service.shortDescription}
+                                        </p>
 
-                                    <div className="flex items-center text-sm font-medium text-cyan-500 group-hover:text-cyan-400 transition-colors mt-auto">
-                                        Ver detalles <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                        <div className="flex items-center gap-2 text-sm font-semibold text-purple-300 group-hover:text-purple-200 transition-colors mt-auto">
+                                            Ver detalles <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                        </div>
                                     </div>
                                 </motion.div>
                             </Link>

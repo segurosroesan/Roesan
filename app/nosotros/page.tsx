@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Container } from "@/components/ui/Container";
-import { Shield, Users, Target, Heart } from "lucide-react";
+import { Shield, Users, Target, Heart, Award, Handshake } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -15,25 +15,32 @@ export default function AboutPage() {
 
     const values = [
         {
-            title: "Comprendemos",
-            description: "Antes de sugerirte cualquier alternativa, queremos conocer tus necesidades. Cada persona es diferente.",
-            icon: Heart,
-            color: "text-rose-600",
-            bg: "bg-rose-50"
+            title: "Excelencia",
+            description: "Buscamos la más alta calidad en cada póliza y en cada interacción con nuestros clientes.",
+            icon: Award,
+            color: "text-primary",
+            bg: "bg-primary/10"
         },
         {
-            title: "Priorizamos",
-            description: "Te explicamos en qué consiste cada póliza para evitar sorpresas. Queremos que sepas con qué cuentas.",
+            title: "Cercanía",
+            description: "Construimos relaciones de confianza a largo plazo. Conocemos a cada cliente por su nombre.",
+            icon: Users,
+            color: "text-primary",
+            bg: "bg-primary/10"
+        },
+        {
+            title: "Transparencia",
+            description: "Brindamos información clara y honesta sobre coberturas, costos y exclusiones.",
             icon: Target,
-            color: "text-blue-600",
-            bg: "bg-blue-50"
+            color: "text-primary",
+            bg: "bg-primary/10"
         },
         {
-            title: "Respondemos",
-            description: "Somos el puente que te facilita el proceso de reclamación y te acompañamos todo el camino.",
-            icon: Shield,
-            color: "text-emerald-600",
-            bg: "bg-emerald-50"
+            title: "Compromiso",
+            description: "Estamos contigo en los momentos que más importan, especialmente cuando ocurre un siniestro.",
+            icon: Handshake,
+            color: "text-primary",
+            bg: "bg-primary/10"
         }
     ];
 
@@ -49,7 +56,7 @@ export default function AboutPage() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
-                        className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+                        className="font-serif text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]"
                     >
                         Nuestra Historia
                     </motion.h1>
@@ -83,15 +90,18 @@ export default function AboutPage() {
                             </div>
 
                             <div className="prose prose-lg text-slate-600">
-                                <p>
-                                    Somos una agencia de seguros fundada en <strong>1982</strong> por <strong>Roberto Estrada Ángel</strong>. Su visión de servicio y protección dio origen al acrónimo que hoy nos identifica: <strong>ROESAN</strong>.
+                                <p className="text-xl font-medium text-slate-800 mb-6">
+                                    Más de 40 años protegiendo lo que más importa.
                                 </p>
                                 <p>
-                                    Tras toda una vida dedicada al sector asegurador, en 1985, <strong>María Eugenia Grueso de Estrada</strong> asumió la gerencia. Bajo su liderazgo, la agencia ha evolucionado sin perder su esencia: el trato humano y cercano.
+                                    Fundada en <strong>1982</strong> por <strong>Roberto Estrada Ángel</strong>, Roesan nació con la visión de ofrecer un servicio de seguros con un enfoque humano y personalizado en Colombia.
                                 </p>
-                                <blockquote className="border-l-4 border-primary pl-4 italic text-slate-800">
-                                    "Comprendemos cuán incierto es el futuro, por eso queremos forjar un vínculo a largo plazo acompañándote en cada momento."
-                                </blockquote>
+                                <p>
+                                    Hoy, liderada por la segunda generación familiar con <strong>María Eugenia Estrada</strong> al frente, la empresa continúa innovando y adaptándose a las necesidades del mercado sin perder su esencia: la cercanía con cada cliente.
+                                </p>
+                                <p>
+                                    Con alianzas estratégicas con las principales aseguradoras del país, ofrecemos la capacidad de comparar y encontrar la mejor opción para cada perfil de riesgo.
+                                </p>
                             </div>
                         </motion.div>
 
@@ -107,8 +117,8 @@ export default function AboutPage() {
                             <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-900/5 group">
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10" />
                                 <Image
-                                    src="/images/office-building.png"
-                                    alt="Oficinas Roesan"
+                                    src="/images/bogota-chapinero-1980.png"
+                                    alt="Chapinero, Bogotá, 1982 – Fundación de Roesan"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     priority
@@ -131,12 +141,12 @@ export default function AboutPage() {
             {/* Values Section */}
             <section className="bg-slate-50 py-24">
                 <Container>
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-slate-900">Nuestros Pilares</h2>
-                        <p className="mt-4 text-slate-600">Lo que nos hace diferentes.</p>
+                    <div className="mb-16">
+                        <span className="text-sm font-semibold tracking-wider text-slate-400 uppercase">Nuestros Valores</span>
+                        <h2 className="mt-2 text-4xl font-serif font-medium text-slate-900">Lo que nos define.</h2>
                     </div>
 
-                    <div className="grid gap-8 sm:grid-cols-3">
+                    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                         {values.map((value, idx) => (
                             <motion.div
                                 key={value.title}

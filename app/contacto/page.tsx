@@ -78,10 +78,10 @@ export default function ContactPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl font-bold tracking-tight text-white sm:text-5xl"
+                        className="font-serif text-4xl font-medium leading-[1.1] text-white sm:text-5xl"
                     >
                         Tu asesor personal está<br />
-                        <span className="text-cyan-400">a un mensaje</span>
+                        <span className="text-purple-400">a un mensaje</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -101,10 +101,10 @@ export default function ContactPage() {
                     {/* Contact Info Cards */}
                     <div className="space-y-4">
                         {[
-                            { icon: MapPin, title: "Visítanos", content: "Calle 109 #19-36 of. 203, Bogotá", color: "text-emerald-500", bg: "bg-emerald-50", delay: 0 },
-                            { icon: Phone, title: "Llámanos", content: "+57 601 629 4040", color: "text-blue-500", bg: "bg-blue-50", delay: 0.1 },
-                            { icon: Mail, title: "Escríbenos", content: "administrativo@roesan.com.co", color: "text-rose-500", bg: "bg-rose-50", delay: 0.2 },
-                            { icon: Clock, title: "Horario de atención", content: "Lun–Vie: 8:30 am – 5:30 pm", color: "text-amber-500", bg: "bg-amber-50", delay: 0.3 },
+                            { icon: MapPin, title: "Visítanos", content: "Calle 109 #19-36 of. 203, Bogotá", color: "text-primary", bg: "bg-purple-50", delay: 0 },
+                            { icon: Phone, title: "Llámanos", content: "+57 601 629 4040", color: "text-primary", bg: "bg-purple-50", delay: 0.1 },
+                            { icon: Mail, title: "Escríbenos", content: "administrativo@roesan.com.co", color: "text-primary", bg: "bg-purple-50", delay: 0.2 },
+                            { icon: Clock, title: "Horario de atención", content: "Lun–Vie: 8:30 am – 5:30 pm", color: "text-primary", bg: "bg-purple-50", delay: 0.3 },
                         ].map((item) => (
                             <motion.div
                                 key={item.title}

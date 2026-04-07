@@ -11,22 +11,24 @@ import { servicesData } from "@/lib/services-data";
 // Map slugs to card images
 const cardImages: Record<string, string> = {
     // Empresas
-    copropiedades: "/images/card-empresarial.png",
-    transporte: "/images/card-todo-riesgo-autos.png",
-    cumplimiento: "/images/card-cumplimiento.png",
-    "responsabilidad-civil-empresarial": "/images/card-responsabilidad-civil.png",
+    copropiedades: "/images/card-copropiedades.png",
+    transporte: "/images/card-transporte.png",
+    cumplimiento: "/images/card-cumplimiento-business.png",
+    "responsabilidad-civil-empresarial": "/images/card-rc-empresarial.png",
     "todo-riesgo": "/images/card-todo-riesgo-autos.png",
     empresariales: "/images/card-empresarial.png",
-    colectivos: "/images/card-salud.png",
-    "arl-vida-grupo": "/images/card-vida-educativo.png",
+    colectivos: "/images/card-colectivos.png",
+    "arl-vida-grupo": "/images/card-arl-vida-grupo.png",
     // Personas
-    vehiculos: "/images/card-todo-riesgo-autos.png",
+    vida: "/images/card-seguro-vida.png",
+    autos: "/images/card-autos-riesgo.png",
+    "responsabilidad-civil-personal": "/images/card-responsabilidad-civil.png",
     salud: "/images/card-salud.png",
-    excequial: "/images/card-exequial.png",
+    exequial: "/images/card-exequial.png",
     mascotas: "/images/card-mascotas.png",
     hogar: "/images/card-hogar.png",
+    educativo: "/images/card-educativo.png",
     "vida-deudor": "/images/card-cumplimiento.png",
-    "seguro-educativo": "/images/card-educativo.png",
 };
 
 // Color accents for the cards

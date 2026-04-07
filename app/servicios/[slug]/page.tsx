@@ -92,7 +92,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                             </span>
                         </div>
 
-                        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6 shadow-sm">
+                        <h1 className="font-serif text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl mb-6 leading-[1.1]">
                             {service.title}
                         </h1>
                         <p className="text-xl text-white/90 leading-relaxed max-w-2xl text-shadow">

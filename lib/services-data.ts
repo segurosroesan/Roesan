@@ -30,7 +30,7 @@ export const servicesData: ServiceData[] = [
         color: "text-indigo-600",
         bg: "bg-indigo-50",
         gradient: "from-indigo-600 to-blue-800",
-        image: "/images/office-building.png",
+        image: "/images/card-copropiedades.png",
         features: [
             { title: "Incendio y Rayo", desc: "Respaldo ante daños directos a la copropiedad." },
             { title: "Terremoto y Eventos de la Naturaleza", desc: "Protección contra sismos, inundaciones y vendavales." },
@@ -53,7 +53,7 @@ export const servicesData: ServiceData[] = [
         color: "text-amber-600",
         bg: "bg-amber-50",
         gradient: "from-amber-500 to-orange-600",
-        image: "/images/service-business.png",
+        image: "/images/card-transporte.png",
         features: [
             { title: "Robo y Saqueo", desc: "Cubrimiento directo en caso de que la mercancía sea hurtada durante su transporte." },
             { title: "Daños en Trayecto", desc: "Respaldo ante afectaciones por accidentes viales o mala manipulación." },
@@ -76,7 +76,7 @@ export const servicesData: ServiceData[] = [
         color: "text-slate-700",
         bg: "bg-slate-50",
         gradient: "from-slate-700 to-slate-900",
-        image: "/images/service-business.png",
+        image: "/images/card-cumplimiento-business.png",
         features: [
             { title: "Contratos Estatales y Privados", desc: "Requisito para licitaciones públicas y convenios con empresas privadas." },
             { title: "Cobertura de Anticipos", desc: "Ampara el buen manejo y la destinación de dineros entregados por adelantado." },
@@ -100,7 +100,7 @@ export const servicesData: ServiceData[] = [
         color: "text-teal-600",
         bg: "bg-teal-50",
         gradient: "from-teal-600 to-emerald-800",
-        image: "/images/office-building.png",
+        image: "/images/card-rc-empresarial.png",
         features: [
             { title: "Daños a Clientes o Visitantes", desc: "Cubre los daños generados a terceros dentro del desarrollo de la operación." },
             { title: "Perjuicios Causados por Empleados", desc: "Amparo civil por daños que tus trabajadores ocasionen trabajando." },
@@ -123,7 +123,7 @@ export const servicesData: ServiceData[] = [
         color: "text-sky-600",
         bg: "bg-sky-50",
         gradient: "from-sky-500 to-blue-600",
-        image: "/images/service-business.png",
+        image: "/images/card-empresarial.png",
         features: [
             { title: "Exposición a Desastres", desc: "Respalda frente a afectaciones por Incendio, explosión o terremoto." },
             { title: "Equipos Tecnológicos", desc: "Cobertura ante daños eléctricos de aparatos corporativos." },
@@ -149,7 +149,7 @@ export const servicesData: ServiceData[] = [
         color: "text-rose-600",
         bg: "bg-rose-50",
         gradient: "from-rose-500 to-pink-600",
-        image: "/images/service-health.png",
+        image: "/images/card-seguro-vida.png",
         features: [
             { title: "Fallecimiento por cualquier motivo", desc: "Entrega del valor asegurado a los beneficiarios designados en caso de muerte por enfermedad o accidente." },
             { title: "Incapacidad total o permanente", desc: "Pago del 100% del capital asegurado si un accidente o enfermedad te impide volver a ejercer tu ocupación." },
@@ -184,7 +184,7 @@ export const servicesData: ServiceData[] = [
         color: "text-emerald-500",
         bg: "bg-emerald-50",
         gradient: "from-emerald-400 to-teal-600",
-        image: "/images/service-health.png",
+        image: "/images/card-salud.png",
         features: [
             { title: "Atención médica y exámenes", desc: "Acceso directo a consultas médicas, laboratorio clínico y medios de diagnóstico de alta tecnología." },
             { title: "Hospitalización y cirugías", desc: "Cobertura total en red de clínicas premium, incluyendo habitación hospitalaria individual y pago de honorarios." },
@@ -219,7 +219,7 @@ export const servicesData: ServiceData[] = [
         color: "text-blue-600",
         bg: "bg-blue-50",
         gradient: "from-blue-500 to-cyan-600",
-        image: "/images/service-auto.png",
+        image: "/images/card-autos-riesgo.png",
         features: [
             { title: "Daños a su vehículo", desc: "Cobertura para reparar arreglos y abolladuras tras un accidente o choque." },
             { title: "Responsabilidad civil a terceros", desc: "Protección integral frente a demandas y daños ocasionados a bienes o personas." },
@@ -258,7 +258,7 @@ export const servicesData: ServiceData[] = [
         color: "text-purple-600",
         bg: "bg-purple-50",
         gradient: "from-purple-600 to-indigo-700",
-        image: "/images/service-health.png",
+        image: "/images/card-responsabilidad-civil.png",
         features: [
             { title: "Amparo Patrimonial", desc: "Protege el patrimonio económico de tu familia para pagar sentencias de jueces." },
             { title: "Defensa Jurídica", desc: "Financiación de peritos, investigadores, abogados experimentados durante el proceso de demanda." },
@@ -281,7 +281,7 @@ export const servicesData: ServiceData[] = [
         color: "text-fuchsia-600",
         bg: "bg-fuchsia-50",
         gradient: "from-fuchsia-500 to-pink-600",
-        image: "/images/service-business.png",
+        image: "/images/card-hogar.png",
         features: [
             { title: "Incendio y Rayo", desc: "Indemnización en caso de que las llamas o la caída de un rayo afecten gravemente la estructura de tu casa o tus bienes." },
             { title: "Terremoto y Temblores", desc: "Protección patrimonial si un sismo debilita la estructura de tu vivienda o destruye los enseres en su interior." },
@@ -317,7 +317,7 @@ export const servicesData: ServiceData[] = [
         color: "text-slate-600",
         bg: "bg-slate-100",
         gradient: "from-slate-600 to-slate-800",
-        image: "/images/service-health.png",
+        image: "/images/card-exequial.png",
         features: [
             { title: "Traslado del cuerpo", desc: "Servicio de recogida y transporte a nivel nacional hasta el lugar de velación y destino final previsto (inhumación o cremación)." },
             { title: "Sala de velación y cofre funerario", desc: "Suministro del cofre o urna cineraria, uso de salas de velación con todos los protocolos y arreglo floral." },
@@ -351,7 +351,7 @@ export const servicesData: ServiceData[] = [
         color: "text-orange-500",
         bg: "bg-orange-50",
         gradient: "from-orange-400 to-amber-500",
-        image: "/images/service-health.png",
+        image: "/images/card-mascotas.png",
         features: [
             { title: "Responsabilidad Civil Extracontractual", desc: "Pago de indemnizaciones legales y gastos médicos a terceros si tu mascota lastima a otra persona, a otro animal, o daña propiedad ajena." },
             { title: "Defensa Jurídica", desc: "Respaldo y asesoría legal con abogados especializados frente a cualquier demanda o citación en inspecciones de policía relacionada con tu mascota." },
@@ -386,7 +386,7 @@ export const servicesData: ServiceData[] = [
         color: "text-indigo-500",
         bg: "bg-indigo-50",
         gradient: "from-indigo-500 to-purple-600",
-        image: "/images/service-health.png",
+        image: "/images/card-educativo.png",
         features: [
             { title: "Ahorro Programado", desc: "Aportes estructurados de acuerdo a tus finanzas que se capitalizan para crear el fondo necesario para la universidad." },
             { title: "Protección por Fallecimiento", desc: "Si el asegurado (mamá o papá) falta o se incapacita, la póliza exime del pago de primas y garantiza el 100% del fondo a los hijos." },
@@ -453,7 +453,7 @@ export const servicesData: ServiceData[] = [
         color: "text-violet-600",
         bg: "bg-violet-50",
         gradient: "from-violet-600 to-purple-700",
-        image: "/images/service-business.png",
+        image: "/images/card-colectivos.png",
         features: [
             { title: "Vida Grupo", desc: "Respaldo y amparo económico vital para las familias en caso de fallecimiento." },
             { title: "Salud / EPS", desc: "Acceso diferencial a redes integrales de atención médica Premium." },
@@ -476,7 +476,7 @@ export const servicesData: ServiceData[] = [
         color: "text-emerald-700",
         bg: "bg-emerald-50",
         gradient: "from-emerald-600 to-teal-700",
-        image: "/images/service-business.png",
+        image: "/images/card-arl-vida-grupo.png",
         features: [
             { title: "ARL Obligatoria", desc: "Administradora de Riesgos Laborales que atiende a los colaboradores accidentados." },
             { title: "Vida Grupo Complementario", desc: "Poliza voluntaria que respalda económicamente de forma independiente y paralela a la ARL." },

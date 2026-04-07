@@ -19,9 +19,8 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Home page has a light background, others have a dark hero section
-    const isHome = pathname === "/";
-    const forceLightMode = isHome || isScrolled;
+    // Only switch to light mode when page has been scrolled (glasspanel kicks in)
+    const forceLightMode = isScrolled;
 
     return (
         <nav
@@ -33,10 +32,10 @@ export function Navbar() {
                     <Link href="/" className="flex items-center gap-3 group cursor-pointer">
                         <div className="relative h-12 w-48 transition-all duration-300">
                             <Image
-                                src={forceLightMode ? "/logo-roesan.png" : "/logo-roesan-blanco.png"}
+                                src="/logo-roesan.png"
                                 alt="Roesan Seguros"
                                 fill
-                                className="object-contain transition-transform duration-500 group-hover:scale-105"
+                                className={`object-contain transition-all duration-500 group-hover:scale-105 ${forceLightMode ? "" : "brightness-0 invert"}`}
                                 priority
                             />
                         </div>

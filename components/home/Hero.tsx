@@ -71,100 +71,98 @@ export function Hero() {
                     />
                     {/* Horizontal overlay: dark on left, clear on right */}
                     <div className={`absolute inset-0 bg-gradient-to-r ${slide.overlayColor}`} />
-                    {/* Vertical overlay bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30" />
+                    {/* Vertical overlay bottom only */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                 </motion.div>
             </AnimatePresence>
 
             {/* Content */}
-            <Container className="relative z-10 py-16 lg:py-24">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-5rem)]">
+            <Container className="relative z-10 flex flex-col min-h-[calc(100vh-5rem)] py-16 lg:py-20">
 
-                    {/* Left: Animated text */}
-                    <div className="flex flex-col justify-center">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={current}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                className="space-y-6"
+                {/* Top: Animated text — centered */}
+                <div className="flex-1 flex flex-col justify-center items-center text-center">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={current}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="space-y-5 max-w-3xl"
+                        >
+                            {/* Tag */}
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold uppercase tracking-widest text-white/90">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
+                                </span>
+                                {slide.tag}
+                            </div>
+
+                            {/* Title */}
+                            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1]">
+                                {slide.title}
+                            </h1>
+
+                            {/* Subtitle */}
+                            <p className="text-lg lg:text-xl text-white/75 leading-relaxed mx-auto max-w-xl">
+                                {slide.subtitle}
+                            </p>
+
+                            {/* Trust indicator */}
+                            <div className="flex items-center justify-center gap-3 text-sm text-white/60 pt-1">
+                                <Shield className="w-4 h-4 text-cyan-400" />
+                                Más de 2,000 familias y empresas protegidas desde 1982
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {/* Slide controls */}
+                    <div className="flex items-center gap-6 mt-10">
+                        {/* Dots */}
+                        <div className="flex items-center gap-2.5">
+                            {slides.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setCurrent(idx)}
+                                    className={`transition-all duration-500 rounded-full ${
+                                        idx === current
+                                            ? "w-10 h-3 bg-white"
+                                            : "w-3 h-3 bg-white/35 hover:bg-white/55"
+                                    }`}
+                                    aria-label={`Slide ${idx + 1}`}
+                                />
+                            ))}
+                        </div>
+                        {/* Arrows */}
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={prev}
+                                className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all"
+                                aria-label="Anterior"
                             >
-                                {/* Tag */}
-                                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold uppercase tracking-widest text-white/90">
-                                    <span className="relative flex h-2 w-2">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
-                                    </span>
-                                    {slide.tag}
-                                </div>
-
-                                {/* Title */}
-                                <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1]">
-                                    {slide.title}
-                                </h1>
-
-                                {/* Subtitle */}
-                                <p className="text-lg lg:text-xl text-white/75 leading-relaxed max-w-md">
-                                    {slide.subtitle}
-                                </p>
-
-                                {/* Trust indicator */}
-                                <div className="flex items-center gap-3 text-sm text-white/60 pt-2">
-                                    <Shield className="w-4 h-4 text-cyan-400" />
-                                    Más de 2,000 familias y empresas protegidas desde 1982
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
-
-                        {/* Slide controls */}
-                        <div className="flex items-center gap-6 mt-12">
-                            {/* Dots */}
-                            <div className="flex items-center gap-2.5">
-                                {slides.map((_, idx) => (
-                                    <button
-                                        key={idx}
-                                        onClick={() => setCurrent(idx)}
-                                        className={`transition-all duration-500 rounded-full ${
-                                            idx === current
-                                                ? "w-10 h-3 bg-white"
-                                                : "w-3 h-3 bg-white/35 hover:bg-white/55"
-                                        }`}
-                                        aria-label={`Slide ${idx + 1}`}
-                                    />
-                                ))}
-                            </div>
-                            {/* Arrows */}
-                            <div className="flex items-center gap-2">
-                                <button
-                                    onClick={prev}
-                                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all"
-                                    aria-label="Anterior"
-                                >
-                                    <ChevronLeft className="w-4 h-4" />
-                                </button>
-                                <button
-                                    onClick={next}
-                                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all"
-                                    aria-label="Siguiente"
-                                >
-                                    <ChevronRight className="w-4 h-4" />
-                                </button>
-                            </div>
+                                <ChevronLeft className="w-4 h-4" />
+                            </button>
+                            <button
+                                onClick={next}
+                                className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all"
+                                aria-label="Siguiente"
+                            >
+                                <ChevronRight className="w-4 h-4" />
+                            </button>
                         </div>
                     </div>
-
-                    {/* Right: QuoteFunnel */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4, duration: 0.8 }}
-                        className="relative z-20"
-                    >
-                        <QuoteFunnel />
-                    </motion.div>
                 </div>
+
+                {/* Bottom: QuoteFunnel — anclado abajo, centrado */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="relative z-20 w-full max-w-2xl mx-auto mt-10"
+                >
+                    <QuoteFunnel />
+                </motion.div>
             </Container>
         </section>
     );

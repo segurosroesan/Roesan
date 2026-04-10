@@ -12,18 +12,18 @@ import { servicesData } from "@/lib/services-data";
 const cardImages: Record<string, string> = {
     // Empresas
     copropiedades: "/images/card-copropiedades.png",
-    transporte: "/images/card-transporte.png",
-    cumplimiento: "/images/card-cumplimiento-business.png",
-    "responsabilidad-civil-empresarial": "/images/card-rc-empresarial.png",
-    "todo-riesgo": "/images/card-todo-riesgo-autos.png",
-    empresariales: "/images/card-empresarial.png",
+    transporte: "/images/Seguro_transporte.jpeg",
+    cumplimiento: "/images/card-cumplimiento-contrato-co.png",
+    "responsabilidad-civil-empresarial": "/images/card-rc-bogota.png",
+    "todo-riesgo": "/images/card-todo-riesgo-maquinaria.png",
+    empresariales: "/images/card-todo-riesgo-globo.png",
     colectivos: "/images/card-colectivos.png",
-    "arl-vida-grupo": "/images/card-arl-vida-grupo.png",
+    "arl-vida-grupo": "/images/card-arl-vida-grupo-co.png",
     // Personas
-    vida: "/images/card-seguro-vida.png",
-    autos: "/images/card-autos-riesgo.png",
-    "responsabilidad-civil-personal": "/images/card-responsabilidad-civil.png",
-    salud: "/images/card-salud.png",
+    vida: "/images/card-seguro-vida-bogota.png",
+    autos: "/images/card-tesla-todo-riesgo-bogota.png",
+    "responsabilidad-civil-personal": "/images/card-rc-bogota.png",
+    salud: "/images/card-salud-co.png",
     exequial: "/images/card-exequial.png",
     mascotas: "/images/card-mascotas.png",
     hogar: "/images/card-hogar.png",
@@ -60,7 +60,7 @@ function ServiceCard({ service, idx, isLarge = false }: { service: typeof servic
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className={`relative overflow-hidden rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 h-full ${isLarge ? "min-h-[500px]" : "min-h-[380px]"}`}
+                className={`relative overflow-hidden rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 h-full ${isLarge ? "min-h-[400px]" : "min-h-[320px]"}`}
             >
                 {/* Image */}
                 <div className="absolute inset-0">
@@ -71,8 +71,8 @@ function ServiceCard({ service, idx, isLarge = false }: { service: typeof servic
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                         sizes={isLarge ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 25vw"}
                     />
-                    {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                    {/* Dark gradient overlay - made darker for larger text */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent" />
                 </div>
 
                 {/* Content at bottom */}
@@ -80,10 +80,10 @@ function ServiceCard({ service, idx, isLarge = false }: { service: typeof servic
                     {/* Accent bar */}
                     <div className={`w-10 h-1 ${accent} rounded-full mb-4 group-hover:w-16 transition-all duration-500`} />
 
-                    <h4 className={`font-serif font-medium text-white mb-2 ${isLarge ? "text-2xl sm:text-3xl" : "text-xl"}`}>
+                    <h4 className={`font-serif font-medium text-white mb-3 ${isLarge ? "text-3xl sm:text-4xl" : "text-2xl"}`}>
                         {service.title}
                     </h4>
-                    <p className={`text-white/70 leading-relaxed mb-5 line-clamp-2 ${isLarge ? "text-base max-w-md" : "text-sm"}`}>
+                    <p className={`text-white/80 leading-relaxed mb-5 line-clamp-3 ${isLarge ? "text-lg max-w-lg" : "text-base"}`}>
                         {service.shortDescription}
                     </p>
 

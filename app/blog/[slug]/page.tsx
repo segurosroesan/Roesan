@@ -61,8 +61,17 @@ export default async function BlogPostPage({ params }: Props) {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="bg-slate-900 py-24">
-                <Container className="max-w-3xl">
+            <section className="bg-slate-900 py-24 relative overflow-hidden">
+                {post.coverImage && (
+                    <div className="absolute inset-0 z-0">
+                        <div 
+                            className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay"
+                            style={{ backgroundImage: `url(${post.coverImage})` }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent" />
+                    </div>
+                )}
+                <Container className="max-w-3xl relative z-10">
                     <Link
                         href="/blog"
                         className="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm mb-8 transition-colors"
@@ -143,6 +152,22 @@ export default async function BlogPostPage({ params }: Props) {
                             }
                             if (section.type === "cta") {
                                 return null; // Rendered below
+                            }
+                            if (section.type === "image" && section.imageUrl) {
+                                return (
+                                    <figure key={i} className="my-10">
+                                        <img 
+                                            src={section.imageUrl} 
+                                            alt={section.imageAlt || "Ilustración de seguros"} 
+                                            className="w-full rounded-2xl shadow-lg border border-slate-200 aspect-video object-cover"
+                                        />
+                                        {section.imageAlt && (
+                                            <figcaption className="text-center text-sm text-slate-500 mt-3 italic">
+                                                {section.imageAlt}
+                                            </figcaption>
+                                        )}
+                                    </figure>
+                                );
                             }
                             return null;
                         })}

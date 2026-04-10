@@ -32,10 +32,10 @@ export function Navbar() {
                     <Link href="/" className="flex items-center gap-3 group cursor-pointer">
                         <div className="relative h-12 w-48 transition-all duration-300">
                             <Image
-                                src="/logo-roesan.png"
+                                src={forceLightMode ? "/logo-roesan.png" : "/logo-roesan-blanco.png"}
                                 alt="Roesan Seguros"
                                 fill
-                                className={`object-contain transition-all duration-500 group-hover:scale-105 ${forceLightMode ? "" : "brightness-0 invert"}`}
+                                className="object-contain transition-all duration-500 group-hover:scale-105"
                                 priority
                             />
                         </div>

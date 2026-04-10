@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft, Shield } from "lucide-react";
 import { Container } from "../ui/Container";
 import Image from "next/image";
-import QuoteFunnel from "./QuoteFunnel";
+import Link from "next/link";
 
 const slides = [
     {
@@ -152,17 +152,22 @@ export function Hero() {
                             </button>
                         </div>
                     </div>
-                </div>
 
-                {/* Bottom: QuoteFunnel — anclado abajo, centrado */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
-                    className="relative z-20 w-full max-w-2xl mx-auto mt-10"
-                >
-                    <QuoteFunnel />
-                </motion.div>
+                    {/* Button — Centered under controls */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                        className="relative z-20 w-full max-w-2xl mx-auto mt-12 flex justify-center"
+                    >
+                        <Link href="/cotizador">
+                            <button className="bg-purple-800 text-white hover:bg-purple-900 transition-all duration-300 px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-3 group hover:scale-105 shadow-[0_0_40px_rgba(107,33,168,0.4)]">
+                                Cotiza Tu Seguro Gratis
+                                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </Link>
+                    </motion.div>
+                </div>
             </Container>
         </section>
     );

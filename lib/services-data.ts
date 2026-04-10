@@ -53,7 +53,7 @@ export const servicesData: ServiceData[] = [
         color: "text-amber-600",
         bg: "bg-amber-50",
         gradient: "from-amber-500 to-orange-600",
-        image: "/images/card-transporte.png",
+        image: "/images/Seguro_transporte.jpeg",
         features: [
             { title: "Robo y Saqueo", desc: "Cubrimiento directo en caso de que la mercancía sea hurtada durante su transporte." },
             { title: "Daños en Trayecto", desc: "Respaldo ante afectaciones por accidentes viales o mala manipulación." },
@@ -76,7 +76,7 @@ export const servicesData: ServiceData[] = [
         color: "text-slate-700",
         bg: "bg-slate-50",
         gradient: "from-slate-700 to-slate-900",
-        image: "/images/card-cumplimiento-business.png",
+        image: "/images/card-cumplimiento-contrato-co.png",
         features: [
             { title: "Contratos Estatales y Privados", desc: "Requisito para licitaciones públicas y convenios con empresas privadas." },
             { title: "Cobertura de Anticipos", desc: "Ampara el buen manejo y la destinación de dineros entregados por adelantado." },
@@ -100,7 +100,7 @@ export const servicesData: ServiceData[] = [
         color: "text-teal-600",
         bg: "bg-teal-50",
         gradient: "from-teal-600 to-emerald-800",
-        image: "/images/card-rc-empresarial.png",
+        image: "/images/card-rc-bogota.png",
         features: [
             { title: "Daños a Clientes o Visitantes", desc: "Cubre los daños generados a terceros dentro del desarrollo de la operación." },
             { title: "Perjuicios Causados por Empleados", desc: "Amparo civil por daños que tus trabajadores ocasionen trabajando." },
@@ -123,7 +123,7 @@ export const servicesData: ServiceData[] = [
         color: "text-sky-600",
         bg: "bg-sky-50",
         gradient: "from-sky-500 to-blue-600",
-        image: "/images/card-empresarial.png",
+        image: "/images/card-todo-riesgo-globo.png",
         features: [
             { title: "Exposición a Desastres", desc: "Respalda frente a afectaciones por Incendio, explosión o terremoto." },
             { title: "Equipos Tecnológicos", desc: "Cobertura ante daños eléctricos de aparatos corporativos." },
@@ -149,7 +149,7 @@ export const servicesData: ServiceData[] = [
         color: "text-rose-600",
         bg: "bg-rose-50",
         gradient: "from-rose-500 to-pink-600",
-        image: "/images/card-seguro-vida.png",
+        image: "/images/card-seguro-vida-bogota.png",
         features: [
             { title: "Fallecimiento por cualquier motivo", desc: "Entrega del valor asegurado a los beneficiarios designados en caso de muerte por enfermedad o accidente." },
             { title: "Incapacidad total o permanente", desc: "Pago del 100% del capital asegurado si un accidente o enfermedad te impide volver a ejercer tu ocupación." },
@@ -184,7 +184,7 @@ export const servicesData: ServiceData[] = [
         color: "text-emerald-500",
         bg: "bg-emerald-50",
         gradient: "from-emerald-400 to-teal-600",
-        image: "/images/card-salud.png",
+        image: "/images/card-salud-co.png",
         features: [
             { title: "Atención médica y exámenes", desc: "Acceso directo a consultas médicas, laboratorio clínico y medios de diagnóstico de alta tecnología." },
             { title: "Hospitalización y cirugías", desc: "Cobertura total en red de clínicas premium, incluyendo habitación hospitalaria individual y pago de honorarios." },
@@ -219,7 +219,7 @@ export const servicesData: ServiceData[] = [
         color: "text-blue-600",
         bg: "bg-blue-50",
         gradient: "from-blue-500 to-cyan-600",
-        image: "/images/card-autos-riesgo.png",
+        image: "/images/card-tesla-todo-riesgo-bogota.png",
         features: [
             { title: "Daños a su vehículo", desc: "Cobertura para reparar arreglos y abolladuras tras un accidente o choque." },
             { title: "Responsabilidad civil a terceros", desc: "Protección integral frente a demandas y daños ocasionados a bienes o personas." },
@@ -258,7 +258,7 @@ export const servicesData: ServiceData[] = [
         color: "text-purple-600",
         bg: "bg-purple-50",
         gradient: "from-purple-600 to-indigo-700",
-        image: "/images/card-responsabilidad-civil.png",
+        image: "/images/card-rc-bogota.png",
         features: [
             { title: "Amparo Patrimonial", desc: "Protege el patrimonio económico de tu familia para pagar sentencias de jueces." },
             { title: "Defensa Jurídica", desc: "Financiación de peritos, investigadores, abogados experimentados durante el proceso de demanda." },
@@ -476,7 +476,7 @@ export const servicesData: ServiceData[] = [
         color: "text-emerald-700",
         bg: "bg-emerald-50",
         gradient: "from-emerald-600 to-teal-700",
-        image: "/images/card-arl-vida-grupo.png",
+        image: "/images/card-arl-vida-grupo-co.png",
         features: [
             { title: "ARL Obligatoria", desc: "Administradora de Riesgos Laborales que atiende a los colaboradores accidentados." },
             { title: "Vida Grupo Complementario", desc: "Poliza voluntaria que respalda económicamente de forma independiente y paralela a la ARL." },

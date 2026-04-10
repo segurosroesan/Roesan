@@ -74,12 +74,21 @@ export default function BlogPage() {
                                 className="group block bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                             >
                                 {/* Card Header */}
-                                <div className={`bg-gradient-to-br ${getCategoryGradient(post.category)} p-10 flex items-center justify-center relative overflow-hidden`}>
-                                    <div className="absolute inset-0 bg-black/10 mix-blend-multiply transition-opacity group-hover:opacity-0" />
-                                    <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 rounded-full bg-white/10 blur-2xl group-hover:scale-150 transition-transform duration-700" />
-                                    <div className="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
-                                        {getCategoryIcon(post.category)}
-                                    </div>
+                                <div className={`bg-gradient-to-br ${getCategoryGradient(post.category)} h-48 flex items-center justify-center relative overflow-hidden`}>
+                                    {post.coverImage ? (
+                                        <div 
+                                            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                            style={{ backgroundImage: `url(${post.coverImage})` }}
+                                        />
+                                    ) : (
+                                        <>
+                                            <div className="absolute inset-0 bg-black/10 mix-blend-multiply transition-opacity group-hover:opacity-0" />
+                                            <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 rounded-full bg-white/10 blur-2xl group-hover:scale-150 transition-transform duration-700" />
+                                            <div className="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
+                                                {getCategoryIcon(post.category)}
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
 
                                 {/* Card Body */}

@@ -246,9 +246,9 @@ export default function QuoteFunnel({ initialType = 'auto' }: QuoteFunnelProps) 
 
   // ─── Main Form ──────────────────────────────────────────────────────────────
   return (
-    <Card className="w-full max-w-xl mx-auto border border-white/30 overflow-hidden bg-white/25 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
+    <Card className="w-full max-w-xl mx-auto border border-white/30 overflow-hidden bg-white/95 backdrop-blur-lg shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
       {/* Progress Header */}
-      <div className="px-6 pt-5 pb-3 border-b border-white/20">
+      <div className="px-6 pt-5 pb-3 border-b border-gray-100">
         <div className="flex items-center justify-between mb-3">
           {stepLabels.map((label, i) => {
             const num = i + 1;
@@ -262,22 +262,22 @@ export default function QuoteFunnel({ initialType = 'auto' }: QuoteFunnelProps) 
                       ? 'bg-emerald-500 text-white'
                       : isActive
                       ? 'bg-primary text-white ring-4 ring-primary/20'
-                      : 'bg-white/30 text-white/70'
+                      : 'bg-gray-100 text-gray-400'
                   }`}
                 >
                   {isCompleted ? '✓' : num}
                 </div>
-                <span className={`hidden sm:block text-xs font-medium ${isActive ? 'text-white font-bold' : isCompleted ? 'text-emerald-300' : 'text-white/60'}`}>
+                <span className={`hidden sm:block text-xs font-medium ${isActive ? 'text-gray-900 font-bold' : isCompleted ? 'text-emerald-600' : 'text-gray-400'}`}>
                   {label}
                 </span>
                 {i < stepLabels.length - 1 && (
-                  <div className={`flex-1 h-0.5 w-10 sm:w-16 mx-2 rounded transition-all ${step > num ? 'bg-emerald-400' : 'bg-white/25'}`} />
+                  <div className={`flex-1 h-0.5 w-10 sm:w-16 mx-2 rounded transition-all ${step > num ? 'bg-emerald-400' : 'bg-gray-100'}`} />
                 )}
               </div>
             );
           })}
         </div>
-        <div className="w-full bg-white/20 h-1 rounded-full">
+        <div className="w-full bg-gray-100 h-1 rounded-full">
           <div
             className="bg-primary h-full rounded-full transition-all duration-500 ease-in-out"
             style={{ width: `${(step / 3) * 100}%` }}

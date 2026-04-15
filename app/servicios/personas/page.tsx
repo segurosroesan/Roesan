@@ -16,7 +16,7 @@ export default function PersonasHubPage() {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="relative overflow-hidden bg-slate-900 py-24 text-center lg:py-32">
+            <section className="relative overflow-hidden bg-slate-900 pt-36 pb-24 text-center lg:pt-48 lg:pb-32">
                 <div className="absolute inset-0 bg-slate-900">
                     <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 opacity-20" />
                 </div>

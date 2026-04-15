@@ -64,7 +64,7 @@ export default function ContactPage() {
     return (
         <div className="bg-slate-50 min-h-screen">
             {/* Header */}
-            <div className="bg-slate-900 pb-32 pt-24 text-center lg:pt-32">
+            <div className="bg-slate-900 pb-32 pt-36 text-center lg:pt-48">
                 <Container>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

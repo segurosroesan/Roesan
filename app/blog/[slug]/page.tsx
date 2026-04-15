@@ -61,7 +61,7 @@ export default async function BlogPostPage({ params }: Props) {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="bg-slate-900 py-24 relative overflow-hidden">
+            <section className="bg-slate-900 pt-36 pb-24 relative overflow-hidden">
                 {post.coverImage && (
                     <div className="absolute inset-0 z-0">
                         <div 

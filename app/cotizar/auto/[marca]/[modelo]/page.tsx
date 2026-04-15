@@ -75,7 +75,7 @@ export default async function CarInsuranceLandingPage({ params }: Props) {
     return (
         <div className="bg-slate-50 min-h-screen pb-24">
             {/* Premium Hero Header */}
-            <section className="relative overflow-hidden py-24 lg:py-32">
+            <section className="relative overflow-hidden pt-36 pb-24 lg:pt-48 lg:pb-32">
                 <div className="absolute inset-0">
                     <div className={`h-full w-full bg-gradient-to-br ${bgGradient}`} />
                     <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply" />

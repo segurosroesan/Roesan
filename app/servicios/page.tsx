@@ -11,7 +11,7 @@ export default function ServicesPage() {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="relative overflow-hidden bg-slate-900 py-24 text-center lg:py-32">
+            <section className="relative overflow-hidden bg-slate-900 pt-36 pb-24 text-center lg:pt-48 lg:pb-32">
                 {/* Abstract background */}
                 <div className="absolute inset-0 bg-slate-900">
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 opacity-20" />

@@ -47,7 +47,7 @@ export default function AboutPage() {
     return (
         <div className="bg-white">
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-slate-900 py-24 lg:py-32">
+            <section className="relative overflow-hidden bg-slate-900 pt-36 pb-24 lg:pt-48 lg:pb-32">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.05]" />
                 <div className="absolute top-0 right-0 -mr-24 -mt-24 h-96 w-96 rounded-full bg-primary blur-[100px] opacity-20" />
 

@@ -45,7 +45,7 @@ export default function BlogPage() {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="bg-slate-900 py-24 text-center">
+            <section className="bg-slate-900 pt-36 pb-24 text-center">
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-slate-900 opacity-60" />
                 </div>

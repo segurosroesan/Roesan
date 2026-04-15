@@ -472,7 +472,7 @@ export default function QuoteFunnel({ initialType = 'auto' }: QuoteFunnelProps) 
                             placeholder="Ej. 50.000.000"
                             className={`transition-all ${errors.contractValue ? 'border-red-500 focus-visible:ring-red-500' : 'focus-visible:ring-emerald-500/30'} pr-10`}
                           />
-                          {!errors.contractValue && getValues('contractValue')?.length >= 4 && <CheckCircle2 className="w-4 h-4 text-emerald-500 absolute right-3 top-3" />}
+                          {!errors.contractValue && (getValues('contractValue')?.length ?? 0) >= 4 && <CheckCircle2 className="w-4 h-4 text-emerald-500 absolute right-3 top-3" />}
                         </div>
                         {errors.contractValue && <span className="text-red-500 text-xs">{errors.contractValue.message}</span>}
                       </div>

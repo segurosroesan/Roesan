@@ -19,12 +19,12 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Only switch to light mode when page has been scrolled (glasspanel kicks in)
-    const forceLightMode = isScrolled;
+    // Now that the hero banner is floating, we always need light mode (white navbar)
+    const forceLightMode = true;
 
     return (
         <nav
-            className={`fixed top-0 z-40 w-full transition-all duration-300 ${isScrolled ? "glass-panel shadow-sm py-2" : "bg-transparent py-4"
+            className={`fixed top-0 z-40 w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200/60 ${isScrolled ? "shadow-md py-2" : "py-4"
                 }`}
         >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">

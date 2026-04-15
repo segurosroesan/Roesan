@@ -50,7 +50,7 @@ export function Hero() {
     const slide = slides[current];
 
     return (
-        <section className="relative min-h-screen pt-20 overflow-hidden bg-slate-900">
+        <section className="relative mt-24 md:mt-28 mb-12 mx-4 md:mx-8 lg:mx-12 rounded-3xl overflow-hidden bg-slate-900 min-h-[550px] shadow-2xl">
             {/* Background Images — Crossfade */}
             <AnimatePresence mode="wait" initial={false}>
                 <motion.div
@@ -72,12 +72,14 @@ export function Hero() {
                     {/* Horizontal overlay: dark on left, clear on right */}
                     <div className={`absolute inset-0 bg-gradient-to-r ${slide.overlayColor}`} />
                     {/* Vertical overlay bottom only */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/30 to-transparent" />
+                    {/* Additional general dark overlay to guarantee text legibility */}
+                    <div className="absolute inset-0 bg-slate-950/40" />
                 </motion.div>
             </AnimatePresence>
 
             {/* Content */}
-            <Container className="relative z-10 flex flex-col min-h-[calc(100vh-5rem)] py-16 lg:py-20">
+            <Container className="relative z-10 flex flex-col justify-center min-h-[550px] py-16 lg:py-20">
 
                 {/* Top: Animated text — centered */}
                 <div className="flex-1 flex flex-col justify-center items-center text-center">
@@ -100,12 +102,12 @@ export function Hero() {
                             </div>
 
                             {/* Title */}
-                            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1]">
+                            <h1 className="font-serif text-5xl sm:text-6xl lg:text-[5.5rem] font-medium tracking-tight text-white leading-[1.1] drop-shadow-xl shadow-black/50">
                                 {slide.title}
                             </h1>
 
                             {/* Subtitle */}
-                            <p className="text-lg lg:text-xl text-white/75 leading-relaxed mx-auto max-w-xl">
+                            <p className="text-xl lg:text-2xl text-white/95 leading-relaxed mx-auto max-w-2xl drop-shadow-md shadow-black/50">
                                 {slide.subtitle}
                             </p>
 
@@ -162,7 +164,7 @@ export function Hero() {
                     >
                         <Link href="/cotizador">
                             <button className="bg-purple-800 text-white hover:bg-purple-900 transition-all duration-300 px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-3 group hover:scale-105 shadow-[0_0_40px_rgba(107,33,168,0.4)]">
-                                Cotiza Tu Seguro Gratis
+                                Cotiza tu seguro
                                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </Link>

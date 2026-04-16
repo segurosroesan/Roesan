@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft, Shield } from "lucide-react";
 import { Container } from "../ui/Container";
 import Image from "next/image";
-import Link from "next/link";
+import QuoteFunnel from "./QuoteFunnel";
+import { Modal } from "../ui/Modal";
 
 const slides = [
     {
@@ -14,13 +15,15 @@ const slides = [
         title: "Protegemos lo que más valoras",
         subtitle: "Tu familia merece tranquilidad ante cualquier imprevisto. Más de 40 años cuidando hogares colombianos.",
         overlayColor: "from-purple-950/80 via-purple-900/60 to-transparent",
+        funnelPreset: "vida" as const,
     },
     {
         image: "/images/hero-empresa.png",
         tag: "Seguros Empresariales",
-        title: "Tu empresa, blindada",
+        title: "Asesoría que protege tu empresa",
         subtitle: "Soluciones integrales para proteger tu operación, empleados y patrimonio con el respaldo de las mejores aseguradoras.",
         overlayColor: "from-slate-950/80 via-slate-900/60 to-transparent",
+        funnelPreset: "empresarial" as const,
     },
     {
         image: "/images/hero-auto.png",
@@ -28,11 +31,13 @@ const slides = [
         title: "Viaja con total confianza",
         subtitle: "Cotiza tu seguro de auto en minutos. Comparamos entre las mejores aseguradoras para darte la tarifa ideal.",
         overlayColor: "from-cyan-950/70 via-slate-900/50 to-transparent",
+        funnelPreset: "auto" as const,
     },
 ];
 
 export function Hero() {
     const [current, setCurrent] = useState(0);
+    const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
     const next = useCallback(() => {
         setCurrent((prev) => (prev + 1) % slides.length);
@@ -43,9 +48,10 @@ export function Hero() {
     }, []);
 
     useEffect(() => {
-        const timer = setInterval(next, 6000);
+        if (isQuoteModalOpen) return;
+        const timer = setInterval(next, 9000);
         return () => clearInterval(timer);
-    }, [next]);
+    }, [isQuoteModalOpen, next]);
 
     const slide = slides[current];
 
@@ -162,15 +168,30 @@ export function Hero() {
                         transition={{ delay: 0.5, duration: 0.8 }}
                         className="relative z-20 w-full max-w-2xl mx-auto mt-12 flex justify-center"
                     >
-                        <Link href="/cotizador">
-                            <button className="bg-purple-800 text-white hover:bg-purple-900 transition-all duration-300 px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-3 group hover:scale-105 shadow-[0_0_40px_rgba(107,33,168,0.4)]">
-                                Cotiza tu seguro
-                                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                        </Link>
+                        <button
+                            type="button"
+                            onClick={() => setIsQuoteModalOpen(true)}
+                            className="bg-purple-800 text-white hover:bg-purple-900 transition-all duration-300 px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-3 group hover:scale-105 shadow-[0_0_40px_rgba(107,33,168,0.4)]"
+                        >
+                            Cotiza tu seguro
+                            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </button>
                     </motion.div>
                 </div>
             </Container>
+
+            <Modal
+                open={isQuoteModalOpen}
+                onClose={() => setIsQuoteModalOpen(false)}
+                title="Cotización guiada"
+            >
+                <div className="bg-[radial-gradient(circle_at_top,_rgba(81,64,141,0.28),_transparent_38%),linear-gradient(180deg,#111827_0%,#0f172a_100%)] p-4 sm:p-6 lg:p-8">
+                    <QuoteFunnel
+                        key={`hero-quote-${isQuoteModalOpen ? "open" : "closed"}`}
+                        onClose={() => setIsQuoteModalOpen(false)}
+                    />
+                </div>
+            </Modal>
         </section>
     );
 }

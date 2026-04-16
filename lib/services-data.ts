@@ -1,4 +1,5 @@
 import { Heart, Car, Building2, User, Shield, Briefcase, Home, Stethoscope, Truck, Scale, GraduationCap } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export interface ServiceData {
     slug: string;
@@ -7,7 +8,7 @@ export interface ServiceData {
     title: string;
     shortDescription: string;
     fullDescription: string;
-    icon: any;
+    icon: LucideIcon;
     color: string;
     bg: string;
     gradient: string;
@@ -23,7 +24,7 @@ export const servicesData: ServiceData[] = [
         slug: "copropiedades",
         category: "empresa",
         quoteType: "empresarial",
-        title: "Seguro de Copropiedades",
+        title: "Copropiedades",
         shortDescription: "Protección integral para edificios, conjuntos residenciales y centros comerciales.",
         fullDescription: "El seguro de copropiedades protege las áreas comunes y bienes de tu edificio o conjunto residencial en Colombia. Es una póliza diseñada para cumplir con la ley de propiedad horizontal y garantizar el patrimonio de los copropietarios ante incendios, terremotos, daños por agua y responsabilidad civil.",
         icon: Building2,
@@ -46,7 +47,7 @@ export const servicesData: ServiceData[] = [
         slug: "transporte",
         category: "empresa",
         quoteType: "empresarial",
-        title: "Seguro de Transporte",
+        title: "Transporte",
         shortDescription: "Protege las mercancías durante su traslado, ya sea a nivel nacional o internacional.",
         fullDescription: "Protege las mercancías y el inventario de tu negocio durante su traslado, ya sea a nivel nacional o internacional. Es esencial para empresas que movilizan productos y quieren asegurar su cadena logística eliminando los riesgos del trayecto.",
         icon: Truck,
@@ -116,7 +117,7 @@ export const servicesData: ServiceData[] = [
         slug: "empresariales",
         category: "empresa",
         quoteType: "empresarial",
-        title: "Todo Riesgo: Daños Materiales",
+        title: "Pyme (Todo Riesgo: Daños Materiales)",
         shortDescription: "Ampara los bienes de la empresa frente a eventos inesperados que puedan afectar su operación.",
         fullDescription: "Ampara los bienes e instalaciones de la empresa frente a eventos inesperados de gran magnitud. Garantiza la continuidad del negocio ante imprevistos naturales, accidentales o malintencionados que puedan detener la operación mercantil.",
         icon: Building2,

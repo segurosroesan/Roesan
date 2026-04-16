@@ -1,634 +1,821 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from "react";
+import type { ComponentType, FormEvent } from "react";
 import {
-  Car, HeartPulse, Building2, FileCheck,
-  ArrowRight, ArrowLeft, CheckCircle2, Loader2,
-  Lock, Clock, MessageCircle, Star, Shield, Award,
-} from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/Button';
-import { tx, id } from '@instantdb/react';
-import { db } from '@/lib/instant';
-import { enviarLeadAlCRM } from '@/lib/crmIntegration';
+  ArrowLeft,
+  ArrowRight,
+  Building2,
+  Car,
+  Check,
+  FileCheck,
+  HeartPulse,
+  House,
+  Laptop,
+  Loader2,
+  Package,
+  PawPrint,
+  Send,
+  Shield,
+  UserRound,
+  Users,
+} from "lucide-react";
+import { id, tx } from "@instantdb/react";
+import { db } from "@/lib/instant";
+import { enviarLeadAlCRM } from "@/lib/crmIntegration";
 
-// ─── Zod Schemas ──────────────────────────────────────────────────────────────
-const Step1Schema = z.object({
-  type: z.enum(['auto', 'salud', 'empresarial', 'cumplimiento']),
-});
-
-const Step2AutoSchema = z.object({
-  city: z.string().min(2, 'La ciudad es requerida'),
-  vehiclePlate: z.string().min(6, 'Placa no válida').max(6),
-  vehicleYear: z.string().min(4, 'Año no válido').max(4),
-  driverBirthDate: z.string().optional(),
-});
-
-const Step2SaludSchema = z.object({
-  city: z.string().min(2, 'La ciudad es requerida'),
-  patientAge: z.string().min(1, 'Edad requerida'),
-  healthCoverage: z.enum(['individual', 'familiar']),
-});
-
-const Step2EmpresaSchema = z.object({
-  city: z.string().min(2, 'La ciudad es requerida'),
-  companySector: z.string().min(3, 'Sector es requerido'),
-  companyEmployees: z.string().min(1, 'Número de empleados requerido'),
-});
-
-const Step2CumplimientoSchema = z.object({
-  city: z.string().min(2, 'La ciudad es requerida'),
-  contractType: z.string().min(3, 'Tipo de contrato requerido'),
-  contractValue: z.string().min(4, 'Valor estimado requerido'),
-});
-
-const Step3ContactSchema = z.object({
-  name: z.string().min(3, 'El nombre completo es requerido'),
-  phone: z.string().refine((val) => val.replace(/\s/g, '').length === 10, 'El celular debe tener 10 dígitos'),
-  email: z.string().email('Correo electrónico inválido'),
-});
-
-type FormData = z.infer<typeof Step1Schema> &
-  Partial<z.infer<typeof Step2AutoSchema>> &
-  Partial<z.infer<typeof Step2SaludSchema>> &
-  Partial<z.infer<typeof Step2EmpresaSchema>> &
-  Partial<z.infer<typeof Step2CumplimientoSchema>> &
-  Partial<z.infer<typeof Step3ContactSchema>> & {
-    driverBirthDate?: string;
-  };
-
-// ─── Static Data ──────────────────────────────────────────────────────────────
-const insuranceTypes = [
-  { id: 'auto', label: 'Vehículos', icon: Car, color: 'text-blue-500', bg: 'bg-blue-50' },
-  { id: 'salud', label: 'Salud / Vida', icon: HeartPulse, color: 'text-rose-500', bg: 'bg-rose-50' },
-  { id: 'empresarial', label: 'Empresas', icon: Building2, color: 'text-emerald-500', bg: 'bg-emerald-50' },
-  { id: 'cumplimiento', label: 'Cumplimiento', icon: FileCheck, color: 'text-purple-500', bg: 'bg-purple-50' },
-];
-
-const step2Titles: Record<string, { title: string; sub: string }> = {
-  auto: { title: 'Datos de tu vehículo', sub: 'Con esta información te asesoramos para elegir la cobertura que realmente necesitas' },
-  salud: { title: 'Tu perfil de salud', sub: 'Con esto te orientamos hacia el plan que mejor se adapta a tu situación familiar' },
-  empresarial: { title: 'Tu empresa', sub: 'Con este perfil te acompañamos a tomar la mejor decisión para proteger tu operación' },
-  cumplimiento: { title: 'Tu contrato', sub: 'Con esto te asesoramos para elegir la aseguradora más adecuada para tu contrato' },
-};
-
-const socialProofMessages = [
-  'Carlos M., Bogotá — recibió su cotización de auto en 38 min. ⭐⭐⭐⭐⭐',
-  'María L., Medellín — 3 opciones de salud comparadas en 1 hora. ⭐⭐⭐⭐⭐',
-  'Inversiones GH Ltda. — póliza empresarial activa en el mismo día. ⭐⭐⭐⭐⭐',
-  'Andrés P., Cali — póliza de cumplimiento aprobada en horas. ⭐⭐⭐⭐⭐',
-];
+type LegacyType = "auto" | "salud" | "empresarial" | "cumplimiento" | "vida";
+type CustomerType = "persona" | "empresa";
+export type ProductId =
+  | "seguro-vida"
+  | "salud-medicina-prepagada"
+  | "todo-riesgo-autos"
+  | "seguro-hogar"
+  | "seguro-mascotas"
+  | "seguro-vida-deudor"
+  | "otros-persona"
+  | "cumplimiento"
+  | "transporte"
+  | "pyme"
+  | "responsabilidad-civil"
+  | "salud-colectivo"
+  | "arl"
+  | "copropiedades"
+  | "otros-empresa";
 
 interface QuoteFunnelProps {
-  initialType?: 'auto' | 'salud' | 'empresarial' | 'cumplimiento';
+  initialType?: LegacyType;
+  initialProductId?: ProductId;
+  variant?: "default" | "compact";
+  onClose?: () => void;
 }
 
-export default function QuoteFunnel({ initialType = 'auto' }: QuoteFunnelProps) {
-  const [step, setStep] = useState(1);
+interface FormState {
+  customerType: CustomerType | null;
+  selectedProducts: ProductId[];
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  birthDate: string;
+  vehiclePlate: string;
+  companyName: string;
+  companyNit: string;
+  companyVerificationDigit: string;
+  companyEmail: string;
+  responsibleName: string;
+  responsiblePhone: string;
+  message: string;
+}
+
+const PERSON_OPTIONS = [
+  { id: "seguro-vida", label: "Seguro de Vida", icon: HeartPulse },
+  { id: "salud-medicina-prepagada", label: "Póliza de Salud y Medicina Prepagada", icon: Shield },
+  { id: "todo-riesgo-autos", label: "Seguro Todo Riesgo para Autos", icon: Car },
+  { id: "seguro-hogar", label: "Seguro de Hogar", icon: House },
+  { id: "seguro-mascotas", label: "Seguro para Mascotas", icon: PawPrint },
+  { id: "seguro-vida-deudor", label: "Seguro Vida Deudor", icon: House },
+  { id: "otros-persona", label: "Otro", icon: Package },
+] satisfies Array<{ id: ProductId; label: string; icon: ComponentType<{ className?: string }> }>;
+
+const COMPANY_OPTIONS = [
+  { id: "pyme", label: "Pyme (Todo Riesgo: Daños Materiales)", icon: Building2 },
+  { id: "transporte", label: "Seguro de Transporte", icon: Car },
+  { id: "cumplimiento", label: "Cumplimiento", icon: FileCheck },
+  { id: "responsabilidad-civil", label: "Responsabilidad Civil", icon: Shield },
+  { id: "salud-colectivo", label: "Seguros Colectivos", icon: Users },
+  { id: "arl", label: "ARL / Vida Grupo", icon: Shield },
+  { id: "copropiedades", label: "Seguro de Copropiedades", icon: Laptop },
+  { id: "otros-empresa", label: "Otros", icon: Package },
+] satisfies Array<{ id: ProductId; label: string; icon: ComponentType<{ className?: string }> }>;
+
+const PERSON_LABELS: Record<ProductId, string> = {
+  "seguro-vida": "Seguro de Vida",
+  "salud-medicina-prepagada": "Póliza de Salud y Medicina Prepagada",
+  "todo-riesgo-autos": "Seguro Todo Riesgo para Autos",
+  "seguro-hogar": "Seguro de Hogar",
+  "seguro-mascotas": "Seguro para Mascotas",
+  "seguro-vida-deudor": "Seguro Vida Deudor",
+  "otros-persona": "Otros",
+  cumplimiento: "Cumplimiento",
+  transporte: "Seguro de Transporte",
+  pyme: "Pyme (Todo Riesgo: Daños Materiales)",
+  "responsabilidad-civil": "Responsabilidad Civil",
+  "salud-colectivo": "Seguros Colectivos",
+  arl: "ARL / Vida Grupo",
+  copropiedades: "Seguro de Copropiedades",
+  "otros-empresa": "Otros",
+};
+
+function getPresetValues(initialType: LegacyType | undefined): Pick<FormState, "customerType" | "selectedProducts"> {
+  switch (initialType) {
+    case "auto":
+      return { customerType: "persona", selectedProducts: ["todo-riesgo-autos"] };
+    case "salud":
+      return { customerType: "persona", selectedProducts: ["salud-medicina-prepagada"] };
+    case "vida":
+      return { customerType: "persona", selectedProducts: ["seguro-vida"] };
+    case "cumplimiento":
+      return { customerType: "empresa", selectedProducts: ["cumplimiento"] };
+    case "empresarial":
+      return { customerType: "empresa", selectedProducts: ["pyme"] };
+    default:
+      return { customerType: null, selectedProducts: [] };
+  }
+}
+
+function getLeadType(customerType: CustomerType, selectedProducts: ProductId[]) {
+  if (customerType === "empresa") return "empresarial";
+  if (selectedProducts.includes("todo-riesgo-autos")) return "auto";
+  if (selectedProducts.includes("salud-medicina-prepagada")) return "salud";
+  if (selectedProducts.includes("seguro-vida")) return "vida";
+  return "persona";
+}
+
+function formatPhone(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+  if (digits.length <= 3) return digits;
+  if (digits.length <= 6) return `${digits.slice(0, 3)} ${digits.slice(3)}`;
+  return `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6)}`;
+}
+
+function formatNit(value: string) {
+  const digits = value.replace(/[^\d-]/g, "");
+  return digits.slice(0, 16);
+}
+
+function getProgressLabel(step: number) {
+  return `Paso ${step} de 3`;
+}
+
+export default function QuoteFunnel({ initialType, initialProductId, variant = "default", onClose }: QuoteFunnelProps) {
+  const preset = getPresetValues(initialType);
+  const compact = variant === "compact";
+  const initialSelectedProducts = initialProductId ? [initialProductId] : preset.selectedProducts;
+  const initialCustomerType = initialProductId
+    ? COMPANY_OPTIONS.some((option) => option.id === initialProductId)
+      ? "empresa"
+      : "persona"
+    : preset.customerType;
+  const [step, setStep] = useState(initialCustomerType ? 2 : 1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [acceptedDataTerms, setAcceptedDataTerms] = useState(false);
-  const [socialProofIdx] = useState(() => Math.floor(Math.random() * socialProofMessages.length));
-
-  const {
-    register,
-    handleSubmit,
-    watch,
-    setValue,
-    trigger,
-    getValues,
-    formState: { errors, dirtyFields, touchedFields },
-  } = useForm<FormData>({
-    defaultValues: { type: initialType },
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [form, setForm] = useState<FormState>({
+    customerType: initialCustomerType,
+    selectedProducts: initialSelectedProducts,
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    birthDate: "",
+    vehiclePlate: "",
+    companyName: "",
+    companyNit: "",
+    companyVerificationDigit: "",
+    companyEmail: "",
+    responsibleName: "",
+    responsiblePhone: "",
+    message: "",
   });
 
-  const selectedType = watch('type');
+  const options = form.customerType === "empresa" ? COMPANY_OPTIONS : PERSON_OPTIONS;
 
-  const handleNext = async () => {
-    let isStepValid = false;
-
-    if (step === 1) {
-      isStepValid = await trigger(['type']);
-    } else if (step === 2) {
-      if (selectedType === 'auto') isStepValid = await trigger(['city', 'vehiclePlate', 'vehicleYear']);
-      if (selectedType === 'salud') isStepValid = await trigger(['city', 'patientAge', 'healthCoverage']);
-      if (selectedType === 'empresarial') isStepValid = await trigger(['city', 'companySector', 'companyEmployees']);
-      if (selectedType === 'cumplimiento') isStepValid = await trigger(['city', 'contractType', 'contractValue']);
-    }
-
-    if (isStepValid) setStep((prev) => prev + 1);
+  const setField = <K extends keyof FormState>(field: K, value: FormState[K]) => {
+    setForm((current) => ({ ...current, [field]: value }));
+    setErrors((current) => {
+      if (!current[field]) return current;
+      const nextErrors = { ...current };
+      delete nextErrors[field];
+      return nextErrors;
+    });
   };
 
-  const handleBack = () => setStep((prev) => prev - 1);
+  const toggleProduct = (productId: ProductId) => {
+    setForm((current) => {
+      const exists = current.selectedProducts.includes(productId);
+      return {
+        ...current,
+        selectedProducts: exists
+          ? current.selectedProducts.filter((item) => item !== productId)
+          : [...current.selectedProducts, productId],
+      };
+    });
+    setErrors((current) => {
+      if (!current.selectedProducts) return current;
+      const nextErrors = { ...current };
+      delete nextErrors.selectedProducts;
+      return nextErrors;
+    });
+  };
 
-  const onSubmit = async (data: FormData) => {
-    const isFinalValid = await trigger(['name', 'phone', 'email']);
-    if (!isFinalValid) {
-      // Force re-render of error messages by re-triggering
-      await trigger(['name', 'phone', 'email']);
-      return;
+  const validateCurrentStep = () => {
+    const nextErrors: Record<string, string> = {};
+
+    if (step === 1) {
+      if (!form.customerType) nextErrors.customerType = "Selecciona el tipo de cliente.";
     }
 
+    if (step === 2) {
+      if (!form.selectedProducts.length) nextErrors.selectedProducts = "Selecciona al menos una opción.";
+    }
+
+    if (step === 3) {
+      if (form.customerType === "persona") {
+        if (!form.firstName.trim()) nextErrors.firstName = "El nombre es obligatorio.";
+        if (!form.lastName.trim()) nextErrors.lastName = "El apellido es obligatorio.";
+        if (form.phone.replace(/\D/g, "").length !== 10) nextErrors.phone = "Ingresa un celular válido de 10 dígitos.";
+        if (!form.email.trim()) nextErrors.email = "El correo es obligatorio.";
+      }
+
+      if (form.customerType === "empresa") {
+        if (!form.companyName.trim()) nextErrors.companyName = "El nombre de la empresa es obligatorio.";
+        if (!form.companyNit.trim()) nextErrors.companyNit = "El NIT es obligatorio.";
+        if (!form.companyEmail.trim()) nextErrors.companyEmail = "El correo es obligatorio.";
+        if (!form.responsibleName.trim()) nextErrors.responsibleName = "El nombre del responsable es obligatorio.";
+        if (form.responsiblePhone.replace(/\D/g, "").length !== 10) {
+          nextErrors.responsiblePhone = "Ingresa un celular válido de 10 dígitos.";
+        }
+      }
+
+      if (!acceptedTerms) nextErrors.acceptedTerms = "Debes aceptar el tratamiento de datos.";
+    }
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const handleNext = () => {
+    if (!validateCurrentStep()) return;
+    setStep((current) => Math.min(current + 1, 3));
+  };
+
+  const handleBack = () => {
+    setStep((current) => Math.max(current - 1, 1));
+  };
+
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    if (!validateCurrentStep() || !form.customerType) return;
+
     setIsSubmitting(true);
+
+    const leadId = id();
+    const createdAt = Date.now();
+    const customerTypeLabel = form.customerType === "persona" ? "Persona natural" : "Empresa";
+    const selectedProductLabels = form.selectedProducts.map((item) => PERSON_LABELS[item]).join(", ");
+    const leadType = getLeadType(form.customerType, form.selectedProducts);
+    const leadName =
+      form.customerType === "persona"
+        ? `${form.firstName.trim()} ${form.lastName.trim()}`.trim()
+        : form.responsibleName.trim();
+    const leadPhone = form.customerType === "persona" ? form.phone : form.responsiblePhone;
+    const leadEmail = form.customerType === "persona" ? form.email : form.companyEmail;
+    const cleanMessage = form.message.trim();
+
     try {
-      const leadId = id();
-      const createdAt = Date.now();
-
-      // Remover undefined values para evitar que InstantDB falle el update
-      const cleanData = Object.fromEntries(
-        Object.entries(data).filter(([_, v]) => v !== undefined)
-      ) as FormData;
-
-      // 1. Guardar en la base de datos del sitio web (insurance_leads)
       await db.transact(
-        tx.insurance_leads[leadId].update({ ...cleanData, status: 'nuevo', createdAt })
+        tx.insurance_leads[leadId].update({
+          type: leadType,
+          name: leadName,
+          phone: leadPhone,
+          email: leadEmail,
+          customerType: form.customerType,
+          selectedProducts: selectedProductLabels,
+          lastName: form.customerType === "persona" ? form.lastName.trim() : "",
+          message: cleanMessage,
+          driverBirthDate: form.birthDate,
+          vehiclePlate: form.vehiclePlate.trim().toUpperCase(),
+          companyName: form.customerType === "empresa" ? form.companyName.trim() : "",
+          companyNit: form.customerType === "empresa"
+            ? `${form.companyNit.trim()}${form.companyVerificationDigit ? `-${form.companyVerificationDigit.trim()}` : ""}`
+            : "",
+          responsibleName: form.customerType === "empresa" ? form.responsibleName.trim() : "",
+          status: "nuevo",
+          createdAt,
+        })
       );
 
-      // 2. Enviar al CRM de Roesan (leads + tasks) — fire & forget
-      enviarLeadAlCRM({
-        nombre: data.name || 'Sin nombre',
-        telefono: data.phone,
-        email: data.email,
+      await enviarLeadAlCRM({
+        nombre: leadName,
+        telefono: leadPhone,
+        email: leadEmail,
         notas: [
-          data.type ? `Ramo: ${data.type}` : '',
-          data.city ? `Ciudad: ${data.city}` : '',
-          data.vehiclePlate ? `Placa: ${data.vehiclePlate} (${data.vehicleYear})` : '',
-          data.patientAge ? `Edad paciente: ${data.patientAge} | Cobertura: ${data.healthCoverage}` : '',
-          data.companySector ? `Sector: ${data.companySector} | Empleados: ${data.companyEmployees}` : '',
-          data.contractType ? `Contrato: ${data.contractType} | Valor: $${data.contractValue}` : '',
-        ].filter(Boolean).join(' | ') || 'Lead capturado desde formulario web.',
-      }).catch(console.error);
+          `Tipo de cliente: ${customerTypeLabel}`,
+          `Intereses: ${selectedProductLabels}`,
+          form.customerType === "empresa" ? `Empresa: ${form.companyName.trim()}` : "",
+          form.customerType === "empresa"
+            ? `NIT: ${form.companyNit.trim()}${form.companyVerificationDigit ? `-${form.companyVerificationDigit.trim()}` : ""}`
+            : "",
+          form.birthDate ? `Fecha de nacimiento: ${form.birthDate}` : "",
+          form.vehiclePlate.trim() ? `Placa: ${form.vehiclePlate.trim().toUpperCase()}` : "",
+          cleanMessage ? `Mensaje: ${cleanMessage}` : "",
+        ]
+          .filter(Boolean)
+          .join(" | "),
+      });
 
-      // 3. Disparar webhook n8n (Google Sheets) — fire & forget
-      if (process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL) {
-        fetch(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...data, leadId, origin: 'QuoteFunnel', createdAt }),
-        }).catch(console.error);
-      }
+      fetch("/api/lead-notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          leadId,
+          createdAt,
+          origin: "QuoteFunnel",
+          customerType: customerTypeLabel,
+          selectedProducts: form.selectedProducts,
+          selectedProductLabels,
+          leadType,
+          leadName,
+          leadPhone,
+          leadEmail,
+          companyName: form.companyName.trim(),
+          companyNit: form.companyNit.trim(),
+          companyVerificationDigit: form.companyVerificationDigit.trim(),
+          birthDate: form.birthDate,
+          vehiclePlate: form.vehiclePlate.trim().toUpperCase(),
+          message: cleanMessage,
+        }),
+      }).catch(console.error);
 
       setIsSuccess(true);
     } catch (error) {
-      console.error('Submission error:', error);
-      alert('Hubo un error al enviar tu solicitud. Intenta nuevamente.');
+      console.error("Submission error:", error);
+      setErrors({ submit: "No pudimos enviar la solicitud. Intenta nuevamente." });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const getWhatsAppMessage = () => {
-    const vals = getValues();
-    const typeLabels: Record<string, string> = {
-      auto: 'seguro de auto',
-      salud: 'seguro de salud',
-      empresarial: 'seguro empresarial',
-      cumplimiento: 'póliza de cumplimiento',
-    };
-    const ramo = typeLabels[vals.type] || 'seguro';
-    return encodeURIComponent(`Hola, acabo de solicitar una cotización de ${ramo} en su página web. Mi nombre es ${vals.name || ''}. ¿Me pueden ayudar?`);
-  };
-
-  // ─── Success State ──────────────────────────────────────────────────────────
-  if (isSuccess) {
-    return (
-      <Card className="w-full max-w-xl mx-auto shadow-2xl border-0 overflow-hidden bg-white/90 backdrop-blur-sm">
-        <CardContent className="p-10 text-center flex flex-col items-center justify-center min-h-[420px]">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: 'spring', bounce: 0.5 }}
-            className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-6"
-          >
-            <CheckCircle2 className="w-10 h-10 text-emerald-600" />
-          </motion.div>
-
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">
-            ¡Tu solicitud está en manos de un experto!
-          </h3>
-          <p className="text-gray-500 text-base mb-2 leading-relaxed max-w-sm">
-            Un asesor revisará tu perfil y te acompañará a tomar la mejor decisión.
+  return (
+    <div className={`border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white shadow-[0_18px_80px_rgba(15,23,42,0.4)] ${compact ? "rounded-[1.6rem] p-4 sm:p-5" : "rounded-[2rem] p-5 sm:p-8"}`}>
+      {isSuccess ? (
+        <div className="flex min-h-[520px] flex-col items-center justify-center text-center">
+          <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300">
+            <Check className="h-10 w-10" />
+          </div>
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">
+            Solicitud enviada
           </p>
-          <div className="flex items-center gap-2 text-sm text-emerald-700 font-medium bg-emerald-50 rounded-full px-4 py-2 mb-8">
-            <Clock className="w-4 h-4" />
-            Te contactaremos a la brevedad en horario hábil
+          <h3 className="mt-4 font-serif text-3xl font-medium text-white sm:text-4xl">
+            Gracias. Un asesor te contactará muy pronto.
+          </h3>
+          <p className="mt-4 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
+            Recibimos tu solicitud correctamente y la enviaremos al equipo comercial para darte una asesoría clara, rápida y personalizada.
+          </p>
+          <div className="mt-10 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
+            <button
+              type="button"
+              onClick={() => {
+                setIsSuccess(false);
+                setStep(1);
+                setAcceptedTerms(false);
+                setErrors({});
+                setForm({
+                  customerType: null,
+                  selectedProducts: [],
+                  firstName: "",
+                  lastName: "",
+                  phone: "",
+                  email: "",
+                  birthDate: "",
+                  vehiclePlate: "",
+                  companyName: "",
+                  companyNit: "",
+                  companyVerificationDigit: "",
+                  companyEmail: "",
+                  responsibleName: "",
+                  responsiblePhone: "",
+                  message: "",
+                });
+              }}
+              className="inline-flex min-h-14 items-center justify-center rounded-2xl border border-white/15 px-6 text-base font-semibold text-white transition-colors hover:bg-white/5"
+            >
+              Hacer otra cotización
+            </button>
+            {onClose ? (
+              <button
+                type="button"
+                onClick={onClose}
+                className="inline-flex min-h-14 items-center justify-center rounded-2xl bg-[#e2e7c8] px-6 text-base font-semibold text-slate-900 transition-colors hover:bg-[#edf2d7]"
+              >
+                Cerrar
+              </button>
+            ) : null}
+          </div>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className={compact ? "space-y-6" : "space-y-8"}>
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.26em] text-[#dfe6bf]">
+              Cotiza sin compromiso
+            </p>
+            <h2 className={`mt-3 font-serif leading-[1.02] text-white ${compact ? "text-[1.95rem] sm:text-[2.7rem]" : "text-[2.35rem] sm:text-6xl"}`}>
+              Listo para asegurar tu futuro en 3 sencillos pasos
+            </h2>
+            <p className={`mx-auto mt-4 max-w-2xl leading-7 text-slate-300 ${compact ? "text-[0.98rem] sm:text-lg" : "text-base sm:text-xl"}`}>
+              {step === 1
+                ? "Cuéntanos qué tipo de cliente eres para ayudarte mejor"
+                : step === 2
+                  ? form.customerType === "empresa"
+                    ? "Selecciona uno o varios seguros y avanzamos a tus datos corporativos."
+                    : "Selecciona uno o varios seguros y avanzamos a tus datos de contacto."
+                  : "Completa tu información para que un asesor te contacte con opciones reales."}
+            </p>
           </div>
 
-          <a
-            href={`https://wa.me/573002114998?text=${getWhatsAppMessage()}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-semibold py-3 px-6 rounded-xl transition-colors mb-3"
-          >
-            <MessageCircle className="w-5 h-5" />
-            Quiero respuesta inmediata por WhatsApp
-          </a>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between text-sm text-slate-300">
+              <span>{getProgressLabel(step)}</span>
+              <span>{Math.round((step / 3) * 100)}%</span>
+            </div>
+            <div className={`grid grid-cols-3 gap-2 text-sm ${compact ? "sm:gap-3" : "sm:gap-5"}`}>
+              {[
+                { index: 1, label: "Tipo" },
+                { index: 2, label: "Seguros" },
+                { index: 3, label: "Contacto" },
+              ].map((item) => {
+                const isDone = step > item.index;
+                const isActive = step === item.index;
 
-          <Button
-            onClick={() => window.location.reload()}
-            variant="outline"
-            className="w-full"
-          >
-            Cotizar otro seguro
-          </Button>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  // ─── Step Titles ────────────────────────────────────────────────────────────
-  const stepLabels = ['Tipo', 'Detalles', 'Contacto'];
-
-  // ─── Main Form ──────────────────────────────────────────────────────────────
-  return (
-    <Card className="w-full max-w-xl mx-auto border border-white/30 overflow-hidden bg-white/95 backdrop-blur-lg shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
-      {/* Sleek Premium Progress Header */}
-      <div className="relative h-1.5 w-full bg-slate-100 z-10">
-        <motion.div
-           className="absolute top-0 left-0 h-full bg-gradient-to-r from-emerald-400 to-emerald-600"
-           initial={{ width: '33%' }}
-           animate={{ width: `${(step / 3) * 100}%` }}
-           transition={{ duration: 0.5, ease: 'easeInOut' }}
-        />
-      </div>
-
-      <CardContent className="p-6 sm:p-8">
-        <form onSubmit={handleSubmit(onSubmit)} className="min-h-[340px] flex flex-col justify-between">
-          <AnimatePresence mode="wait">
-
-            {/* ── STEP 1: SELECT TYPE ─────────────────────────────────────── */}
-            {step === 1 && (
-              <motion.div
-                key="step1"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="space-y-5"
-              >
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">¿Qué quieres proteger?</h3>
-                  <p className="text-sm text-gray-500">Obtén 3 opciones comparadas en <strong>menos de 2 horas</strong></p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  {insuranceTypes.map((t) => {
-                    const isSelected = selectedType === t.id;
-                    return (
-                      <div
-                        key={t.id}
-                        onClick={() => setValue('type', t.id as 'auto' | 'salud' | 'empresarial' | 'cumplimiento')}
-                        className={`cursor-pointer rounded-xl border-2 p-4 flex flex-col items-center justify-center gap-2.5 transition-all select-none ${
-                          isSelected
-                            ? 'border-primary bg-primary/5 shadow-md scale-[1.02]'
-                            : 'border-gray-100 hover:border-primary/30 hover:bg-gray-50'
-                        }`}
-                      >
-                        <div className={`p-2.5 rounded-full ${isSelected ? 'bg-primary text-white' : t.bg + ' ' + t.color}`}>
-                          <t.icon className="w-5 h-5" />
-                        </div>
-                        <span className={`text-sm font-semibold ${isSelected ? 'text-primary' : 'text-gray-700'}`}>
-                          {t.label}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Trust badge */}
-                <div className="flex items-center justify-center gap-2 text-xs text-gray-400 pt-1">
-                  <Lock className="w-3 h-3" />
-                  <span>Sin spam · Sin compromiso · 100% gratis</span>
-                </div>
-              </motion.div>
-            )}
-
-            {/* ── STEP 2: SPECIFIC DETAILS ────────────────────────────────── */}
-            {step === 2 && (
-              <motion.div
-                key="step2"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="space-y-5"
-              >
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">
-                    {step2Titles[selectedType]?.title ?? 'Detalles'}
-                  </h3>
-                  <p className="text-sm text-gray-500">
-                    {step2Titles[selectedType]?.sub ?? 'Solo un par de datos para ser precisos'}
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  {/* Ciudad — always visible */}
-                  <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-gray-700">Ciudad de residencia / operación *</label>
-                    <div className="relative">
-                      <Input
-                        {...register('city')}
-                        placeholder="Ej. Bogotá, Medellín, Cali..."
-                        className={`transition-all ${errors.city ? 'border-red-500 focus-visible:ring-red-500' : 'focus-visible:ring-emerald-500/30'} pr-10`}
-                      />
-                      {!errors.city && dirtyFields.city && <CheckCircle2 className="w-4 h-4 text-emerald-500 absolute right-3 top-3" />}
+                return (
+                  <div key={item.label} className="flex items-center gap-2 sm:gap-3">
+                    <div
+                      className={`flex shrink-0 items-center justify-center rounded-full border text-sm font-bold transition-colors ${compact ? "h-10 w-10" : "h-12 w-12"} ${
+                        isDone || isActive
+                          ? "border-[#e2e7c8] bg-[#e2e7c8] text-slate-900"
+                          : "border-white/10 bg-white/6 text-slate-400"
+                      }`}
+                    >
+                      {isDone ? <Check className="h-5 w-5" /> : item.index}
                     </div>
-                    {errors.city && <span className="text-red-500 text-xs">{errors.city.message}</span>}
-                  </div>
-
-                  {/* ── Auto ── */}
-                  {selectedType === 'auto' && (
-                    <>
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="space-y-1.5">
-                          <label className="text-sm font-medium text-gray-700">Placa *</label>
-                          <div className="relative">
-                            <Input
-                              {...register('vehiclePlate', {
-                                onChange: (e) => setValue('vehiclePlate', e.target.value.toUpperCase())
-                              })}
-                              placeholder="AAA123"
-                              maxLength={6}
-                              className={`uppercase transition-all ${errors.vehiclePlate ? 'border-red-500 focus-visible:ring-red-500' : 'focus-visible:ring-emerald-500/30'} pr-10`}
-                            />
-                            {!errors.vehiclePlate && getValues('vehiclePlate')?.length === 6 && <CheckCircle2 className="w-4 h-4 text-emerald-500 absolute right-3 top-3" />}
-                          </div>
-                          {errors.vehiclePlate && <span className="text-red-500 text-xs">{errors.vehiclePlate.message}</span>}
-                          <p className="text-xs text-gray-400">Identificamos el modelo</p>
-                        </div>
-                        <div className="space-y-1.5">
-                          <label className="text-sm font-medium text-gray-700">Año *</label>
-                          <div className="relative">
-                            <Input
-                              type="number"
-                              {...register('vehicleYear')}
-                              placeholder="2021"
-                              maxLength={4}
-                              className={`transition-all ${errors.vehicleYear ? 'border-red-500 focus-visible:ring-red-500' : 'focus-visible:ring-emerald-500/30'} pr-10`}
-                            />
-                            {!errors.vehicleYear && getValues('vehicleYear')?.length === 4 && <CheckCircle2 className="w-4 h-4 text-emerald-500 absolute right-3 top-3" />}
-                          </div>
-                          {errors.vehicleYear && <span className="text-red-500 text-xs">{errors.vehicleYear.message}</span>}
-                        </div>
-                      </div>
-                      <div className="space-y-1.5">
-                        <label className="text-sm font-medium text-gray-700">
-                          Fecha de Nacimiento del Conductor
-                          <span className="ml-1.5 text-xs font-normal text-amber-600">(importante para calcular la tarifa exacta)</span>
-                        </label>
-                        <Input
-                          type="date"
-                          {...register('driverBirthDate')}
-                          className="text-gray-600"
-                        />
-                        <p className="text-xs text-gray-400">Opcional — ayuda a personalizar el precio según tu perfil de conductor</p>
-                      </div>
-                    </>
-                  )}
-
-                  {/* ── Salud ── */}
-                  {selectedType === 'salud' && (
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="space-y-1.5">
-                        <label className="text-sm font-medium text-gray-700">Edad Mínima *</label>
-                        <Input
-                          type="number"
-                          {...register('patientAge')}
-                          placeholder="Ej. 35"
-                          className={errors.patientAge ? 'border-red-500' : ''}
-                        />
-                        {errors.patientAge && <span className="text-red-500 text-xs">{errors.patientAge.message}</span>}
-                      </div>
-                      <div className="space-y-1.5">
-                        <label className="text-sm font-medium text-gray-700">Cobertura *</label>
-                        <select
-                          {...register('healthCoverage')}
-                          className={`flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${errors.healthCoverage ? 'border-red-500' : ''}`}
-                        >
-                          <option value="">Selecciona...</option>
-                          <option value="individual">Individual</option>
-                          <option value="familiar">Familiar</option>
-                        </select>
-                        {errors.healthCoverage && <span className="text-red-500 text-xs">{errors.healthCoverage.message}</span>}
-                      </div>
+                    <div className="hidden min-w-0 flex-1 items-center gap-3 sm:flex">
+                      <span className={`${isDone || isActive ? "text-[#edf2d7]" : "text-slate-500"}`}>
+                        {item.label}
+                      </span>
+                      {item.index < 3 ? <div className="h-px flex-1 bg-white/10" /> : null}
                     </div>
-                  )}
-
-                  {/* ── Empresarial (NIT REMOVED) ── */}
-                  {selectedType === 'empresarial' && (
-                    <>
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="space-y-1.5 col-span-2">
-                          <label className="text-sm font-medium text-gray-700">Sector Económico *</label>
-                          <Input
-                            {...register('companySector')}
-                            placeholder="Ej. Construcción, Tecnología, Comercio..."
-                            className={errors.companySector ? 'border-red-500' : ''}
-                          />
-                          {errors.companySector && <span className="text-red-500 text-xs">{errors.companySector.message}</span>}
-                        </div>
-                        <div className="space-y-1.5">
-                          <label className="text-sm font-medium text-gray-700">N.° Empleados *</label>
-                          <Input
-                            type="number"
-                            {...register('companyEmployees')}
-                            placeholder="Ej. 15"
-                            className={errors.companyEmployees ? 'border-red-500' : ''}
-                          />
-                          {errors.companyEmployees && <span className="text-red-500 text-xs">{errors.companyEmployees.message}</span>}
-                        </div>
-                      </div>
-                    </>
-                  )}
-
-                  {/* ── Cumplimiento ── */}
-                  {selectedType === 'cumplimiento' && (
-                    <>
-                      <div className="space-y-1.5">
-                        <label className="text-sm font-medium text-gray-700">Tipo de Contrato *</label>
-                        <Input
-                          {...register('contractType')}
-                          placeholder="Ej. Obra civil, Suministro, Prestación de servicios..."
-                          className={errors.contractType ? 'border-red-500' : ''}
-                        />
-                        {errors.contractType && <span className="text-red-500 text-xs">{errors.contractType.message}</span>}
-                      </div>
-                      <div className="space-y-1.5">
-                        <label className="text-sm font-medium text-gray-700">Valor Estimado (COP) *</label>
-                        <div className="relative">
-                          <Input
-                            type="text"
-                            {...register('contractValue', {
-                              onChange: (e) => {
-                                const numeric = e.target.value.replace(/\D/g, '');
-                                const formatted = numeric.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                                setValue('contractValue', formatted);
-                              }
-                            })}
-                            placeholder="Ej. 50.000.000"
-                            className={`transition-all ${errors.contractValue ? 'border-red-500 focus-visible:ring-red-500' : 'focus-visible:ring-emerald-500/30'} pr-10`}
-                          />
-                          {!errors.contractValue && (getValues('contractValue')?.length ?? 0) >= 4 && <CheckCircle2 className="w-4 h-4 text-emerald-500 absolute right-3 top-3" />}
-                        </div>
-                        {errors.contractValue && <span className="text-red-500 text-xs">{errors.contractValue.message}</span>}
-                      </div>
-                    </>
-                  )}
-                </div>
-              </motion.div>
-            )}
-
-            {/* ── STEP 3: CONTACT DETAILS ─────────────────────────────────── */}
-            {step === 3 && (
-              <motion.div
-                key="step3"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="space-y-4"
-              >
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">Casi listo</h3>
-                  <p className="text-sm text-gray-500">¿A dónde enviamos tu comparativa personalizada?</p>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-gray-700">Nombre Completo *</label>
-                    <Input
-                      {...register('name')}
-                      placeholder="Juan Pérez"
-                      className={errors.name ? 'border-red-500' : ''}
-                    />
-                    {errors.name && <span className="text-red-500 text-xs">{errors.name.message}</span>}
                   </div>
+                );
+              })}
+            </div>
+          </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-gray-700">
-                      Celular WhatsApp *
-                      <span className="ml-1 text-xs text-emerald-600 font-normal">Te enviaremos propuestas aquí</span>
-                    </label>
-                    <div className="relative">
-                      <Input
-                        type="tel"
-                        {...register('phone', {
-                          onChange: (e) => {
-                            let val = e.target.value.replace(/\D/g, '');
-                            if (val.length > 3 && val.length <= 6) val = `${val.slice(0, 3)} ${val.slice(3)}`;
-                            else if (val.length > 6) val = `${val.slice(0, 3)} ${val.slice(3, 6)} ${val.slice(6, 10)}`;
-                            setValue('phone', val);
-                          }
-                        })}
-                        placeholder="300 000 0000"
-                        maxLength={12}
-                        className={`transition-all ${errors.phone ? 'border-red-500 focus-visible:ring-red-500' : 'focus-visible:ring-emerald-500/30'} pr-10`}
-                      />
-                      {!errors.phone && getValues('phone')?.replace(/\s/g, '').length === 10 && <CheckCircle2 className="w-4 h-4 text-emerald-500 absolute right-3 top-3" />}
-                    </div>
-                    {errors.phone && <span className="text-red-500 text-xs">{errors.phone.message}</span>}
+          {step === 1 ? (
+            <div className={compact ? "space-y-4" : "space-y-6"}>
+              <div className="text-center">
+                <h3 className={`font-serif text-white ${compact ? "text-[1.8rem] sm:text-[2.3rem]" : "text-3xl sm:text-4xl"}`}>
+                  Cuéntanos qué tipo de cliente eres para ayudarte mejor
+                </h3>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setField("customerType", "persona");
+                    setField("selectedProducts", []);
+                  }}
+                  className={`rounded-[1.6rem] border text-left transition-all ${compact ? "p-5" : "p-6"} ${
+                    form.customerType === "persona"
+                      ? "border-[#e2e7c8] bg-white/10 shadow-[0_0_0_1px_rgba(226,231,200,0.45)]"
+                      : "border-white/12 bg-white/[0.04] hover:bg-white/[0.07]"
+                  }`}
+                >
+                  <div className={`mb-5 flex items-center justify-center rounded-2xl bg-white/8 text-cyan-300 ${compact ? "h-12 w-12" : "h-14 w-14"}`}>
+                    <UserRound className="h-7 w-7" />
                   </div>
+                  <p className={`${compact ? "text-xl" : "text-2xl"} font-semibold text-white`}>Persona natural</p>
+                  <p className={`mt-2 text-slate-300 ${compact ? "text-sm" : "text-base"}`}>Seguros para ti y tu familia</p>
+                </button>
 
-                  <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-gray-700">Correo Electrónico *</label>
-                    <Input
-                      type="email"
-                      {...register('email')}
-                      placeholder="tu@correo.com"
-                      className={errors.email ? 'border-red-500' : ''}
-                    />
-                    {errors.email && <span className="text-red-500 text-xs">{errors.email.message}</span>}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setField("customerType", "empresa");
+                    setField("selectedProducts", []);
+                  }}
+                  className={`rounded-[1.6rem] border text-left transition-all ${compact ? "p-5" : "p-6"} ${
+                    form.customerType === "empresa"
+                      ? "border-[#e2e7c8] bg-white/10 shadow-[0_0_0_1px_rgba(226,231,200,0.45)]"
+                      : "border-white/12 bg-white/[0.04] hover:bg-white/[0.07]"
+                  }`}
+                >
+                  <div className={`mb-5 flex items-center justify-center rounded-2xl bg-white/8 text-cyan-300 ${compact ? "h-12 w-12" : "h-14 w-14"}`}>
+                    <Building2 className="h-7 w-7" />
                   </div>
-                </div>
+                  <p className={`${compact ? "text-xl" : "text-2xl"} font-semibold text-white`}>Empresa</p>
+                  <p className={`mt-2 text-slate-300 ${compact ? "text-sm" : "text-base"}`}>Protección para tu negocio</p>
+                </button>
+              </div>
 
-                {/* Social proof inline */}
-                <div className="flex items-start gap-2 p-3 rounded-xl bg-amber-50 border border-amber-100">
-                  <Star className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                  <p className="text-xs text-amber-700">{socialProofMessages[socialProofIdx]}</p>
-                </div>
+              {errors.customerType ? (
+                <p className="text-sm text-rose-300">{errors.customerType}</p>
+              ) : null}
+            </div>
+          ) : null}
 
-                {/* Habeas Data */}
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-gray-100">
+          {step === 2 && form.customerType ? (
+            <div className={compact ? "space-y-4" : "space-y-6"}>
+              <div className="text-center">
+                <h3 className={`font-serif text-white ${compact ? "text-[1.8rem] sm:text-[2.3rem]" : "text-3xl sm:text-4xl"}`}>
+                  {form.customerType === "empresa"
+                    ? "¿Qué seguro necesita tu empresa?"
+                    : "¿Qué tipo de seguro te interesa?"}
+                </h3>
+              </div>
+
+              <div className={`grid grid-cols-2 gap-3 ${compact ? "md:grid-cols-2 xl:grid-cols-2" : "md:grid-cols-3 xl:grid-cols-4"}`}>
+                {options.map((option) => {
+                  const selected = form.selectedProducts.includes(option.id);
+
+                  return (
+                    <button
+                      key={option.id}
+                      type="button"
+                      onClick={() => toggleProduct(option.id)}
+                      className={`rounded-[1.45rem] border px-4 text-center transition-all ${compact ? "py-5" : "py-6"} ${
+                        selected
+                          ? "border-[#e2e7c8] bg-white/10 shadow-[0_0_0_1px_rgba(226,231,200,0.4)]"
+                          : "border-white/12 bg-white/[0.04] hover:bg-white/[0.07]"
+                      }`}
+                    >
+                      <div className={`mx-auto mb-4 flex items-center justify-center rounded-2xl bg-white/8 text-cyan-300 ${compact ? "h-10 w-10" : "h-12 w-12"}`}>
+                        <option.icon className="h-6 w-6" />
+                      </div>
+                      <p className={`font-semibold leading-6 text-white ${compact ? "text-sm" : "text-sm sm:text-base"}`}>
+                        {option.label}
+                      </p>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {errors.selectedProducts ? (
+                <p className="text-sm text-rose-300">{errors.selectedProducts}</p>
+              ) : null}
+            </div>
+          ) : null}
+
+          {step === 3 && form.customerType === "persona" ? (
+            <div className={compact ? "space-y-4" : "space-y-5"}>
+              <div className="text-center">
+                <h3 className={`font-serif text-white ${compact ? "text-[1.8rem] sm:text-[2.3rem]" : "text-3xl sm:text-4xl"}`}>
+                  Tus datos de contacto
+                </h3>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">Nombre *</label>
                   <input
-                    type="checkbox"
-                    id="acceptedDataTerms"
-                    checked={acceptedDataTerms}
-                    onChange={(e) => setAcceptedDataTerms(e.target.checked)}
-                    className="mt-0.5 h-4 w-4 rounded border-slate-300 text-purple-700 shrink-0 cursor-pointer"
-                    required
+                    value={form.firstName}
+                    onChange={(event) => setField("firstName", event.target.value)}
+                    placeholder="Tu nombre"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
                   />
-                  <label htmlFor="acceptedDataTerms" className="text-xs text-gray-500 leading-relaxed cursor-pointer">
-                    Acepto el{' '}
-                    <a href="/privacidad" target="_blank" className="text-purple-700 underline font-medium hover:text-purple-900">
-                      tratamiento de mis datos personales
-                    </a>{' '}
-                    conforme a la Ley 1581 de 2012 (Habeas Data) para recibir asesoría en seguros.
-                  </label>
+                  {errors.firstName ? <p className="text-sm text-rose-300">{errors.firstName}</p> : null}
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">Apellido *</label>
+                  <input
+                    value={form.lastName}
+                    onChange={(event) => setField("lastName", event.target.value)}
+                    placeholder="Tu apellido"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  />
+                  {errors.lastName ? <p className="text-sm text-rose-300">{errors.lastName}</p> : null}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">Celular / WhatsApp *</label>
+                  <input
+                    value={form.phone}
+                    onChange={(event) => setField("phone", formatPhone(event.target.value))}
+                    placeholder="+57 300 123 4567"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  />
+                  {errors.phone ? <p className="text-sm text-rose-300">{errors.phone}</p> : null}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">Correo electrónico *</label>
+                  <input
+                    type="email"
+                    value={form.email}
+                    onChange={(event) => setField("email", event.target.value)}
+                    placeholder="tu@email.com"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  />
+                  {errors.email ? <p className="text-sm text-rose-300">{errors.email}</p> : null}
+                </div>
+              </div>
 
-          {/* ── Controls ──────────────────────────────────────────────────── */}
-          <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">Fecha de nacimiento</label>
+                  <input
+                    type="date"
+                    value={form.birthDate}
+                    onChange={(event) => setField("birthDate", event.target.value)}
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors focus:border-cyan-300"
+                  />
+                </div>
+                {form.selectedProducts.includes("todo-riesgo-autos") ? (
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-slate-200">Placa del vehículo</label>
+                    <input
+                      value={form.vehiclePlate}
+                      onChange={(event) => setField("vehiclePlate", event.target.value.toUpperCase().slice(0, 6))}
+                      placeholder="ABC123"
+                      className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base uppercase text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    />
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-200">Mensaje adicional</label>
+                <textarea
+                  value={form.message}
+                  onChange={(event) => setField("message", event.target.value)}
+                  placeholder="Cuéntanos más sobre lo que necesitas"
+                  rows={4}
+                  className="w-full rounded-[1.35rem] border border-white/10 bg-white/[0.05] px-4 py-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                />
+              </div>
+            </div>
+          ) : null}
+
+          {step === 3 && form.customerType === "empresa" ? (
+            <div className={compact ? "space-y-4" : "space-y-5"}>
+              <div className="text-center">
+                <h3 className={`font-serif text-white ${compact ? "text-[1.8rem] sm:text-[2.3rem]" : "text-3xl sm:text-4xl"}`}>
+                  Datos de tu empresa
+                </h3>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2 sm:col-span-2">
+                  <label className="text-sm font-medium text-slate-200">Nombre de la empresa *</label>
+                  <input
+                    value={form.companyName}
+                    onChange={(event) => setField("companyName", event.target.value)}
+                    placeholder="Nombre legal de la empresa"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  />
+                  {errors.companyName ? <p className="text-sm text-rose-300">{errors.companyName}</p> : null}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">NIT de la empresa *</label>
+                  <input
+                    value={form.companyNit}
+                    onChange={(event) => setField("companyNit", formatNit(event.target.value))}
+                    placeholder="900123456"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  />
+                  {errors.companyNit ? <p className="text-sm text-rose-300">{errors.companyNit}</p> : null}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">Número de verificación</label>
+                  <input
+                    value={form.companyVerificationDigit}
+                    onChange={(event) => setField("companyVerificationDigit", event.target.value.replace(/\D/g, "").slice(0, 1))}
+                    placeholder="7"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">Correo electrónico *</label>
+                  <input
+                    type="email"
+                    value={form.companyEmail}
+                    onChange={(event) => setField("companyEmail", event.target.value)}
+                    placeholder="empresa@email.com"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  />
+                  {errors.companyEmail ? <p className="text-sm text-rose-300">{errors.companyEmail}</p> : null}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">Nombre de la persona responsable *</label>
+                  <input
+                    value={form.responsibleName}
+                    onChange={(event) => setField("responsibleName", event.target.value)}
+                    placeholder="Nombre y apellido"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  />
+                  {errors.responsibleName ? <p className="text-sm text-rose-300">{errors.responsibleName}</p> : null}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-200">Celular / WhatsApp del responsable *</label>
+                  <input
+                    value={form.responsiblePhone}
+                    onChange={(event) => setField("responsiblePhone", formatPhone(event.target.value))}
+                    placeholder="+57 300 123 4567"
+                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  />
+                  {errors.responsiblePhone ? <p className="text-sm text-rose-300">{errors.responsiblePhone}</p> : null}
+                </div>
+                {form.selectedProducts.includes("todo-riesgo-autos") ? (
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-slate-200">Placa del vehículo</label>
+                    <input
+                      value={form.vehiclePlate}
+                      onChange={(event) => setField("vehiclePlate", event.target.value.toUpperCase().slice(0, 6))}
+                      placeholder="ABC123"
+                      className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base uppercase text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    />
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-200">Mensaje adicional</label>
+                <textarea
+                  value={form.message}
+                  onChange={(event) => setField("message", event.target.value)}
+                  placeholder="Cuéntanos más sobre lo que necesita tu empresa"
+                  rows={4}
+                  className="w-full rounded-[1.35rem] border border-white/10 bg-white/[0.05] px-4 py-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                />
+              </div>
+            </div>
+          ) : null}
+
+          {step === 3 ? (
+            <div className="space-y-3 rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
+              <label className="flex cursor-pointer items-start gap-3">
+                <input
+                  type="checkbox"
+                  checked={acceptedTerms}
+                  onChange={(event) => {
+                    setAcceptedTerms(event.target.checked);
+                    setErrors((current) => {
+                      if (!current.acceptedTerms) return current;
+                      const nextErrors = { ...current };
+                      delete nextErrors.acceptedTerms;
+                      return nextErrors;
+                    });
+                  }}
+                  className="mt-1 h-4 w-4 rounded border-white/20 bg-transparent text-cyan-300"
+                />
+                <span className="text-sm leading-6 text-slate-300">
+                  Acepto el{" "}
+                  <a href="/privacidad" target="_blank" className="font-medium text-cyan-300 underline underline-offset-2">
+                    tratamiento de mis datos personales
+                  </a>{" "}
+                  para recibir asesoría y cotización.
+                </span>
+              </label>
+              {errors.acceptedTerms ? <p className="text-sm text-rose-300">{errors.acceptedTerms}</p> : null}
+              {errors.submit ? <p className="text-sm text-rose-300">{errors.submit}</p> : null}
+            </div>
+          ) : null}
+
+          <div className="flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
             {step > 1 ? (
-              <Button type="button" variant="ghost" onClick={handleBack} disabled={isSubmitting} className="text-gray-500 text-sm">
-                <ArrowLeft className="w-4 h-4 mr-1.5" />
+              <button
+                type="button"
+                onClick={handleBack}
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl border border-white/14 px-5 text-base font-semibold text-white transition-colors hover:bg-white/[0.05]"
+              >
+                <ArrowLeft className="h-4 w-4" />
                 Atrás
-              </Button>
+              </button>
             ) : (
               <div />
             )}
 
             {step < 3 ? (
-              <Button
+              <button
                 type="button"
                 onClick={handleNext}
-                className="bg-primary hover:bg-primary/90 text-white min-w-[140px] font-semibold"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-[#e2e7c8] px-6 text-base font-semibold text-slate-900 transition-colors hover:bg-[#edf2d7]"
               >
-                {step === 1 ? 'Ver opciones' : 'Continuar'}
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+                {step === 1 ? "Continuar" : "Continuar"}
+                <ArrowRight className="h-4 w-4" />
+              </button>
             ) : (
-              <div className="flex flex-col items-end gap-1.5 w-full">
-                <Button
-                  type="submit"
-                  disabled={isSubmitting || !acceptedDataTerms}
-                  className="bg-primary hover:bg-primary/90 text-white w-full font-bold text-base py-3"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      <Shield className="w-4 h-4 mr-2" />
-                      Quiero mis 3 Propuestas Gratis
-                    </>
-                  )}
-                </Button>
-                <div className="flex items-center gap-1.5 text-xs text-gray-400 justify-center w-full">
-                  <Clock className="w-3 h-3" />
-                  Respuesta promedio: menos de 2 horas
-                </div>
-              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-[#e2e7c8] px-6 text-base font-semibold text-slate-900 transition-colors hover:bg-[#edf2d7] disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    Enviar cotización
+                  </>
+                )}
+              </button>
             )}
           </div>
         </form>
-      </CardContent>
-
-      <div className="bg-slate-50 border-t border-gray-100 py-3 px-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold text-gray-500">
-        <span className="flex items-center gap-1.5 text-gray-900"><Award className="w-4 h-4 text-emerald-600" /> Operamos con:</span>
-        <span className="opacity-80">SURA</span>
-        <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-        <span className="opacity-80">Allianz</span>
-        <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-        <span className="opacity-80">Bolívar</span>
-      </div>
-    </Card>
+      )}
+    </div>
   );
 }

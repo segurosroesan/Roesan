@@ -112,10 +112,10 @@ export default function RootLayout({
                 "addressLocality": "Bogotá",
                 "addressCountry": "CO"
               },
-              "telephone": "+576016294040",
+              "telephone": "+573002114998",
               "areaServed": ["CO"],
               "currenciesAccepted": "COP",
-              "openingHours": "Mo-Fr 08:30-17:30",
+              "openingHours": "Mo-Fr 08:30-17:00",
               "url": "https://roesan.com.co"
             }
           `}

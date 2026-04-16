@@ -2,12 +2,11 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { servicesData } from "@/lib/services-data";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { ArrowLeft, CheckCircle2, Shield } from "lucide-react";
-import Link from "next/link";
+import { CheckCircle2, Shield } from "lucide-react";
 import Image from "next/image";
 import QuoteFunnel from "@/components/home/QuoteFunnel";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import type { ProductId } from "@/components/home/QuoteFunnel";
 
 // Using native Next.js params typing
 type Props = {
@@ -42,6 +41,25 @@ export default async function ServiceDetailPage({ params }: Props) {
     if (!service) {
         notFound();
     }
+
+    const initialProductMap: Record<string, ProductId> = {
+        vida: "seguro-vida",
+        salud: "salud-medicina-prepagada",
+        autos: "todo-riesgo-autos",
+        hogar: "seguro-hogar",
+        mascotas: "seguro-mascotas",
+        "vida-deudor": "seguro-vida-deudor",
+        exequial: "otros-persona",
+        educativo: "otros-persona",
+        "responsabilidad-civil-personal": "otros-persona",
+        empresariales: "pyme",
+        transporte: "transporte",
+        cumplimiento: "cumplimiento",
+        "responsabilidad-civil-empresarial": "responsabilidad-civil",
+        colectivos: "salud-colectivo",
+        "arl-vida-grupo": "arl",
+        copropiedades: "copropiedades",
+    };
 
     return (
         <div className="bg-white pb-24">
@@ -151,7 +169,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
                     {/* Sidebar CTA */}
                     <div>
-                        <div className="sticky top-24 rounded-3xl bg-white p-2 sm:p-4 shadow-xl ring-1 ring-slate-900/5">
+                        <div className="xl:sticky xl:top-28 rounded-3xl bg-white p-2 sm:p-4 shadow-xl ring-1 ring-slate-900/5">
                             <h3 className="text-xl font-bold text-slate-900 mb-2 px-4 pt-4">
                                 {service.category === 'empresa' ? 'Solicita asesoría empresarial' : 'Solicita tu cotización'}
                             </h3>
@@ -163,7 +181,9 @@ export default async function ServiceDetailPage({ params }: Props) {
 
                             <div className="w-full">
                                 <QuoteFunnel 
-                                    initialType={service.quoteType as any || 'auto'} 
+                                    initialType={service.quoteType as "auto" | "salud" | "empresarial" | "cumplimiento" | "vida"}
+                                    initialProductId={initialProductMap[service.slug]}
+                                    variant="compact"
                                 />
                             </div>
 

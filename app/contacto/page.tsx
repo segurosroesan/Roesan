@@ -40,6 +40,7 @@ export default function ContactPage() {
         setStatus("loading");
 
         try {
+            const createdAt = Date.now();
             const composedMessage = [
                 formData.topic ? `Tema: ${formData.topic}` : "",
                 formData.message,
@@ -51,9 +52,23 @@ export default function ContactPage() {
                     phone: formData.phone,
                     email: formData.email,
                     message: composedMessage || "(sin mensaje)",
-                    createdAt: Date.now(),
+                    createdAt,
                 })
             );
+            
+            fetch("/api/lead-notify", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    origin: "Contacto",
+                    createdAt,
+                    leadName: formData.name,
+                    leadPhone: formData.phone,
+                    leadEmail: formData.email,
+                    topic: formData.topic,
+                    message: formData.message,
+                }),
+            }).catch(console.error);
             setStatus("success");
             setFormData({ name: "", phone: "", email: "", topic: "", message: "" });
         } catch (err) {
@@ -111,10 +126,18 @@ export default function ContactPage() {
                     {/* Contact Info Cards */}
                     <div className="space-y-4">
                         {[
-                            { icon: MapPin, title: "Visítanos", content: "Calle 109 #19-36 of. 203, Bogotá", color: "text-primary", bg: "bg-purple-50", delay: 0 },
-                            { icon: Phone, title: "Llámanos", content: "+57 601 629 4040", color: "text-primary", bg: "bg-purple-50", delay: 0.1 },
+                            {
+                                icon: MapPin,
+                                title: "Visítanos",
+                                content: "Calle 109 #19-36 of. 203, Bogotá, Colombia",
+                                href: "https://maps.google.com/?q=Calle+109+%2319-36+Oficina+203,+Bogot%C3%A1,+Colombia",
+                                color: "text-primary",
+                                bg: "bg-purple-50",
+                                delay: 0
+                            },
+                            { icon: Phone, title: "Llámanos", content: "+57 3002114998", color: "text-primary", bg: "bg-purple-50", delay: 0.1 },
                             { icon: Mail, title: "Escríbenos", content: "comercial@roesan.com", color: "text-primary", bg: "bg-purple-50", delay: 0.2 },
-                            { icon: Clock, title: "Horario de atención", content: "Lun–Vie: 8:30 am – 5:30 pm", color: "text-primary", bg: "bg-purple-50", delay: 0.3 },
+                            { icon: Clock, title: "Horario de atención", content: "Lun–Vie: 8:30 am – 5:00 pm", color: "text-primary", bg: "bg-purple-50", delay: 0.3 },
                         ].map((item) => (
                             <motion.div
                                 key={item.title}
@@ -128,7 +151,21 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-slate-900 text-sm">{item.title}</h3>
-                                    <p className="text-slate-600 text-sm mt-0.5">{item.content}</p>
+                                    {item.href ? (
+                                        <p className="text-slate-600 text-sm mt-0.5">
+                                            Dirección:{" "}
+                                            <a
+                                                href={item.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-primary font-medium underline underline-offset-2 hover:text-purple-800"
+                                            >
+                                                {item.content}
+                                            </a>
+                                        </p>
+                                    ) : (
+                                        <p className="text-slate-600 text-sm mt-0.5">{item.content}</p>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}
@@ -341,7 +378,7 @@ export default function ContactPage() {
                 <div className="bg-slate-900 py-8">
                     <Container>
                         <h2 className="text-xl font-bold text-white mb-1">¿Cómo llegar?</h2>
-                        <p className="text-slate-400 text-sm">Calle 109 #19-36 of. 203, Bogotá D.C.</p>
+                        <p className="text-slate-400 text-sm">Calle 109 #19-36 of. 203, Bogotá, Colombia</p>
                     </Container>
                 </div>
                 <div className="relative w-full" style={{ height: "420px" }}>

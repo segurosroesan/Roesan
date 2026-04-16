@@ -8,8 +8,11 @@ import {
     Loader2, MessageCircle, Shield,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { db } from "@/lib/instant";
-import { id } from "@instantdb/react";
+import { init, tx, id } from "@instantdb/react";
+
+// Conexión directa al App ID — bypasses local schema for contact_messages
+const APP_ID = process.env.NEXT_PUBLIC_INSTANT_APP_ID || "636468fb-7b17-409e-a391-268cc24d6853";
+const contactDb = init({ appId: APP_ID });
 
 const INSURANCE_TOPICS = [
     "Seguro de Auto / Vehículo",
@@ -37,9 +40,17 @@ export default function ContactPage() {
         setStatus("loading");
 
         try {
-            await db.transact(
-                db.tx.contact_messages[id()].create({
-                    ...formData,
+            const composedMessage = [
+                formData.topic ? `Tema: ${formData.topic}` : "",
+                formData.message,
+            ].filter(Boolean).join("\n\n");
+
+            await contactDb.transact(
+                tx.contact_messages[id()].update({
+                    name: formData.name,
+                    phone: formData.phone,
+                    email: formData.email,
+                    message: composedMessage || "(sin mensaje)",
                     createdAt: Date.now(),
                 })
             );

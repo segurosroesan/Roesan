@@ -1,73 +1,98 @@
+// Docs: https://www.instantdb.com/docs/modeling-data
+// Schema sincronizado con la nube de InstantDB — última actualización: 2026-04-16
+
 import { i } from "@instantdb/core";
 
 const _schema = i.schema({
-    entities: {
-        contact_messages: i.entity({
-            name: i.string(),
-            phone: i.string(),
-            email: i.string().indexed(),
-            message: i.string(),
-            createdAt: i.number().indexed(),
-        }),
-        chat_sessions: i.entity({
-            status: i.string(), // 'active', 'closed', 'archived'
-            userName: i.string().optional(),
-            userPhone: i.string().optional(),
-            createdAt: i.number(),
-            updatedAt: i.number(),
-        }),
-        messages: i.entity({
-            role: i.string(), // 'user', 'assistant', 'system'
-            content: i.string(),
-            createdAt: i.number().indexed(),
-        }),
-        insurance_leads: i.entity({
-            type: i.string().indexed(), // 'auto', 'salud', 'empresarial', 'cumplimiento'
-            name: i.string(),
-            phone: i.string(),
-            email: i.string().indexed(),
-            city: i.string().optional(),
-            // Auto
-            vehiclePlate: i.string().optional(),
-            vehicleBrand: i.string().optional(),
-            vehicleModel: i.string().optional(),
-            vehicleYear: i.string().optional(),
-            vehicleUse: i.string().optional(),
-            driverBirthDate: i.string().optional(),
-            // Salud
-            patientAge: i.string().optional(),
-            healthCoverage: i.string().optional(),
-            currentEps: i.string().optional(),
-            // Empresa
-            companyName: i.string().optional(),
-            companyNit: i.string().optional(),
-            companySector: i.string().optional(),
-            companyEmployees: i.string().optional(),
-            companyRisk: i.string().optional(),
-            // Cumplimiento
-            contractType: i.string().optional(),
-            contractValue: i.string().optional(),
-            contractEntity: i.string().optional(),
-            
-            // Meta
-            status: i.string().indexed(), // 'nuevo', 'contactado', 'cotizado'
-            createdAt: i.number().indexed(),
-        }),
+  entities: {
+    "$files": i.entity({
+      "path": i.string().unique().indexed(),
+      "url": i.string().optional(),
+    }),
+    "$users": i.entity({
+      "email": i.string().unique().indexed().optional(),
+      "imageURL": i.string().optional(),
+      "type": i.string().optional(),
+    }),
+    "chat_sessions": i.entity({
+      "createdAt": i.number(),
+      "status": i.string(),
+      "updatedAt": i.number(),
+      "userName": i.string().optional(),
+      "userPhone": i.string().optional(),
+    }),
+    "contact_messages": i.entity({
+      "createdAt": i.number().indexed(),
+      "email": i.string().indexed(),
+      "message": i.string(),
+      "name": i.string(),
+      "phone": i.string(),
+    }),
+    "insurance_leads": i.entity({
+      "city": i.string().optional(),
+      "companyEmployees": i.string().optional(),
+      "companyName": i.string().optional(),
+      "companyNit": i.string().optional(),
+      "companySector": i.string().optional(),
+      "contractType": i.string().optional(),
+      "contractValue": i.string().optional(),
+      "createdAt": i.number().indexed().optional(),
+      "customerType": i.string().optional(),
+      "driverBirthDate": i.string().optional(),
+      "email": i.string().indexed().optional(),
+      "healthCoverage": i.string().optional(),
+      "lastName": i.string().optional(),
+      "message": i.string().optional(),
+      "name": i.string().optional(),
+      "patientAge": i.string().optional(),
+      "phone": i.string().optional(),
+      "responsibleName": i.string().optional(),
+      "selectedProducts": i.string().optional(),
+      "status": i.string().indexed().optional(),
+      "type": i.string().indexed().optional(),
+      "vehiclePlate": i.string().optional(),
+      "vehicleYear": i.string().optional(),
+    }),
+    "messages": i.entity({
+      "content": i.string(),
+      "createdAt": i.number().indexed(),
+      "role": i.string(),
+    }),
+  },
+  links: {
+    "$usersLinkedPrimaryUser": {
+      "forward": {
+        "on": "$users",
+        "has": "one",
+        "label": "linkedPrimaryUser",
+        "onDelete": "cascade"
+      },
+      "reverse": {
+        "on": "$users",
+        "has": "many",
+        "label": "linkedGuestUsers"
+      }
     },
-    links: {
-        chatSessionMessages: {
-            forward: {
-                on: "chat_sessions",
-                has: "many",
-                label: "messages",
-            },
-            reverse: {
-                on: "messages",
-                has: "one",
-                label: "session",
-            },
-        },
-    },
+    "chat_sessionsMessages": {
+      "forward": {
+        "on": "chat_sessions",
+        "has": "many",
+        "label": "messages"
+      },
+      "reverse": {
+        "on": "messages",
+        "has": "one",
+        "label": "session"
+      }
+    }
+  },
+  rooms: {}
 });
 
-export default _schema;
+// This helps TypeScript display nicer intellisense
+type _AppSchema = typeof _schema;
+interface AppSchema extends _AppSchema {}
+const schema: AppSchema = _schema;
+
+export type { AppSchema }
+export default schema;

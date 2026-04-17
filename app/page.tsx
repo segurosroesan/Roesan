@@ -17,7 +17,7 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-slate-900 to-cyan-900" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/90 via-slate-900/90 to-cyan-900/90 backdrop-blur-sm" />
         <div
           className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: "url('/images/hero-familia.png')" }}

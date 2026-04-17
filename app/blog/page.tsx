@@ -136,7 +136,7 @@ export default function BlogPage() {
             </section>
 
             {/* CTA */}
-            <section className="bg-purple-800 py-16">
+            <section className="relative py-24 overflow-hidden bg-purple-900/90 backdrop-blur-md">
                 <Container className="text-center">
                     <h2 className="text-2xl font-bold text-white mb-4">
                         ¿Tienes dudas sobre qué seguro necesitas?

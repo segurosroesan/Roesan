@@ -71,7 +71,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${roboto.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-background selection:bg-accent selection:text-accent-foreground`}
+        className={`${roboto.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-transparent selection:bg-accent selection:text-accent-foreground`}
       >
         {/* Atmosphere Layer - Fixed and subtle */}
         <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">

@@ -102,7 +102,7 @@ export function ServicesGrid() {
     const personas = servicesData.filter((s) => s.category === "persona");
 
     return (
-        <section className="py-24 bg-white" id="servicios">
+        <section className="py-24 bg-transparent" id="servicios">
             <Container>
                 {/* Section header */}
                 <motion.div

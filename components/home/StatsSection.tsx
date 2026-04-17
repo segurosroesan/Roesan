@@ -71,7 +71,7 @@ const stats = [
 
 export function StatsSection() {
     return (
-        <section className="relative py-24 bg-white/60 backdrop-blur-md overflow-hidden">
+        <section className="relative py-24 bg-white/40 backdrop-blur-md overflow-hidden">
             {/* Decorative blobs */}
             <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-purple-50 opacity-60 blur-3xl pointer-events-none" />
             <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-cyan-50 opacity-60 blur-3xl pointer-events-none" />

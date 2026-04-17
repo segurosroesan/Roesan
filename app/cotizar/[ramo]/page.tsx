@@ -61,7 +61,7 @@ export default async function QuoteLandingPage({ params }: Props) {
     const ServiceIcon = linkedService?.icon || Shield;
 
     return (
-        <div className="bg-slate-50 min-h-screen pb-24">
+        <div className="bg-transparent min-h-screen pb-24">
             {/* Premium Hero Header */}
             <section className="relative overflow-hidden pt-36 pb-24 lg:pt-48 lg:pb-32">
                 {/* Background */}
@@ -147,7 +147,7 @@ export default async function QuoteLandingPage({ params }: Props) {
             </section>
 
             {/* How it works — CRO-optimized trust section */}
-            <section className="py-16 bg-white border-b border-slate-100">
+            <section className="py-16 bg-transparent border-b border-slate-100">
                 <Container>
                     <div className="max-w-4xl mx-auto">
                         <div className="text-center mb-12">
@@ -161,7 +161,7 @@ export default async function QuoteLandingPage({ params }: Props) {
 
                         {/* Process steps */}
                         <div className="grid md:grid-cols-3 gap-6 mb-16">
-                            <div className="relative bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all">
+                            <div className="relative bg-white/40 backdrop-blur-md rounded-2xl p-6 text-center border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all">
                                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                                     <Users className="w-6 h-6 text-primary" />
                                 </div>
@@ -172,7 +172,7 @@ export default async function QuoteLandingPage({ params }: Props) {
                                 </p>
                             </div>
 
-                            <div className="relative bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all">
+                            <div className="relative bg-white/40 backdrop-blur-md rounded-2xl p-6 text-center border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all">
                                 <div className="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                                     <Shield className="w-6 h-6 text-cyan-600" />
                                 </div>
@@ -183,7 +183,7 @@ export default async function QuoteLandingPage({ params }: Props) {
                                 </p>
                             </div>
 
-                            <div className="relative bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all">
+                            <div className="relative bg-white/40 backdrop-blur-md rounded-2xl p-6 text-center border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all">
                                 <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                                     <CheckCircle2 className="w-6 h-6 text-emerald-600" />
                                 </div>

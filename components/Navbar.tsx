@@ -22,7 +22,7 @@ export function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 z-40 w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200/60 ${isScrolled ? "shadow-md py-2" : "py-4"
+            className={`fixed top-0 z-40 w-full transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-slate-200/60 ${isScrolled ? "shadow-md py-2" : "py-4"
                 }`}
         >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">

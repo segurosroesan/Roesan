@@ -31,8 +31,8 @@ export default function EmpresasHubPage() {
             <section className="relative overflow-hidden pt-36 pb-24 text-center lg:pt-48 lg:pb-32">
                 <div className="absolute inset-0 z-0">
                     <Image src="/images/banner-empresas.png" alt="Seguros Empresas" fill className="object-cover" priority />
-                    <div className="absolute inset-0 bg-slate-900/70"></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-indigo-900/50" />
+                    <div className="absolute inset-0 bg-slate-900/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 to-indigo-900/30" />
                 </div>
 
                 <Container className="relative z-10 pt-8">

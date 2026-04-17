@@ -20,8 +20,8 @@ export default function PersonasHubPage() {
             <section className="relative overflow-hidden pt-36 pb-24 text-center lg:pt-48 lg:pb-32">
                 <div className="absolute inset-0 z-0">
                     <Image src="/images/banner-personas.png" alt="Seguros Personas" fill className="object-cover" priority />
-                    <div className="absolute inset-0 bg-slate-900/60"></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-teal-900/40 to-blue-900/40" />
+                    <div className="absolute inset-0 bg-slate-900/30"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-teal-900/20 to-blue-900/20" />
                 </div>
 
                 <Container className="relative z-10 pt-8">

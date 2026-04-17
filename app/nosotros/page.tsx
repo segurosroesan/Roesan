@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { Container } from "@/components/ui/Container";
-import { Users, Target, Award, Handshake, Sparkles, Landmark, ShieldCheck } from "lucide-react";
+import { Users, Target, Award, Handshake, Sparkles, Landmark, ShieldCheck, UserCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 

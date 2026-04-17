@@ -183,6 +183,9 @@ export default async function CarInsuranceLandingPage({ params }: Props) {
                                 </p>
                             </div>
                         </div>
+                        <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                            <div className="flex-1">
+                                <p className="text-slate-600 sm:text-lg font-medium">
                                     Protege tu {car.modelo} sin papeleos interminables. Requisitos sencillos y ágiles.
                                 </p>
                             </div>

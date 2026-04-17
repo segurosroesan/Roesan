@@ -25,11 +25,11 @@ export default function AboutPage() {
         { name: "Carmen Eugenia Estrada Grueso", role: "Gerente General" },
         { name: "Jonathan Jordan", role: "Gerente" },
         { name: "Ana Lucia Grueso H", role: "Gerente" },
-        { name: "Patricia Ortegón", role: "Directora Administrativa" },
-        { name: "Federico López", role: "Gestor Comercial" },
-        { name: "Adriana Garzón", role: "Ejecutiva de Autos" },
-        { name: "Jose Rodríguez", role: "Ejecutivo Líneas Personales" },
-        { name: "Alejandro Sarmiento", role: "Auxiliar Operativo" },
+        { name: "Patricia Ortegón", role: "Directora Administrativa", image: "/images/equipo/Patricia.jpeg" },
+        { name: "Federico López", role: "Gestor Comercial", image: "/images/equipo/Federico.jpeg" },
+        { name: "Adriana Garzón", role: "Ejecutiva de Autos", image: "/images/equipo/Adriana.png" },
+        { name: "Jose Rodríguez", role: "Ejecutivo Líneas Personales", image: "/images/equipo/Jose.jpeg" },
+        { name: "Alejandro Sarmiento", role: "Auxiliar Operativo", image: "/images/equipo/Alejandro.jpeg" },
     ];
 
     const values = [
@@ -253,7 +253,16 @@ export default function AboutPage() {
                                 >
                                     <div className="h-20 w-20 bg-gradient-to-tr from-purple-900/50 to-purple-800/50 rounded-full mb-6 flex items-center justify-center shadow-inner overflow-hidden relative group-hover:from-purple-600 group-hover:to-purple-500 transition-colors border border-white/5">
                                         <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        <UserCircle2 className="w-10 h-10 text-purple-200 group-hover:text-cyan-400 transition-colors relative z-10" />
+                                        {(member as any).image ? (
+                                            <Image 
+                                                src={(member as any).image} 
+                                                alt={member.name}
+                                                fill
+                                                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                            />
+                                        ) : (
+                                            <UserCircle2 className="w-10 h-10 text-purple-200 group-hover:text-cyan-400 transition-colors relative z-10" />
+                                        )}
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-2 leading-tight">{member.name}</h3>
                                     <p className="text-cyan-400 text-sm font-medium">{member.role}</p>

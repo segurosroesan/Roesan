@@ -169,7 +169,7 @@ export default async function ServiceDetailPage({ params }: Props) {
     };
 
     return (
-        <div className="bg-white pb-24">
+        <div className="bg-transparent pb-24">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

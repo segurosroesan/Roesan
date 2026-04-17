@@ -69,7 +69,7 @@ export default function PersonasHubPage() {
             </section>
 
             {/* Services Grid */}
-            <section className="py-24 bg-slate-50" id="servicios">
+            <section className="py-24 bg-transparent" id="servicios">
                 <Container>
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         {personasServices.map((service, idx) => (
@@ -116,7 +116,7 @@ export default function PersonasHubPage() {
                 </Container>
             </section>
 
-            <section id="cotiza-tu-seguro" className="bg-slate-950 py-20 scroll-mt-28">
+            <section id="cotiza-tu-seguro" className="bg-slate-950/40 backdrop-blur-md py-20 scroll-mt-28">
                 <Container className="max-w-3xl">
                     <QuoteFunnel />
                 </Container>

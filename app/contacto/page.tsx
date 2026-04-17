@@ -385,7 +385,7 @@ export default function ContactPage() {
 
             {/* Google Maps */}
             <div className="w-full">
-                <div className="bg-slate-900 py-8">
+                <div className="bg-slate-900/40 backdrop-blur-md py-8">
                     <Container>
                         <h2 className="text-xl font-bold text-white mb-1">¿Cómo llegar?</h2>
                         <p className="text-slate-400 text-sm">Calle 109 #19-36 of. 203, Bogotá, Colombia</p>

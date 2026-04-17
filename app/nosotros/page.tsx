@@ -26,8 +26,8 @@ export default function AboutPage() {
         { name: "Jonathan Jordan", role: "Gerente" },
         { name: "Ana Lucia Grueso H", role: "Gerente" },
         { name: "Patricia Ortegón", role: "Directora Administrativa", image: "/images/equipo/Patricia.jpeg" },
-        { name: "Federico López", role: "Gestor Comercial", image: "/images/equipo/Federico.jpeg" },
-        { name: "Adriana Garzón", role: "Ejecutiva de Autos", image: "/images/equipo/Adriana.png" },
+        { name: "Federico López", role: "Gestor Comercial", image: "/images/equipo/Federico.jpeg", position: "object-[center_20%]" },
+        { name: "Adriana Garzón", role: "Ejecutiva de Autos", image: "/images/equipo/Adriana.png", position: "object-[center_15%]" },
         { name: "Jose Rodríguez", role: "Ejecutivo Líneas Personales", image: "/images/equipo/Jose.jpeg" },
         { name: "Alejandro Sarmiento", role: "Auxiliar Operativo", image: "/images/equipo/Alejandro.jpeg" },
     ];
@@ -258,7 +258,7 @@ export default function AboutPage() {
                                                 src={(member as any).image} 
                                                 alt={member.name}
                                                 fill
-                                                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                                className={`object-cover transition-transform duration-500 group-hover:scale-110 ${(member as any).position || "object-center"}`}
                                             />
                                         ) : (
                                             <UserCircle2 className="w-10 h-10 text-purple-200 group-hover:text-cyan-400 transition-colors relative z-10" />

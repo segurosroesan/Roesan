@@ -24,13 +24,13 @@ const footerLinks = {
 
 export function Footer() {
     return (
-        <footer className="relative bg-slate-900/90 backdrop-blur-md text-slate-400 overflow-hidden border-t border-white/5">
+        <footer className="relative bg-white/90 backdrop-blur-md text-slate-600 overflow-hidden border-t border-slate-200">
             <Container>
                 {/* Main Footer Grid */}
                 <div className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
                     {/* Brand Column */}
                     <div className="lg:col-span-2 space-y-6">
-                        <div className="relative h-10 w-44 brightness-0 invert opacity-80">
+                        <div className="relative h-10 w-44 opacity-90">
                             <Image
                                 src="/logo-roesan.png"
                                 alt="Roesan Seguros"
@@ -38,19 +38,19 @@ export function Footer() {
                                 className="object-contain"
                             />
                         </div>
-                        <p className="text-sm leading-relaxed max-w-sm text-slate-500">
+                        <p className="text-sm leading-relaxed max-w-sm text-slate-600">
                             Agencia de seguros fundada en 1982. Más de 40 años protegiendo el patrimonio y la tranquilidad de familias y empresas colombianas.
                         </p>
                         {/* Quick Contact */}
                         <div className="space-y-3">
                             <a href="tel:+573002114998" className="flex items-center gap-3 text-sm hover:text-white transition-colors group">
-                                <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-purple-700 transition-colors">
+                                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-purple-700 group-hover:text-white transition-colors">
                                     <Phone className="w-3.5 h-3.5" />
                                 </div>
                                 +57 300 211 4998
                             </a>
                             <a href="mailto:comercial@roesan.com" className="flex items-center gap-3 text-sm hover:text-white transition-colors group">
-                                <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-purple-700 transition-colors">
+                                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-purple-700 group-hover:text-white transition-colors">
                                     <Mail className="w-3.5 h-3.5" />
                                 </div>
                                 comercial@roesan.com
@@ -134,12 +134,12 @@ export function Footer() {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="border-t border-slate-800 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+                <div className="border-t border-slate-200 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
                     <p>© {new Date().getFullYear()} Roesan Seguros. Todos los derechos reservados.</p>
                     <div className="flex gap-6">
-                        <Link href="/privacidad" className="hover:text-slate-400 transition-colors">Política de Privacidad</Link>
-                        <Link href="/terminos" className="hover:text-slate-400 transition-colors">Términos y Condiciones</Link>
-                        <Link href="/aviso-legal" className="hover:text-slate-400 transition-colors">Aviso Legal</Link>
+                        <Link href="/privacidad" className="hover:text-slate-700 transition-colors">Política de Privacidad</Link>
+                        <Link href="/terminos" className="hover:text-slate-700 transition-colors">Términos y Condiciones</Link>
+                        <Link href="/aviso-legal" className="hover:text-slate-700 transition-colors">Aviso Legal</Link>
                     </div>
                 </div>
             </Container>

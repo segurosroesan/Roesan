@@ -122,7 +122,7 @@ export default function AboutPage() {
                                     <p className="text-xl font-medium text-slate-900 [text-align:justify]">
                                         Durante más de <strong>40 años</strong>, en <strong>Roesan</strong> hemos acompañado a familias,
                                         empresas y empresarios en Colombia con una convicción que sigue intacta:
-                                        los seguros se basan en la <strong>confianza</strong>, el <strong>respaldo</strong> y la
+                                        la protección se construye desde la <strong>confianza</strong>, el <strong>respaldo</strong> y la
                                         tranquilidad de saber que siempre hay alguien respondiendo.
                                     </p>
                                 </div>
@@ -131,7 +131,7 @@ export default function AboutPage() {
                                     Nuestra historia comenzó en <strong>1982</strong>, cuando{" "}
                                     <strong>Roberto Estrada Ángel</strong> fundó <strong>Roesan</strong> con una visión clara:
                                     construir una empresa cercana, seria y confiable.
-                                    Años después, <strong>María Eugenia Estrada</strong> asumió el liderazgo y se convirtió en el gran
+                                    Años después, <strong>María Eugenia de Estrada</strong> asumió el liderazgo y se convirtió en el gran
                                     pilar de nuestra consolidación. Con una trayectoria destacada en <strong>Seguros Bolívar</strong>,
                                     donde desarrolló una carrera ejemplar y fue reconocida en múltiples ocasiones por su desempeño
                                     comercial, logró fortalecer una relación de respaldo y confianza con la compañía que nos ha
@@ -139,26 +139,26 @@ export default function AboutPage() {
                                 </p>
 
                                 <p>
-                                    Pero nuestro verdadero legado no se ha construido solo vendiendo pólizas. Durante más de cuatro
-                                    décadas, hemos asesorado a clientes corporativos y personales en las decisiones más importantes
-                                    para proteger su patrimonio, sus negocios, sus familias y su futuro. Hemos estado presentes en
-                                    cada etapa: desde la prevención y la planeación, hasta el acompañamiento cercano en momentos
-                                    críticos, incluyendo reclamaciones y siniestros, cuando más se necesita experiencia y respaldo.
+                                    Nuestro verdadero legado no se ha construido desde la venta, sino desde la asesoría. Durante más de cuatro
+                                    décadas, hemos guiado a clientes corporativos y personales en la estructuración de coberturas y pólizas,
+                                    ayudándolos a tomar decisiones clave para proteger su patrimonio, sus negocios, sus familias y su futuro.
+                                    Hemos estado presentes en cada etapa: desde la prevención y la planeación, hasta el acompañamiento cercano
+                                    en momentos críticos, incluyendo reclamaciones y siniestros, cuando más se necesita experiencia y respaldo.
                                 </p>
 
                                 <p>
                                     Hoy, ese legado continúa con <strong>Carmen Eugenia Estrada</strong>, quien creció dentro de este
                                     oficio, aprendiendo de cerca cada detalle del negocio junto a su madre. Después de años de formación
                                     y experiencia, hoy lidera <strong>Roesan</strong> con el mismo compromiso de servicio que nos ha
-                                    caracterizado siempre, sumando una visión moderna, estratégica y cercana a las nuevas necesidades
+                                    caracterizado siempre, sumando una visión moderna, estratégica y alineada con las nuevas necesidades
                                     del mercado.
                                 </p>
 
                                 <p>
-                                    Actualmente trabajamos con más de <strong>nueve aseguradoras líderes del país</strong>, lo que nos
-                                    permite ofrecer a cada cliente un portafolio amplio de soluciones, opciones competitivas y una
-                                    asesoría verdaderamente personalizada. Nuestro valor está en entender cada necesidad y encontrar
-                                    la mejor alternativa con independencia, criterio y conocimiento.
+                                    Actualmente trabajamos con <strong>13 aseguradoras líderes del país</strong>, lo que nos
+                                    permite estructurar soluciones a la medida, con opciones competitivas y una asesoría verdaderamente independiente.
+                                    Nuestro valor está en entender cada necesidad y diseñar la mejor combinación de coberturas y pólizas con
+                                    criterio y conocimiento.
                                 </p>
 
                                 <div className="rounded-2xl border border-cyan-200/60 bg-cyan-50/70 p-6">
@@ -174,10 +174,10 @@ export default function AboutPage() {
                                 </div>
 
                                 <p className="text-lg font-medium text-slate-900 [text-align:justify]">
-                                    En <strong>Roesan</strong> no solo protegemos riesgos. Construimos relaciones de largo plazo, damos
+                                    En <strong>Roesan</strong> no solo gestionamos riesgos. Construimos relaciones de largo plazo, damos
                                     tranquilidad y acompañamos a nuestros clientes con la experiencia de un legado familiar que ha
                                     sabido adaptarse, crecer y responder con solidez en cada momento. Porque proteger bien no es solo
-                                    tener una póliza: es contar con un aliado que esté a tu lado cuando más importa.
+                                    tener una póliza: es contar con un aliado que te asesora y está a tu lado cuando más importa.
                                 </p>
                             </div>
                         </motion.div>
@@ -214,7 +214,7 @@ export default function AboutPage() {
                                         <ShieldCheck className="h-5 w-5" />
                                     </div>
                                     <p className="text-sm font-semibold text-slate-900">Respaldo</p>
-                                    <p className="text-sm text-slate-500">Más de <strong>9 aseguradoras líderes</strong> para asesoría independiente.</p>
+                                    <p className="text-sm text-slate-500">Más de <strong>13 aseguradoras líderes</strong> para asesoría independiente.</p>
                                 </div>
                                 <div>
                                     <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">

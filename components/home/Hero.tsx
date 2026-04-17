@@ -56,7 +56,7 @@ export function Hero() {
     const slide = slides[current];
 
     return (
-        <section className="relative mt-24 md:mt-28 mb-12 mx-5 md:mx-10 lg:mx-auto lg:max-w-[1460px] xl:max-w-[1420px] rounded-3xl overflow-hidden bg-slate-900 min-h-[550px] shadow-2xl">
+        <section className="relative mt-24 md:mt-28 mb-12 mx-5 md:mx-10 lg:mx-auto lg:max-w-[1024px] xl:max-w-[1000px] rounded-3xl overflow-hidden bg-slate-900 min-h-[385px] shadow-2xl">
             {/* Background Images — Crossfade */}
             <AnimatePresence mode="wait" initial={false}>
                 <motion.div
@@ -85,7 +85,7 @@ export function Hero() {
             </AnimatePresence>
 
             {/* Content */}
-            <Container className="relative z-10 flex flex-col justify-center min-h-[400px] md:min-h-[450px] py-10 lg:py-12">
+            <Container className="relative z-10 flex flex-col justify-center min-h-[280px] md:min-h-[315px] py-8 lg:py-10">
 
                 {/* Top: Animated text — centered */}
                 <div className="flex-1 flex flex-col justify-center items-center text-center">

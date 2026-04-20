@@ -28,9 +28,9 @@ export const metadata: Metadata = {
 
 export default function CotizadorGlobalPage() {
     return (
-        <div className="bg-slate-50 min-h-screen pb-24">
+        <div className="bg-white min-h-screen pb-24">
             {/* Premium Hero Header */}
-            <section className="relative overflow-hidden pt-36 pb-24 lg:pt-48 lg:pb-32">
+            <section className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-20">
                 {/* Background */}
                 <div className="absolute inset-0">
                     <div className="h-full w-full bg-gradient-to-br from-purple-950 via-slate-900 to-indigo-950" />
@@ -96,9 +96,7 @@ export default function CotizadorGlobalPage() {
 
                         {/* Quote Funnel */}
                         <div className="lg:col-span-5 xl:col-span-6 lg:mt-0 relative z-20">
-                            <div className="bg-white/10 p-2 sm:p-3 rounded-3xl backdrop-blur-md shadow-2xl">
-                                <QuoteFunnel />
-                            </div>
+                            <QuoteFunnel variant="compact" />
                         </div>
                     </div>
                 </Container>

@@ -123,9 +123,9 @@ export default function EmpresasHubPage() {
                 </Container>
             </section>
 
-            <section id="cotiza-tu-seguro" className="bg-slate-950/40 backdrop-blur-md py-20 scroll-mt-28">
+            <section id="cotiza-tu-seguro" className="bg-white py-20 scroll-mt-28">
                 <Container className="max-w-3xl">
-                    <QuoteFunnel />
+                    <QuoteFunnel variant="compact" />
                 </Container>
             </section>
 

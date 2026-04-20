@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { Container } from "@/components/ui/Container";
-import { Users, Target, Award, Handshake, Sparkles, Landmark, ShieldCheck, UserCircle2 } from "lucide-react";
+import { Users, Target, Award, Handshake, Sparkles, UserCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -102,7 +102,7 @@ export default function AboutPage() {
             {/* History Section */}
             <section className="py-24 bg-[radial-gradient(circle_at_top_left,_rgba(97,187,228,0.08),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(81,64,141,0.08),_transparent_24%)]">
                 <Container>
-                    <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+                    <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
                         <motion.div
                             initial="initial"
                             whileInView="animate"
@@ -182,109 +182,69 @@ export default function AboutPage() {
                             </div>
                         </motion.div>
 
-                        {/* Visual Composition */}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="relative lg:h-[620px]"
+                            className="hidden lg:flex flex-col rounded-3xl bg-[#1e103c] p-6"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl transform rotate-3" />
-                            <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-900/5 group bg-slate-900">
-                                <Image
-                                    src="/images/sede_roesan_clean_v2.png"
-                                    alt="Sede Roesan"
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    priority
-                                />
+                            <div className="mb-4">
+                                <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">Nuestro Equipo</span>
+                                <h3 className="mt-1 text-4xl font-serif font-medium text-white">Las personas detrás de Roesan</h3>
                             </div>
 
-                            <div className="relative z-20 -mt-20 mx-6 grid gap-4 rounded-[1.8rem] border border-slate-200 bg-white/95 p-6 shadow-2xl backdrop-blur-sm sm:grid-cols-3">
-                                <div>
-                                    <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                                        <Landmark className="h-5 w-5" />
-                                    </div>
-                                    <p className="text-sm font-semibold text-slate-900">Fundación</p>
-                                    <p className="text-sm text-slate-500"><strong>1982</strong> marcó el inicio de una historia familiar sólida.</p>
-                                </div>
-                                <div>
-                                    <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                                        <ShieldCheck className="h-5 w-5" />
-                                    </div>
-                                    <p className="text-sm font-semibold text-slate-900">Respaldo</p>
-                                    <p className="text-sm text-slate-500">Más de <strong>13 aseguradoras líderes</strong> para asesoría independiente.</p>
-                                </div>
-                                <div>
-                                    <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                                        <Sparkles className="h-5 w-5" />
-                                    </div>
-                                    <p className="text-sm font-semibold text-slate-900">Nueva etapa</p>
-                                    <p className="text-sm text-slate-500"><strong>2026</strong> impulsa nuestra renovación digital con foco humano.</p>
+                            {/* Carrusel vertical con scroll automático */}
+                            <div className="relative overflow-hidden rounded-2xl" style={{ height: "620px" }}>
+                                {/* Máscaras de degradado morado */}
+                                <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#1e103c] to-transparent z-10 pointer-events-none" />
+                                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#1e103c] to-transparent z-10 pointer-events-none" />
+
+                                <div className="team-scroll-vertical flex flex-col gap-4 pr-1">
+                                    {[...team, ...team].map((member, idx) => (
+                                        <div
+                                            key={idx}
+                                            className="flex-shrink-0 flex items-center gap-5 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-sm p-5 hover:bg-white/20 transition-all duration-300"
+                                        >
+                                            <div className="relative h-[88px] w-[88px] flex-shrink-0 rounded-full overflow-hidden bg-gradient-to-tr from-purple-200 to-indigo-200 border-2 border-white/20 flex items-center justify-center shadow-inner">
+                                                {(member as any).image ? (
+                                                    <Image
+                                                        src={(member as any).image}
+                                                        alt={member.name}
+                                                        fill
+                                                        className={`object-cover ${(member as any).position || "object-center"}`}
+                                                    />
+                                                ) : (
+                                                    <UserCircle2 className="w-11 h-11 text-purple-200" />
+                                                )}
+                                            </div>
+                                            <div>
+                                                <p className="text-lg font-bold text-white leading-tight">{member.name}</p>
+                                                <p className="text-base text-cyan-400 font-medium mt-1">{member.role}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
+
+                            <style dangerouslySetInnerHTML={{__html: `
+                                @keyframes scroll-v {
+                                    0%   { transform: translateY(0); }
+                                    100% { transform: translateY(calc(-50% - 8px)); }
+                                }
+                                .team-scroll-vertical {
+                                    animation: scroll-v 22s linear infinite;
+                                }
+                                .team-scroll-vertical:hover {
+                                    animation-play-state: paused;
+                                }
+                            `}} />
                         </motion.div>
                     </div>
                 </Container>
             </section>
 
-            {/* Team Section */}
-            <section className="py-24 bg-[#1e103c] overflow-hidden relative">
-                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.05]" />
-                <Container className="relative z-10">
-                    <div className="flex flex-col sm:flex-row justify-between items-end gap-6 mb-16">
-                        <div>
-                            <span className="text-sm font-semibold tracking-wider text-cyan-400 uppercase">Nuestro Equipo</span>
-                            <h2 className="mt-2 text-4xl font-serif font-medium text-white">Conoce a las personas<br />detrás de Roesan.</h2>
-                        </div>
-                    </div>
 
-                    <div className="relative overflow-hidden flex pb-8 group">
-                        {/* Gradient masks for infinite scroll effect */}
-                        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#1e103c] to-transparent z-10 pointer-events-none" />
-                        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#1e103c] to-transparent z-10 pointer-events-none" />
-
-                        <div className="animate-marquee flex gap-6 hover:animate-pause">
-                            {[...team, ...team].map((member, idx) => (
-                                <div
-                                    key={idx}
-                                    className="shrink-0 w-[280px] bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all hover:scale-105 duration-300 cursor-pointer"
-                                >
-                                    <div className="h-20 w-20 bg-gradient-to-tr from-purple-900/50 to-purple-800/50 rounded-full mb-6 flex items-center justify-center shadow-inner overflow-hidden relative group-hover:from-purple-600 group-hover:to-purple-500 transition-colors border border-white/5">
-                                        <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        {(member as any).image ? (
-                                            <Image 
-                                                src={(member as any).image} 
-                                                alt={member.name}
-                                                fill
-                                                className={`object-cover transition-transform duration-500 group-hover:scale-110 ${(member as any).position || "object-center"}`}
-                                            />
-                                        ) : (
-                                            <UserCircle2 className="w-10 h-10 text-purple-200 group-hover:text-cyan-400 transition-colors relative z-10" />
-                                        )}
-                                    </div>
-                                    <h3 className="text-xl font-bold text-white mb-2 leading-tight">{member.name}</h3>
-                                    <p className="text-cyan-400 text-sm font-medium">{member.role}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </Container>
-                
-                <style dangerouslySetInnerHTML={{__html: `
-                    @keyframes scroll {
-                        0% { transform: translateX(0); }
-                        100% { transform: translateX(calc(-50% - 12px)); }
-                    }
-                    .animate-marquee {
-                        animation: scroll 35s linear infinite;
-                    }
-                    .animate-pause {
-                        animation-play-state: paused;
-                    }
-                `}} />
-            </section>
 
             {/* Values Section */}
             <section className="bg-transparent py-24">

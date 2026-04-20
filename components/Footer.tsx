@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, MessageCircle, Phone, MapPin, Mail, Clock } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Phone, MapPin, Mail, Clock } from "lucide-react";
 import Link from "next/link";
 import { Container } from "./ui/Container";
 import Image from "next/image";
@@ -47,7 +47,13 @@ export function Footer() {
                                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-purple-600 transition-colors">
                                     <Phone className="w-3.5 h-3.5" />
                                 </div>
-                                +57 300 211 4998
+                                <span>+57 300 211 4998 <span className="text-slate-500 text-xs">(Administrativo)</span></span>
+                            </a>
+                            <a href="tel:+573126000414" className="flex items-center gap-3 text-sm hover:text-white transition-colors group">
+                                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-purple-600 transition-colors">
+                                    <Phone className="w-3.5 h-3.5" />
+                                </div>
+                                <span>+57 312 600 0414 <span className="text-slate-500 text-xs">(Comercial)</span></span>
                             </a>
                             <a href="mailto:comercial@roesan.com" className="flex items-center gap-3 text-sm hover:text-white transition-colors group">
                                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-purple-600 transition-colors">
@@ -111,19 +117,10 @@ export function Footer() {
                             Síguenos
                         </h4>
                         <div className="flex gap-3">
-                            <a
-                                href="https://wa.me/573002114998"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-emerald-600 hover:text-white transition-all"
-                                aria-label="WhatsApp"
-                            >
-                                <MessageCircle className="w-4 h-4" />
-                            </a>
                             <a href="https://www.facebook.com/Roesanltda/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all" aria-label="Facebook">
                                 <Facebook className="w-4 h-4" />
                             </a>
-                            <a href="https://www.instagram.com/roesanseguros?igsh=MWxoOThjZWJwazFiMg%3D%3D" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all" aria-label="Instagram">
+                            <a href="https://www.instagram.com/roesanseguros" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all" aria-label="Instagram">
                                 <Instagram className="w-4 h-4" />
                             </a>
                             <a href="https://co.linkedin.com/company/roesan-agencia-de-seguros" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-700 hover:text-white transition-all" aria-label="LinkedIn">

@@ -265,7 +265,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                         </div>
 
                         <div className="grid gap-8 xl:grid-cols-[1.2fr_0.8fr]">
-                            <div className="rounded-3xl bg-slate-50 p-8 border border-slate-100">
+                            <div className="rounded-3xl bg-white p-8 border border-slate-100">
                                 <h2 className="text-xl font-bold text-slate-900 mb-4">
                                     ¿Para quién es ideal este {service.category === "empresa" ? "seguro empresarial" : "seguro"}?
                                 </h2>
@@ -308,7 +308,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                             </div>
                         )}
 
-                        <div className="rounded-3xl bg-slate-50 p-8 border border-slate-100">
+                        <div className="rounded-3xl bg-white p-8 border border-slate-100">
                             <h2 className="text-xl font-bold text-slate-900 mb-4">Información Importante</h2>
                             <p className="text-slate-600 mb-4 text-justify">
                                 Cada póliza tiene condiciones específicas que se adaptan a tu perfil. Nuestros asesores analizarán tu caso para ofrecerte la mejor opción del mercado.
@@ -321,7 +321,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
                     {/* Sidebar CTA */}
                     <div>
-                        <div className="xl:sticky xl:top-28 rounded-3xl bg-white p-2 sm:p-4 shadow-xl ring-1 ring-slate-900/5">
+                        <div className="xl:sticky xl:top-28 rounded-3xl p-0 shadow-none">
                             <h3 className="text-xl font-bold text-slate-900 mb-2 px-4 pt-4">
                                 {service.category === 'empresa' ? 'Solicita asesoría empresarial' : 'Solicita tu cotización'}
                             </h3>

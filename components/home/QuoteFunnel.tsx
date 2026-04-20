@@ -349,22 +349,22 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
   };
 
   return (
-    <div className={`border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white shadow-[0_18px_80px_rgba(15,23,42,0.4)] ${compact ? "rounded-[1.6rem] p-4 sm:p-5" : "rounded-[2rem] p-5 sm:p-8"}`}>
+    <div className={`border border-white/10 bg-[#1e103c] text-white shadow-2xl ${compact ? "rounded-[1.2rem] p-2 sm:p-3" : "rounded-[2rem] p-5 sm:p-8"}`}>
       {isSuccess ? (
-        <div className="flex min-h-[520px] flex-col items-center justify-center text-center">
-          <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300">
-            <Check className="h-10 w-10" />
+        <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
+            <Check className="h-8 w-8" />
           </div>
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400">
             Solicitud enviada
           </p>
-          <h3 className="mt-4 font-serif text-3xl font-medium text-white sm:text-4xl">
-            Gracias. Un asesor te contactará muy pronto.
+          <h3 className="mt-2 font-serif text-xl font-medium text-white sm:text-2xl">
+            ¡Gracias! Un asesor te contactará muy pronto.
           </h3>
-          <p className="mt-4 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
-            Recibimos tu solicitud correctamente y la enviaremos al equipo comercial para darte una asesoría clara, rápida y personalizada.
+          <p className="mt-3 max-w-sm text-[0.8rem] leading-5 text-slate-300 mx-auto">
+            Recibimos tu solicitud correctamente. Estamos procesando tu información para darte la mejor asesoría.
           </p>
-          <div className="mt-10 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
+          <div className="mt-6 flex w-full max-w-xs flex-col gap-2 sm:flex-row sm:justify-center">
             <button
               type="button"
               onClick={() => {
@@ -390,7 +390,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   message: "",
                 });
               }}
-              className="inline-flex min-h-14 items-center justify-center rounded-2xl border border-white/15 px-6 text-base font-semibold text-white transition-colors hover:bg-white/5"
+              className="inline-flex min-h-9 items-center justify-center rounded-xl border border-white/20 px-4 text-xs font-semibold text-white transition-colors hover:bg-white/10"
             >
               Hacer otra cotización
             </button>
@@ -398,7 +398,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex min-h-14 items-center justify-center rounded-2xl bg-[#e2e7c8] px-6 text-base font-semibold text-slate-900 transition-colors hover:bg-[#edf2d7]"
+                className="inline-flex min-h-9 items-center justify-center rounded-xl bg-purple-600 px-4 text-xs font-semibold text-white transition-colors hover:bg-purple-700"
               >
                 Cerrar
               </button>
@@ -406,31 +406,25 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className={compact ? "space-y-6" : "space-y-8"}>
+        <form onSubmit={handleSubmit} className={compact ? "space-y-2.5" : "space-y-8"}>
           <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.26em] text-[#dfe6bf]">
+            <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-400">
               Cotiza sin compromiso
             </p>
-            <h2 className={`mt-3 font-serif leading-[1.02] text-white ${compact ? "text-[1.95rem] sm:text-[2.7rem]" : "text-[2.35rem] sm:text-6xl"}`}>
-              Listo para asegurar tu futuro en 3 sencillos pasos
+            <h2 className={`mt-0.5 font-serif leading-[1.1] text-white ${compact ? "text-[1.05rem] sm:text-[1.15rem]" : "text-[2.15rem] sm:text-5xl"}`}>
+              Seguros Roesan en 3 pasos
             </h2>
-            <p className={`mx-auto mt-4 max-w-2xl leading-7 text-slate-300 ${compact ? "text-[0.98rem] sm:text-lg" : "text-base sm:text-xl"}`}>
+            <p className={`mx-auto mt-0.5 max-w-lg leading-4 text-slate-300 ${compact ? "text-[0.68rem]" : "text-base sm:text-lg"}`}>
               {step === 1
-                ? "Cuéntanos qué tipo de cliente eres para ayudarte mejor"
+                ? "Selecciona tu perfil de usuario"
                 : step === 2
-                  ? form.customerType === "empresa"
-                    ? "Selecciona uno o varios seguros y avanzamos a tus datos corporativos."
-                    : "Selecciona uno o varios seguros y avanzamos a tus datos de contacto."
-                  : "Completa tu información para que un asesor te contacte con opciones reales."}
+                  ? "Escoge los seguros de tu interés"
+                  : "Dinos como contactarte"}
             </p>
           </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center justify-between text-sm text-slate-300">
-              <span>{getProgressLabel(step)}</span>
-              <span>{Math.round((step / 3) * 100)}%</span>
-            </div>
-            <div className={`grid grid-cols-3 gap-2 text-sm ${compact ? "sm:gap-3" : "sm:gap-5"}`}>
+          <div className="space-y-1">
+            <div className={`grid grid-cols-3 gap-1 text-[10px] ${compact ? "max-w-[280px] mx-auto px-2" : "max-w-md mx-auto"}`}>
               {[
                 { index: 1, label: "Tipo" },
                 { index: 2, label: "Seguros" },
@@ -440,54 +434,46 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                 const isActive = step === item.index;
 
                 return (
-                  <div key={item.label} className="flex items-center gap-2 sm:gap-3">
+                  <div key={item.label} className="flex flex-col items-center gap-0.5">
                     <div
-                      className={`flex shrink-0 items-center justify-center rounded-full border text-sm font-bold transition-colors ${compact ? "h-10 w-10" : "h-12 w-12"} ${
+                      className={`flex shrink-0 items-center justify-center rounded-full border font-bold transition-colors ${compact ? "h-6 w-6 text-[9px]" : "h-9 w-9 text-xs"} ${
                         isDone || isActive
-                          ? "border-[#e2e7c8] bg-[#e2e7c8] text-slate-900"
-                          : "border-white/10 bg-white/6 text-slate-400"
+                          ? "border-cyan-400 bg-cyan-400 text-[#1e103c]"
+                          : "border-white/20 bg-white/5 text-slate-400"
                       }`}
                     >
-                      {isDone ? <Check className="h-5 w-5" /> : item.index}
+                      {isDone ? <Check className={compact ? "h-3 w-3" : "h-4 w-4"} /> : item.index}
                     </div>
-                    <div className="hidden min-w-0 flex-1 items-center gap-3 sm:flex">
-                      <span className={`${isDone || isActive ? "text-[#edf2d7]" : "text-slate-500"}`}>
-                        {item.label}
-                      </span>
-                      {item.index < 3 ? <div className="h-px flex-1 bg-white/10" /> : null}
-                    </div>
+                    <span className={`uppercase tracking-tighter ${isDone || isActive ? "text-cyan-400 font-bold" : "text-slate-400"}`}>
+                      {item.label}
+                    </span>
                   </div>
                 );
               })}
             </div>
           </div>
 
+          <div className={`${compact ? "min-h-[220px]" : "min-h-[300px]"}`}>
           {step === 1 ? (
-            <div className={compact ? "space-y-4" : "space-y-6"}>
-              <div className="text-center">
-                <h3 className={`font-serif text-white ${compact ? "text-[1.8rem] sm:text-[2.3rem]" : "text-3xl sm:text-4xl"}`}>
-                  Cuéntanos qué tipo de cliente eres para ayudarte mejor
-                </h3>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
+            <div className={compact ? "space-y-2" : "space-y-6"}>
+              <div className="grid gap-2 md:grid-cols-2">
                 <button
                   type="button"
                   onClick={() => {
                     setField("customerType", "persona");
                     setField("selectedProducts", []);
                   }}
-                  className={`rounded-[1.6rem] border text-left transition-all ${compact ? "p-5" : "p-6"} ${
+                  className={`rounded-[1rem] border text-left transition-all ${compact ? "p-3" : "p-5"} ${
                     form.customerType === "persona"
-                      ? "border-[#e2e7c8] bg-white/10 shadow-[0_0_0_1px_rgba(226,231,200,0.45)]"
-                      : "border-white/12 bg-white/[0.04] hover:bg-white/[0.07]"
+                      ? "border-cyan-400 bg-cyan-400/10 shadow-[0_0_0_1px_rgba(34,211,238,0.2)]"
+                      : "border-white/10 bg-white/5 hover:bg-white/10"
                   }`}
                 >
-                  <div className={`mb-5 flex items-center justify-center rounded-2xl bg-white/8 text-cyan-300 ${compact ? "h-12 w-12" : "h-14 w-14"}`}>
-                    <UserRound className="h-7 w-7" />
+                  <div className={`mb-2 flex items-center justify-center rounded-lg bg-cyan-400/20 text-cyan-400 ${compact ? "h-7 w-7" : "h-11 w-11"}`}>
+                    <UserRound className={compact ? "h-4 w-4" : "h-6 w-6"} />
                   </div>
-                  <p className={`${compact ? "text-xl" : "text-2xl"} font-semibold text-white`}>Persona natural</p>
-                  <p className={`mt-2 text-slate-300 ${compact ? "text-sm" : "text-base"}`}>Seguros para ti y tu familia</p>
+                  <p className={`${compact ? "text-sm" : "text-xl"} font-bold text-white`}>Persona natural</p>
+                  <p className={`mt-0.5 text-slate-400 ${compact ? "text-[0.62rem]" : "text-sm"}`}>Seguros familiares</p>
                 </button>
 
                 <button
@@ -496,37 +482,29 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                     setField("customerType", "empresa");
                     setField("selectedProducts", []);
                   }}
-                  className={`rounded-[1.6rem] border text-left transition-all ${compact ? "p-5" : "p-6"} ${
+                  className={`rounded-[1rem] border text-left transition-all ${compact ? "p-3" : "p-5"} ${
                     form.customerType === "empresa"
-                      ? "border-[#e2e7c8] bg-white/10 shadow-[0_0_0_1px_rgba(226,231,200,0.45)]"
-                      : "border-white/12 bg-white/[0.04] hover:bg-white/[0.07]"
+                      ? "border-cyan-400 bg-cyan-400/10 shadow-[0_0_0_1px_rgba(34,211,238,0.2)]"
+                      : "border-white/10 bg-white/5 hover:bg-white/10"
                   }`}
                 >
-                  <div className={`mb-5 flex items-center justify-center rounded-2xl bg-white/8 text-cyan-300 ${compact ? "h-12 w-12" : "h-14 w-14"}`}>
-                    <Building2 className="h-7 w-7" />
+                  <div className={`mb-2 flex items-center justify-center rounded-lg bg-cyan-400/20 text-cyan-400 ${compact ? "h-7 w-7" : "h-11 w-11"}`}>
+                    <Building2 className={compact ? "h-4 w-4" : "h-6 w-6"} />
                   </div>
-                  <p className={`${compact ? "text-xl" : "text-2xl"} font-semibold text-white`}>Empresa</p>
-                  <p className={`mt-2 text-slate-300 ${compact ? "text-sm" : "text-base"}`}>Protección para tu negocio</p>
+                  <p className={`${compact ? "text-sm" : "text-xl"} font-bold text-white`}>Empresa</p>
+                  <p className={`mt-0.5 text-slate-400 ${compact ? "text-[0.62rem]" : "text-sm"}`}>Protección negocio</p>
                 </button>
               </div>
 
               {errors.customerType ? (
-                <p className="text-sm text-rose-300">{errors.customerType}</p>
+                <p className="text-[10px] text-rose-400 text-center">{errors.customerType}</p>
               ) : null}
             </div>
           ) : null}
 
           {step === 2 && form.customerType ? (
-            <div className={compact ? "space-y-4" : "space-y-6"}>
-              <div className="text-center">
-                <h3 className={`font-serif text-white ${compact ? "text-[1.8rem] sm:text-[2.3rem]" : "text-3xl sm:text-4xl"}`}>
-                  {form.customerType === "empresa"
-                    ? "¿Qué seguro necesita tu empresa?"
-                    : "¿Qué tipo de seguro te interesa?"}
-                </h3>
-              </div>
-
-              <div className={`grid grid-cols-2 gap-3 ${compact ? "md:grid-cols-2 xl:grid-cols-2" : "md:grid-cols-3 xl:grid-cols-4"}`}>
+            <div className={compact ? "space-y-2" : "space-y-6"}>
+              <div className={`grid grid-cols-2 gap-1.5 ${compact ? "md:grid-cols-2 lg:grid-cols-2" : "md:grid-cols-3 xl:grid-cols-4"}`}>
                 {options.map((option) => {
                   const selected = form.selectedProducts.includes(option.id);
 
@@ -535,16 +513,16 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                       key={option.id}
                       type="button"
                       onClick={() => toggleProduct(option.id)}
-                      className={`rounded-[1.45rem] border px-4 text-center transition-all ${compact ? "py-5" : "py-6"} ${
+                      className={`rounded-lg border px-2 text-center transition-all ${compact ? "py-2" : "py-4"} ${
                         selected
-                          ? "border-[#e2e7c8] bg-white/10 shadow-[0_0_0_1px_rgba(226,231,200,0.4)]"
-                          : "border-white/12 bg-white/[0.04] hover:bg-white/[0.07]"
+                          ? "border-cyan-400 bg-cyan-400/10 shadow-[0_0_0_1px_rgba(34,211,238,0.2)]"
+                          : "border-white/10 bg-white/5 hover:bg-white/10"
                       }`}
                     >
-                      <div className={`mx-auto mb-4 flex items-center justify-center rounded-2xl bg-white/8 text-cyan-300 ${compact ? "h-10 w-10" : "h-12 w-12"}`}>
-                        <option.icon className="h-6 w-6" />
+                      <div className={`mx-auto mb-1 flex items-center justify-center rounded-md bg-cyan-400/20 text-cyan-400 ${compact ? "h-6 w-6" : "h-9 w-9"}`}>
+                        <option.icon className={compact ? "h-3.5 w-3.5" : "h-5 w-5"} />
                       </div>
-                      <p className={`font-semibold leading-6 text-white ${compact ? "text-sm" : "text-sm sm:text-base"}`}>
+                      <p className={`font-bold leading-3 text-white ${compact ? "text-[9px]" : "text-[13px]"}`}>
                         {option.label}
                       </p>
                     </button>
@@ -553,197 +531,143 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               </div>
 
               {errors.selectedProducts ? (
-                <p className="text-sm text-rose-300">{errors.selectedProducts}</p>
+                <p className="text-[10px] text-rose-400 text-center">{errors.selectedProducts}</p>
               ) : null}
             </div>
           ) : null}
 
           {step === 3 && form.customerType === "persona" ? (
-            <div className={compact ? "space-y-4" : "space-y-5"}>
-              <div className="text-center">
-                <h3 className={`font-serif text-white ${compact ? "text-[1.8rem] sm:text-[2.3rem]" : "text-3xl sm:text-4xl"}`}>
-                  Tus datos de contacto
-                </h3>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">Nombre *</label>
+            <div className={compact ? "space-y-1.5" : "space-y-4"}>
+              <div className="grid gap-1.5 sm:grid-cols-2">
+                <div className="space-y-0.5">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Nombre *</label>
                   <input
                     value={form.firstName}
                     onChange={(event) => setField("firstName", event.target.value)}
                     placeholder="Tu nombre"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.firstName ? <p className="text-sm text-rose-300">{errors.firstName}</p> : null}
+                  {errors.firstName ? <p className="text-[8px] text-rose-400">{errors.firstName}</p> : null}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">Apellido *</label>
+                <div className="space-y-0.5">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Apellido *</label>
                   <input
                     value={form.lastName}
                     onChange={(event) => setField("lastName", event.target.value)}
                     placeholder="Tu apellido"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.lastName ? <p className="text-sm text-rose-300">{errors.lastName}</p> : null}
+                  {errors.lastName ? <p className="text-[8px] text-rose-400">{errors.lastName}</p> : null}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">Celular / WhatsApp *</label>
+                <div className="space-y-0.5">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">WhatsApp *</label>
                   <input
                     value={form.phone}
                     onChange={(event) => setField("phone", formatPhone(event.target.value))}
-                    placeholder="+57 300 123 4567"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    placeholder="300 123 4567"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.phone ? <p className="text-sm text-rose-300">{errors.phone}</p> : null}
+                  {errors.phone ? <p className="text-[8px] text-rose-400">{errors.phone}</p> : null}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">Correo electrónico *</label>
+                <div className="space-y-0.5">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Email *</label>
                   <input
                     type="email"
                     value={form.email}
                     onChange={(event) => setField("email", event.target.value)}
                     placeholder="tu@email.com"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.email ? <p className="text-sm text-rose-300">{errors.email}</p> : null}
+                  {errors.email ? <p className="text-[8px] text-rose-400">{errors.email}</p> : null}
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">Fecha de nacimiento</label>
+              {form.selectedProducts.includes("todo-riesgo-autos") && (
+                <div className="space-y-0.5">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Placa</label>
                   <input
-                    type="date"
-                    value={form.birthDate}
-                    onChange={(event) => setField("birthDate", event.target.value)}
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors focus:border-cyan-300"
+                    value={form.vehiclePlate}
+                    onChange={(event) => setField("vehiclePlate", event.target.value.toUpperCase().slice(0, 6))}
+                    placeholder="ABC123"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs uppercase text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
                 </div>
-                {form.selectedProducts.includes("todo-riesgo-autos") ? (
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-200">Placa del vehículo</label>
-                    <input
-                      value={form.vehiclePlate}
-                      onChange={(event) => setField("vehiclePlate", event.target.value.toUpperCase().slice(0, 6))}
-                      placeholder="ABC123"
-                      className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base uppercase text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
-                    />
-                  </div>
-                ) : null}
-              </div>
+              )}
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-200">Mensaje adicional</label>
+              <div className="space-y-0.5">
                 <textarea
                   value={form.message}
                   onChange={(event) => setField("message", event.target.value)}
-                  placeholder="Cuéntanos más sobre lo que necesitas"
-                  rows={4}
-                  className="w-full rounded-[1.35rem] border border-white/10 bg-white/[0.05] px-4 py-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                  placeholder="Mensaje adicional..."
+                  rows={2}
+                  className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                 />
               </div>
             </div>
           ) : null}
 
           {step === 3 && form.customerType === "empresa" ? (
-            <div className={compact ? "space-y-4" : "space-y-5"}>
-              <div className="text-center">
-                <h3 className={`font-serif text-white ${compact ? "text-[1.8rem] sm:text-[2.3rem]" : "text-3xl sm:text-4xl"}`}>
-                  Datos de tu empresa
-                </h3>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2 sm:col-span-2">
-                  <label className="text-sm font-medium text-slate-200">Nombre de la empresa *</label>
+            <div className={compact ? "space-y-1.5" : "space-y-4"}>
+              <div className="grid gap-1.5 sm:grid-cols-2">
+                <div className="space-y-0.5 sm:col-span-2">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Empresa *</label>
                   <input
                     value={form.companyName}
                     onChange={(event) => setField("companyName", event.target.value)}
-                    placeholder="Nombre legal de la empresa"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    placeholder="Nombre legal"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.companyName ? <p className="text-sm text-rose-300">{errors.companyName}</p> : null}
+                  {errors.companyName ? <p className="text-[8px] text-rose-400">{errors.companyName}</p> : null}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">NIT de la empresa *</label>
+                <div className="space-y-0.5">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">NIT *</label>
                   <input
                     value={form.companyNit}
                     onChange={(event) => setField("companyNit", formatNit(event.target.value))}
                     placeholder="900123456"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.companyNit ? <p className="text-sm text-rose-300">{errors.companyNit}</p> : null}
+                  {errors.companyNit ? <p className="text-[8px] text-rose-400">{errors.companyNit}</p> : null}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">Número de verificación</label>
-                  <input
-                    value={form.companyVerificationDigit}
-                    onChange={(event) => setField("companyVerificationDigit", event.target.value.replace(/\D/g, "").slice(0, 1))}
-                    placeholder="7"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">Correo electrónico *</label>
+                <div className="space-y-0.5">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Email *</label>
                   <input
                     type="email"
                     value={form.companyEmail}
                     onChange={(event) => setField("companyEmail", event.target.value)}
                     placeholder="empresa@email.com"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.companyEmail ? <p className="text-sm text-rose-300">{errors.companyEmail}</p> : null}
+                  {errors.companyEmail ? <p className="text-[8px] text-rose-400">{errors.companyEmail}</p> : null}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">Nombre de la persona responsable *</label>
+                <div className="space-y-0.5">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Responable *</label>
                   <input
                     value={form.responsibleName}
                     onChange={(event) => setField("responsibleName", event.target.value)}
-                    placeholder="Nombre y apellido"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    placeholder="Nombre y cargo"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.responsibleName ? <p className="text-sm text-rose-300">{errors.responsibleName}</p> : null}
+                  {errors.responsibleName ? <p className="text-[8px] text-rose-400">{errors.responsibleName}</p> : null}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-200">Celular / WhatsApp del responsable *</label>
+                <div className="space-y-0.5">
+                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1"> WhatsApp Responsable *</label>
                   <input
                     value={form.responsiblePhone}
                     onChange={(event) => setField("responsiblePhone", formatPhone(event.target.value))}
-                    placeholder="+57 300 123 4567"
-                    className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
+                    placeholder="300 123 4567"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.responsiblePhone ? <p className="text-sm text-rose-300">{errors.responsiblePhone}</p> : null}
+                  {errors.responsiblePhone ? <p className="text-[8px] text-rose-400">{errors.responsiblePhone}</p> : null}
                 </div>
-                {form.selectedProducts.includes("todo-riesgo-autos") ? (
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-200">Placa del vehículo</label>
-                    <input
-                      value={form.vehiclePlate}
-                      onChange={(event) => setField("vehiclePlate", event.target.value.toUpperCase().slice(0, 6))}
-                      placeholder="ABC123"
-                      className="h-14 w-full rounded-2xl border border-white/10 bg-white/[0.05] px-4 text-base uppercase text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
-                    />
-                  </div>
-                ) : null}
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-200">Mensaje adicional</label>
-                <textarea
-                  value={form.message}
-                  onChange={(event) => setField("message", event.target.value)}
-                  placeholder="Cuéntanos más sobre lo que necesita tu empresa"
-                  rows={4}
-                  className="w-full rounded-[1.35rem] border border-white/10 bg-white/[0.05] px-4 py-4 text-base text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-300"
-                />
               </div>
             </div>
           ) : null}
+          </div>
 
           {step === 3 ? (
-            <div className="space-y-3 rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
-              <label className="flex cursor-pointer items-start gap-3">
+            <div className="space-y-0.5 rounded-lg border border-white/10 bg-white/5 p-1.5">
+              <label className="flex cursor-pointer items-start gap-2">
                 <input
                   type="checkbox"
                   checked={acceptedTerms}
@@ -756,29 +680,25 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                       return nextErrors;
                     });
                   }}
-                  className="mt-1 h-4 w-4 rounded border-white/20 bg-transparent text-cyan-300"
+                  className="mt-0.5 h-3 w-3 rounded border-white/30 bg-white/10 text-cyan-400 focus:ring-offset-[#1e103c]"
                 />
-                <span className="text-sm leading-6 text-slate-300">
-                  Acepto el{" "}
-                  <a href="/privacidad" target="_blank" className="font-medium text-cyan-300 underline underline-offset-2">
-                    tratamiento de mis datos personales
-                  </a>{" "}
-                  para recibir asesoría y cotización.
+                <span className="text-[9px] leading-3 text-slate-400">
+                  Acepto el <a href="/privacidad" target="_blank" className="font-bold text-cyan-400 underline">tratamiento de datos</a> para recibir mi cotización.
                 </span>
               </label>
-              {errors.acceptedTerms ? <p className="text-sm text-rose-300">{errors.acceptedTerms}</p> : null}
-              {errors.submit ? <p className="text-sm text-rose-300">{errors.submit}</p> : null}
+              {errors.acceptedTerms ? <p className="text-[8px] text-rose-400">{errors.acceptedTerms}</p> : null}
+              {errors.submit ? <p className="text-[8px] text-rose-400">{errors.submit}</p> : null}
             </div>
           ) : null}
 
-          <div className="flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-1.5 border-t border-white/10 pt-2.5 sm:flex-row sm:items-center sm:justify-between">
             {step > 1 ? (
               <button
                 type="button"
                 onClick={handleBack}
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl border border-white/14 px-5 text-base font-semibold text-white transition-colors hover:bg-white/[0.05]"
+                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-lg border border-white/20 px-3 text-xs font-semibold text-white transition-colors hover:bg-white/10"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-3 w-3" />
                 Atrás
               </button>
             ) : (
@@ -789,26 +709,26 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               <button
                 type="button"
                 onClick={handleNext}
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-[#e2e7c8] px-6 text-base font-semibold text-slate-900 transition-colors hover:bg-[#edf2d7]"
+                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-lg bg-cyan-400 px-4 text-xs font-semibold text-[#1e103c] transition-colors hover:bg-cyan-300"
               >
-                {step === 1 ? "Continuar" : "Continuar"}
-                <ArrowRight className="h-4 w-4" />
+                Siguiente
+                <ArrowRight className="h-3 w-3" />
               </button>
             ) : (
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-[#e2e7c8] px-6 text-base font-semibold text-slate-900 transition-colors hover:bg-[#edf2d7] disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-lg bg-cyan-400 px-4 text-xs font-semibold text-[#1e103c] transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
                     Enviando...
                   </>
                 ) : (
                   <>
-                    <Send className="h-4 w-4" />
-                    Enviar cotización
+                    <Send className="h-3.5 w-3.5" />
+                    Enviar Cotización
                   </>
                 )}
               </button>

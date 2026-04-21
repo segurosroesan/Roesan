@@ -187,7 +187,7 @@ export default function AboutPage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="hidden lg:flex flex-col rounded-3xl bg-[#1e103c] p-6"
+                            className="flex flex-col rounded-3xl bg-[#1e103c] p-6"
                         >
                             <div className="mb-4">
                                 <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">Nuestro Equipo</span>

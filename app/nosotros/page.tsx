@@ -24,7 +24,7 @@ export default function AboutPage() {
     const team = [
         { name: "Carmen Eugenia Estrada Grueso", role: "Gerente General", image: "/images/equipo/CarmenE_Avatar_v2.png" },
         { name: "Jonathan Jordan", role: "Gerente Financiero", image: "/images/equipo/Jonathan_Avatar_v2.png" },
-        { name: "Ana Lucia Grueso H", role: "Gerente Comercial" },
+        { name: "Ana Lucia Grueso H", role: "Gerente Comercial", image: "/images/equipo/Analucia_Avatar.png" },
         { name: "Patricia Ortegón", role: "Directora Administrativa", image: "/images/equipo/Patricia_Avatar2_v2.png" },
         { name: "Federico López", role: "Director Comercial", image: "/images/equipo/Federico_Avatar2_v2.png", position: "object-[center_20%]" },
         { name: "Adriana Garzón", role: "Ejecutiva de Autos", image: "/images/equipo/Adriana_Avatar_v2.png" },

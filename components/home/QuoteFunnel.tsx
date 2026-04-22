@@ -59,6 +59,10 @@ interface FormState {
   email: string;
   birthDate: string;
   vehiclePlate: string;
+  driverId: string;
+  hasPledge: boolean;
+  pledgeDetails: string;
+  drivingZone: string;
   companyName: string;
   companyNit: string;
   companyVerificationDigit: string;
@@ -171,6 +175,10 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
     email: "",
     birthDate: "",
     vehiclePlate: "",
+    driverId: "",
+    hasPledge: false,
+    pledgeDetails: "",
+    drivingZone: "",
     companyName: "",
     companyNit: "",
     companyVerificationDigit: "",
@@ -227,6 +235,17 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
         if (!form.lastName.trim()) nextErrors.lastName = "El apellido es obligatorio.";
         if (form.phone.replace(/\D/g, "").length !== 10) nextErrors.phone = "Ingresa un celular válido de 10 dígitos.";
         if (!form.email.trim()) nextErrors.email = "El correo es obligatorio.";
+        
+        if (form.selectedProducts.includes("todo-riesgo-autos")) {
+          if (!form.driverId.trim()) nextErrors.driverId = "La cédula es obligatoria.";
+          else if (!/^\d{6,11}$/.test(form.driverId.trim())) nextErrors.driverId = "Ingresa una cédula válida.";
+          
+          if (!form.vehiclePlate.trim()) nextErrors.vehiclePlate = "La placa es obligatoria.";
+          else if (!/^[A-Za-z]{3}\d{2,3}[A-Za-z]?$/.test(form.vehiclePlate.trim())) nextErrors.vehiclePlate = "Ingresa una placa válida (ej. AAA123 o AAA12A).";
+          
+          if (!form.birthDate.trim()) nextErrors.birthDate = "La fecha de nacimiento es obligatoria.";
+          if (!form.drivingZone.trim()) nextErrors.drivingZone = "La zona de circulación es obligatoria.";
+        }
       }
 
       if (form.customerType === "empresa") {
@@ -285,8 +304,12 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           selectedProducts: selectedProductLabels,
           lastName: form.customerType === "persona" ? form.lastName.trim() : "",
           message: cleanMessage,
+          driverId: form.customerType === "persona" ? form.driverId.trim() : "",
           driverBirthDate: form.birthDate,
           vehiclePlate: form.vehiclePlate.trim().toUpperCase(),
+          hasPledge: form.hasPledge,
+          pledgeDetails: form.hasPledge ? form.pledgeDetails.trim() : "",
+          drivingZone: form.drivingZone.trim(),
           companyName: form.customerType === "empresa" ? form.companyName.trim() : "",
           companyNit: form.customerType === "empresa"
             ? `${form.companyNit.trim()}${form.companyVerificationDigit ? `-${form.companyVerificationDigit.trim()}` : ""}`
@@ -308,8 +331,12 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           form.customerType === "empresa"
             ? `NIT: ${form.companyNit.trim()}${form.companyVerificationDigit ? `-${form.companyVerificationDigit.trim()}` : ""}`
             : "",
+          form.driverId.trim() ? `Cédula: ${form.driverId.trim()}` : "",
           form.birthDate ? `Fecha de nacimiento: ${form.birthDate}` : "",
           form.vehiclePlate.trim() ? `Placa: ${form.vehiclePlate.trim().toUpperCase()}` : "",
+          form.drivingZone.trim() ? `Zona de circulación: ${form.drivingZone.trim()}` : "",
+          form.selectedProducts.includes("todo-riesgo-autos") ? `¿Tiene prenda?: ${form.hasPledge ? "Sí" : "No"}` : "",
+          form.hasPledge && form.pledgeDetails.trim() ? `Detalles prenda: ${form.pledgeDetails.trim()}` : "",
           cleanMessage ? `Mensaje: ${cleanMessage}` : "",
         ]
           .filter(Boolean)
@@ -333,8 +360,12 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           companyName: form.companyName.trim(),
           companyNit: form.companyNit.trim(),
           companyVerificationDigit: form.companyVerificationDigit.trim(),
+          driverId: form.driverId.trim(),
           birthDate: form.birthDate,
           vehiclePlate: form.vehiclePlate.trim().toUpperCase(),
+          hasPledge: form.hasPledge,
+          pledgeDetails: form.hasPledge ? form.pledgeDetails.trim() : "",
+          drivingZone: form.drivingZone.trim(),
           message: cleanMessage,
         }),
       }).catch(console.error);
@@ -349,19 +380,19 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
   };
 
   return (
-    <div className={`border border-white/10 bg-[#1e103c] text-white shadow-2xl ${compact ? "rounded-[1.2rem] p-2 sm:p-3" : "rounded-[2rem] p-5 sm:p-8"}`}>
+    <div className={`border border-white/10 bg-[#1e103c] text-white shadow-2xl ${compact ? "rounded-[1.2rem] p-2 sm:p-3" : "rounded-[2rem] p-5 sm:p-8"}`} style={{ fontSize: '1.15em' }}>
       {isSuccess ? (
         <div className="flex min-h-[320px] flex-col items-center justify-center text-center">
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
             <Check className="h-8 w-8" />
           </div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400">
+          <p className="text-[11.5px] font-bold uppercase tracking-[0.2em] text-cyan-400">
             Solicitud enviada
           </p>
-          <h3 className="mt-2 font-serif text-xl font-medium text-white sm:text-2xl">
+          <h3 className="mt-2 font-serif text-[1.43rem] font-medium text-white sm:text-[1.72rem]">
             ¡Gracias! Un asesor te contactará muy pronto.
           </h3>
-          <p className="mt-3 max-w-sm text-[0.8rem] leading-5 text-slate-300 mx-auto">
+          <p className="mt-3 max-w-sm text-[0.92rem] leading-5 text-slate-300 mx-auto">
             Recibimos tu solicitud correctamente. Estamos procesando tu información para darte la mejor asesoría.
           </p>
           <div className="mt-6 flex w-full max-w-xs flex-col gap-2 sm:flex-row sm:justify-center">
@@ -388,9 +419,13 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   responsibleName: "",
                   responsiblePhone: "",
                   message: "",
+                  driverId: "",
+                  hasPledge: false,
+                  pledgeDetails: "",
+                  drivingZone: "",
                 });
               }}
-              className="inline-flex min-h-9 items-center justify-center rounded-xl border border-white/20 px-4 text-xs font-semibold text-white transition-colors hover:bg-white/10"
+              className="inline-flex min-h-9 items-center justify-center rounded-xl border border-white/20 px-4 text-[0.86rem] font-semibold text-white transition-colors hover:bg-white/10"
             >
               Hacer otra cotización
             </button>
@@ -398,7 +433,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex min-h-9 items-center justify-center rounded-xl bg-purple-600 px-4 text-xs font-semibold text-white transition-colors hover:bg-purple-700"
+                className="inline-flex min-h-9 items-center justify-center rounded-xl bg-purple-600 px-4 text-[0.86rem] font-semibold text-white transition-colors hover:bg-purple-700"
               >
                 Cerrar
               </button>
@@ -408,13 +443,13 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
       ) : (
         <form onSubmit={handleSubmit} className={compact ? "space-y-2.5" : "space-y-8"}>
           <div className="text-center">
-            <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-400">
+            <p className="text-[11.5px] font-bold uppercase tracking-[0.24em] text-cyan-400">
               Cotiza sin compromiso
             </p>
-            <h2 className={`mt-0.5 font-serif leading-[1.1] text-white ${compact ? "text-[1.05rem] sm:text-[1.15rem]" : "text-[2.15rem] sm:text-5xl"}`}>
+            <h2 className={`mt-0.5 font-serif leading-[1.1] text-white ${compact ? "text-[1.2rem] sm:text-[1.32rem]" : "text-[2.47rem] sm:text-[3.45rem]"}`}>
               Seguros Roesan en 3 pasos
             </h2>
-            <p className={`mx-auto mt-0.5 max-w-lg leading-4 text-slate-300 ${compact ? "text-[0.68rem]" : "text-base sm:text-lg"}`}>
+            <p className={`mx-auto mt-0.5 max-w-lg leading-4 text-slate-300 ${compact ? "text-[0.78rem]" : "text-[1.15rem] sm:text-[1.29rem]"}`}>
               {step === 1
                 ? "Selecciona tu perfil de usuario"
                 : step === 2
@@ -424,7 +459,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           </div>
 
           <div className="space-y-1">
-            <div className={`grid grid-cols-3 gap-1 text-[10px] ${compact ? "max-w-[280px] mx-auto px-2" : "max-w-md mx-auto"}`}>
+            <div className={`grid grid-cols-3 gap-1 text-[11.5px] ${compact ? "max-w-[280px] mx-auto px-2" : "max-w-md mx-auto"}`}>
               {[
                 { index: 1, label: "Tipo" },
                 { index: 2, label: "Seguros" },
@@ -436,7 +471,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                 return (
                   <div key={item.label} className="flex flex-col items-center gap-0.5">
                     <div
-                      className={`flex shrink-0 items-center justify-center rounded-full border font-bold transition-colors ${compact ? "h-6 w-6 text-[9px]" : "h-9 w-9 text-xs"} ${
+                      className={`flex shrink-0 items-center justify-center rounded-full border font-bold transition-colors ${compact ? "h-6 w-6 text-[10.5px]" : "h-9 w-9 text-[0.86rem]"} ${
                         isDone || isActive
                           ? "border-cyan-400 bg-cyan-400 text-[#1e103c]"
                           : "border-white/20 bg-white/5 text-slate-400"
@@ -472,8 +507,8 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   <div className={`mb-2 flex items-center justify-center rounded-lg bg-cyan-400/20 text-cyan-400 ${compact ? "h-7 w-7" : "h-11 w-11"}`}>
                     <UserRound className={compact ? "h-4 w-4" : "h-6 w-6"} />
                   </div>
-                  <p className={`${compact ? "text-sm" : "text-xl"} font-bold text-white`}>Persona natural</p>
-                  <p className={`mt-0.5 text-slate-400 ${compact ? "text-[0.62rem]" : "text-sm"}`}>Seguros familiares</p>
+                  <p className={`${compact ? "text-[1rem]" : "text-[1.43rem]"} font-bold text-white`}>Persona natural</p>
+                  <p className={`mt-0.5 text-slate-400 ${compact ? "text-[0.71rem]" : "text-[1rem]"}`}>Seguros familiares</p>
                 </button>
 
                 <button
@@ -491,13 +526,13 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   <div className={`mb-2 flex items-center justify-center rounded-lg bg-cyan-400/20 text-cyan-400 ${compact ? "h-7 w-7" : "h-11 w-11"}`}>
                     <Building2 className={compact ? "h-4 w-4" : "h-6 w-6"} />
                   </div>
-                  <p className={`${compact ? "text-sm" : "text-xl"} font-bold text-white`}>Empresa</p>
-                  <p className={`mt-0.5 text-slate-400 ${compact ? "text-[0.62rem]" : "text-sm"}`}>Protección negocio</p>
+                  <p className={`${compact ? "text-[1rem]" : "text-[1.43rem]"} font-bold text-white`}>Empresa</p>
+                  <p className={`mt-0.5 text-slate-400 ${compact ? "text-[0.71rem]" : "text-[1rem]"}`}>Protección negocio</p>
                 </button>
               </div>
 
               {errors.customerType ? (
-                <p className="text-[10px] text-rose-400 text-center">{errors.customerType}</p>
+                <p className="text-[11.5px] text-rose-400 text-center">{errors.customerType}</p>
               ) : null}
             </div>
           ) : null}
@@ -522,7 +557,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                       <div className={`mx-auto mb-1 flex items-center justify-center rounded-md bg-cyan-400/20 text-cyan-400 ${compact ? "h-6 w-6" : "h-9 w-9"}`}>
                         <option.icon className={compact ? "h-3.5 w-3.5" : "h-5 w-5"} />
                       </div>
-                      <p className={`font-bold leading-3 text-white ${compact ? "text-[9px]" : "text-[13px]"}`}>
+                      <p className={`font-bold leading-3 text-white ${compact ? "text-[10.5px]" : "text-[15px]"}`}>
                         {option.label}
                       </p>
                     </button>
@@ -531,7 +566,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               </div>
 
               {errors.selectedProducts ? (
-                <p className="text-[10px] text-rose-400 text-center">{errors.selectedProducts}</p>
+                <p className="text-[11.5px] text-rose-400 text-center">{errors.selectedProducts}</p>
               ) : null}
             </div>
           ) : null}
@@ -540,58 +575,139 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
             <div className={compact ? "space-y-1.5" : "space-y-4"}>
               <div className="grid gap-1.5 sm:grid-cols-2">
                 <div className="space-y-0.5">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Nombre *</label>
+                  <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Nombre *</label>
                   <input
                     value={form.firstName}
                     onChange={(event) => setField("firstName", event.target.value)}
                     placeholder="Tu nombre"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.firstName ? <p className="text-[8px] text-rose-400">{errors.firstName}</p> : null}
+                  {errors.firstName ? <p className="text-[9.2px] text-rose-400">{errors.firstName}</p> : null}
                 </div>
                 <div className="space-y-0.5">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Apellido *</label>
+                  <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Apellido *</label>
                   <input
                     value={form.lastName}
                     onChange={(event) => setField("lastName", event.target.value)}
                     placeholder="Tu apellido"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.lastName ? <p className="text-[8px] text-rose-400">{errors.lastName}</p> : null}
+                  {errors.lastName ? <p className="text-[9.2px] text-rose-400">{errors.lastName}</p> : null}
                 </div>
                 <div className="space-y-0.5">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">WhatsApp *</label>
+                  <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">WhatsApp *</label>
                   <input
                     value={form.phone}
                     onChange={(event) => setField("phone", formatPhone(event.target.value))}
                     placeholder="300 123 4567"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.phone ? <p className="text-[8px] text-rose-400">{errors.phone}</p> : null}
+                  {errors.phone ? <p className="text-[9.2px] text-rose-400">{errors.phone}</p> : null}
                 </div>
                 <div className="space-y-0.5">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Email *</label>
+                  <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Email *</label>
                   <input
                     type="email"
                     value={form.email}
                     onChange={(event) => setField("email", event.target.value)}
                     placeholder="tu@email.com"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.email ? <p className="text-[8px] text-rose-400">{errors.email}</p> : null}
+                  {errors.email ? <p className="text-[9.2px] text-rose-400">{errors.email}</p> : null}
                 </div>
               </div>
 
               {form.selectedProducts.includes("todo-riesgo-autos") && (
-                <div className="space-y-0.5">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Placa</label>
-                  <input
-                    value={form.vehiclePlate}
-                    onChange={(event) => setField("vehiclePlate", event.target.value.toUpperCase().slice(0, 6))}
-                    placeholder="ABC123"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs uppercase text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
-                  />
-                </div>
+                <>
+                  <div className="space-y-0.5">
+                    <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Número de cédula *</label>
+                    <input
+                      value={form.driverId}
+                      onChange={(event) => setField("driverId", event.target.value.replace(/\D/g, ""))}
+                      placeholder="123456789"
+                      className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    />
+                    {errors.driverId ? <p className="text-[9.2px] text-rose-400">{errors.driverId}</p> : null}
+                  </div>
+                  <div className="space-y-0.5">
+                    <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Placa *</label>
+                    <input
+                      value={form.vehiclePlate}
+                      onChange={(event) => setField("vehiclePlate", event.target.value.toUpperCase().slice(0, 6))}
+                      placeholder="ABC123"
+                      className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] uppercase text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    />
+                    {errors.vehiclePlate ? <p className="text-[9.2px] text-rose-400">{errors.vehiclePlate}</p> : null}
+                  </div>
+                  <div className="space-y-0.5">
+                    <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Fecha de nacimiento *</label>
+                    <input
+                      type="date"
+                      value={form.birthDate}
+                      onChange={(event) => setField("birthDate", event.target.value)}
+                      className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10 [color-scheme:dark]"
+                    />
+                    {errors.birthDate ? <p className="text-[9.2px] text-rose-400">{errors.birthDate}</p> : null}
+                  </div>
+                  <div className="space-y-0.5">
+                    <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Zona de circulación *</label>
+                    <select
+                      value={form.drivingZone}
+                      onChange={(event) => setField("drivingZone", event.target.value)}
+                      className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    >
+                      <option value="" className="bg-[#1e103c] text-white">Selecciona una zona</option>
+                      <option value="Bogotá D.C." className="bg-[#1e103c] text-white">Bogotá D.C.</option>
+                      <option value="Medellín y Valle de Aburrá" className="bg-[#1e103c] text-white">Medellín y Valle de Aburrá</option>
+                      <option value="Cali y Valle del Cauca" className="bg-[#1e103c] text-white">Cali y Valle del Cauca</option>
+                      <option value="Barranquilla y Atlántico" className="bg-[#1e103c] text-white">Barranquilla y Atlántico</option>
+                      <option value="Bucaramanga y Santander" className="bg-[#1e103c] text-white">Bucaramanga y Santander</option>
+                      <option value="Cartagena y Bolívar" className="bg-[#1e103c] text-white">Cartagena y Bolívar</option>
+                      <option value="Eje Cafetero" className="bg-[#1e103c] text-white">Eje Cafetero</option>
+                      <option value="Otra" className="bg-[#1e103c] text-white">Otra zona</option>
+                    </select>
+                    {errors.drivingZone ? <p className="text-[9.2px] text-rose-400">{errors.drivingZone}</p> : null}
+                  </div>
+                  <div className="space-y-0.5">
+                    <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">¿Tiene prenda en el vehículo?</label>
+                    <div className="flex items-center gap-4 h-9 px-2">
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="hasPledge"
+                          checked={form.hasPledge === true}
+                          onChange={() => setField("hasPledge", true)}
+                          className="h-3 w-3 text-cyan-400 focus:ring-cyan-400 bg-white/10 border-white/30"
+                        />
+                        <span className="text-[0.86rem] text-white">Sí</span>
+                      </label>
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="hasPledge"
+                          checked={form.hasPledge === false}
+                          onChange={() => {
+                            setField("hasPledge", false);
+                            setField("pledgeDetails", "");
+                          }}
+                          className="h-3 w-3 text-cyan-400 focus:ring-cyan-400 bg-white/10 border-white/30"
+                        />
+                        <span className="text-[0.86rem] text-white">No</span>
+                      </label>
+                    </div>
+                  </div>
+                  {form.hasPledge && (
+                    <div className="space-y-0.5">
+                      <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Detalles de la prenda (Opcional)</label>
+                      <input
+                        value={form.pledgeDetails}
+                        onChange={(event) => setField("pledgeDetails", event.target.value)}
+                        placeholder="Ej: Banco o entidad financiera"
+                        className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                      />
+                    </div>
+                  )}
+                </>
               )}
 
               <div className="space-y-0.5">
@@ -600,7 +716,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   onChange={(event) => setField("message", event.target.value)}
                   placeholder="Mensaje adicional..."
                   rows={2}
-                  className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                  className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                 />
               </div>
             </div>
@@ -610,55 +726,55 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
             <div className={compact ? "space-y-1.5" : "space-y-4"}>
               <div className="grid gap-1.5 sm:grid-cols-2">
                 <div className="space-y-0.5 sm:col-span-2">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Empresa *</label>
+                  <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Empresa *</label>
                   <input
                     value={form.companyName}
                     onChange={(event) => setField("companyName", event.target.value)}
                     placeholder="Nombre legal"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.companyName ? <p className="text-[8px] text-rose-400">{errors.companyName}</p> : null}
+                  {errors.companyName ? <p className="text-[9.2px] text-rose-400">{errors.companyName}</p> : null}
                 </div>
                 <div className="space-y-0.5">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">NIT *</label>
+                  <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">NIT *</label>
                   <input
                     value={form.companyNit}
                     onChange={(event) => setField("companyNit", formatNit(event.target.value))}
                     placeholder="900123456"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.companyNit ? <p className="text-[8px] text-rose-400">{errors.companyNit}</p> : null}
+                  {errors.companyNit ? <p className="text-[9.2px] text-rose-400">{errors.companyNit}</p> : null}
                 </div>
                 <div className="space-y-0.5">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Email *</label>
+                  <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Email *</label>
                   <input
                     type="email"
                     value={form.companyEmail}
                     onChange={(event) => setField("companyEmail", event.target.value)}
                     placeholder="empresa@email.com"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.companyEmail ? <p className="text-[8px] text-rose-400">{errors.companyEmail}</p> : null}
+                  {errors.companyEmail ? <p className="text-[9.2px] text-rose-400">{errors.companyEmail}</p> : null}
                 </div>
                 <div className="space-y-0.5">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1">Responable *</label>
+                  <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Responable *</label>
                   <input
                     value={form.responsibleName}
                     onChange={(event) => setField("responsibleName", event.target.value)}
                     placeholder="Nombre y cargo"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.responsibleName ? <p className="text-[8px] text-rose-400">{errors.responsibleName}</p> : null}
+                  {errors.responsibleName ? <p className="text-[9.2px] text-rose-400">{errors.responsibleName}</p> : null}
                 </div>
                 <div className="space-y-0.5">
-                  <label className="text-[9px] font-bold text-slate-400 uppercase px-1"> WhatsApp Responsable *</label>
+                  <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1"> WhatsApp Responsable *</label>
                   <input
                     value={form.responsiblePhone}
                     onChange={(event) => setField("responsiblePhone", formatPhone(event.target.value))}
                     placeholder="300 123 4567"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-xs text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
                   />
-                  {errors.responsiblePhone ? <p className="text-[8px] text-rose-400">{errors.responsiblePhone}</p> : null}
+                  {errors.responsiblePhone ? <p className="text-[9.2px] text-rose-400">{errors.responsiblePhone}</p> : null}
                 </div>
               </div>
             </div>
@@ -682,12 +798,12 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   }}
                   className="mt-0.5 h-3 w-3 rounded border-white/30 bg-white/10 text-cyan-400 focus:ring-offset-[#1e103c]"
                 />
-                <span className="text-[9px] leading-3 text-slate-400">
+                <span className="text-[10.5px] leading-3 text-slate-400">
                   Acepto el <a href="/privacidad" target="_blank" className="font-bold text-cyan-400 underline">tratamiento de datos</a> para recibir mi cotización.
                 </span>
               </label>
-              {errors.acceptedTerms ? <p className="text-[8px] text-rose-400">{errors.acceptedTerms}</p> : null}
-              {errors.submit ? <p className="text-[8px] text-rose-400">{errors.submit}</p> : null}
+              {errors.acceptedTerms ? <p className="text-[9.2px] text-rose-400">{errors.acceptedTerms}</p> : null}
+              {errors.submit ? <p className="text-[9.2px] text-rose-400">{errors.submit}</p> : null}
             </div>
           ) : null}
 
@@ -696,7 +812,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               <button
                 type="button"
                 onClick={handleBack}
-                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-lg border border-white/20 px-3 text-xs font-semibold text-white transition-colors hover:bg-white/10"
+                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-lg border border-white/20 px-3 text-[0.86rem] font-semibold text-white transition-colors hover:bg-white/10"
               >
                 <ArrowLeft className="h-3 w-3" />
                 Atrás
@@ -709,7 +825,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               <button
                 type="button"
                 onClick={handleNext}
-                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-lg bg-cyan-400 px-4 text-xs font-semibold text-[#1e103c] transition-colors hover:bg-cyan-300"
+                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-lg bg-cyan-400 px-4 text-[0.86rem] font-semibold text-[#1e103c] transition-colors hover:bg-cyan-300"
               >
                 Siguiente
                 <ArrowRight className="h-3 w-3" />
@@ -718,7 +834,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-lg bg-cyan-400 px-4 text-xs font-semibold text-[#1e103c] transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-lg bg-cyan-400 px-4 text-[0.86rem] font-semibold text-[#1e103c] transition-colors hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isSubmitting ? (
                   <>

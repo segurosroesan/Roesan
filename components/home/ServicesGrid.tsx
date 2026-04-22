@@ -122,8 +122,40 @@ export function ServicesGrid() {
                     </p>
                 </motion.div>
 
-                {/* === Seguros para Personas === */}
+                {/* === Seguros para Empresas === */}
                 <div className="mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="flex items-center gap-4 mb-10"
+                    >
+                        <h3 className="text-2xl font-bold text-slate-900">Seguros para Empresas</h3>
+                        <div className="flex-1 h-px bg-slate-200" />
+                        <Link 
+                            href="/servicios/empresas" 
+                            className="text-sm font-semibold text-cyan-600 hover:text-cyan-700 flex items-center gap-1 shrink-0"
+                        >
+                            Ver todos <ArrowRight className="w-4 h-4" />
+                        </Link>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {empresas.slice(0, 3).map((service, idx) => (
+                            <ServiceCard key={service.slug} service={service} idx={idx} />
+                        ))}
+                    </div>
+                    {empresas.length > 3 && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                            {empresas.slice(3).map((service, idx) => (
+                                <ServiceCard key={service.slug} service={service} idx={idx + 3} />
+                            ))}
+                        </div>
+                    )}
+                </div>
+
+                {/* === Seguros para Personas === */}
+                <div>
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -155,38 +187,6 @@ export function ServicesGrid() {
                     {personas.length > 3 && (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
                             {personas.slice(3).map((service, idx) => (
-                                <ServiceCard key={service.slug} service={service} idx={idx + 3} />
-                            ))}
-                        </div>
-                    )}
-                </div>
-
-                {/* === Seguros para Empresas === */}
-                <div>
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="flex items-center gap-4 mb-10"
-                    >
-                        <h3 className="text-2xl font-bold text-slate-900">Seguros para Empresas</h3>
-                        <div className="flex-1 h-px bg-slate-200" />
-                        <Link 
-                            href="/servicios/empresas" 
-                            className="text-sm font-semibold text-cyan-600 hover:text-cyan-700 flex items-center gap-1 shrink-0"
-                        >
-                            Ver todos <ArrowRight className="w-4 h-4" />
-                        </Link>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {empresas.slice(0, 3).map((service, idx) => (
-                            <ServiceCard key={service.slug} service={service} idx={idx} />
-                        ))}
-                    </div>
-                    {empresas.length > 3 && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-                            {empresas.slice(3).map((service, idx) => (
                                 <ServiceCard key={service.slug} service={service} idx={idx + 3} />
                             ))}
                         </div>

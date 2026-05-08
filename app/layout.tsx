@@ -70,6 +70,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        {/* Google Tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18147237480"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18147237480');
+            gtag('config', 'G-DYVNSM6WJ2');
+          `
+        }} />
+      </head>
       <body
         className={`${roboto.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-transparent selection:bg-accent selection:text-accent-foreground`}
       >
@@ -96,20 +109,6 @@ export default function RootLayout({
         <main className="relative z-10 flex-1">{children}</main>
         <div className="relative z-10"><Footer /></div>
         <ChatWidget />
-
-        {/* Google Analytics & Ads Tag */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DYVNSM6WJ2" strategy="afterInteractive" />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18147237480" strategy="afterInteractive" />
-        <Script id="google-tags" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-DYVNSM6WJ2');
-            gtag('config', 'AW-18147237480');
-          `}
-        </Script>
 
         {/* Schema Markup */}
         <Script id="schema-local-business" type="application/ld+json" strategy="afterInteractive">

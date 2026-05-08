@@ -97,15 +97,17 @@ export default function RootLayout({
         <div className="relative z-10"><Footer /></div>
         <ChatWidget />
 
-        {/* Google Analytics */}
+        {/* Google Analytics & Ads Tag */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-DYVNSM6WJ2" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18147237480" strategy="afterInteractive" />
+        <Script id="google-tags" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'G-DYVNSM6WJ2');
+            gtag('config', 'AW-18147237480');
           `}
         </Script>
 

@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "7 min",
         category: "Seguros de Autos",
         categoryColor: "bg-cyan-100 text-cyan-700",
-        coverImage: "/images/blog/cover_auto.png",
+        coverImage: "/images/blog/cover-auto-bogota.png",
         content: [
             {
                 type: "intro",
@@ -387,6 +387,68 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "paragraph",
                 text: "No dejes que tu dinero se escape mes a mes. En Roesan Seguros te ayudamos a optimizar tus finanzas protegiendo lo que más quieres."
+            },
+            { type: "cta", text: "" }
+        ]
+    },
+    {
+        slug: "seguro-bicicletas-patinetas-electricas-colombia",
+        title: "Seguro para Bicicletas y Patinetas Eléctricas: Protege tu Movilidad Sostenible",
+        excerpt: "La micromovilidad llegó para quedarse en las ciudades colombianas. Descubre cómo proteger tu bici o scooter contra robo, accidentes y daños a terceros.",
+        date: "2026-05-08",
+        readTime: "5 min",
+        category: "Movilidad Urbana",
+        categoryColor: "bg-emerald-100 text-emerald-700",
+        coverImage: "/images/blog/seguro-bicicletas-patinetas.png",
+        content: [
+            {
+                type: "intro",
+                text: "En los últimos años, las calles de Bogotá, Medellín y Cali se han llenado de ciclistas y usuarios de patinetas eléctricas. Esta transición hacia una movilidad más sostenible y eficiente es fantástica, pero también trae nuevos riesgos. ¿Qué pasa si te roban la bicicleta saliendo del trabajo? ¿O si accidentalmente golpeas a un peatón con tu scooter? Aquí te explicamos por qué necesitas un seguro de micromovilidad."
+            },
+            {
+                type: "heading",
+                text: "Los riesgos de la micromovilidad en la ciudad"
+            },
+            {
+                type: "paragraph",
+                text: "Moverse en dos ruedas (o ruedas pequeñas) tiene sus desafíos técnicos y de seguridad. Los incidentes más comunes reportados en Colombia incluyen:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Hurto calificado: Las bicicletas de gama media y alta, así como las patinetas eléctricas, son objetivos frecuentes de la delincuencia.",
+                    "Accidentes viales: Caídas por mal estado de la vía o colisiones con otros vehículos.",
+                    "Responsabilidad Civil: Daños causados a otras personas o bienes ajenos mientras transitas."
+                ]
+            },
+            {
+                type: "heading",
+                text: "¿Qué cubre una póliza para bicis y scooters?"
+            },
+            {
+                type: "paragraph",
+                text: "Un buen seguro de movilidad urbana no solo protege el equipo, sino también al usuario y su patrimonio:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Indemnización por robo: Reposición del valor de tu vehículo en caso de hurto.",
+                    "Daños accidentales: Cubre las reparaciones necesarias tras un choque o caída.",
+                    "Responsabilidad Civil Extracontractual: Paga los daños que puedas causar a terceros (el amparo más importante).",
+                    "Asistencia en vía: Grúa, transporte por avería o incluso asistencia médica si la necesitas."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Consejos para usuarios de movilidad eléctrica"
+            },
+            {
+                type: "paragraph",
+                text: "Si usas patineta eléctrica, recuerda que la normativa en Colombia exige el uso de casco, luces y, en algunos casos, chaleco reflectivo. Contar con un seguro no solo te da tranquilidad financiera, sino que te respalda ante posibles reclamaciones legales derivadas de tu tránsito por la ciudad."
+            },
+            {
+                type: "paragraph",
+                text: "En Roesan Seguros te ayudamos a encontrar el plan que mejor se adapte a tu estilo de vida y al valor de tu vehículo eléctrico o bicicleta."
             },
             { type: "cta", text: "" }
         ]

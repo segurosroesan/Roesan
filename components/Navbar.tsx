@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 
 export function Navbar() {
@@ -59,6 +59,18 @@ export function Navbar() {
                                 {link.name}
                             </Link>
                         ))}
+                        {/* Social Icons */}
+                        <div className="flex items-center gap-2">
+                            <a href="https://www.facebook.com/Roesanltda/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 hover:scale-110 transition-all shadow-sm">
+                                <Facebook className="w-4 h-4" />
+                            </a>
+                            <a href="https://www.instagram.com/roesanseguros" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-full bg-gradient-to-br from-pink-500 via-rose-500 to-orange-400 flex items-center justify-center text-white hover:scale-110 transition-all shadow-sm">
+                                <Instagram className="w-4 h-4" />
+                            </a>
+                            <a href="https://co.linkedin.com/company/roesan-agencia-de-seguros" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-[#0077b5] flex items-center justify-center text-white hover:bg-[#005f93] hover:scale-110 transition-all shadow-sm">
+                                <Linkedin className="w-4 h-4" />
+                            </a>
+                        </div>
                         <Link href="/contacto">
                             <button className={`px-7 py-3 rounded-full text-[15px] font-medium transition-all duration-300 flex items-center gap-2 group hover:scale-105 hover:shadow-lg lg:text-base ${forceLightMode
                                 ? "bg-purple-800 text-white hover:bg-purple-900"
@@ -110,6 +122,18 @@ export function Navbar() {
                             <span>Contáctanos</span>
                             <ArrowRight className="h-4 w-4" />
                         </Link>
+                        {/* Social Icons - Mobile */}
+                        <div className="flex items-center justify-center gap-4 pt-3 pb-1">
+                            <a href="https://www.facebook.com/Roesanltda/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 hover:scale-110 transition-all shadow-md">
+                                <Facebook className="w-5 h-5" />
+                            </a>
+                            <a href="https://www.instagram.com/roesanseguros" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-11 h-11 rounded-full bg-gradient-to-br from-pink-500 via-rose-500 to-orange-400 flex items-center justify-center text-white hover:scale-110 transition-all shadow-md">
+                                <Instagram className="w-5 h-5" />
+                            </a>
+                            <a href="https://co.linkedin.com/company/roesan-agencia-de-seguros" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-11 h-11 rounded-full bg-[#0077b5] flex items-center justify-center text-white hover:bg-[#005f93] hover:scale-110 transition-all shadow-md">
+                                <Linkedin className="w-5 h-5" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             )}

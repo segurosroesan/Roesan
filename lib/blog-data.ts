@@ -325,4 +325,70 @@ export const blogPosts: BlogPost[] = [
             { type: "cta", text: "" },
         ],
     },
+    {
+        slug: "seguro-vida-deudor-hipotecario-ahorro",
+        title: "¿Sabías que no estás obligado a mantener el seguro que te ofrece el banco con tu crédito hipotecario?",
+        excerpt: "Muchos colombianos pagan de más todos los meses sin saber que pueden mantener la misma cobertura, optimizando costos y recibiendo una asesoría más personalizada.",
+        date: "2026-05-08",
+        readTime: "6 min",
+        category: "Educación Financiera",
+        categoryColor: "bg-blue-100 text-blue-700",
+        coverImage: "/images/blog/apartamentos-hipotecario.png",
+        content: [
+            {
+                type: "intro",
+                text: "💡 ¿Sabías que no estás obligado a mantener el seguro que te ofrece el banco con tu crédito hipotecario? Muchas personas pagan de más todos los meses sin saber que pueden mantener la misma cobertura, optimizando costos y recibiendo una asesoría más personalizada. Aquí te contamos cómo puedes ahorrar dinero hoy mismo."
+            },
+            {
+                type: "heading",
+                text: "El derecho a elegir: El endoso de seguros"
+            },
+            {
+                type: "paragraph",
+                text: "Cuando contratas un crédito de vivienda, el banco te exige obligatoriamente dos seguros: Vida Deudor (que cubre el saldo de la deuda si falleces) e Incendio y Terremoto (que protege el inmueble). Lo que pocos saben es que tienes el derecho legal de presentar una póliza externa de una aseguradora de tu elección. A esto se le conoce como 'endoso'."
+            },
+            {
+                type: "heading",
+                text: "¿Por qué te conviene cambiar el seguro del banco?"
+            },
+            {
+                type: "paragraph",
+                text: "Tomar el seguro por fuera del banco ofrece ventajas competitivas que impactan directamente en tu bolsillo y en tu seguridad:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Ahorro económico: Las pólizas colectivas de los bancos suelen tener primas más altas. Al cotizar de forma individual con Roesan, puedes reducir el costo mensual de tu seguro significativamente.",
+                    "Coberturas a tu medida: El seguro del banco suele ser estándar. Con una póliza propia, puedes incluir amparos adicionales que protejan mejor a tu familia.",
+                    "Asesoría personalizada: Ante un siniestro, tendrás a tu agencia Roesan de tu lado para gestionar todo el proceso, en lugar de lidiar con los trámites impersonales de un banco."
+                ]
+            },
+            {
+                type: "heading",
+                text: "La base legal: Ley 1328 de 2009"
+            },
+            {
+                type: "paragraph",
+                text: "En Colombia, la Ley de Protección al Consumidor Financiero prohíbe las 'ventas atadas'. El banco NO puede obligarte a tomar su seguro ni penalizarte por presentar uno externo. Solo debes asegurarte de que la póliza que presentes cumpla con los requisitos mínimos exigidos por la entidad bancaria."
+            },
+            {
+                type: "heading",
+                text: "Pasos para realizar el endoso con Roesan"
+            },
+            {
+                type: "list",
+                items: [
+                    "Solicita a tu banco el certificado de condiciones mínimas de la póliza de vida y hogar.",
+                    "Envíanos esa información para cotizar con las mejores aseguradoras del país (Sura, Bolívar, Allianz, etc.).",
+                    "Emitimos la póliza con los beneficiarios y sumas aseguradas correctas.",
+                    "Presentamos la documentación al banco y ¡listo! Tu cuota mensual bajará automáticamente."
+                ]
+            },
+            {
+                type: "paragraph",
+                text: "No dejes que tu dinero se escape mes a mes. En Roesan Seguros te ayudamos a optimizar tus finanzas protegiendo lo que más quieres."
+            },
+            { type: "cta", text: "" }
+        ]
+    }
 ];

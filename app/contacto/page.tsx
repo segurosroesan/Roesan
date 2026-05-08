@@ -77,7 +77,10 @@ export default function ContactPage() {
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
+        const value = (e.target.id === "name" || e.target.id === "message") 
+            ? e.target.value.toUpperCase() 
+            : e.target.value;
+        setFormData(prev => ({ ...prev, [e.target.id]: value }));
     };
 
     const getWhatsAppLink = () => {
@@ -262,7 +265,7 @@ export default function ContactPage() {
                                                 value={formData.name}
                                                 onChange={handleChange}
                                                 placeholder="Juan Pérez"
-                                                className="block w-full rounded-lg border-0 bg-slate-50 py-2.5 px-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-primary sm:text-sm transition-all"
+                                                className="block w-full rounded-lg border-0 bg-slate-50 py-2.5 px-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-primary sm:text-sm transition-all uppercase"
                                             />
                                         </div>
                                         <div>
@@ -328,7 +331,7 @@ export default function ContactPage() {
                                             value={formData.message}
                                             onChange={handleChange}
                                             placeholder="¿Tienes alguna pregunta específica o contexto que quieras compartir?"
-                                            className="block w-full rounded-lg border-0 bg-slate-50 py-2.5 px-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-primary sm:text-sm transition-all resize-none"
+                                            className="block w-full rounded-lg border-0 bg-slate-50 py-2.5 px-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-primary sm:text-sm transition-all resize-none uppercase"
                                         />
                                     </div>
 

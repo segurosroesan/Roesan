@@ -586,9 +586,9 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Nombre *</label>
                   <input
                     value={form.firstName}
-                    onChange={(event) => setField("firstName", event.target.value)}
+                    onChange={(event) => setField("firstName", event.target.value.toUpperCase())}
                     placeholder="Tu nombre"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10 uppercase"
                   />
                   {errors.firstName ? <p className="text-[9.2px] text-rose-400">{errors.firstName}</p> : null}
                 </div>
@@ -596,9 +596,9 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Apellido</label>
                   <input
                     value={form.lastName}
-                    onChange={(event) => setField("lastName", event.target.value)}
+                    onChange={(event) => setField("lastName", event.target.value.toUpperCase())}
                     placeholder="Tu apellido"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10 uppercase"
                   />
                   {errors.lastName ? <p className="text-[9.2px] text-rose-400">{errors.lastName}</p> : null}
                 </div>
@@ -684,9 +684,9 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                       <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">¿Cuál es tu zona?</label>
                       <input
                         value={form.customZone}
-                        onChange={(event) => setField("customZone", event.target.value)}
+                        onChange={(event) => setField("customZone", event.target.value.toUpperCase())}
                         placeholder="Ej: Pasto, Nariño"
-                        className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                        className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10 uppercase"
                       />
                     </div>
                   )}
@@ -723,9 +723,9 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                       <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Detalles de la prenda (Opcional)</label>
                       <input
                         value={form.pledgeDetails}
-                        onChange={(event) => setField("pledgeDetails", event.target.value)}
+                        onChange={(event) => setField("pledgeDetails", event.target.value.toUpperCase())}
                         placeholder="Ej: Banco o entidad financiera"
-                        className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                        className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10 uppercase"
                       />
                     </div>
                   )}
@@ -735,10 +735,10 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               <div className="space-y-0.5">
                 <textarea
                   value={form.message}
-                  onChange={(event) => setField("message", event.target.value)}
+                  onChange={(event) => setField("message", event.target.value.toUpperCase())}
                   placeholder="Mensaje adicional..."
                   rows={2}
-                  className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                  className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10 uppercase"
                 />
               </div>
             </div>
@@ -751,9 +751,9 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Empresa</label>
                   <input
                     value={form.companyName}
-                    onChange={(event) => setField("companyName", event.target.value)}
+                    onChange={(event) => setField("companyName", event.target.value.toUpperCase())}
                     placeholder="Nombre legal"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10 uppercase"
                   />
                   {errors.companyName ? <p className="text-[9.2px] text-rose-400">{errors.companyName}</p> : null}
                 </div>
@@ -782,9 +782,9 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Responable *</label>
                   <input
                     value={form.responsibleName}
-                    onChange={(event) => setField("responsibleName", event.target.value)}
+                    onChange={(event) => setField("responsibleName", event.target.value.toUpperCase())}
                     placeholder="Nombre y cargo"
-                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10"
+                    className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10 uppercase"
                   />
                   {errors.responsibleName ? <p className="text-[9.2px] text-rose-400">{errors.responsibleName}</p> : null}
                 </div>

@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Phone, MapPin, Mail, Clock } from "lucide-react";
+import { Phone, MapPin, Mail, Clock } from "lucide-react";
 import Link from "next/link";
 import { Container } from "./ui/Container";
 import Image from "next/image";
@@ -112,21 +112,6 @@ export function Footer() {
                                 </li>
                             ))}
                         </ul>
-
-                        <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-4">
-                            Síguenos
-                        </h4>
-                        <div className="flex gap-3">
-                            <a href="https://www.facebook.com/Roesanltda/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all" aria-label="Facebook">
-                                <Facebook className="w-4 h-4" />
-                            </a>
-                            <a href="https://www.instagram.com/roesanseguros" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all" aria-label="Instagram">
-                                <Instagram className="w-4 h-4" />
-                            </a>
-                            <a href="https://co.linkedin.com/company/roesan-agencia-de-seguros" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-700 hover:text-white transition-all" aria-label="LinkedIn">
-                                <Linkedin className="w-4 h-4" />
-                            </a>
-                        </div>
                     </div>
                 </div>
 

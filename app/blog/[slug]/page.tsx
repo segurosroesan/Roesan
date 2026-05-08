@@ -184,7 +184,7 @@ export default async function BlogPostPage({ params }: Props) {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
-                                href="https://wa.me/573002114998?text=Hola,%20leí%20su%20artículo%20y%20quisiera%20más%20información"
+                                href="https://wa.me/573126000414?text=Hola,%20leí%20su%20artículo%20y%20quisiera%20más%20información"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-white hover:bg-emerald-600 transition-colors"

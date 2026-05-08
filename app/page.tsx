@@ -42,7 +42,7 @@ export default function Home() {
                 </Button>
               </Link>
               <a
-                href="https://wa.me/573002114998"
+                href="https://wa.me/573126000414"
                 target="_blank"
                 rel="noopener noreferrer"
               >

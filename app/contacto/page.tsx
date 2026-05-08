@@ -85,7 +85,7 @@ export default function ContactPage() {
 
     const getWhatsAppLink = () => {
         const msg = encodeURIComponent(`Hola, me contacté por la web de ROESAN. Soy ${formData.name || 'un visitante'} y me interesa asesoría sobre ${formData.topic || 'seguros'}.`);
-        return `https://wa.me/573002114998?text=${msg}`;
+        return `https://wa.me/573126000414?text=${msg}`;
     };
 
     return (
@@ -146,7 +146,7 @@ export default function ContactPage() {
                                 bg: "bg-purple-50",
                                 delay: 0
                             },
-                            { icon: Phone, title: "Llámanos", content: "+57 3002114998", color: "text-primary", bg: "bg-purple-50", delay: 0.1 },
+                            { icon: Phone, title: "Llámanos", content: "+57 3126000414", color: "text-primary", bg: "bg-purple-50", delay: 0.1 },
                             { icon: Mail, title: "Escríbenos", content: "comercial@roesan.com", color: "text-primary", bg: "bg-purple-50", delay: 0.2 },
                             { icon: Clock, title: "Horario de atención", content: "Lun–Vie: 8:30 am – 5:00 pm", color: "text-primary", bg: "bg-purple-50", delay: 0.3 },
                         ].map((item) => (
@@ -183,7 +183,7 @@ export default function ContactPage() {
 
                         {/* WhatsApp quick-access card */}
                         <motion.a
-                            href="https://wa.me/573002114998"
+                            href="https://wa.me/573126000414"
                             target="_blank"
                             rel="noopener noreferrer"
                             initial={{ opacity: 0, x: -20 }}

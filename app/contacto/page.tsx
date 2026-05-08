@@ -68,6 +68,15 @@ export default function ContactPage() {
                 }),
             }).catch(console.error);
             setStatus("success");
+            
+            // Google Ads Conversion Tracking
+            if (typeof window !== 'undefined' && (window as any).gtag) {
+                (window as any).gtag('event', 'conversion', {
+                    'send_to': 'AW-18147237480',
+                    'value': 1.0,
+                    'currency': 'COP'
+                });
+            }
             setFormData({ name: "", phone: "", email: "", topic: "", message: "" });
         } catch (err) {
             console.error("Error saving message:", err);

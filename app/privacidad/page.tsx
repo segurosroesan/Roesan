@@ -11,7 +11,7 @@ const sections = [
     {
         title: "1. Identificación del responsable del tratamiento",
         paragraphs: [
-            "ORGANIZACION DE SEGUROS ROESAN LTDA. - ROESAN SEGUROS, con domicilio en Calle 109 #19-36 oficina 203, Bogotá, Colombia, correo electrónico administrativo@roesan.com.co y teléfono +57 3126000414, actúa como responsable del tratamiento de los datos personales recolectados a través de este sitio web, sus formularios, canales de contacto, solicitudes de cotización, chat y demás mecanismos físicos o digitales dispuestos para la atención de clientes, prospectos, proveedores y demás titulares.",
+            "ORGANIZACION DE SEGUROS ROESAN LTDA. - ROESAN SEGUROS, con domicilio en Calle 109 #19-36 oficina 203, Bogotá, Colombia, correo electrónico administrativo@roesan.com.co y teléfono +57 3002114998, actúa como responsable del tratamiento de los datos personales recolectados a través de este sitio web, sus formularios, canales de contacto, solicitudes de cotización, chat y demás mecanismos físicos o digitales dispuestos para la atención de clientes, prospectos, proveedores y demás titulares.",
             "La presente política aplica al tratamiento de datos personales realizado por Roesan Seguros directamente o por intermedio de terceros encargados, dentro del marco de la Ley 1581 de 2012, el Decreto 1074 de 2015 y las instrucciones que sobre la materia emita la Superintendencia de Industria y Comercio."
         ]
     },
@@ -53,7 +53,7 @@ const sections = [
     {
         title: "7. Área responsable y canales de atención",
         paragraphs: [
-            "La atención de peticiones, consultas y reclamos relacionados con datos personales estará a cargo del área administrativa o de la dependencia que haga sus veces en Roesan Seguros. El titular podrá ejercer sus derechos escribiendo a administrativo@roesan.com.co o remitiendo solicitud física a la dirección Calle 109 #19-36 oficina 203, Bogotá, Colombia. También podrá comunicarse al teléfono +57 3126000414 para orientación sobre el trámite aplicable.",
+            "La atención de peticiones, consultas y reclamos relacionados con datos personales estará a cargo del área administrativa o de la dependencia que haga sus veces en Roesan Seguros. El titular podrá ejercer sus derechos escribiendo a administrativo@roesan.com.co o remitiendo solicitud física a la dirección Calle 109 #19-36 oficina 203, Bogotá, Colombia. También podrá comunicarse al teléfono +57 3002114998 para orientación sobre el trámite aplicable.",
             "Las solicitudes deberán incluir, como mínimo, nombre completo del titular o de su representante, datos de contacto para recibir respuesta, descripción clara de los hechos o la petición, y los documentos que se quieran hacer valer."
         ]
     },

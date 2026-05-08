@@ -43,11 +43,11 @@ export function Footer() {
                         </p>
                         {/* Quick Contact */}
                         <div className="space-y-3">
-                            <a href="tel:+573126000414" className="flex items-center gap-3 text-sm hover:text-white transition-colors group">
+                            <a href="tel:+573002114998" className="flex items-center gap-3 text-sm hover:text-white transition-colors group">
                                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-purple-600 transition-colors">
                                     <Phone className="w-3.5 h-3.5" />
                                 </div>
-                                <span>+57 312 600 0414 <span className="text-slate-500 text-xs">(Administrativo)</span></span>
+                                <span>+57 300 211 4998 <span className="text-slate-500 text-xs">(Administrativo)</span></span>
                             </a>
                             <a href="tel:+573126000414" className="flex items-center gap-3 text-sm hover:text-white transition-colors group">
                                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-purple-600 transition-colors">

@@ -125,7 +125,7 @@ export default function RootLayout({
                 "addressLocality": "Bogotá",
                 "addressCountry": "CO"
               },
-              "telephone": "+573126000414",
+              "telephone": "+573002114998",
               "areaServed": ["CO"],
               "currenciesAccepted": "COP",
               "openingHours": "Mo-Fr 08:30-17:00",

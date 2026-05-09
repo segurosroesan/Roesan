@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Roboto, Philosopher } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import Script from "next/script";
-import { UnicornBackground } from "@/components/ui/UnicornBackground";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -104,7 +103,6 @@ export default function RootLayout({
             </div>
         </div>
 
-        <UnicornBackground />
         <Navbar />
         <main className="relative z-10 flex-1">{children}</main>
         <div className="relative z-10"><Footer /></div>

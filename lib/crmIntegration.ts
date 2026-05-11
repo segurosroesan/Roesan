@@ -19,14 +19,22 @@ interface LeadPayload {
   lastName?: string;
   telefono?: string;
   email?: string;
-  notas?: string;
+  notas?: string;              // texto completo de observaciones/notas
+  observaciones?: string;      // mensaje libre del usuario
   type?: string;
   customerType?: string;
+  selectedProducts?: string;   // label legible de los ramos seleccionados
   vehiclePlate?: string;
+  documento?: string;          // cédula conductora
   companyName?: string;
   companyNit?: string;
   responsibleName?: string;
+  responsiblePhone?: string;
   driverBirthDate?: string;
+  hasPledge?: boolean;
+  pledgeDetails?: string;
+  drivingZone?: string;
+  pipeline_tipo?: string;
 }
 
 /**
@@ -41,13 +49,21 @@ export async function enviarLeadAlCRM(payload: LeadPayload): Promise<boolean> {
     telefono, 
     email, 
     notas,
+    observaciones,
     type,
     customerType,
+    selectedProducts,
     vehiclePlate,
+    documento,
     companyName,
     companyNit,
     responsibleName,
-    driverBirthDate
+    responsiblePhone,
+    driverBirthDate,
+    hasPledge,
+    pledgeDetails,
+    drivingZone,
+    pipeline_tipo,
   } = payload;
   
   const newLeadId = id();
@@ -62,21 +78,32 @@ export async function enviarLeadAlCRM(payload: LeadPayload): Promise<boolean> {
         email: email || '',
         source: 'Sitio Web',
         status: 'Nuevo',
-        notes: notas || 'Lead capturado desde formulario web.',
+        pipeline_tipo: pipeline_tipo || 'preventa',
+        notes: notas || '',
+        observaciones: observaciones || '',
         createdAt: Date.now(),
-        // Campos técnicos mapeados
+        // Ramo / tipo de seguro
         type: type || 'persona',
         customerType: customerType || 'persona',
+        selectedProducts: selectedProducts || '',
+        // Datos vehículo
         vehiclePlate: vehiclePlate || '',
+        hasPledge: hasPledge ?? false,
+        pledgeDetails: pledgeDetails || '',
+        drivingZone: drivingZone || '',
+        // Datos personales
+        documento: documento || '',
+        driverBirthDate: driverBirthDate || '',
+        // Datos empresa
         companyName: companyName || '',
         companyNit: companyNit || '',
         responsibleName: responsibleName || '',
-        driverBirthDate: driverBirthDate || '',
+        responsiblePhone: responsiblePhone || '',
       }),
 
       // 2. Crear la Tarea / Ticket de Cotización asociada
       tx.tasks[id()].update({
-        description: `Cotizar seguro (${type || 'general'}) para: ${nombre}`,
+        description: `Cotizar ${selectedProducts || type || 'seguro'} para: ${nombre}`,
         leadId: newLeadId,
         completed: false,
         createdAt: Date.now(),

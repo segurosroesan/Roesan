@@ -325,13 +325,25 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
         email: leadEmail,
         type: leadType,
         customerType: form.customerType,
+        pipeline_tipo: "preventa",
+        selectedProducts: selectedProductLabels,
+        // Datos vehículo (solo autos)
         vehiclePlate: form.vehiclePlate.trim().toUpperCase(),
+        hasPledge: form.hasPledge,
+        pledgeDetails: form.hasPledge ? form.pledgeDetails.trim() : "",
+        drivingZone: form.drivingZone === "Otra" ? form.customZone.trim() || "Otra" : form.drivingZone.trim(),
+        // Datos personales
+        documento: form.customerType === "persona" ? form.driverId.trim() : "",
+        driverBirthDate: form.birthDate,
+        // Datos empresa
         companyName: form.customerType === "empresa" ? form.companyName.trim() : "",
         companyNit: form.customerType === "empresa"
           ? `${form.companyNit.trim()}${form.companyVerificationDigit ? `-${form.companyVerificationDigit.trim()}` : ""}`
           : "",
         responsibleName: form.customerType === "empresa" ? form.responsibleName.trim() : "",
-        driverBirthDate: form.birthDate,
+        responsiblePhone: form.customerType === "empresa" ? form.responsiblePhone.replace(/\D/g, "") : "",
+        // Observaciones del usuario
+        observaciones: cleanMessage,
         notas: [
           `Intereses: ${selectedProductLabels}`,
           form.customerType === "empresa" ? `Empresa: ${form.companyName.trim()}` : "",
@@ -344,7 +356,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           (form.drivingZone === "Otra" ? form.customZone.trim() || "Otra" : form.drivingZone.trim()) ? `Zona de circulación: ${form.drivingZone === "Otra" ? form.customZone.trim() || "Otra" : form.drivingZone.trim()}` : "",
           form.selectedProducts.includes("todo-riesgo-autos") ? `¿Tiene prenda?: ${form.hasPledge ? "Sí" : "No"}` : "",
           form.hasPledge && form.pledgeDetails.trim() ? `Detalles prenda: ${form.pledgeDetails.trim()}` : "",
-          cleanMessage ? `Mensaje: ${cleanMessage}` : "",
+          cleanMessage ? `Observaciones: ${cleanMessage}` : "",
         ]
           .filter(Boolean)
           .join(" | "),

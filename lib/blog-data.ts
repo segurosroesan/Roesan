@@ -452,5 +452,120 @@ export const blogPosts: BlogPost[] = [
             },
             { type: "cta", text: "" }
         ]
+    },
+    {
+        slug: "seguro-para-copropiedades-guia",
+        title: "Seguro para Copropiedades: Más que un requisito legal, la protección de tu patrimonio",
+        excerpt: "La Ley 675 exige a las copropiedades en Colombia asegurar las áreas comunes. Conoce por qué una buena póliza salva a los propietarios de cuotas extraordinarias millonarias.",
+        date: "2026-05-12",
+        readTime: "5 min",
+        category: "Propiedad Horizontal",
+        categoryColor: "bg-indigo-100 text-indigo-700",
+        coverImage: "/images/card-copropiedades.png",
+        content: [
+            {
+                type: "intro",
+                text: "Vivir en un conjunto residencial, edificio o parcelación trae grandes comodidades, pero también implica asumir riesgos compartidos. ¿Qué pasaría si un incendio daña severamente los pasillos y el lobby? ¿O si un visitante sufre un accidente grave en la zona de la piscina y decide demandar a la copropiedad? Aquí es donde entra en juego el seguro de copropiedades, un escudo financiero vital para la comunidad."
+            },
+            {
+                type: "heading",
+                text: "¿Qué exige la Ley de Propiedad Horizontal en Colombia?"
+            },
+            {
+                type: "paragraph",
+                text: "La Ley 675 de 2001 es muy clara al respecto: todas las copropiedades están en la obligación legal de adquirir una póliza que asegure las áreas comunes contra los riesgos de incendio y terremoto. Sin embargo, quedarse únicamente con el mínimo legal suele ser insuficiente."
+            },
+            {
+                type: "list",
+                items: [
+                    "Incendio y Rayo: Cobertura básica y obligatoria para reconstruir áreas esenciales.",
+                    "Terremoto y Temblor: Fundamental en Colombia dada nuestra geografía sísmica.",
+                    "Responsabilidad Civil Extracontractual (RCE): El amparo que protege el patrimonio del conjunto ante demandas de terceros (ej. accidentes de visitantes o contratistas dentro de las instalaciones)."
+                ]
+            },
+            {
+                type: "heading",
+                text: "La barrera contra las Cuotas Extraordinarias"
+            },
+            {
+                type: "paragraph",
+                text: "El verdadero valor de este seguro se ve en los momentos de crisis. Si ocurre un siniestro que daña la estructura compartida (por ejemplo, la rotura del ascensor o una explosión en la subestación eléctrica) y el conjunto no está correctamente asegurado, el costo de las reparaciones o indemnizaciones recaerá directamente sobre los copropietarios."
+            },
+            {
+                type: "paragraph",
+                text: "Esto se traduce en cuotas extraordinarias dolorosas que pueden ascender a varios millones de pesos por apartamento, desestabilizando las finanzas de cientos de familias."
+            },
+            {
+                type: "heading",
+                text: "Evita el Infraseguro: Asesoría experta para Administradores"
+            },
+            {
+                type: "paragraph",
+                text: "Uno de los errores más comunes es asegurar la copropiedad por un valor inferior al costo real de reconstrucción (infraseguro) para ahorrar en la cuota mensual. En caso de desastre, la aseguradora aplicará una penalización proporcional y la copropiedad no recibirá el dinero suficiente para recuperar lo perdido."
+            },
+            {
+                type: "paragraph",
+                text: "En Roesan Seguros trabajamos de la mano con administradores y consejos de administración. Realizamos análisis rigurosos para garantizar coberturas integrales (daños por agua, rotura de maquinaria, manejo de fondos y protección a directivos) asegurando que tu comunidad esté respaldada 100% ante la adversidad."
+            },
+            { type: "cta", text: "" }
+        ]
+    },
+    {
+        slug: "seguro-mascotas-responsabilidad-civil",
+        title: "Seguro para Mascotas: ¿Por qué la Responsabilidad Civil es el amparo más importante?",
+        excerpt: "Tu perro o gato es parte de la familia, pero ¿qué sucede si causa un accidente o lesiona a un tercero? Entiende cómo esta póliza te protege de demandas millonarias.",
+        date: "2026-05-12",
+        readTime: "4 min",
+        category: "Personas y Hogar",
+        categoryColor: "bg-orange-100 text-orange-700",
+        coverImage: "/images/card-mascotas.png",
+        content: [
+            {
+                type: "intro",
+                text: "Nuestros perros y gatos no son solo animales de compañía; son miembros fundamentales de nuestra familia. Sin embargo, su instinto, el miedo o una reacción inesperada pueden causar incidentes. Muchos dueños buscan seguros exclusivamente para cubrir gastos veterinarios, pasando por alto el escudo financiero más crítico: la cobertura de Responsabilidad Civil."
+            },
+            {
+                type: "heading",
+                text: "¿Qué es la Responsabilidad Civil en mascotas?"
+            },
+            {
+                type: "paragraph",
+                text: "La Responsabilidad Civil Extracontractual (RCE) es la cobertura encargada de indemnizar económicamente a terceros por los daños materiales o lesiones corporales que tu mascota pueda causar. En Colombia, el Código Civil (Artículo 2353) establece de forma estricta que el dueño o tenedor es el responsable directo de pagar por los perjuicios causados por su animal."
+            },
+            {
+                type: "heading",
+                text: "Escenarios reales donde este seguro salva tu bolsillo"
+            },
+            {
+                type: "list",
+                items: [
+                    "Mordeduras a terceros: Los gastos médicos de urgencias, terapias, cirugías plásticas o lucro cesante (incapacidades) de la víctima pueden sumar rápidamente decenas de millones de pesos.",
+                    "Peleas con otras mascotas: Si tu perro lesiona de gravedad a la mascota del vecino en el parque, la ley te obliga a asumir la totalidad de la factura veterinaria.",
+                    "Accidentes de tránsito: Si tu mascota se suelta, cruza la calle y provoca que un motociclista o ciclista sufra una caída grave al intentar esquivarlo, la demanda civil recaerá sobre tu patrimonio.",
+                    "Daños a la propiedad ajena: Desde destrozos costosos en la ropa o celular de un visitante, hasta daños en el mobiliario de las zonas comunes de tu conjunto residencial."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Mascotas de Manejo Especial (Razas Fuertes)"
+            },
+            {
+                type: "paragraph",
+                text: "Es vital recordar que el Código Nacional de Policía y Convivencia exige que los propietarios de ciertas razas de perros (anteriormente catalogadas como 'potencialmente peligrosas' como Pitbull, Dóberman, Rottweiler, entre otras) cuenten con una póliza de Responsabilidad Civil de manera completamente obligatoria. No tenerla te expone a cuantiosas multas y al decomiso del animal, pero más grave aún, al embargo de tus cuentas bancarias si ocurre una tragedia y eres demandado."
+            },
+            {
+                type: "heading",
+                text: "Tranquilidad para ti, respaldo legal para tu mascota"
+            },
+            {
+                type: "paragraph",
+                text: "En Roesan Seguros siempre recomendamos que la protección de tu mascota sea integral. Una póliza robusta de Responsabilidad Civil (que en muchos casos se puede integrar a tu Seguro de Hogar sin costos prohibitivos) no solo cubre la indemnización a la víctima, sino que también asume los gastos de tu defensa legal y honorarios de abogados."
+            },
+            {
+                type: "paragraph",
+                text: "Proteger a tu mascota también significa blindar tus ahorros y los de tu familia frente a imprevistos que están fuera de tu control."
+            },
+            { type: "cta", text: "" }
+        ]
     }
 ];

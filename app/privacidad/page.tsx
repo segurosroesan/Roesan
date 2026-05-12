@@ -140,6 +140,16 @@ export default function PrivacidadPage() {
                                 La presente política busca cumplir los contenidos mínimos exigidos por la normativa colombiana de protección de datos personales. Su publicación en el sitio web no sustituye una revisión jurídica integral sobre procesos internos, bases de datos, contratos con encargados y evidencias de autorización, los cuales también deben mantenerse actualizados y documentados.
                             </div>
                         </div>
+
+                        <div className="mt-12 border-t border-slate-200 pt-8 text-center">
+                            <h3 className="text-lg font-semibold text-slate-900 mb-4">¿Necesitas contactar a tu aseguradora?</h3>
+                            <a 
+                                href="/lineas-asistencia"
+                                className="inline-flex items-center justify-center rounded-full bg-purple-600 px-8 py-3.5 text-[15px] font-semibold text-white hover:bg-purple-700 transition-all hover:scale-105 shadow-md shadow-purple-200"
+                            >
+                                Líneas de asistencia de aseguradoras
+                            </a>
+                        </div>
                     </div>
                 </Container>
             </section>

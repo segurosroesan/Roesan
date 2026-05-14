@@ -70,6 +70,14 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Google Tag Manager */}
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M2K8DN27');`
+        }} />
         {/* Google Tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18147237480"></script>
         <script dangerouslySetInnerHTML={{
@@ -85,6 +93,8 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-transparent selection:bg-accent selection:text-accent-foreground`}
       >
+        {/* Google Tag Manager (noscript) */}
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2K8DN27" height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
         {/* Atmosphere Layer - Fixed and subtle */}
         <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
             {/* Main Gradient Base */}

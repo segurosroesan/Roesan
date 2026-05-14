@@ -567,5 +567,63 @@ export const blogPosts: BlogPost[] = [
             },
             { type: "cta", text: "" }
         ]
+    },
+    {
+        slug: "sarlaft-importancia-empresas-personas",
+        title: "¿Qué es el SARLAFT y por qué es vital para Empresas y Personas mantenerlo actualizado?",
+        excerpt: "El SARLAFT no es solo un trámite; es un requisito ineludible tanto para negocios como para individuos al interactuar con bancos y aseguradoras. Conoce su impacto legal.",
+        date: "2026-05-14",
+        readTime: "6 min",
+        category: "Cumplimiento",
+        categoryColor: "bg-blue-100 text-blue-700",
+        coverImage: "/images/card-cumplimiento-business.png",
+        content: [
+            {
+                type: "intro",
+                text: "En Colombia, la prevención de delitos financieros es una prioridad absoluta. A menudo se piensa que el SARLAFT es un dolor de cabeza exclusivo para las grandes empresas, pero la realidad es que también impacta directamente a las personas naturales. Tanto si tienes un negocio como si vas a pedir un crédito o comprar una póliza de seguro a título personal, mantener esta información actualizada es obligatorio. Pero, ¿qué es exactamente y por qué es tan estricto?"
+            },
+            {
+                type: "heading",
+                text: "¿Qué es el SARLAFT?"
+            },
+            {
+                type: "paragraph",
+                text: "El Sistema de Administración del Riesgo de Lavado de Activos y de la Financiación del Terrorismo (SARLAFT) es un conjunto de políticas y controles implementados por el sector financiero y real. Su propósito es evitar que la economía legal sea utilizada para ocultar dineros ilícitos. Por esto, cada vez que abres una cuenta, compras un seguro o firmas un contrato, debes diligenciar y actualizar este formulario, declarando el origen lícito de tus fondos (ya seas empresa o persona)."
+            },
+            {
+                type: "heading",
+                text: "La importancia crítica de tenerlo actualizado"
+            },
+            {
+                type: "list",
+                items: [
+                    "Evitar Sanciones Millonarias: Las multas por incumplimiento o desactualización de los manuales del SARLAFT por parte de Supersociedades o la Superfinanciera pueden ser devastadoras para el flujo de caja.",
+                    "Protección Reputacional: Estar involucrado, incluso por omisión o descuido de un tercero (clientes o proveedores), en una investigación por lavado de activos puede destruir la confianza del mercado en tu marca.",
+                    "Acceso al Sistema Financiero y Asegurador: Los bancos y aseguradoras exigen el cumplimiento estricto y actualizado del SARLAFT. Sin él, es casi imposible obtener créditos, abrir cuentas corporativas o emitir pólizas de cumplimiento.",
+                    "Evolución del Riesgo: Las modalidades de fraude y delitos financieros evolucionan constantemente. Un manual que no se actualiza es una puerta abierta a nuevos riesgos que tu empresa no está detectando."
+                ]
+            },
+            {
+                type: "heading",
+                text: "El rol de los Seguros de Responsabilidad (D&O)"
+            },
+            {
+                type: "paragraph",
+                text: "Implementar y mantener el SARLAFT implica designar un Oficial de Cumplimiento y asignar responsabilidades legales directas a la junta directiva y representantes legales. En caso de fallas operativas u omisiones involuntarias en el sistema de control, estas personas pueden enfrentar procesos investigativos complejos."
+            },
+            {
+                type: "paragraph",
+                text: "Aquí es donde entran las pólizas de Responsabilidad Civil para Directivos y Administradores (conocidas como D&O). Estos seguros respaldan el patrimonio personal de los líderes empresariales frente a reclamaciones, asumiendo gastos de defensa legal especializada siempre que se demuestre que no hubo dolo (intención de cometer el delito)."
+            },
+            {
+                type: "heading",
+                text: "Asegura el cumplimiento de tu empresa"
+            },
+            {
+                type: "paragraph",
+                text: "En Roesan Seguros entendemos que el riesgo corporativo va más allá de un incendio o un robo. Asesoramos a tu empresa para garantizar que el riesgo legal, operativo y reputacional esté correctamente cubierto con pólizas de primer nivel, permitiéndote a ti y a tus directivos enfocarse en el crecimiento del negocio con total tranquilidad."
+            },
+            { type: "cta", text: "" }
+        ]
     }
 ];

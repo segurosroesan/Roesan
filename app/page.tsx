@@ -15,6 +15,7 @@ export default function Home() {
       <TrustBar />
       <ServicesGrid />
       <StatsSection />
+      <Testimonials />
 
       {/* Final CTA Section */}
       <section className="relative py-24 overflow-hidden">

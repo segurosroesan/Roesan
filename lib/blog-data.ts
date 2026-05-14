@@ -627,14 +627,14 @@ export const blogPosts: BlogPost[] = [
         ]
     },
     {
-        slug: "seguros-salud-livianos-eps",
-        title: "Seguros de Salud Livianos: La alternativa inteligente para mejorar tu EPS sin gastar una fortuna",
+        slug: "planes-mas-que-seguros-eps",
+        title: "Planes más que seguros: La alternativa inteligente para mejorar tu EPS sin gastar una fortuna",
         excerpt: "Si sientes que las citas en tu EPS tardan demasiado pero una medicina prepagada completa sale de tu presupuesto, los 'seguros livianos' como Salud para Todos (Bolívar) son la solución ideal.",
         date: "2026-05-14",
         readTime: "5 min",
         category: "Salud y Vida",
         categoryColor: "bg-teal-100 text-teal-700",
-        coverImage: "https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?w=800&q=80",
+        coverImage: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80",
         content: [
             {
                 type: "intro",

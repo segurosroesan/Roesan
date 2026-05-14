@@ -625,5 +625,70 @@ export const blogPosts: BlogPost[] = [
             },
             { type: "cta", text: "" }
         ]
+    },
+    {
+        slug: "seguros-salud-livianos-eps",
+        title: "Seguros de Salud Livianos: La alternativa inteligente para mejorar tu EPS sin gastar una fortuna",
+        excerpt: "Si sientes que las citas en tu EPS tardan demasiado pero una medicina prepagada completa sale de tu presupuesto, los 'seguros livianos' como Salud para Todos (Bolívar) son la solución ideal.",
+        date: "2026-05-14",
+        readTime: "5 min",
+        category: "Salud y Vida",
+        categoryColor: "bg-teal-100 text-teal-700",
+        coverImage: "/images/card-salud-liviano.png",
+        content: [
+            {
+                type: "intro",
+                text: "El sistema de salud en Colombia a través de las EPS cubre intervenciones quirúrgicas mayores y hospitalizaciones de alto costo, pero el verdadero dolor de cabeza para la mayoría de los usuarios está en el día a día: conseguir una cita rápida con un especialista o autorizar un examen diagnóstico sencillo. Muchos creen que la única salida es pagar una costosa póliza de salud integral o medicina prepagada, pero existe una tercera vía muy eficiente: los seguros de salud livianos."
+            },
+            {
+                type: "heading",
+                text: "¿Qué es un seguro de salud liviano?"
+            },
+            {
+                type: "paragraph",
+                text: "Un seguro liviano (o póliza ambulatoria) es un producto diseñado para complementar a tu EPS cubriendo exactamente donde esta falla: la oportunidad y rapidez en la atención básica. En lugar de pagar por coberturas hospitalarias complejas (que tu EPS ya asume por ley), pagas un valor mensual muy asequible enfocado en brindarte acceso directo y sin filas a consultas médicas, especialistas y exámenes de laboratorio."
+            },
+            {
+                type: "heading",
+                text: "Opciones destacadas en el mercado colombiano"
+            },
+            {
+                type: "paragraph",
+                text: "Las grandes aseguradoras han entendido esta necesidad y han lanzado productos excelentes. Dos ejemplos muy populares son:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Salud para Todos (Seguros Bolívar): Es un plan económico que te permite agendar citas con medicina general y un amplio directorio de especialistas sin necesidad de remisión previa. Incluye terapias, ayudas diagnósticas simples y orientación médica telefónica 24/7.",
+                    "Planes Modulares y Salud para Dos (SURA): SURA ofrece alternativas flexibles que puedes compartir en pareja o familia. Te brindan acceso preferencial a sus centros médicos, especialistas directos y rapidez en laboratorios, todo por una fracción del costo de un plan tradicional."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Ventajas frente al modelo tradicional"
+            },
+            {
+                type: "list",
+                items: [
+                    "Acceso Directo: Te saltas el paso del médico general. Si te duele la rodilla, pides cita directamente con el ortopedista.",
+                    "Economía: Las primas (costo mensual) son sustancialmente más bajas que las de una póliza de salud completa, haciéndolas accesibles para la clase media y trabajadores independientes.",
+                    "Rapidez: Citas en cuestión de días y no de meses, en consultorios privados o centros médicos VIP de las aseguradoras.",
+                    "Sin copagos excesivos: Tienen estructuras de copagos muy claras y en muchos casos, exenciones para ciertos servicios básicos."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Una decisión estratégica"
+            },
+            {
+                type: "paragraph",
+                text: "La estrategia ideal para proteger tu salud financiera y física no siempre es comprar el seguro más caro. Mantener tu EPS para urgencias vitales, hospitalizaciones y cirugías mayores, combinada con un seguro liviano para tu atención ambulatoria, te brinda lo mejor de ambos mundos."
+            },
+            {
+                type: "paragraph",
+                text: "En Roesan Seguros analizamos tu perfil, tu presupuesto y las clínicas de tu preferencia para recomendarte el plan liviano (Bolívar, SURA, entre otros) que mejor complemente tus necesidades de salud diarias."
+            },
+            { type: "cta", text: "" }
+        ]
     }
 ];

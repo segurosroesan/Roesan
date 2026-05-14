@@ -19,7 +19,7 @@ const footerLinks = {
         { label: "Servicios", href: "/servicios" },
         { label: "Blog", href: "/blog" },
         { label: "Contacto", href: "/contacto" },
-        { label: "Líneas de Asistencia", href: "/lineas-asistencia" },
+        { label: "Líneas de atención aseguradoras", href: "/lineas-asistencia" },
     ],
 };
 

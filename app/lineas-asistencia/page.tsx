@@ -2,7 +2,6 @@ import { Container } from "@/components/ui/Container";
 import type { Metadata } from "next";
 import { CreditCard, MonitorSmartphone, Phone } from "lucide-react";
 import Image from "next/image";
-import { Testimonials } from "@/components/home/Testimonials";
 
 export const metadata: Metadata = {
     title: "Líneas de atención de las aseguradoras | Roesan Seguros",
@@ -159,7 +158,6 @@ export default function DirectorioAseguradorasPage() {
                 </Container>
             </section>
 
-            <Testimonials />
         </div>
     );
 }

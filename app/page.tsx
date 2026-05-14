@@ -60,8 +60,6 @@ export default function Home() {
           </div>
         </Container>
       </section>
-
-      <Testimonials />
     </>
   );
 }

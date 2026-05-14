@@ -570,7 +570,7 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "sarlaft-importancia-empresas-personas",
-        title: "¿Qué es el SARLAFT y por qué es vital para Empresas y Personas mantenerlo actualizado?",
+        title: "¿Qué es el Formulario de Conocimiento de la Persona (SARLAFT)?",
         excerpt: "El SARLAFT no es solo un trámite; es un requisito ineludible tanto para negocios como para individuos al interactuar con bancos y aseguradoras. Conoce su impacto legal.",
         date: "2026-05-14",
         readTime: "6 min",

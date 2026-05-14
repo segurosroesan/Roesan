@@ -7,30 +7,57 @@ import { Star } from "lucide-react";
 
 const testimonials = [
     {
-        quote: "Roesan nos brindó la tranquilidad que necesitábamos para nuestra empresa. Su servicio es excepcional y siempre están dispuestos a ayudar.",
-        author: "Jaime Foldón",
-        role: "Cliente corporativo",
-        initials: "JF",
+        quote: "Llevamos más de 10 años con Roesan asegurando nuestra flota y nuestras instalaciones. Su equipo siempre responde rápido y nos asesora con honestidad. Una alianza que vale la pena.",
+        author: "Carlos Herrera",
+        role: "Gerente General – Empresa de logística",
+        initials: "CH",
         colorFrom: "from-purple-500",
         colorTo: "to-indigo-600",
         rating: 5
     },
     {
-        quote: "La atención personalizada de María Eugenia hace toda la diferencia. Me siento realmente protegido y respaldado en todo momento.",
-        author: "Ricardo Amigo",
-        role: "Cliente personal",
-        initials: "RA",
+        quote: "Cuando tuve el accidente con mi carro, Roesan me acompañó en todo el proceso con la aseguradora. No me dejaron solo ni un momento. Eso no tiene precio.",
+        author: "Marcela Ospina",
+        role: "Cliente personal – Bogotá",
+        initials: "MO",
         colorFrom: "from-cyan-500",
         colorTo: "to-blue-600",
         rating: 5
     },
     {
-        quote: "Llevo más de 20 años con ellos. Son sinónimo de honestidad y confianza. No dejaría mi patrimonio en otras manos.",
-        author: "Antonio Garrete",
-        role: "Cliente fidelizado",
-        initials: "AG",
+        quote: "Gracias a Roesan encontramos la póliza empresarial ideal para nuestra constructora. Nos explicaron cada cláusula con paciencia y nos ahorraron tiempo y dinero.",
+        author: "Andrés Mejía",
+        role: "Director Financiero – Constructora",
+        initials: "AM",
         colorFrom: "from-emerald-500",
         colorTo: "to-teal-600",
+        rating: 5
+    },
+    {
+        quote: "Llevo más de 20 años con ellos asegurando mi casa y mi carro. Son sinónimo de honestidad y confianza. No dejaría mi patrimonio en otras manos.",
+        author: "Antonio Garrete",
+        role: "Cliente fidelizado – Bogotá",
+        initials: "AG",
+        colorFrom: "from-rose-500",
+        colorTo: "to-pink-600",
+        rating: 5
+    },
+    {
+        quote: "Contratamos el seguro de vida colectivo para nuestros 80 empleados y el proceso fue muy ágil. El equipo de Roesan nos guió paso a paso sin complicaciones.",
+        author: "Sandra Gómez",
+        role: "Gerente RRHH – Empresa de servicios",
+        initials: "SG",
+        colorFrom: "from-amber-500",
+        colorTo: "to-orange-600",
+        rating: 5
+    },
+    {
+        quote: "Me dieron una atención muy personalizada para mi seguro de salud. Se tomaron el tiempo de entender mis necesidades y me consiguieron una opción que se ajustaba a mi presupuesto.",
+        author: "Juliana Ramírez",
+        role: "Cliente personal – Bogotá",
+        initials: "JR",
+        colorFrom: "from-violet-500",
+        colorTo: "to-purple-600",
         rating: 5
     },
 ];

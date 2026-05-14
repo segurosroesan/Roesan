@@ -2,9 +2,10 @@ import { Container } from "@/components/ui/Container";
 import type { Metadata } from "next";
 import { CreditCard, MonitorSmartphone, Phone } from "lucide-react";
 import Image from "next/image";
+import { Testimonials } from "@/components/home/Testimonials";
 
 export const metadata: Metadata = {
-    title: "Líneas de Asistencia de Aseguradoras | Roesan Seguros",
+    title: "Líneas de atención de las aseguradoras | Roesan Seguros",
     description: "Teléfonos de contacto y líneas de atención de las principales aseguradoras en Colombia.",
 };
 
@@ -110,7 +111,7 @@ export default function DirectorioAseguradorasPage() {
                 
                 <Container className="max-w-4xl text-center relative z-10">
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight drop-shadow-md">
-                        Líneas de Asistencia de Aseguradoras
+                        Líneas de atención de las aseguradoras
                     </h1>
                     <p className="text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
                         Encuentra rápidamente los teléfonos de contacto, líneas de atención al cliente y enlaces directos para realizar tus pagos en cada una de las aseguradoras aliadas.
@@ -157,6 +158,8 @@ export default function DirectorioAseguradorasPage() {
                     </div>
                 </Container>
             </section>
+
+            <Testimonials />
         </div>
     );
 }

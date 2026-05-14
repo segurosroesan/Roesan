@@ -576,7 +576,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "6 min",
         category: "Cumplimiento",
         categoryColor: "bg-blue-100 text-blue-700",
-        coverImage: "/images/card-cumplimiento-business.png",
+        coverImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
         content: [
             {
                 type: "intro",
@@ -634,7 +634,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "5 min",
         category: "Salud y Vida",
         categoryColor: "bg-teal-100 text-teal-700",
-        coverImage: "/images/card-salud-liviano.png",
+        coverImage: "https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?w=800&q=80",
         content: [
             {
                 type: "intro",

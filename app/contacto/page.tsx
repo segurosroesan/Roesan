@@ -69,13 +69,25 @@ export default function ContactPage() {
             }).catch(console.error);
             setStatus("success");
             
-            // Google Ads Conversion Tracking
-            if (typeof window !== 'undefined' && (window as any).gtag) {
-                (window as any).gtag('event', 'conversion', {
-                    'send_to': 'AW-18147237480',
-                    'value': 1.0,
-                    'currency': 'COP'
+            // Tracking via DataLayer (GA4 + Google Ads via GTM)
+            if (typeof window !== 'undefined') {
+                const dataLayer = (window as any).dataLayer || [];
+                dataLayer.push({
+                    event: 'generate_lead',
+                    lead_type: formData.topic || 'contacto_general',
+                    lead_origin: 'Contacto',
+                    value: 1.0,
+                    currency: 'COP'
                 });
+                
+                // Mantener el evento de conversion específico para Ads si Jonathan lo usa directo
+                if ((window as any).gtag) {
+                    (window as any).gtag('event', 'conversion', {
+                        'send_to': 'AW-18147237480',
+                        'value': 1.0,
+                        'currency': 'COP'
+                    });
+                }
             }
             setFormData({ name: "", phone: "", email: "", topic: "", message: "" });
         } catch (err) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { ComponentType, FormEvent } from "react";
 import {
   ArrowLeft,
@@ -191,6 +191,26 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
   });
 
   const options = form.customerType === "empresa" ? COMPANY_OPTIONS : PERSON_OPTIONS;
+  
+  const pushToDataLayer = (eventName: string, params?: Record<string, any>) => {
+    if (typeof window !== "undefined") {
+      const dataLayer = (window as any).dataLayer || [];
+      dataLayer.push({
+        event: eventName,
+        ...params
+      });
+    }
+  };
+
+  // Track initial step view
+  useEffect(() => {
+    const stepNames = ["Tipo de Cliente", "Selección de Seguros", "Datos de Contacto"];
+    pushToDataLayer("quote_step_view", {
+      step_number: step,
+      step_name: stepNames[step - 1],
+      funnel_variant: variant
+    });
+  }, [step, variant]);
 
   const setField = <K extends keyof FormState>(field: K, value: FormState[K]) => {
     setForm((current) => ({ ...current, [field]: value }));
@@ -217,6 +237,14 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
       const nextErrors = { ...current };
       delete nextErrors.selectedProducts;
       return nextErrors;
+    });
+
+    // Track product toggle
+    const exists = form.selectedProducts.includes(productId);
+    pushToDataLayer("quote_product_select", {
+      product_id: productId,
+      product_name: PERSON_LABELS[productId],
+      selection_status: exists ? "deselected" : "selected"
     });
   };
 
@@ -399,6 +427,14 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           'currency': 'COP'
         });
       }
+
+      // GA4 Standard Lead Event via DataLayer
+      pushToDataLayer("generate_lead", {
+        lead_type: leadType,
+        customer_type: form.customerType,
+        selected_products: selectedProductLabels,
+        lead_id: leadId
+      });
     } catch (error) {
       console.error("Submission error:", error);
       setErrors({ submit: "No pudimos enviar la solicitud. Intenta nuevamente." });

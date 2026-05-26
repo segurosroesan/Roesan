@@ -1299,57 +1299,130 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "seguro-para-copropiedades-guia",
-        title: "Seguro para Copropiedades: Más que un requisito legal, la protección de tu patrimonio",
-        excerpt: "La Ley 675 exige a las copropiedades en Colombia asegurar las áreas comunes. Conoce por qué una buena póliza salva a los propietarios de cuotas extraordinarias millonarias.",
+        title: "Seguro Copropiedades Ley 675 en Colombia 2026: Evita Cuotas Extraordinarias",
+        excerpt: "Seguro obligatorio para copropiedades colombianas. Cobertura Ley 675, responsabilidad civil edificios, riesgos propiedad horizontal. Cómo evitar cuotas extraordinarias millonarias.",
         date: "2026-05-12",
-        readTime: "5 min",
+        readTime: "7 min",
         category: "Propiedad Horizontal",
         categoryColor: "bg-indigo-100 text-indigo-700",
         coverImage: "/images/card-copropiedades.png",
         content: [
             {
                 type: "intro",
-                text: "Vivir en un conjunto residencial, edificio o parcelación trae grandes comodidades, pero también implica asumir riesgos compartidos. ¿Qué pasaría si un incendio daña severamente los pasillos y el lobby? ¿O si un visitante sufre un accidente grave en la zona de la piscina y decide demandar a la copropiedad? Aquí es donde entra en juego el seguro de copropiedades, un escudo financiero vital para la comunidad."
+                text: "Vivir en apartamento condominio, conjunto residencial o edificio multifamiliar trae comodidades, pero también riesgos compartidos. Si un incendio destruye los pasillos y el techo, o un visitante sufre un accidente grave en la piscina y demanda a la copropiedad por $20M-$50M: ¿quién paga? La Ley 675 exige un seguro, pero muchos administradores lo contratan de forma insuficiente. Esta guía explica cómo estructurar una póliza integral que evite cuotas extraordinarias de $500k-$5M+ por apartamento."
             },
             {
                 type: "heading",
-                text: "¿Qué exige la Ley de Propiedad Horizontal en Colombia?"
+                text: "La Ley 675 de 2001: Requisitos Legales Mínimos"
             },
             {
                 type: "paragraph",
-                text: "La Ley 675 de 2001 es muy clara al respecto: todas las copropiedades están en la obligación legal de adquirir una póliza que asegure las áreas comunes contra los riesgos de incendio y terremoto. Sin embargo, quedarse únicamente con el mínimo legal suele ser insuficiente."
+                text: "El Código de Propiedad Horizontal colombiano establece obligaciones muy específicas. Toda copropiedad debe contratar seguro para:"
             },
             {
                 type: "list",
                 items: [
-                    "Incendio y Rayo: Cobertura básica y obligatoria para reconstruir áreas esenciales.",
-                    "Terremoto y Temblor: Fundamental en Colombia dada nuestra geografía sísmica.",
-                    "Responsabilidad Civil Extracontractual (RCE): El amparo que protege el patrimonio del conjunto ante demandas de terceros (ej. accidentes de visitantes o contratistas dentro de las instalaciones)."
+                    "Cobertura de Incendio y Rayo: Obligatoria. Cubre daños estructurales, reconstrucción de áreas comunes.",
+                    "Terremoto y Temblor: Obligatoria en edificios de más de 7 pisos según Decreto 1400 de 2001. Colombia está en zona sísmica activa.",
+                    "Responsabilidad Civil Extracontractual (RCE): Cubre indemnizaciones a terceros por accidentes en áreas comunes (visitantes, contratistas, empleados).",
+                    "Valor asegurado mínimo: Debe cubrir 100% del costo de reconstrucción (NO puede ser infraseguro)."
                 ]
             },
             {
                 type: "heading",
-                text: "La barrera contra las Cuotas Extraordinarias"
+                text: "El Verdadero Enemigo: Las Cuotas Extraordinarias Millonarias"
             },
             {
                 type: "paragraph",
-                text: "El verdadero valor de este seguro se ve en los momentos de crisis. Si ocurre un siniestro que daña la estructura compartida (por ejemplo, la rotura del ascensor o una explosión en la subestación eléctrica) y el conjunto no está correctamente asegurado, el costo de las reparaciones o indemnizaciones recaerá directamente sobre los copropietarios."
+                text: "Un siniestro sin seguro adecuado genera cuotas extraordinarias brutales que pueden comprometer la estabilidad financiera de cientos de familias. Aquí algunos escenarios reales:"
             },
             {
-                type: "paragraph",
-                text: "Esto se traduce en cuotas extraordinarias dolorosas que pueden ascender a varios millones de pesos por apartamento, desestabilizando las finanzas de cientos de familias."
+                type: "list",
+                items: [
+                    "Incendio en zona común: Daño estimado $500M-$2,000M para reconstruir pasillos, ascensores, cubiertas. Cuota extraordinaria: $500k-$5M por apartamento (edificio de 100 unidades).",
+                    "Demanda por accidente de visitante: Fractura grave, cirugía, incapacidad permanente. Demanda: $15M-$40M. Sin RCE, la copropiedad debe pagar de fondos de reserva.",
+                    "Inundación por ruptura de tubería principal: Daños a apartamentos privados + áreas comunes = $200M-$800M. Responsabilidad solidaria de copropiedad.",
+                    "Explosión en subestación eléctrica: Daño estructural severo + falta de electricidad por meses = cuota extraordinaria de $2M-$8M/apartamento."
+                ]
             },
             {
                 type: "heading",
-                text: "Evita el Infraseguro: Asesoría experta para Administradores"
+                text: "Riesgos Específicos a Asegurar en Copropiedades"
+            },
+            {
+                type: "list",
+                items: [
+                    "Daños por Agua: Ruptura de tuberías, desbordamiento de tanques, filtraciones. Límite recomendado: 80% del valor total de la construcción.",
+                    "Rotura de Equipos: Ascensores, bombas de agua, generadores eléctricos. Costo de reparación: $50M-$300M por equipo.",
+                    "Responsabilidad Civil Diferenciada: RCE estándar ($10M-$50M) vs. RCE ampliada para piscinas/áreas de alto riesgo ($100M+).",
+                    "Manejo de Fondos y Administración: Póliza que proteja los recursos en tesorería contra fraude o mal uso.",
+                    "Responsabilidad de Directivos (D&O): Protege al consejo de administración contra demandas por decisiones negligentes."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Tabla Comparativa: Infraseguro vs. Seguro Completo"
             },
             {
                 type: "paragraph",
-                text: "Uno de los errores más comunes es asegurar la copropiedad por un valor inferior al costo real de reconstrucción (infraseguro) para ahorrar en la cuota mensual. En caso de desastre, la aseguradora aplicará una penalización proporcional y la copropiedad no recibirá el dinero suficiente para recuperar lo perdido."
+                text: "Comparativa de dos escenarios ante un incendio que afecta 40% de la estructura común ($800M de daño):"
+            },
+            {
+                type: "list",
+                items: [
+                    "Infraseguro (INCORRECTO): Póliza de $500M. Aseguradora aplica penalización proporcional: paga solo $250M (50%). Déficit: $550M. Cuota extraordinaria: $5.5M por apartamento (100 unidades).",
+                    "Seguro Completo (CORRECTO): Póliza de $2,000M (cobertura 100%). Aseguradora paga $800M íntegro. Cuota extraordinaria: $0. Copropiedad se recupera rápidamente.",
+                    "Diferencia: Una cuota extraordinaria evitada de $5.5M × 100 = $550M en patrimonio colectivo protegido."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Costos de Pólizas de Copropiedades en Colombia 2026"
             },
             {
                 type: "paragraph",
-                text: "En Roesan Seguros trabajamos de la mano con administradores y consejos de administración. Realizamos análisis rigurosos para garantizar coberturas integrales (daños por agua, rotura de maquinaria, manejo de fondos y protección a directivos) asegurando que tu comunidad esté respaldada 100% ante la adversidad."
+                text: "El costo mensual incluido en la cuota de administración varía según:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Edificio pequeño (12-30 apartamentos): $180,000-$400,000 mensuales ($15k-$35k por apto).",
+                    "Edificio mediano (30-100 apartamentos): $400,000-$1.2M mensuales ($5k-$20k por apto).",
+                    "Conjunto grande (100+ unidades, áreas comunes amplias): $1.5M-$5M mensuales ($8k-$12k por apto).",
+                    "Edificio con piscina/zona recreativa: +30% adicional en prima.",
+                    "Conjunto con riesgo sísmico alto o en zona de riesgo: +20-40% en prima."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Evita el Infraseguro: Checklist para Administradores"
+            },
+            {
+                type: "list",
+                items: [
+                    "Realiza avalúo de reconstrucción ANUAL (costos de construcción suben 8-12% E.A.)",
+                    "Suma asegurada debe ser 100% del avalúo (NO hagas infraseguro para ahorrar cuota).",
+                    "Incluye coberturas adicionales: daño por agua, responsabilidad civil ampliada, manejo de fondos.",
+                    "Negocia límites de RCE acordes al riesgo: mínimo $10M-$50M; si hay piscina o zona de alto riesgo, hasta $100M.",
+                    "Revisa cobertura de terremoto (obligatoria) y valida deductible razonable (máx. 5% del valor asegurado).",
+                    "Contrata D&O (Directivos y Administradores) para proteger consejo de demandas por negligencia."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Soluciones Integrales de Roesan para Administradores"
+            },
+            {
+                type: "paragraph",
+                text: "Trabajamos directamente con consejos de administración para estruturar seguros que cubran 100% del riesgo, a costos racionales. Incluimos análisis de riesgos, avalúos de reconstrucción actualizados, y asesoría en reclamaciones ante siniestros."
+            },
+            {
+                type: "links",
+                text: "Soluciones de seguros para copropiedades:",
+                items: [
+                    "https://www.roesan.co/empresas/seguros-condominios - Pólizas integrales para conjuntos residenciales",
+                    "https://www.roesan.co/empresas/responsabilidad-civil - Cobertura RCE para edificios y copropiedades"
+                ]
             },
             { type: "cta", text: "" }
         ]

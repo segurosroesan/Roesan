@@ -97,16 +97,6 @@ const testimonials = [
         colorTo: "to-blue-600",
         rating: 5
     },
-    {
-        quote: "Me retiré a los 62 años sin mucha claridad sobre mi pensión. Roesan me diseñó un seguro de inversión que genera rendimiento anual del 5.2%, muy superior a lo que el banco me ofrecía. En 3 años he recuperado mi inversión inicial y voy ganancia.",
-        author: "Camila Restrepo",
-        role: "Jubilada, Teusaquillo",
-        image: null,
-        initials: "CR",
-        colorFrom: "from-amber-500",
-        colorTo: "to-orange-600",
-        rating: 5
-    }
 ];
 
 function StarRating({ count }: { count: number }) {

@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const testimonials = [
     {
-        quote: "Pagaba $8.2M al año por responsabilidad civil con un corredor que ni visitaba mi fábrica. Roesan vino, analizó el riesgo real de Engativá, negoció con Sura y Allianz, y logró la misma cobertura por $4.8M. Ese ahorro de $40k mensuales justifica trabajar con profesionales.",
+        quote: "Pagaba $2.8M al año por responsabilidad civil con otra agencia que no visitaba mi fábrica. Roesan vino, analizó el riesgo real de Engativá, estructuró cobertura con Sura y Allianz, y bajé a $1.8M manteniendo la cobertura. Ese ahorro de $83k anuales y el servicio de verdad justifica estar con Roesan.",
         author: "Carlos Mendoza",
         role: "Gerente de Planta, Engativá",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
@@ -18,20 +18,20 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "Cuando quedé embarazada me asusté pensando que no podría cambiar mi seguro de vida. Roesan no solo me lo permitió, sino que me diseñó una póliza flexible de $300M de cobertura que crecía con mi familia. Ahora duermo tranquila sabiendo que mis hijos estarían cubiertos.",
+        quote: "Cuando quedé embarazada me asusté pensando que no podría cambiar mi seguro de vida. Roesan no solo me lo permitió, sino que me estructuró una póliza flexible de $150M de cobertura que crecía con mi familia. Ahora duermo tranquila sabiendo que mis hijos estarían protegidos.",
         author: "Daniela Ortiz",
         role: "Abogada, Usaquén",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=faces",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces",
         initials: "DO",
         colorFrom: "from-rose-500",
         colorTo: "to-pink-600",
         rating: 5
     },
     {
-        quote: "Somos constructores y las pólizas de cumplimiento son complejas. Otro corredor me cobró $60M por cobertura insuficiente. Roesan negoció con 3 aseguradoras y estructuró el doble de cobertura por $35M. En 8 proyectos, 0 problemas. Eso es asesoría de verdad.",
+        quote: "Somos constructores y las pólizas de cumplimiento son complejas. Otra agencia me pidió $18M por cobertura insuficiente. Roesan estructuró con 3 aseguradoras y logró el doble de cobertura por $12M. En 8 proyectos, 0 problemas. Eso es asesoría de verdad.",
         author: "Andrés Villamizar",
         role: "Director Proyectos, Chapinero",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
+        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=faces",
         initials: "AV",
         colorFrom: "from-blue-500",
         colorTo: "to-cyan-600",
@@ -48,7 +48,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "Implementar salud para 48 empleados parecía imposible por el costo. Roesan estructuró un plan hibrido donde la empresa paga $580k/mes y nuestro equipo está cubierto 100%. La rotación de personal bajó 40% y no tuvimos ni una queja de cobertura.",
+        quote: "Implementar salud para 48 empleados parecía imposible por el costo. Roesan estructuró un plan híbrido donde la empresa paga $220k/mes y el equipo está cubierto 100%. La rotación bajó 35% desde que lo implementamos y cero quejas de cobertura. Fue la mejor decisión que tomamos.",
         author: "Sofía Londoño",
         role: "Directora RRHH, Santa Fe",
         image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces",
@@ -68,7 +68,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "Nuestro conjunto en Rosales tiene 120 apartamentos. El fuerte invierno de 2024 causó daños por $28M. Porque Roesan estructuró bien la cobertura, la aseguradora pagó todo sin cuota extraordinaria. Eso nos hubiera costado $260k por apartamento.",
+        quote: "Nuestro conjunto en Rosales tiene 120 apartamentos. El invierno de 2024 causó daños por $7.2M. Porque Roesan estructuró bien la cobertura, la aseguradora pagó sin cuota extraordinaria. Otros edificios sin buena asesoría pagaron cuotas de hasta $60k por apartamento. Roesan nos ahorró eso.",
         author: "Patricia Echeverri",
         role: "Admin. Condominio, Rosales",
         image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=faces&age=45",
@@ -78,7 +78,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "Mi perro Simón se fracturó una pata y la cirugía costó $4.2M. La póliza de mascotas que Roesan me estructuró con Seguros Bolívar cubrió el 85%. Sin esa cobertura bien diseñada, me hubiera endeudado. Ahora recomiendo a Roesan a mis clientes.",
+        quote: "Mi perro Simón se fracturó una pata y la cirugía costó $1.2M. La póliza de mascotas que Roesan me estructuró con Seguros Bolívar cubrió el 90%. Sin esa cobertura bien diseñada, hubiera sido un golpe fuerte. Ahora recomiendo a Roesan a todos mis clientes veterinarios.",
         author: "Laura Jaramillo",
         role: "Veterinaria, La Candelaria",
         image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces&age=35",
@@ -88,7 +88,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "Tengo 32 camiones y en 5 años hice 3 reclamaciones. Con la póliza que Roesan negoció con Sura, los pagos llegaron en menos de 15 días. Con otro corredor antes, la misma aseguradora tardaba 45 días. Roesan estructuró bien el trámite y eso me ahorró cash flow.",
+        quote: "Tengo 32 camiones y en 5 años hice 3 reclamaciones. Con la póliza que Roesan negoció con Sura, los pagos llegaron en menos de 15 días. Con otra agencia antes, la misma aseguradora tardaba 45 días. Roesan estructuró bien el trámite y eso me ahorró cash flow.",
         author: "Fernando Arango",
         role: "Gerente Logístico, Bogotá",
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces&age=50",

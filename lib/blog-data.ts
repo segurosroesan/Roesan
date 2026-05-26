@@ -677,7 +677,7 @@ export const blogPosts: BlogPost[] = [
                 ]
             },
             {
-                type: "paragraph",
+                type: "links",
                 text: "Para conocer más detalles, planes específicos y cotizaciones actualizadas de Bolívar, visita:",
                 items: ["https://www.segurosbolivar.com - Sitio oficial Seguros Bolívar", "https://www.segurosbolivar.com/salud - Planes de salud complementaria"]
             },
@@ -702,7 +702,7 @@ export const blogPosts: BlogPost[] = [
                 ]
             },
             {
-                type: "paragraph",
+                type: "links",
                 text: "Para explorar todos los planes y cotizar en línea, accede a:",
                 items: ["https://www.sura.com.co - Portal oficial de SURA", "https://www.sura.com.co/seguros-de-salud - Todos sus planes de salud"]
             },

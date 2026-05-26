@@ -1848,5 +1848,280 @@ export const blogPosts: BlogPost[] = [
             },
             { type: "cta", text: "" }
         ]
+    },
+    {
+        slug: "seguro-hogar-vivienda-guia-completa",
+        title: "Seguro Hogar en Colombia 2026: Guía Completa - Cobertura, Costos y Comparativa",
+        excerpt: "Seguro de hogar en Colombia. Cobertura incendio, robo, responsabilidad civil vivienda. Costo seguro casa por ciudad. Comparativa SURA, Bolívar, Allianz.",
+        date: "2026-05-20",
+        readTime: "8 min",
+        category: "Personas y Hogar",
+        categoryColor: "bg-orange-100 text-orange-700",
+        coverImage: "/images/blog/seguro-hogar.png",
+        content: [
+            {
+                type: "intro",
+                text: "Tu vivienda es tu mayor patrimonio. Pero mientras proteges otros activos (auto, empresa, vida), muchas personas dejan desprotegida su casa. Un incendio, un robo, una explosión de gas, una tubería reventada que daña el interior: cualquiera de estos eventos puede destruir años de ahorros. En Colombia, un seguro de hogar no es un lujo: es protección patrimonial esencial. Esta guía explica coberturas, costos por ciudad, y cómo elegir la póliza correcta."
+            },
+            {
+                type: "heading",
+                text: "¿Por Qué Necesitas Seguro de Hogar en Colombia?"
+            },
+            {
+                type: "paragraph",
+                text: "Los riesgos de una vivienda en Colombia son variados y reales. Según el DANE y Fenaincol (Federación Nacional de Aseguradoras), el 18% de robo en hogares ocurre en Bogotá, 12% en Medellín, 10% en Cali. Además, eventos climáticos (granizadas en Bogotá, inundaciones en la Costa) destruyen viviendas regularmente."
+            },
+            {
+                type: "list",
+                items: [
+                    "Robo a vivienda: Pérdida promedio $8M-$30M en bienes y daño estructural.",
+                    "Incendio: Reconstrucción total puede costar $150M-$500M+ para casa de estrato 4-5.",
+                    "Daño por agua: Rotura de tubería principal, inundación por lluvia = $10M-$50M.",
+                    "Responsabilidad civil: Si un visitante se cae en tu casa y se lesiona, puede demandarte por $5M-$20M.",
+                    "Eventos climáticos: Granizo, rayo, viento fuerte = daños de $2M-$20M."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Coberturas Esenciales de Seguro de Hogar"
+            },
+            {
+                type: "list",
+                items: [
+                    "Cobertura de Incendio: La más importante. Reconstrucción de estructura + contenido. Rango: $50M-$300M según tamaño de casa.",
+                    "Cobertura de Robo: Bienes sustraídos. Rango: $10M-$50M.",
+                    "Daño por Agua: Rupturas de tuberías, inundaciones. Rango: $20M-$100M.",
+                    "Responsabilidad Civil: Si lesionas a visitante. Rango: $5M-$20M.",
+                    "Cristales: Vidrios de ventanas/puertas. Cobertura baja pero útil.",
+                    "Bienes en Tránsito: Protege contenido si te mudas.",
+                    "Gastos de Salvamento: Mitigación de pérdidas (emergencias, contención)."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Rango de Precios de Seguro de Hogar por Ciudad 2026"
+            },
+            {
+                type: "paragraph",
+                text: "El costo varía significativamente por ubicación, estrato socioeconómico y coberturas seleccionadas:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Bogotá estrato 3 (apartamento 80m²): $80k-$150k/mes. Cobertura: $80M.",
+                    "Bogotá estrato 4-5 (casa 250m²): $200k-$400k/mes. Cobertura: $200M-$300M.",
+                    "Medellín estrato 3: $70k-$130k/mes. Cobertura: $70M.",
+                    "Medellín estrato 4-5: $180k-$350k/mes. Cobertura: $180M-$250M.",
+                    "Cali estrato 3-4: $60k-$120k/mes. Cobertura: $60M-$100M.",
+                    "Barranquilla/costa (riesgo sísmico): +20% en prima por cobertura sísmica."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Comparativa: SURA vs Bolívar vs Allianz en Hogar"
+            },
+            {
+                type: "list",
+                items: [
+                    "SURA: Prima promedio 0.12% del valor asegurado. Red de peritos amplia. Trámite rápido.",
+                    "Bolívar: Prima promedio 0.10% del valor. Ofertas para paquetes (auto + hogar). Buen servicio técnico.",
+                    "Allianz: Prima promedio 0.11% del valor. Énfasis en protección de responsabilidad civil. Defensa legal incluida.",
+                    "Recomendación: Cotiza con las 3 para comparar. Diferencia: $20k-$50k/mes según perfil."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Checklist: 7 Puntos para Elegir Tu Seguro de Hogar"
+            },
+            {
+                type: "list",
+                items: [
+                    "Suma asegurada correcta: Debe cubrir 100% de valor de reconstrucción (no hagas infraseguro).",
+                    "Incluye responsabilidad civil: Mínimo $5M-$10M para proteger de demandas.",
+                    "Cobertura de agua: Crítico si vives en zona de riesgo de inundación.",
+                    "Deducible razonable: Máximo 5-10% del valor asegurado.",
+                    "Peritos en tu ciudad: Verifica que aseguradora tenga red local para tramitar siniestros rápido.",
+                    "Cláusula de reposición a nuevo: Asegura que si pierdes un bien, se repone a precio actual (no depreciado).",
+                    "Cobertura de eventos climáticos: Incluye granizo, rayo, viento fuerte (especialmente en Bogotá/Medellín)."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Errores Comunes al Contratar Seguro de Hogar"
+            },
+            {
+                type: "list",
+                items: [
+                    "Infraseguro: Asegurar por $80M una casa que cuesta reconstruir $200M. En siniestro, aseguradora paga solo proporcionalmente ($80M/$200M = 40%).",
+                    "No actualizar valor cada 2 años: Costos de construcción suben 8-12% E.A. Tu póliza se queda atrás.",
+                    "Omitir responsabilidad civil: Visitante se cae en tu escalera = demanda de $10M que no está cubierta.",
+                    "No reportar mejoras: Si reformaste la casa (+$50M valor), póliza se vuelve insuficiente.",
+                    "Deducible muy alto: Buscar prima baja = deducible 20-30%. En siniestro pequeño ($5M), asumes casi todo."
+                ]
+            },
+            {
+                type: "links",
+                text: "Cotiza tu seguro de hogar directamente con aseguradoras:",
+                items: [
+                    "https://www.sura.com.co - SURA seguros de hogar y propiedad",
+                    "https://www.bolivar.com.co - Bolívar seguros para vivienda y contenido",
+                    "https://www.allianz.com.co - Allianz pólizas integrales de hogar"
+                ]
+            },
+            { type: "cta", text: "" }
+        ]
+    },
+    {
+        slug: "mejores-aseguradoras-colombia-2026",
+        title: "Mejores Aseguradoras en Colombia 2026: Ranking, Servicios y Comparativa",
+        excerpt: "Ranking de mejores aseguradoras en Colombia 2026: SURA, Bolívar, Allianz, Mapfre, HDI. Comparativa por servicio, precios, reclamos y calificación.",
+        date: "2026-05-22",
+        readTime: "9 min",
+        category: "Educación Financiera",
+        categoryColor: "bg-blue-100 text-blue-700",
+        coverImage: "/images/blog/aseguradoras-colombia.png",
+        content: [
+            {
+                type: "intro",
+                text: "Elegir una aseguradora correcta es decisión crítica. No todas las compañías ofrecen el mismo nivel de servicio, velocidad en reclamaciones o red de peritos. En Colombia operan más de 30 aseguradoras, pero 5-6 dominan 80% del mercado. Esta guía ranking las mejores según servicio, precio, calidad de atención y rapidez de pago. Incluye análisis de cada una en seguros de auto, hogar, vida y salud."
+            },
+            {
+                type: "heading",
+                text: "Las 5 Principales Aseguradoras en Colombia"
+            },
+            {
+                type: "paragraph",
+                text: "Según datos de la Superintendencia Financiera, estas son las aseguradoras con mayor participación de mercado y solidez financiera:"
+            },
+            {
+                type: "heading",
+                text: "1. SURA (Grupo Suramericana)"
+            },
+            {
+                type: "list",
+                items: [
+                    "Posición: #1 en Colombia por ingresos y volumen de pólizas.",
+                    "Fortaleza: Mayor red de peritos (3,000+), rapidez en pagos (promedio 15 días).",
+                    "Productos Principales: Auto todo riesgo, hogar, vida integral, salud, empresa.",
+                    "Presencia: Oficinas en 20+ ciudades. Atención 24/7.",
+                    "Calificación: Excelente servicio al cliente (NPS 72). Solidez financiera: AAA (Fitch).",
+                    "Ventaja Competitiva: Integración con otras empresas del grupo (pensiones, fondos, salud).",
+                    "Costo Promedio: Auto $2.0M-$3.5M/año. Hogar $120k-$350k/mes."
+                ]
+            },
+            {
+                type: "heading",
+                text: "2. Seguros Bolívar"
+            },
+            {
+                type: "list",
+                items: [
+                    "Posición: #2 en mercado. Subsidiaria de Grupo Bolívar (finanzas).",
+                    "Fortaleza: Precios competitivos, paquetes combinados (auto + hogar descuento).",
+                    "Productos Principales: Auto, vida, hogar, salud complementaria.",
+                    "Presencia: 15+ ciudades, oficinas en malls.",
+                    "Calificación: Buen servicio. Solidez: AA (Fitch).",
+                    "Ventaja Competitiva: Acceso a crédito Grupo Bolívar (descuentos financieros).",
+                    "Costo Promedio: Auto $1.8M-$3.0M/año. Hogar $100k-$300k/mes."
+                ]
+            },
+            {
+                type: "heading",
+                text: "3. Allianz Colombia"
+            },
+            {
+                type: "list",
+                items: [
+                    "Posición: #3-4. Filial de Allianz Global (Alemania).",
+                    "Fortaleza: Solidez internacional, énfasis en defensa legal (incluida en pólizas).",
+                    "Productos Principales: Auto todo riesgo, responsabilidad civil, hogar, vida.",
+                    "Presencia: 12 ciudades principales.",
+                    "Calificación: Servicio técnico superior. Solidez: AAA (Fitch).",
+                    "Ventaja Competitiva: Cobertura internacional de auto (viajes a países vecinos).",
+                    "Costo Promedio: Auto $2.2M-$3.8M/año (premium). Hogar $130k-$400k/mes."
+                ]
+            },
+            {
+                type: "heading",
+                text: "4. Mapfre Colombia"
+            },
+            {
+                type: "list",
+                items: [
+                    "Posición: #4-5. Empresa española con presencia latinoamericana.",
+                    "Fortaleza: Bajo costo, productos modulares (arma tu póliza).",
+                    "Productos Principales: Auto, hogar, salud, empresa PYME.",
+                    "Presencia: 8-10 ciudades. Atención online fuerte.",
+                    "Calificación: Servicio básico. Solidez: AA (Fitch).",
+                    "Ventaja Competitiva: Mejor opción para PYMES y presupuesto ajustado.",
+                    "Costo Promedio: Auto $1.6M-$2.8M/año (económico). Hogar $80k-$250k/mes."
+                ]
+            },
+            {
+                type: "heading",
+                text: "5. HDI Colombia"
+            },
+            {
+                type: "list",
+                items: [
+                    "Posición: #6-7 en mercado.",
+                    "Fortaleza: Especialidad en auto. Programa de descuentos para conductores seguros (GreenDrive).",
+                    "Productos Principales: Auto especializado, hogar básico, responsabilidad civil.",
+                    "Presencia: 10 ciudades.",
+                    "Calificación: Bueno en auto, básico en otros. Solidez: AA (Fitch).",
+                    "Ventaja Competitiva: Descuentos por telemetría y conducción responsable.",
+                    "Costo Promedio: Auto $1.7M-$3.0M/año (variable por perfil)."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Tabla Comparativa: Ranking por Tipo de Seguro"
+            },
+            {
+                type: "list",
+                items: [
+                    "MEJOR PARA AUTO: SURA (rapidez peritos) > Bolívar (precio) > HDI (descuentos conducta).",
+                    "MEJOR PARA HOGAR: SURA (cobertura completa) > Bolívar (precio paquete) > Allianz (defensa legal).",
+                    "MEJOR PARA VIDA: SURA (opciones) > Bolívar (precio) > Allianz (defensa).",
+                    "MEJOR PARA SALUD: SURA/Bolívar (planes livianos) > Allianz (cobertura).",
+                    "MEJOR PARA PYME: Mapfre (precio) > Bolívar (servicio) > SURA (opciones)."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Criterios para Elegir la Mejor Aseguradora para Ti"
+            },
+            {
+                type: "list",
+                items: [
+                    "Solidez Financiera: Verifica calificación en Fitch/Moody's. Mínimo AA (garantiza pago de siniestros).",
+                    "Rapidez en Reclamaciones: Consulta con amigos/family. SURA y Allianz: 10-20 días promedio.",
+                    "Red de Peritos: Asegura que tenga en TU CIUDAD. Mapfre/HDI tienen redes limitadas en provincia.",
+                    "Presencia 24/7: ¿Puedo reportar siniestro a las 11pm? SURA/Bolívar tienen mejor cobertura.",
+                    "Precio Competitivo: Cotiza siempre con 3-4 aseguradoras. Diferencia: $30k-$100k/mes.",
+                    "Productos Combinados: ¿Ofrecen paquetes descuento (auto + hogar + vida)? Bolívar lo hace bien.",
+                    "Atención al Cliente: Lee comentarios. NPS de SURA es más alto que Mapfre."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Recomendaciones Finales"
+            },
+            {
+                type: "list",
+                items: [
+                    "Para mejor servicio overall: SURA (primer lugar). Costo: premium 10-15% arriba del promedio.",
+                    "Para mejor relación precio-servicio: Bolívar (recomendado para presupuesto balanceado).",
+                    "Para presupuesto ajustado: Mapfre (ahorras 20-30% vs SURA, sacrificas algo en servicio).",
+                    "Para especialidad auto: HDI (si aplicas descuentos por conducción).",
+                    "Para protección legal máxima: Allianz (defensa legal incluida, costo alto)."
+                ]
+            },
+            {
+                type: "paragraph",
+                text: "Lo más importante: NO elijas solo por precio. Una aseguradora que demora 3 meses en pagar un reclamo no vale el ahorro de $30k/mes. Cotiza, compara servicio, y elige según TUS prioridades."
+            },
+            { type: "cta", text: "" }
+        ]
     }
 ];

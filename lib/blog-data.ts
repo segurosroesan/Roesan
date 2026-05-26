@@ -1429,58 +1429,122 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "seguro-mascotas-responsabilidad-civil",
-        title: "Seguro para Mascotas: ¿Por qué la Responsabilidad Civil es el amparo más importante?",
-        excerpt: "Tu perro o gato es parte de la familia, pero ¿qué sucede si causa un accidente o lesiona a un tercero? Entiende cómo esta póliza te protege de demandas millonarias.",
+        title: "Seguro de Mascotas en Colombia 2026: Responsabilidad Civil para Perros y Gatos",
+        excerpt: "Seguro de responsabilidad civil para mascotas. Cobertura mordidas, demandas civiles, razas especiales (Pitbull, Rottweiler). Costos, coberturas y exclusiones por raza en Colombia.",
         date: "2026-05-12",
-        readTime: "4 min",
+        readTime: "6 min",
         category: "Personas y Hogar",
         categoryColor: "bg-orange-100 text-orange-700",
         coverImage: "/images/card-mascotas.png",
         content: [
             {
                 type: "intro",
-                text: "Nuestros perros y gatos no son solo animales de compañía; son miembros fundamentales de nuestra familia. Sin embargo, su instinto, el miedo o una reacción inesperada pueden causar incidentes. Muchos dueños buscan seguros exclusivamente para cubrir gastos veterinarios, pasando por alto el escudo financiero más crítico: la cobertura de Responsabilidad Civil."
+                text: "Tus perros y gatos son miembros de la familia. Pero bajo la ley colombiana (Código Civil Artículo 2353), eres 100% responsable legal de cualquier daño que causen. Una mordida que requiere 15 puntos, una demanda por $8M en cirugías plásticas, o un accidente de tránsito provocado por tu perro suelto pueden arruinar tu patrimonio. Por eso la Responsabilidad Civil es el seguro MÁS CRÍTICO para mascota propietarios. Esta guía explica coberturas, razas especiales, costos, y por qué el seguro de hogar simple no es suficiente."
             },
             {
                 type: "heading",
-                text: "¿Qué es la Responsabilidad Civil en mascotas?"
+                text: "Responsabilidad Civil en Mascotas: La Base Legal (Código Civil Art. 2353)"
             },
             {
                 type: "paragraph",
-                text: "La Responsabilidad Civil Extracontractual (RCE) es la cobertura encargada de indemnizar económicamente a terceros por los daños materiales o lesiones corporales que tu mascota pueda causar. En Colombia, el Código Civil (Artículo 2353) establece de forma estricta que el dueño o tenedor es el responsable directo de pagar por los perjuicios causados por su animal."
-            },
-            {
-                type: "heading",
-                text: "Escenarios reales donde este seguro salva tu bolsillo"
+                text: "En Colombia, el dueño o tenedor de una mascota es el responsable directo (responsabilidad extracontractual) de cualquier daño que el animal cause a terceros. Esto no es opcional: es tu obligación legal indemnizar a la víctima por gastos médicos, incapacidad, daño moral y cualquier consecuencia del accidente."
             },
             {
                 type: "list",
                 items: [
-                    "Mordeduras a terceros: Los gastos médicos de urgencias, terapias, cirugías plásticas o lucro cesante (incapacidades) de la víctima pueden sumar rápidamente decenas de millones de pesos.",
-                    "Peleas con otras mascotas: Si tu perro lesiona de gravedad a la mascota del vecino en el parque, la ley te obliga a asumir la totalidad de la factura veterinaria.",
-                    "Accidentes de tránsito: Si tu mascota se suelta, cruza la calle y provoca que un motociclista o ciclista sufra una caída grave al intentar esquivarlo, la demanda civil recaerá sobre tu patrimonio.",
-                    "Daños a la propiedad ajena: Desde destrozos costosos en la ropa o celular de un visitante, hasta daños en el mobiliario de las zonas comunes de tu conjunto residencial."
+                    "No importa si el animal es pequeño, dócil o fue un 'accidente': legalmente eres responsable.",
+                    "No tener dinero para pagar NO te exonera: la víctima puede demandarte al juzgado y embargar tus cuentas, bienes, sueldos.",
+                    "La mayoría de seguros de hogar básicos incluyen solo $5M-$10M de RCE, insuficiente para daños graves."
                 ]
             },
             {
                 type: "heading",
-                text: "Mascotas de Manejo Especial (Razas Fuertes)"
+                text: "Escenarios Financieros Reales: Cuánto Cuesta un Incidente de Mascota"
             },
             {
-                type: "paragraph",
-                text: "Es vital recordar que el Código Nacional de Policía y Convivencia exige que los propietarios de ciertas razas de perros (anteriormente catalogadas como 'potencialmente peligrosas' como Pitbull, Dóberman, Rottweiler, entre otras) cuenten con una póliza de Responsabilidad Civil de manera completamente obligatoria. No tenerla te expone a cuantiosas multas y al decomiso del animal, pero más grave aún, al embargo de tus cuentas bancarias si ocurre una tragedia y eres demandado."
+                type: "list",
+                items: [
+                    "Mordida a niño (15 puntos de sutura + infección): Urgencias $1.5M + cirugía plástica $4M + incapacidad 2 semanas $2M = $7.5M en demanda",
+                    "Mordida severa (hospitales, terapia intensiva, cicatrices permanentes, daño moral): $15M-$30M en demanda",
+                    "Accidente de tránsito (tu perro suelto causa que moto colisione): Lesiones motociclista + casco/daños moto = $20M-$50M demanda",
+                    "Pelea con mascota ajena (veterinario especialista, cirugía de emergencia, secuelas): $3M-$12M demanda",
+                    "Daños a propiedad (rotura de celular, lentes, ropa, mobiliario de común): $500k-$3M demanda"
+                ]
             },
             {
                 type: "heading",
-                text: "Tranquilidad para ti, respaldo legal para tu mascota"
+                text: "Razas de Manejo Especial: Seguros Obligatorios"
             },
             {
                 type: "paragraph",
-                text: "En Roesan Seguros siempre recomendamos que la protección de tu mascota sea integral. Una póliza robusta de Responsabilidad Civil (que en muchos casos se puede integrar a tu Seguro de Hogar sin costos prohibitivos) no solo cubre la indemnización a la víctima, sino que también asume los gastos de tu defensa legal y honorarios de abogados."
+                text: "El Código Nacional de Policía y Convivencia de Colombia identifica razas de 'manejo especial' que REQUIEREN seguro obligatorio. Incumplir esto trae multas de $930k-$1.86M y decomiso del animal:"
             },
             {
-                type: "paragraph",
-                text: "Proteger a tu mascota también significa blindar tus ahorros y los de tu familia frente a imprevistos que están fuera de tu control."
+                type: "list",
+                items: [
+                    "Pitbull Terrier: Costo seguro $200k-$400k/mes. RCE obligatoria mínimo $10M-$20M.",
+                    "Rottweiler: Costo $180k-$350k/mes. RCE mínimo $10M.",
+                    "Dóberman: Costo $180k-$350k/mes. RCE mínimo $10M.",
+                    "Pastor Alemán: Costo $150k-$300k/mes. RCE mínimo $5M-$10M.",
+                    "Otras razas fuertes (Boxer, Mastín, Presa Canario, Akita): Costo $150k-$350k/mes según aseguradora.",
+                    "Gatos y mascotas pequeñas: Generalmente incluidas en seguro de hogar básico sin sobrecosto."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Coberturas Esenciales de Seguro de Mascotas"
+            },
+            {
+                type: "list",
+                items: [
+                    "Responsabilidad Civil Extracontractual (RCE): Cobertura PRINCIPAL. Indemnización a víctima. Rango: $5M-$50M según necesidad.",
+                    "Gastos de Defensa Legal: Asume honorarios de abogados si eres demandado. Crítico en casos complejos.",
+                    "Cobertura de Mascota en Hogar + RCE: Muchos seguros incluyen RCE de mascotas en póliza de hogar a bajo costo adicional.",
+                    "Gastos Veterinarios de Emergencia (Opcional): Cirugías de emergencia, hospitalizaciones. Límite $5M-$20M.",
+                    "Cobertura de Robo de Mascota (Opcional): Reembolso si tu mascota es robada. Menos prioritario."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Costos de Seguros de Responsabilidad Civil para Mascotas 2026"
+            },
+            {
+                type: "list",
+                items: [
+                    "Gatos y razas pequeñas (bajo riesgo): $20k-$80k/mes. Incluido en seguro hogar basico.",
+                    "Razas medianas (Labrador, Golden Retriever, Beagle): $80k-$150k/mes con RCE $5M-$10M.",
+                    "Razas fuertes sin lista especial (Pastor Alemán, Boxer): $150k-$300k/mes con RCE $10M-$20M.",
+                    "Razas de lista especial (Pitbull, Rottweiler, Dóberman): $200k-$400k/mes con RCE $10M-$30M OBLIGATORIA.",
+                    "Cobertura ampliada (RCE $30M-$50M + gastos veterinarios): $300k-$600k/mes."
+                ]
+            },
+            {
+                type: "heading",
+                text: "FAQ: Preguntas Frecuentes sobre Seguros de Mascotas"
+            },
+            {
+                type: "list",
+                items: [
+                    "¿Si mi mascota es pequeña, necesito seguro? Sí. Incluso un gato puede morder a un niño; la demanda no discrimina por tamaño.",
+                    "¿Mi seguro de hogar cubre a mi mascota? Parcialmente. La mayoría incluye RCE básica ($5M-$10M), insuficiente para daños graves.",
+                    "¿Qué pasa si no tengo seguro y ocurre un incidente? Serás demandado. El juzgado puede embargar tus cuentas, salario o bienes para pagar indemnización.",
+                    "¿Las razas pequeñas tienen pólizas más baratas? Sí, dramáticamente. Un gato $20k/mes vs. Pitbull $300k/mes.",
+                    "¿El seguro cubre todo tipo de daño? No. Exclusiones típicas: daños por negligencia flagrante, animales agresivos previamente conocidos, daños intencionales."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Recomendaciones para Dueños de Mascotas"
+            },
+            {
+                type: "list",
+                items: [
+                    "Si tienes raza especial (Pitbull, Rottweiler, etc): OBLIGATORIO. Mínimo $10M-$20M de RCE. Costo: $200k-$400k/mes.",
+                    "Si tienes raza mediana o grande: RCE de al menos $10M incluida en seguro hogar ampliado. Costo adicional: $100k-$200k/mes.",
+                    "Si tienes mascotas pequeñas/gatos: Incluye RCE en seguro hogar básico. Costo: marginal ($10k-$50k/mes adicional).",
+                    "Verifica exclusiones en póliza: Revisa qué razas/situaciones la aseguradora NO cubre.",
+                    "Mantén comportamiento controlado: Paseo con correa, entrenamiento básico, vaccunas al día. Reduce riesgo de incidentes."
+                ]
             },
             { type: "cta", text: "" }
         ]

@@ -21,17 +21,38 @@ export interface BlogSection {
 export const blogPosts: BlogPost[] = [
     {
         slug: "costo-seguro-contra-todo-riesgo-bogota",
-        title: "¿Cuánto cuesta un Seguro Automotriz Contra Todo Riesgo en Bogotá en 2026?",
-        excerpt: "Bogotá tiene desafíos únicos: trancones interminables, granizadas sorpresivas y un alto volumen de incidentes menores. Descubre cuánto vale proteger tu carro aquí y por qué es vital.",
+        title: "Seguro Auto Todo Riesgo en Bogotá 2026: Costos, Comparativa y Coberturas Vitales",
+        excerpt: "¿Cuánto cuesta un seguro todo riesgo en Bogotá? Comparativa de SURA, Bolívar y Allianz. Descubre rangos de precio, coberturas contra granizo y hurto, y cuál es el deducible mínimo en 2026.",
         date: "2026-04-08",
-        readTime: "7 min",
+        readTime: "8 min",
         category: "Seguros de Autos",
         categoryColor: "bg-cyan-100 text-cyan-700",
         coverImage: "/images/blog/cover-auto-bogota.png",
         content: [
             {
                 type: "intro",
-                text: "Manejar en Bogotá es, para muchos, un deporte extremo. Entre el estrés de la Avenida Boyacá en hora pico, los cambios de carril abruptos en la Autopista Norte y el clima impredecible que suele traer granizadas devastadoras, tu vehículo está en constante exposición. La pregunta más común que recibimos en Roesan es: ¿Cuánto cuesta un seguro todo riesgo en Bogotá? Aquí te desglosamos la realidad para el 2026."
+                text: "Manejar en Bogotá es, para muchos, un deporte extremo. Entre el estrés de la Avenida Boyacá en hora pico, los cambios de carril abruptos en la Autopista Norte y el clima impredecible que suele traer granizadas devastadoras, tu vehículo está en constante exposición. La pregunta más común que recibimos en Roesan es: ¿Cuánto cuesta un seguro todo riesgo en Bogotá? Aquí te desglosamos la realidad del mercado asegurador colombiano para el 2026, con comparativas reales y opciones de cotización directo con Sura, Bolívar y Allianz."
+            },
+            {
+                type: "heading",
+                text: "Rango de precios de Seguro Todo Riesgo en Bogotá 2026"
+            },
+            {
+                type: "paragraph",
+                text: "No existe una tarifa única, pero el rango oscila entre $1.2 millones y $4.5 millones COP anuales ($100,000 a $375,000 mensuales aprox.) dependiendo de múltiples factores. Aquí te mostramos la realidad por rango de vehículos:"
+            },
+            {
+                type: "paragraph",
+                text: "Rango de Precios Estimados por Tipo de Vehículo (Bogotá 2026):"
+            },
+            {
+                type: "list",
+                items: [
+                    "Automóviles compactos (Hyundai i10, Chevrolet Spark): $1.2M - $2.0M COP/año",
+                    "Sedanes medianos (Toyota Corolla, Renault Symbol): $1.8M - $2.8M COP/año",
+                    "SUVs y vehículos familiares (Chevrolet Captiva, Kia Sportage): $2.2M - $3.5M COP/año",
+                    "Vehículos premium (BMW, Audi, Mercedes): $3.5M - $4.5M+ COP/año"
+                ]
             },
             {
                 type: "heading",
@@ -39,15 +60,84 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "paragraph",
-                text: "En Bogotá, las aseguradoras calculan el riesgo considerando múltiples variables. No existe una tarifa única, pero el rango oscila entre $1.2M y $4.5M COP anuales dependiendo de:"
+                text: "En Bogotá, las aseguradoras calculan el riesgo considerando variables específicas. El costo final puede variar significativamente de un conductor a otro con el mismo vehículo:"
             },
             {
                 type: "list",
                 items: [
-                    "Índice de hurto del modelo: Carros muy robados en localidades específicas tienen primas más altas.",
-                    "Frecuencia de accidentes urbanos: Las estadísticas de choques simples (latas) en intersecciones clave incrementan el riesgo.",
-                    "Perfil del conductor: Edad, experiencia y si guarda el vehículo en un parqueadero cubierto."
+                    "Índice de hurto del modelo: En localidades como Santa Fe, La Candelaria y El Hueco, carros muy robados (Toyota Corolla, Renault Twingo) tienen primas hasta 40% más altas.",
+                    "Frecuencia de accidentes urbanos: Las estadísticas de choques simples (latas) en la Avenida Calle 26, Anillo Vial y Autopista Norte incrementan el riesgo percibido.",
+                    "Perfil del conductor: Edad (menores de 25 años pagan 20-30% más), experiencia, si guarda el vehículo en parqueadero cubierto (reduce prima 10-15%), y zona de residencia.",
+                    "Deducible elegido: Seleccionar deducible de $2M en lugar de $500k puede reducir la prima mensual entre $30,000 a $60,000 COP."
                 ]
+            },
+            {
+                type: "heading",
+                text: "Comparativa de Aseguradoras: SURA vs Bolívar vs Allianz"
+            },
+            {
+                type: "paragraph",
+                text: "Las tres principales aseguradoras en Colombia ofrecen productos competitivos para Bogotá. Aquí la comparación de opciones más populares:"
+            },
+            {
+                type: "heading",
+                text: "SURA - Cobertura Integral y Beneficios Adicionales"
+            },
+            {
+                type: "list",
+                items: [
+                    "✓ Prima promedio: $1.8M - $2.9M COP/año",
+                    "✓ Deducible mínimo: $500,000 COP (Responsabilidad Civil y Daño Propio)",
+                    "✓ Red de talleres certificados: Más de 1,500 en el país",
+                    "✓ Amparo de Granizo: Cubre daños desde baja cuantía",
+                    "✓ Auxilio vial 24/7 y grúa sin límite de kilómetros",
+                    "✓ Vehículo de reemplazo automático en caso de siniestro"
+                ]
+            },
+            {
+                type: "links",
+                text: "Cotiza directamente con SURA:",
+                items: ["https://www.sura.com.co - Portal principal SURA", "https://www.sura.com.co/seguros-de-auto - Seguros de automóvil y cotización online"]
+            },
+            {
+                type: "heading",
+                text: "Seguros Bolívar - Mejor Relación Precio-Cobertura"
+            },
+            {
+                type: "list",
+                items: [
+                    "✓ Prima promedio: $1.5M - $2.7M COP/año",
+                    "✓ Deducible mínimo: $500,000 COP (con opción a $1M para reducir prima)",
+                    "✓ Cobertura de Granizo: Amparo específico con coberturas altas",
+                    "✓ Asistencia Vial: Grúa, mecanería en vía y transporte de pasajeros",
+                    "✓ Plus Seguridad: Rastreo GPS opcional e incorporable",
+                    "✓ Aceptación rápida: Emisión de póliza en máximo 24 horas"
+                ]
+            },
+            {
+                type: "links",
+                text: "Solicita cotización con Bolívar:",
+                items: ["https://www.segurosbolivar.com - Sitio oficial Seguros Bolívar", "https://www.segurosbolivar.com/autos - Seguros de automóvil y simulador de costos"]
+            },
+            {
+                type: "heading",
+                text: "Allianz - Innovación y Flexibilidad"
+            },
+            {
+                type: "list",
+                items: [
+                    "✓ Prima promedio: $1.7M - $3.0M COP/año",
+                    "✓ Deducible flexible: Desde $300,000 COP (con sobreprime)",
+                    "✓ Conductores Adicionales: Permite registrar 3 conductores sin recargo",
+                    "✓ Amparo de Vandalismo y Terrorismo: Cobertura amplia y específica",
+                    "✓ App Allianz: Reporte de siniestros por celular y seguimiento en tiempo real",
+                    "✓ Taller de tu confianza: Red abierta con talleres certificados de tu elección"
+                ]
+            },
+            {
+                type: "links",
+                text: "Cotiza con Allianz:",
+                items: ["https://www.allianz.com.co - Portal Allianz Colombia", "https://www.allianz.com.co/cotizador-auto - Cotizador en línea de seguros auto"]
             },
             {
                 type: "heading",
@@ -55,7 +145,79 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "paragraph",
-                text: "Un diferencial innegociable de una póliza Todo Riesgo en Bogotá es la protección por daños de fuerza mayor. Una \"granizada bogotana\" promedio puede arruinar el capó, techo y cristales, cuya reparación de taller certificado excede los $5 millones de pesos. El amparo de Responsabilidad Civil también es crucial por accidentes envolvendo motos o ciclistas, actores viales muy frecuentes en la ciudad."
+                text: "Un diferencial innegociable de una póliza Todo Riesgo en Bogotá es la protección por daños de fuerza mayor. Una granizada bogotana promedio (frecuentes en abril-junio) puede arruinar el capó, techo y cristales, cuya reparación de taller certificado excede fácilmente $5 millones de pesos. Sin este amparo, la pérdida recae 100% sobre tu bolsillo."
+            },
+            {
+                type: "list",
+                items: [
+                    "Daños por Granizo: Reparación de techo, capó, cristales, espejos sin franquicia adicional",
+                    "Vandalismo y Rayones: Cobertura de rayones intencionales y actos vandálicos",
+                    "Responsabilidad Civil: El pilar más importante. Si colisionas con un auto de alta gama e hieres a sus ocupantes, tu póliza paga sentencias legales que podrían arruinar a tu familia"
+                ]
+            },
+            {
+                type: "heading",
+                text: "¿Cuál es el Deducible Mínimo en Bogotá?"
+            },
+            {
+                type: "paragraph",
+                text: "El deducible es la cantidad que tú asumes en cada siniestro. En Bogotá, los deducibles mínimos ofrecidos por las principales aseguradoras son:"
+            },
+            {
+                type: "list",
+                items: [
+                    "$300,000 COP: Allianz ofrece esta opción con sobreprime (aumenta la prima mensual unos $20,000-$40,000)",
+                    "$500,000 COP: Estándar en SURA y Bolívar, es el más balanceado para el mercado bogotano",
+                    "$1,000,000 COP: Deducible alto, reduce prima mensual entre $30,000-$60,000 COP, recomendado para conductores experimentados",
+                    "Por Hurto Total: Generalmente es el doble del deducible normal ($1M si tu deducible es $500k)"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Hurtos en Bogotá 2026: Localidades de Mayor Riesgo"
+            },
+            {
+                type: "paragraph",
+                text: "Según datos de denuncias 2025-2026, las localidades con mayor índice de hurto de vehículos en Bogotá son:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Santa Fe: 14.2% del total de hurtos en la ciudad (zona histórica con acceso a Cali)",
+                    "La Candelaria: 8.9% (comercio intenso y circulación de delincuentes especializados)",
+                    "El Hueco: 7.5% (sector comercial con estacionamientos públicos)",
+                    "Chapinero: 6.8% (parqueaderos en vía en horarios nocturnos)",
+                    "Kennedy: 5.2% (crecimiento de hurto especializado en zonas residenciales)"
+                ]
+            },
+            {
+                type: "paragraph",
+                text: "Si resides o trabajas frecuentemente en estas zonas, las aseguradoras pueden solicitar requisitos adicionales: parqueadero cubierto, cerco eléctrico o dispositivo antirobo certificado. Estos requisitos pueden aumentar la prima entre 5-15%."
+            },
+            {
+                type: "heading",
+                text: "Errores comunes al cotizar Seguro Auto Todo Riesgo"
+            },
+            {
+                type: "list",
+                items: [
+                    "Buscar únicamente 'lo más barato': Primas muy bajas suelen esconder deducibles ocultos o redes de talleres mediocres.",
+                    "No revisar detalles del deducible: Un deducible bajo parece atractivo, pero aumenta la prima mensual significativamente.",
+                    "Ignorar la Responsabilidad Civil: Este es el amparo que te protege de demandas millonarias. No es donde ahorrar.",
+                    "Confundir 'Responsabilidad Civil' con 'Daño Propio': RCE es daños a terceros (vehículos, personas); Daño Propio es tu carro."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Asesoría especializada en Roesan Seguros"
+            },
+            {
+                type: "paragraph",
+                text: "En Roesan Seguros cruzamos coberturas, exclusiones, deducibles y precios entre SURA, Bolívar, Allianz, Mapfre, HDI y más. Analizamos tu perfil específico (zona de residencia, horarios de uso, conductor principal) para recomendarte la póliza Todo Riesgo que maximize cobertura a mínimo costo."
+            },
+            {
+                type: "paragraph",
+                text: "Nuestro objetivo es que manejes en Bogotá con total tranquilidad, sabiendo que cada centavo de tu prima está protegiendo adecuadamente tu vehículo y tu patrimonio personal."
             },
             {
                 type: "cta", text: ""

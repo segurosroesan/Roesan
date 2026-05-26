@@ -1857,7 +1857,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "8 min",
         category: "Personas y Hogar",
         categoryColor: "bg-orange-100 text-orange-700",
-        coverImage: "/images/blog/seguro-hogar.png",
+        coverImage: "/images/blog/seguro-hogar-unsplash.jpg",
         content: [
             {
                 type: "intro",
@@ -1979,7 +1979,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "9 min",
         category: "Educación Financiera",
         categoryColor: "bg-blue-100 text-blue-700",
-        coverImage: "/images/blog/aseguradoras-colombia.png",
+        coverImage: "/images/blog/aseguradoras-unsplash.jpg",
         content: [
             {
                 type: "intro",

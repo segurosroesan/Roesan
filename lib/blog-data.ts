@@ -1157,62 +1157,142 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "seguro-bicicletas-patinetas-electricas-colombia",
-        title: "Seguro para Bicicletas y Patinetas Eléctricas: Protege tu Movilidad Sostenible",
-        excerpt: "La micromovilidad llegó para quedarse en las ciudades colombianas. Descubre cómo proteger tu bici o scooter contra robo, accidentes y daños a terceros.",
+        title: "Seguro Bicicleta y Patineta Eléctrica en Colombia 2026: Responsabilidad Civil y Robo",
+        excerpt: "Protege tu bicicleta o scooter eléctrico contra robo, accidentes y responsabilidad civil. Guía completa de seguros de micromovilidad en Bogotá, Medellín y Cali. Coberturas, costos y regulaciones por ciudad.",
         date: "2026-05-08",
-        readTime: "5 min",
+        readTime: "7 min",
         category: "Movilidad Urbana",
         categoryColor: "bg-emerald-100 text-emerald-700",
         coverImage: "/images/blog/seguro-bicicletas-patinetas.png",
         content: [
             {
                 type: "intro",
-                text: "En los últimos años, las calles de Bogotá, Medellín y Cali se han llenado de ciclistas y usuarios de patinetas eléctricas. Esta transición hacia una movilidad más sostenible y eficiente es fantástica, pero también trae nuevos riesgos. ¿Qué pasa si te roban la bicicleta saliendo del trabajo? ¿O si accidentalmente golpeas a un peatón con tu scooter? Aquí te explicamos por qué necesitas un seguro de micromovilidad."
+                text: "En las calles de Bogotá, Medellín y Cali, la micromovilidad se ha duplicado en los últimos 24 meses. Bicicletas de gama alta, patinetas eléctricas, scooters eléctricos: todos son medios de transporte prácticos y ecológicos, pero también generan nuevos riesgos financieros. ¿Qué sucede si te roban la bicicleta ($3M-$8M) saliendo del trabajo? ¿O si accidentalmente golpeas a un peatón con tu scooter y te demanda por lesiones? Este artículo desglose los seguros de micromovilidad, sus coberturas, costos, y regulaciones por ciudad."
             },
             {
                 type: "heading",
-                text: "Los riesgos de la micromovilidad en la ciudad"
+                text: "Auge de la Micromovilidad en Colombia"
             },
             {
                 type: "paragraph",
-                text: "Moverse en dos ruedas (o ruedas pequeñas) tiene sus desafíos técnicos y de seguridad. Los incidentes más comunes reportados en Colombia incluyen:"
+                text: "Según estudios de movilidad urbana, el 28% de los desplazamientos en Bogotá, 22% en Medellín y 18% en Cali se realizan en bicicleta o vehículos micromovilidad. Las aplicaciones de bici compartida (Pícaro, DimoApp) han registrado más de 15 millones de viajes anuales. Con este crecimiento exponencial, los riesgos de pérdida o daño también se han multiplicado."
+            },
+            {
+                type: "heading",
+                text: "Los Riesgos Financieros de la Micromovilidad"
+            },
+            {
+                type: "paragraph",
+                text: "Moverse en dos ruedas trae desafíos técnicos y de seguridad. Los incidentes más comunes que requieren protección asegurada en Colombia incluyen:"
             },
             {
                 type: "list",
                 items: [
-                    "Hurto calificado: Las bicicletas de gama media y alta, así como las patinetas eléctricas, son objetivos frecuentes de la delincuencia.",
-                    "Accidentes viales: Caídas por mal estado de la vía o colisiones con otros vehículos.",
-                    "Responsabilidad Civil: Daños causados a otras personas o bienes ajenos mientras transitas."
+                    "Hurto de bicicleta o scooter: Pérdida de $3M-$12M. Bicicletas de gama media (Trek, Specialized, Santa Cruz) y scooters eléctricos (Xiaomi, Ninebot) son objetivos frecuentes de la delincuencia.",
+                    "Daño material por accidente: Reparaciones que oscilan entre $500k-$3M en caso de colisión o caída.",
+                    "Responsabilidad Civil por Lesiones a Terceros: Si atropellas o golpeas a un peatón, podrías enfrentar demandas de $10M-$50M por gastos médicos, lucro cesante y daño moral.",
+                    "Accidente con vehículo motorizado: Si un carro o moto choca con tu bici/scooter, necesitas protección legal."
                 ]
             },
             {
                 type: "heading",
-                text: "¿Qué cubre una póliza para bicis y scooters?"
+                text: "Regulaciones por Ciudad: Bogotá, Medellín, Cali"
             },
             {
                 type: "paragraph",
-                text: "Un buen seguro de movilidad urbana no solo protege el equipo, sino también al usuario y su patrimonio:"
+                text: "Cada ciudad colombiana ha implementado normativas diferentes para la micromovilidad. Conocerlas es esencial para estar legal y protegido:"
             },
             {
                 type: "list",
                 items: [
-                    "Indemnización por robo: Reposición del valor de tu vehículo en caso de hurto.",
-                    "Daños accidentales: Cubre las reparaciones necesarias tras un choque o caída.",
-                    "Responsabilidad Civil Extracontractual: Paga los daños que puedas causar a terceros (el amparo más importante).",
-                    "Asistencia en vía: Grúa, transporte por avería o incluso asistencia médica si la necesitas."
+                    "Bogotá (Decreto 064 de 2023): Obligatorio casco y reflectivos. Scooters limitados a 25 km/h en ciclovías. Edad mínima: 14 años. Responsabilidad civil recomendada $5M-$10M.",
+                    "Medellín (Acuerdo 484 de 2022): Uso obligatorio de casco, luces y timbre. Prohibición de circular en aceras (solo ciclovías). Patinetas eléctricas requieren seguro si usan vías públicas compartidas.",
+                    "Cali (Resolución 0384 de 2021): Casco obligatorio, prohibición en aceras y parques. Usuarios menores de 18 años deben contar con autorización parental y seguro específico."
                 ]
             },
             {
                 type: "heading",
-                text: "Consejos para usuarios de movilidad eléctrica"
+                text: "Coberturas Esenciales de un Seguro de Micromovilidad"
             },
             {
                 type: "paragraph",
-                text: "Si usas patineta eléctrica, recuerda que la normativa en Colombia exige el uso de casco, luces y, en algunos casos, chaleco reflectivo. Contar con un seguro no solo te da tranquilidad financiera, sino que te respalda ante posibles reclamaciones legales derivadas de tu tránsito por la ciudad."
+                text: "Una póliza integral para bicicletas o patinetas eléctricas debe incluir:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Cobertura de Robo y Hurto: Indemnización del 80-100% del valor del equipo si es robado. Bicicletas: hasta $8M COP. Scooters eléctricos: hasta $5M COP.",
+                    "Daño Material Accidental: Cubre reparaciones por caídas, colisiones o impacto. Límite: $1M-$2M COP.",
+                    "Responsabilidad Civil Extracontractual (RCE): LA COBERTURA MÁS CRÍTICA. Paga indemnizaciones si lesionas a un peatón. Límite recomendado: $5M-$10M COP.",
+                    "Gastos Médicos Personales: Si sufres lesiones en accidente, cubre atención de urgencia. Límite: $500k-$1.5M COP.",
+                    "Asistencia en Vía 24/7: Transporte del equipo a taller, asistencia por pinchazos, cambio de ruedas."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Rango de Precios de Seguros de Micromovilidad en Colombia 2026"
             },
             {
                 type: "paragraph",
-                text: "En Roesan Seguros te ayudamos a encontrar el plan que mejor se adapte a tu estilo de vida y al valor de tu vehículo eléctrico o bicicleta."
+                text: "Los costos varían según el tipo de equipo, valor, ciudad y coberturas seleccionadas:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Bicicleta convencional (MTB/Carrera): $25,000-$80,000 COP/mes. Valor equipo $3M-$8M. RCE incluida.",
+                    "Bicicleta eléctrica de gama media (e-bikes): $60,000-$150,000 COP/mes. Valor equipo $8M-$20M. RCE expandida hasta $10M.",
+                    "Patineta eléctrica básica (Xiaomi M365): $40,000-$90,000 COP/mes. Valor equipo $3M-$5M.",
+                    "Patineta eléctrica premium (Xiaomi Pro, Ninebot): $80,000-$180,000 COP/mes. Valor equipo $5M-$15M. RCE hasta $15M.",
+                    "Scooter eléctrico comercial: $100,000-$250,000 COP/mes si lo usas para mensajería."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Aseguradoras que Ofrecen Seguros de Micromovilidad en Colombia"
+            },
+            {
+                type: "paragraph",
+                text: "Varias aseguradoras principales han creado productos específicos para micromovilidad. Las opciones incluyen:"
+            },
+            {
+                type: "links",
+                text: "Aseguradoras con seguros de micromovilidad y bicicletas:",
+                items: [
+                    "https://www.sura.com.co - SURA seguros (opciones de bicicleta y movilidad urbana)",
+                    "https://www.allianz.com.co - Allianz Colombia (planes de responsabilidad civil para ciclistas)",
+                    "https://www.bolivar.com.co - Seguros Bolívar (seguros de bienes para bicicletas eléctricas)"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Aplicaciones de Bici Compartida que Funcionan en Colombia"
+            },
+            {
+                type: "paragraph",
+                text: "Si usas bicicletas compartidas en lugar de comprar una propia, revisa que las plataformas tengan cobertura de responsabilidad civil:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Pícaro (Bogotá): Más de 5,000 bicicletas. Incluye cobertura básica en sus bikes.",
+                    "DimoApp (Medellín, Bogotá): Bicicletas y scooters eléctricos. Verificar cobertura con operador.",
+                    "MiBici (Cali): Sistema municipal. Costo: $500/viaje.",
+                    "Recomendación: Aunque uses bici compartida, ten seguro personal de RCE para protegerte si causas daño a terceros durante el uso."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Checklist: 5 Puntos para Elegir Tu Seguro de Micromovilidad"
+            },
+            {
+                type: "list",
+                items: [
+                    "Responsabilidad Civil: Mínimo $5M-$10M según tu ciudad de residencia.",
+                    "Cobertura de Robo: Debe cubrir 100% del valor de tu equipo según factura.",
+                    "Atención en Vía: Asistencia 24/7 si quedas varado.",
+                    "Regulación Local: Verifica que el seguro cumple requisitos de tu ciudad (Bogotá, Medellín, Cali).",
+                    "Costo Mensual: Compara ofertas. No debería exceder el 1-2% del valor de tu equipo."
+                ]
             },
             { type: "cta", text: "" }
         ]

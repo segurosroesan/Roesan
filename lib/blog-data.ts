@@ -416,75 +416,152 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "seguro-inversion-no-gasto",
-        title: "¿Por qué tener un seguro en Colombia no es un gasto sino la mejor inversión para tu futuro?",
+        title: "Seguro como Inversión en Colombia 2026: Proteger Patrimonio vs Inflación y Imprevistos",
         excerpt:
-            "En Colombia, muchas personas aún ven los seguros como un gasto innecesario. Descubre por qué una póliza bien estructurada es una herramienta financiera clave para proteger tu patrimonio de la inflación y los imprevistos.",
+            "¿Es el seguro un gasto o una inversión? Descubre cómo una póliza bien estructurada protege tu patrimonio en Colombia. Comparativa: dinero en banco vs seguro. ROI a 5 años. Rendimiento financiero y protección contra inflación.",
         date: "2026-03-20",
-        readTime: "6 min",
+        readTime: "8 min",
         category: "Educación Financiera",
         categoryColor: "bg-blue-100 text-blue-700",
         coverImage: "/images/card-todo-riesgo-globo.png",
         content: [
             {
                 type: "intro",
-                text: "En ciudades como Bogotá, Medellín o Cali, muchas personas aún ven los acuerdos de asegurabilidad como una renta que merma su bolsillo mensual. Sin embargo, la perspectiva financiera moderna es categórica: un seguro bien estructurado no es un recibo mensual más, es el cerrojo de tu patrimonio frente a la volatilidad económica en Colombia.",
+                text: "En Colombia, la mayor parte de personas ve los seguros como un gasto mensuales que erosiona su presupuesto. Pero esto es un error conceptual. Un seguro bien estructurado no es un recibo más en tu extracto bancario: es una herramienta financiera que protege tu patrimonio de la inflación acumulada en 30 años, de eventos catastróficos, y que genera rendimiento financiero. En esta guía, desglosamos por qué para muchos, el seguro tiene un ROI superior al que obtendrías dejando dinero en una cuenta corriente o en fondos pasivos.",
             },
             {
                 type: "heading",
-                text: "El verdadero riesgo financiero: asimilar el impacto con tu propio bolsillo",
+                text: "Gasto vs. Inversión: La Mentalidad Equivocada del Colombiano Promedio",
             },
             {
                 type: "paragraph",
-                text: "Un accidente de tránsito, una enfermedad compleja fuera de las EPS, o incluso un daño estructural en tu vivienda debido al clima cambiante en Colombia, pueden desencadenar gastos que superan fácilmente decenas de millones de pesos. Si no cuentas con respaldo asegurador, todos esos costos recaen sobre tus ahorros.",
+                text: "Cuando una persona ahorra $300,000 COP mensuales en una cuenta corriente sin invertir, después de 5 años acumula $18 millones. Pero con inflación promedio del 3.5% anual en Colombia, ese dinero pierde poder adquisitivo. En realidad, el dinero se devalúa en torno a 0.3% mensuales. Un seguro de vida con componente de ahorro o inversión, por el contrario, genera rentabilidad que supera la inflación.",
+            },
+            {
+                type: "heading",
+                text: "Comparativa: $300,000/mes en Banco vs. Seguro en 5 Años",
             },
             {
                 type: "list",
                 items: [
-                    "Sustituir una pérdida total de vehículo puede comprometer créditos a tasas altas (superiores al 20% E.A.).",
-                    "Un tratamiento oncológico o especializado en las principales clínicas del país excede frecuentemente tu capacidad de ahorro.",
-                    "La ausencia de un proveedor de familia representa, en promedio, una desestabilización económica para los dependientes de más de 5 años.",
-                ],
+                    "En cuenta corriente: $18M acumulados - 17.5% inflación = $14.85M de poder adquisitivo real",
+                    "En seguro de vida con ahorro: $18M + rentabilidad del 6-8% E.A. = $23.4M - 17.5% inflación = $19.3M de poder real",
+                    "Diferencia: Hasta $4.5 millones adicionales de protección y patrimonio",
+                    "Beneficio adicional: Tu familia está cubierta si algo te sucede (suma asegurada de $100M-$500M según el plan)"
+                ]
             },
             {
                 type: "heading",
-                text: "Proteger lo que te costó años construir: El fin último del Seguro",
+                text: "Los Riesgos Catastróficos que El Banco No Protege",
             },
             {
                 type: "paragraph",
-                text: "Cada ladrillo, cada inversión comercial y el estilo de vida que le das a tu familia requiere esfuerzo. Transferirle ese riesgo a una aseguradora en Colombia a través de Roesan es el equivalente a proteger esos años de esfuerzo.",
+                text: "Un accidente de tránsito, un diagnóstico de cáncer, o la pérdida de tu principal fuente de ingresos, pueden desencadenar gastos que superan fácilmente $30-100 millones de pesos en pocas semanas. Sin seguro, esos costos recaen 100% sobre tus ahorros y endeudamiento.",
             },
             {
                 type: "list",
                 items: [
-                    "Seguro de vida integral → Garantiza el pago de deudas y educación para tus hijos.",
-                    "Seguro de salud (Medicina prepagada/Póliza de Salud) → Acceso a especialistas VIP, eludiendo meses de espera.",
-                    "Seguro de auto Todo Riesgo → Evita devaluar tu medio de transporte por siniestros.",
-                    "Pólizas PYME Empresariales → Asegura la continuidad de operaciones de tu negocio frente a robos o catástrofes.",
-                ],
+                    "Pérdida total de vehículo (hurto o siniestro): $20M-$50M COP. Un seguro paga esto; el banco no.",
+                    "Tratamiento oncológico especializado: $15M-$60M COP. La EPS cubre parcialmente; medicina prepagada + seguro de salud, lo cubre todo.",
+                    "Invalidez permanente (accidente laboral): Tu ingreso se detiene. Seguro de invalidez paga cuota de casa, educación hijos ($500k-$1.5M/mes × 10-20 años).",
+                    "Fallecimiento del proveedor principal: Sin seguro de vida, tu familia debe vender activos a precio de fire sale (-30-40% del valor real)."
+                ]
             },
             {
                 type: "heading",
-                text: "Menor endeudamiento y estabilidad: Beneficios a largo plazo",
+                text: "Seguro de Vida Flexible (Universal Life): Inversión + Protección",
             },
             {
                 type: "paragraph",
-                text: "Las encuestas de inclusión financiera en el país denotan que el porcentaje de familias que caen en mora extrema por imprevistos médicos o vehiculares es muy alto. Eludir este ciclo de endeudamiento es precisamente la función silenciosa, pero irrefutable, de la póliza de seguros.",
+                text: "Los seguros flexibles (Universal Life) combinan protección con acumulación de capital. Tu prima se divide entre: 1) Costo de protección (suma asegurada), y 2) Fondo de ahorro/inversión que genera rentabilidad. Es el producto más cercano a lo que financieramente llamamos \"inversión\".",
             },
             {
                 type: "list",
                 items: [
-                    "Tus emergencias son pagadas con capital de la aseguradora, no del ahorro neto.",
-                    "Al elegir pólizas de inversión en seguros de vida, tu capital genera rendimiento (Ahorro + Protección).",
-                    "Evitas rematar patrimonio inmobiliario para costear emergencias (evitando pérdidas del 30% a 40% del valor comercial).",
-                ],
+                    "Prima mensual: $400,000-$700,000 COP (edad 35, $200M suma asegurada)",
+                    "Componente protección: $150,000 (tu familia cobra si falleces)",
+                    "Componente ahorro/inversión: $250,000-$550,000 (generan rentabilidad del 5-8% E.A.)",
+                    "A los 15 años: Acumulaste $45M-$99M en el fondo de ahorro + protección activa",
+                    "Ventaja: Si no usas la protección, recuperas el ahorro. Si la necesitas, tu familia recibe suma asegurada + fondo."
+                ]
             },
             {
                 type: "heading",
-                text: "En Roesan Seguros te asesoramos con transparencia",
+                text: "Tipos de Seguros por Objetivo de Protección e Inversión",
+            },
+            {
+                type: "list",
+                items: [
+                    "Seguro de vida integral (Protección Principal): Suma asegurada $100M-$500M para proteger dependientes. Costo: $250k-$500k/mes. ROI: Paz mental infinita.",
+                    "Seguro de salud (Medicina Prepagada): Acceso a especialistas sin espera + medicamentos de alto costo. Costo: $200k-$800k/mes. ROI: Evita endeudamiento por enfermedad.",
+                    "Seguro de auto Todo Riesgo: Protege vehículo + responsabilidad civil. Costo: $100k-$375k/mes. ROI: Evita pérdida de $20M-$50M en caso de siniestro.",
+                    "Seguros de invalidez (Desempleo/ITT): Pagan cuota de vivienda si pierdes ingresos. Costo: $50k-$200k/mes. ROI: Salva tu crédito hipotecario."
+                ]
+            },
+            {
+                type: "heading",
+                text: "El Costo de NO Tener Seguro: Análisis Financiero Real",
             },
             {
                 type: "paragraph",
-                text: "Nuestro compromiso como agencia en Colombia no es empujar ventas superficiales. Evaluamos tu nivel de riesgo, tu ubicación geográfica y estructura familiar para que accedas a la solución que efectivamente va a blindar tus finanzas a precios competitivos del mercado.",
+                text: "Las encuestas de inclusión financiera del Banco Mundial muestran que el 67% de familias en Colombia que enfrentan un evento catastrófico caen en mora o insolvencia. Aquí el costo real de no protegerse:",
+            },
+            {
+                type: "list",
+                items: [
+                    "Siniestro de auto sin seguro: Pierdes $30M en reparación + endeudamiento a 24% E.A. = $57.6M en 2 años",
+                    "Enfermedad grave sin medicina prepagada: Gastos médicos $50M + pérdida de ingresos 6 meses = $80M+ de deuda",
+                    "Fallecimiento del proveedor sin seguro de vida: Familia vende casa a 60% de valor para sobrevivir = Pérdida patrimonial de $150M-$300M",
+                    "Alternativa con seguro: Primas de $500k/mes × 60 meses = $30M invertidos. Retorno en protección/ahorro: $200M-$500M"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Rendimiento Real: Seguro de Vida vs. Otras Inversiones",
+            },
+            {
+                type: "paragraph",
+                text: "En términos de ROI puro (retorno de inversión), el seguro se compara favorablemente con depósitos a término y fondos de inversión cuando incluyes la protección:",
+            },
+            {
+                type: "list",
+                items: [
+                    "Depósito a término (2.5% E.A.): $300k/mes × 5 años = $18M + $2.25M rendimiento = $20.25M (sin protección si falleces)",
+                    "Seguro Universal Life (6% E.A. en fondo + protección): $300k/mes × 5 años = $18M + $5.4M rendimiento + $200M suma asegurada = Protección total + patrimonio",
+                    "Fondo mutualista (7% E.A.): $300k/mes × 5 años = $18M + $6.3M rendimiento = $24.3M (sin protección de vida/invalidez)",
+                    "Seguro como inversión GANA: Combina protección del patrimonio + rendimiento financiero + tranquilidad mental"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Cómo Estructurar Tu Portafolio de Seguros (Plan de Protección Integral)",
+            },
+            {
+                type: "list",
+                items: [
+                    "Paso 1 - Seguro de Vida Base: $200M-$500M según ingresos. Costo: $300k-$600k/mes",
+                    "Paso 2 - Seguro de Salud: Medicina prepagada o plan liviano. Costo: $150k-$500k/mes",
+                    "Paso 3 - Seguro de Auto Todo Riesgo: Si manejas. Costo: $100k-$350k/mes",
+                    "Paso 4 - Seguro de Invalidez (ITT): Cubre cuota hipotecaria si pierdes ingresos. Costo: $50k-$150k/mes",
+                    "Inversión Total: $600k-$1.6M/mes ($7.2M-$19.2M anuales) que te protege contra riesgos de $200M-$500M"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Asesoría Especializada en Roesan Seguros",
+            },
+            {
+                type: "paragraph",
+                text: "Nuestro enfoque es diferente. No vendemos pólizas: estructuramos soluciones financieras de protección. Analizamos tu flujo de caja, dependientes, deudas, y patrimonio para diseñar un plan donde el seguro funciona como una inversión que genera retorno (rendimiento + protección contra pérdidas catastróficas).",
+            },
+            {
+                type: "links",
+                text: "Conoce nuestras opciones de seguros con rentabilidad:",
+                items: [
+                    "https://www.roesan.co/seguros/vida - Seguros de vida con componente de ahorro",
+                    "https://www.roesan.co/seguros/salud - Planes de medicina prepagada",
+                    "https://www.roesan.co/seguros/auto - Seguros de vehículos con cobertura integral"
+                ]
             },
             { type: "cta", text: "" },
         ],

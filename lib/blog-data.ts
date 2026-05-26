@@ -226,41 +226,188 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "medicina-prepagada-adultos-mayores-bogota",
-        title: "Mejor Medicina Prepagada para Adultos Mayores en Bogotá",
-        excerpt: "Garantiza acceso directo a especialistas en Fundación Santa Fe, Clínica del Country y Shaio. Analizamos los mejores planes para el adulto mayor sin largas esperas.",
+        title: "Medicina Prepagada para Adultos Mayores en Bogotá 2026: Planes, Exclusiones y Alternativas",
+        excerpt: "Comparativa de medicina prepagada vs EPS vs planes livianos para mayores de 60 en Bogotá. Acceso a Fundación Santa Fe, Clínica Shaio y Clínica del Country sin esperas. Preguntas frecuentes sobre exclusiones por edad.",
         date: "2026-04-06",
-        readTime: "6 min",
-        category: "Seguro de Vida",
-        categoryColor: "bg-rose-100 text-rose-700",
+        readTime: "8 min",
+        category: "Salud y Vida",
+        categoryColor: "bg-teal-100 text-teal-700",
         coverImage: "/images/card-salud-co.png",
         content: [
             {
                 type: "intro",
-                text: "El sistema de salud EPS, aunque funcional para temas básicos, suele colapsar cuando nuestros padres o abuelos requieren atención especializada. En Bogotá, las esperas para un cardiólogo o especialista vascular pueden tardar meses. La medicina prepagada para adultos mayores no es un lujo, es una vía rápida para preservar su calidad de vida."
+                text: "El sistema de salud EPS en Colombia, aunque funcional para temas básicos, suele colapsar precisamente cuando nuestros padres o abuelos requieren atención especializada urgente. En Bogotá, las esperas para un cardiólogo, oncólogo o especialista vascular pueden tardar 4-6 meses, tiempo que los adultos mayores simplemente no tienen. La medicina prepagada para adultos mayores no es un lujo: es una vía rápida y comprobada para preservar su calidad de vida, garantizar diagnósticos oportunos y acceso a los mejores especialistas de Latinoamérica. Esta guía compara todas las opciones disponibles en Bogotá 2026."
             },
             {
                 type: "heading",
-                text: "¿Por qué Bogotá es clave para elegir un buen plan?"
+                text: "El Problema Real: EPS vs Medicina Prepagada"
             },
             {
                 type: "paragraph",
-                text: "Bogotá concentra de las mejores infraestructuras clínicas de Latinoamérica. Al adquirir medicina prepagada, evalúas el directorio médico al que te da acceso. Un buen plan garantiza atención prioritaria en la Fundación Santa Fe, Clínica Shaio o Clínica del Country, sin autorizaciones previas tortuosas."
+                text: "Aunque la EPS cubre intervenciones quirúrgicas mayores y hospitalizaciones de alto costo, el gran vacío está en la medicina ambulatoria (consultas, especialistas, exámenes diagnósticos). Para un adulto mayor, este vacío puede ser la diferencia entre detectar un cáncer a tiempo o descubrirlo cuando ya es terminal."
             },
             {
                 type: "list",
                 items: [
-                    "Asegura que incluyan médicos domiciliarios, ya que el clima y tráfico bogotano hacen difícil el desplazamiento.",
-                    "Valida si existen exclusiones por pre-existencias en adultos mayores de 60 años.",
-                    "Revisa convenios de terapias respiratorias y exámenes diagnósticos especializados."
+                    "EPS: Cubre emergencias y cirugías, pero esperas de 2-6 meses para especialistas.",
+                    "Medicina Prepagada: Acceso directo sin remisión, citas en 1-3 días, copagos bajos.",
+                    "Plan Liviano Complementario: Costo bajo ($35k-$60k/mes), cubre ambulatoria, se combina con EPS.",
+                    "Sin cobertura adicional: Riesgo de tomar decisiones médicas por presupuesto, no por salud."
                 ]
             },
             {
                 type: "heading",
-                text: "Asesoría especializada para tu familia"
+                text: "Comparativa: EPS vs Prepagada vs Plan Liviano Complementario"
             },
             {
                 type: "paragraph",
-                text: "Sabemos que a partir de los 60 años es más complejo ser aceptado o resulta sumamente costoso. En Roesan analizamos opciones de inclusión como Planes Familiares, Planes Complementarios (PAC) o seguros de salud para asegurar que consigan la mejor relación costo-beneficio."
+                text: "Aquí el desglose completo de las tres opciones disponibles para adultos mayores en Bogotá:"
+            },
+            {
+                type: "list",
+                items: [
+                    "EPS Estándar: Costo $0 (cotización obligatoria). Cobertura: Hospitalización, cirugía, algunos especialistas. Tiempo citas: 2-6 meses. Copagos: Variables, a veces prohibitivos. Acceso clínicas premium: NO.",
+                    "Medicina Prepagada (Integral): Costo $400k-$900k/mes para mayores 60. Cobertura: TODO ambulatorio + algunas cirugías. Tiempo citas: 1-3 días. Copagos: $20k-$80k. Acceso clínicas premium: SÍ (Santa Fe, Shaio, del Country).",
+                    "Plan Liviano Complementario (SURA/Bolívar): Costo $35k-$60k/mes. Cobertura: Ambulatoria solamente. Tiempo citas: 2-5 días. Copagos: $15k-$40k. Acceso clínicas: Red de prestadores (no las premium)."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Clínicas Especializadas en Bogotá para Adultos Mayores"
+            },
+            {
+                type: "paragraph",
+                text: "Bogotá alberga algunas de las mejores infraestructuras médicas de América Latina. Si tu plan prepagado te da acceso a estas clínicas, es un diferencial valioso:"
+            },
+            {
+                type: "links",
+                text: "Principales clínicas de referencia en Bogotá:",
+                items: ["https://www.fsfb.org.co - Fundación Santa Fe de Bogotá (Cardiología, Oncología, Neurología premium)", "https://www.shaio.org - Hospital Universitario Shaio (Especialidades y urgencias de alto nivel)", "https://www.clinicadelcountry.com - Clínica del Country (Medicina integral y especialistas premium)"]
+            },
+            {
+                type: "heading",
+                text: "Planes Específicos para Mayores de 60: Opciones Disponibles en 2026"
+            },
+            {
+                type: "paragraph",
+                text: "A partir de los 60 años, la aceptación en medicina prepagada se vuelve más restrictiva y costosa. Aquí las opciones que SÍ aceptan y qué esperar:"
+            },
+            {
+                type: "heading",
+                text: "Opción 1: Medicina Prepagada Integral (Colegiadas/Seguros de Salud)"
+            },
+            {
+                type: "list",
+                items: [
+                    "Aceptación: Mayores de 60 con evaluación médica (algunos límites de edad hasta 75 años)",
+                    "Costo: $500k-$900k/mes según edad y antecedentes",
+                    "Requisitos: Examen médico completo (hemograma, EKG, radiografía), declaración de salud",
+                    "Exclusiones comunes: Enfermedades pre-existentes (primera cuota de espera 90-180 días), cirugía de cadera, algunas terapias"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Opción 2: Plan Liviano Complementario (SURA, Bolívar, AXA)"
+            },
+            {
+                type: "list",
+                items: [
+                    "Aceptación: Mayoría sin límite de edad (incluso 80+ años)",
+                    "Costo: $40k-$70k/mes, muchísimo más asequible",
+                    "Cobertura: Consultas especialistas, exámenes, procedimientos ambulatorios",
+                    "No cubre: Cirugías, hospitalizaciones (para eso usas tu EPS)",
+                    "Ventaja: Acceso rápido sin evaluación médica exhaustiva"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Opción 3: Planes Familiares o Parejas"
+            },
+            {
+                type: "list",
+                items: [
+                    "Concepto: Un plan que cubre a dos personas (pareja) con prima reducida",
+                    "Costo: $300k-$600k/mes para dos adultos mayores (30-40% descuento)",
+                    "Aceptación: Más flexible que planes individuales",
+                    "Estrategia: Si tus padres son pareja, es la opción más económica"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Preguntas Frecuentes: Exclusiones por Edad"
+            },
+            {
+                type: "list",
+                items: [
+                    "¿Pueden rechazarme por edad? NO legalmente (Ley de Protección al Consumidor), pero pueden cobrar primas más altas o solicitar evaluación médica.",
+                    "¿Qué pasa si tengo diabetes o hipertensión? Estos son pre-existentes. Habrá cuota de espera (90-180 días) para coberturas relacionadas.",
+                    "¿Hay exclusiones permanentes? Algunas pólizas excluyen permanentemente artritis severa, ciertas cirugías ortopédicas o enfermedades degenerativas.",
+                    "¿Puedo agregar cobertura de medicamentos? SÍ, pero con recargo. Muchos planes de mayores NO incluyen farmacia.",
+                    "¿Hay límite de edad máxima? Algunos planes aceptan hasta 75-80 años. Después es muy difícil encontrar cobertura nueva.",
+                    "¿Los médicos domiciliarios están incluidos? En planes de prepagada SÍ. En planes livianos DEPENDE del plan."
+                ]
+            },
+            {
+                type: "heading",
+                text: "¿Por Qué Bogotá es Clave para Elegir un Buen Plan?"
+            },
+            {
+                type: "paragraph",
+                text: "Bogotá concentra la mayor densidad de especialistas y clínicas premium de Colombia. Un plan que te da acceso a instituciones de clase mundial sin autorizaciones tortuosas es un diferencial de salud muy real. Además:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Infraestructura: Las 3 clínicas mencionadas tienen servicios de cardiología, oncología, neurología y geriatría de nivel mundial.",
+                    "Médicos domiciliarios: Crítico en Bogotá debido al clima y tráfico. Que tu plan incluya medicina domiciliaria puede evitar hospitalizaciones innecesarias.",
+                    "Telemedicina: Muchos planes ahora ofrecen consultas virtuales con especialistas (útil en días de mal clima o cuando el paciente está limitado).",
+                    "Farmacias convenidas: Descuentos de 30-50% en medicamentos que un adulto mayor toma de por vida."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Checklist: Qué Verificar Antes de Contratar Medicina Prepagada"
+            },
+            {
+                type: "list",
+                items: [
+                    "☑ Directorio de especialistas: Verifica que incluya cardiólogo, geriatra, oftalmólogo, urólogo/ginecólogo.",
+                    "☑ Clínicas de referencia: Confirma que accedes a Santa Fe, Shaio o similar (no solo hospitales de tercera línea).",
+                    "☑ Copagos por edad: Algunos planes cobran copago diferenciado ($50k a mayores de 70). Negocia esto.",
+                    "☑ Cobertura de medicamentos: ¿Incluye fármaco? ¿Con cuál nivel de descuento?",
+                    "☑ Cláusulas de pre-existencia: Pide por escrito el período de espera para tus condiciones de salud específicas.",
+                    "☑ Período de carencia: ¿Cuántos días debe esperar antes de poder usar la cobertura?",
+                    "☑ Exclusiones permanentes: Solicita lista completa de lo que NO cubre NUNCA."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Estrategia Recomendada para Adultos Mayores en Bogotá"
+            },
+            {
+                type: "paragraph",
+                text: "La combinación ideal para máxima protección y mínimo costo es: EPS (obligatoria para cirugías/hospitalizaciones) + Plan Liviano Complementario (para ambulatoria rápida y económica)."
+            },
+            {
+                type: "list",
+                items: [
+                    "Costo total: $35k-$70k/mes (el plan liviano) + tu EPS",
+                    "Cobertura: 100% del cuidado de salud sin esperas",
+                    "Ventaja: Acceso rápido a especialistas sin el costo prohibitivo de prepagada integral",
+                    "Para patrimonio alto: Si pueden pagar, prepagada integral completa brinda mayor tranquilidad"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Asesoría Especializada para Tu Familia"
+            },
+            {
+                type: "paragraph",
+                text: "Sabemos que a partir de los 60 años la aceptación en medicina se vuelve compleja y costosa. En Roesan analizamos el perfil de salud específico de tu padre/madre/abuelo para recomendar la mejor combinación: EPS + Planes Complementarios, Medicina Prepagada Integral, o Planes Familiares."
+            },
+            {
+                type: "paragraph",
+                text: "Nuestro objetivo es garantizar que los adultos mayores de tu familia reciban atención médica de calidad sin esperas tortuosas, accediendo a los mejores especialistas de Bogotá a un precio justo. Contáctanos hoy para una asesoría sin compromiso adaptada a tu situación."
             },
             {
                 type: "cta", text: ""

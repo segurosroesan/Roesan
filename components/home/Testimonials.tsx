@@ -120,8 +120,44 @@ function StarRating({ count }: { count: number }) {
 }
 
 export function Testimonials() {
+    // Generate Schema.org structured data for testimonials
+    const testimonialSchema = {
+        "@context": "https://schema.org",
+        "@type": "Collection",
+        "name": "Testimonios de Roesan Seguros",
+        "description": "Historias reales de personas y empresas que han depositado su confianza en nuestra experiencia.",
+        "url": "https://roesan.com",
+        "hasPart": testimonials.map((t, index) => ({
+            "@type": "Review",
+            "@id": `https://roesan.com/#testimonial-${index}`,
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": t.rating,
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "reviewBody": t.quote,
+            "author": {
+                "@type": "Person",
+                "name": t.author,
+                "jobTitle": t.role
+            },
+            "datePublished": new Date().toISOString().split('T')[0],
+            "publisher": {
+                "@type": "Organization",
+                "name": "Roesan Seguros",
+                "url": "https://roesan.com"
+            }
+        }))
+    };
+
     return (
         <section className="relative overflow-hidden py-24 lg:py-32">
+            {/* Schema.org JSON-LD for SEO */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(testimonialSchema) }}
+            />
             <style>{`
                 @keyframes marquee {
                     0% { transform: translateX(0); }
@@ -136,6 +172,24 @@ export function Testimonials() {
                     animation-play-state: paused;
                 }
             `}</style>
+
+            {/* Additional schema for aggregated ratings */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "AggregateRating",
+                        "@id": "https://roesan.com/#aggregate-rating",
+                        "ratingValue": "5",
+                        "bestRating": "5",
+                        "worstRating": "1",
+                        "ratingCount": testimonials.length,
+                        "reviewCount": testimonials.length,
+                        "name": "Roesan Seguros - Testimonios"
+                    })
+                }}
+            />
             
             {/* Background decoration */}
             <div className="absolute inset-0 z-0">

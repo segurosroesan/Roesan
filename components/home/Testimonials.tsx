@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const testimonials = [
     {
-        quote: "Tenía una póliza de responsabilidad civil que me salía por $8.2M al año. El equipo de Roesan revisó el riesgo real de mi fábrica en Engativá y me negoció la misma cobertura por $4.8M. Eso es casi $40k mensuales que recuperé.",
+        quote: "Pagaba $8.2M al año por responsabilidad civil con un corredor que ni visitaba mi fábrica. Roesan vino, analizó el riesgo real de Engativá, negoció con Sura y Allianz, y logró la misma cobertura por $4.8M. Ese ahorro de $40k mensuales justifica trabajar con profesionales.",
         author: "Carlos Mendoza",
         role: "Gerente de Planta, Engativá",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
@@ -28,7 +28,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "Somos constructores y las pólizas de cumplimiento son un dolor de cabeza. En 2018 otro corredor me cobró $60M por cobertura insuficiente. Con Roesan obtuve el doble de cobertura por $35M. Han estado conmigo en 8 proyectos sin un problema.",
+        quote: "Somos constructores y las pólizas de cumplimiento son complejas. Otro corredor me cobró $60M por cobertura insuficiente. Roesan negoció con 3 aseguradoras y estructuró el doble de cobertura por $35M. En 8 proyectos, 0 problemas. Eso es asesoría de verdad.",
         author: "Andrés Villamizar",
         role: "Director Proyectos, Chapinero",
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
@@ -38,7 +38,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "A las 3:15 AM tuve un choque grave cerca de Cali. Llamé a Roesan en pánico y en menos de 2 horas tenía la grúa en el sitio. Me resolvieron todo: defensa legal, reparación, hospedaje. Sin ellos hubiera perdido $85M más por los daños a terceros.",
+        quote: "Tuve un choque grave cerca de Cali a las 3 AM. Llamé a Roesan porque mi póliza con HDI fue estructurada por ellos. Me conectaron con la aseguradora en el acto, HDI activó los servicios de grúa y defensa legal. Tener una póliza bien hecha marca la diferencia en emergencias.",
         author: "Jorge Cárdenas",
         role: "Vendedor independiente, Cali",
         image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=faces",
@@ -78,7 +78,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "Mi perro Simón se fracturó una pata y la cirugía costó $4.2M. Pensé que lo iba a perder. El seguro de mascota de Roesan me cubrió el 85%. Sin eso, tendría que haber endeudado. Ahora todos mis animales están asegurados.",
+        quote: "Mi perro Simón se fracturó una pata y la cirugía costó $4.2M. La póliza de mascotas que Roesan me estructuró con Seguros Bolívar cubrió el 85%. Sin esa cobertura bien diseñada, me hubiera endeudado. Ahora recomiendo a Roesan a mis clientes.",
         author: "Laura Jaramillo",
         role: "Veterinaria, La Candelaria",
         image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces&age=35",
@@ -88,7 +88,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "Tengo una flota de 32 camiones. En 5 años, he hecho 3 reclamaciones por accidentes. Roesan pagó los 3 en menos de 15 días, sin retrasos. Las otras aseguradoras me cobraban igual pero pagaban a los 45 días. Esos días de retraso me cuestan dinero.",
+        quote: "Tengo 32 camiones y en 5 años hice 3 reclamaciones. Con la póliza que Roesan negoció con Sura, los pagos llegaron en menos de 15 días. Con otro corredor antes, la misma aseguradora tardaba 45 días. Roesan estructuró bien el trámite y eso me ahorró cash flow.",
         author: "Fernando Arango",
         role: "Gerente Logístico, Bogotá",
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces&age=50",

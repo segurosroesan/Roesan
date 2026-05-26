@@ -150,6 +150,32 @@ export default async function BlogPostPage({ params }: Props) {
                                     </ul>
                                 );
                             }
+                            if (section.type === "links") {
+                                return (
+                                    <div key={i} className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg mb-6">
+                                        <p className="text-slate-700 font-semibold mb-3">{section.text}</p>
+                                        <ul className="space-y-2">
+                                            {section.items?.map((link, j) => {
+                                                const urlMatch = link.match(/^(https?:\/\/[^\s]+)/);
+                                                const url = urlMatch ? urlMatch[1] : "#";
+                                                const text = link.replace(/^https?:\/\/[^\s]+\s*-\s*/, "").replace(/^https?:\/\/[^\s]+/, link);
+                                                return (
+                                                    <li key={j}>
+                                                        <a
+                                                            href={url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-blue-600 hover:text-blue-800 hover:underline font-medium text-sm"
+                                                        >
+                                                            {text}
+                                                        </a>
+                                                    </li>
+                                                );
+                                            })}
+                                        </ul>
+                                    </div>
+                                );
+                            }
                             if (section.type === "cta") {
                                 return null; // Rendered below
                             }

@@ -11,7 +11,7 @@ export interface BlogPost {
 }
 
 export interface BlogSection {
-    type: "intro" | "heading" | "paragraph" | "list" | "cta" | "image";
+    type: "intro" | "heading" | "paragraph" | "list" | "cta" | "image" | "links";
     text?: string;
     items?: string[];
     imageUrl?: string;
@@ -628,8 +628,8 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "planes-mas-que-seguros-eps",
-        title: "Planes más que seguros: La alternativa inteligente para mejorar tu EPS sin gastar una fortuna",
-        excerpt: "Si sientes que las citas en tu EPS tardan demasiado pero una medicina prepagada completa sale de tu presupuesto, los 'seguros livianos' como Salud para Todos (Bolívar) son la solución ideal.",
+        title: "Planes más que Seguros: Salud Liviana de SURA y Bolívar sin dejar tu EPS en 2026",
+        excerpt: "Descubre cómo complementar tu EPS con planes livianos de SURA y Bolívar. Acceso rápido a especialistas, sin copagos altos y con primas económicas. Mejora tu atención ambulatoria hoy.",
         date: "2026-05-14",
         readTime: "5 min",
         category: "Salud y Vida",
@@ -638,55 +638,132 @@ export const blogPosts: BlogPost[] = [
         content: [
             {
                 type: "intro",
-                text: "El sistema de salud en Colombia a través de las EPS cubre intervenciones quirúrgicas mayores y hospitalizaciones de alto costo, pero el verdadero dolor de cabeza para la mayoría de los usuarios está en el día a día: conseguir una cita rápida con un especialista o autorizar un examen diagnóstico sencillo. Muchos creen que la única salida es pagar una costosa póliza de salud integral o medicina prepagada, pero existe una tercera vía muy eficiente: los seguros de salud livianos."
+                text: "El sistema de salud en Colombia a través de las EPS cubre intervenciones quirúrgicas mayores y hospitalizaciones de alto costo, pero el verdadero dolor de cabeza para la mayoría de los usuarios está en el día a día: conseguir una cita rápida con un especialista o autorizar un examen diagnóstico sencillo. Muchos creen que la única salida es pagar una costosa póliza de salud integral o medicina prepagada, pero existe una tercera vía muy eficiente: los seguros de salud livianos de empresas como SURA y Bolívar."
             },
             {
                 type: "heading",
-                text: "¿Qué es un seguro de salud liviano?"
+                text: "¿Qué es un seguro de salud liviano o complementario?"
             },
             {
                 type: "paragraph",
-                text: "Un seguro liviano (o póliza ambulatoria) es un producto diseñado para complementar a tu EPS cubriendo exactamente donde esta falla: la oportunidad y rapidez en la atención básica. En lugar de pagar por coberturas hospitalarias complejas (que tu EPS ya asume por ley), pagas un valor mensual muy asequible enfocado en brindarte acceso directo y sin filas a consultas médicas, especialistas y exámenes de laboratorio."
+                text: "Un seguro liviano (también llamado póliza ambulatoria o seguro complementario) es un producto diseñado para complementar a tu EPS cubriendo exactamente donde esta falla: la oportunidad y rapidez en la atención básica. En lugar de pagar por coberturas hospitalarias complejas (que tu EPS ya asume por ley), pagas un valor mensual muy asequible enfocado en brindarte acceso directo y sin filas a consultas médicas, especialistas y exámenes de laboratorio. Es ideal para trabajadores independientes, empleados del sector privado y pensionados."
             },
             {
                 type: "heading",
-                text: "Opciones destacadas en el mercado colombiano"
+                text: "Mejores planes livianos en Colombia: SURA y Bolívar"
             },
             {
                 type: "paragraph",
-                text: "Las grandes aseguradoras han entendido esta necesidad y han lanzado productos excelentes. Dos ejemplos muy populares son:"
+                text: "Las dos principales aseguradoras del país han desarrollado soluciones innovadoras y económicas para este segmento. Aquí detallamos las opciones más competitivas:"
+            },
+            {
+                type: "heading",
+                text: "Salud para Todos - Seguros Bolívar"
+            },
+            {
+                type: "paragraph",
+                text: "Bolívar, la aseguradora con más de 70 años de trayectoria en Colombia, lanzó 'Salud para Todos', un plan liviano diseñado específicamente para la clase media que desea medicina de calidad sin pagar de más."
             },
             {
                 type: "list",
                 items: [
-                    "Salud para Todos (Seguros Bolívar): Es un plan económico que te permite agendar citas con medicina general y un amplio directorio de especialistas sin necesidad de remisión previa. Incluye terapias, ayudas diagnósticas simples y orientación médica telefónica 24/7.",
-                    "Planes Modulares y Salud para Dos (SURA): SURA ofrece alternativas flexibles que puedes compartir en pareja o familia. Te brindan acceso preferencial a sus centros médicos, especialistas directos y rapidez en laboratorios, todo por una fracción del costo de un plan tradicional."
+                    "✓ Acceso directo a especialistas sin remisión del médico general",
+                    "✓ Red amplia de médicos y clínicas afiliadas en Bogotá, Medellín, Cali y otras ciudades",
+                    "✓ Citas en cuestión de 1-3 días hábiles (vs. meses en EPS)",
+                    "✓ Exámenes de laboratorio y diagnóstico con cobertura alta",
+                    "✓ Orientación médica telefónica 24/7",
+                    "✓ Copagos económicos (por lo general entre $20,000 y $50,000 COP)",
+                    "✓ Primas mensuales accesibles (desde $40,000 COP aprox.)"
                 ]
             },
             {
+                type: "paragraph",
+                text: "Para conocer más detalles, planes específicos y cotizaciones actualizadas de Bolívar, visita:",
+                items: ["https://www.segurosbolivar.com - Sitio oficial Seguros Bolívar", "https://www.segurosbolivar.com/salud - Planes de salud complementaria"]
+            },
+            {
                 type: "heading",
-                text: "Ventajas frente al modelo tradicional"
+                text: "Planes Modulares y Salud para Dos - SURA"
+            },
+            {
+                type: "paragraph",
+                text: "SURA, el gigante asegurador con presencia en toda América Latina, ofrece productos de salud liviana pensados en flexibilidad y personalización. Puedes ajustar coberturas según tu edad y necesidades específicas."
+            },
+            {
+                type: "list",
+                items: [
+                    "✓ Planes modulares: Elige qué servicios incluir (medicina general, especialistas, cirugía, dental)",
+                    "✓ Opción familiar o compartida con la pareja",
+                    "✓ Red preferencial de centros médicos de primer nivel",
+                    "✓ Acceso a telemedicina (consultas virtuales con especialistas)",
+                    "✓ Incluye algunos servicios preventivos (vacunas, odontología básica)",
+                    "✓ Primas desde $35,000 COP mensuales (dependiendo del módulo)",
+                    "✓ Procesamiento rápido de autorizaciones (máximo 24 horas)"
+                ]
+            },
+            {
+                type: "paragraph",
+                text: "Para explorar todos los planes y cotizar en línea, accede a:",
+                items: ["https://www.sura.com.co - Portal oficial de SURA", "https://www.sura.com.co/seguros-de-salud - Todos sus planes de salud"]
+            },
+            {
+                type: "heading",
+                text: "Comparación directa: Bolívar vs SURA"
+            },
+            {
+                type: "paragraph",
+                text: "Ambas aseguradoras compiten fuertemente por este segmento. La diferencia principal radica en la red de prestadores y la flexibilidad de personalización. SURA permite mayor modularidad (armar tu propio plan), mientras que Bolívar ofrece paquetes más predefinidos pero con mejor relación precio-cobertura en muchos casos."
+            },
+            {
+                type: "heading",
+                text: "Ventajas de los planes livianos frente al modelo tradicional EPS"
             },
             {
                 type: "list",
                 items: [
                     "Acceso Directo: Te saltas el paso del médico general. Si te duele la rodilla, pides cita directamente con el ortopedista.",
-                    "Economía: Las primas (costo mensual) son sustancialmente más bajas que las de una póliza de salud completa, haciéndolas accesibles para la clase media y trabajadores independientes.",
-                    "Rapidez: Citas en cuestión de días y no de meses, en consultorios privados o centros médicos VIP de las aseguradoras.",
-                    "Sin copagos excesivos: Tienen estructuras de copagos muy claras y en muchos casos, exenciones para ciertos servicios básicos."
+                    "Economía: Las primas mensuales son sustancialmente más bajas que las de una póliza de salud integral completa, haciéndolas accesibles para la clase media.",
+                    "Rapidez: Citas en cuestión de días (no meses), en consultorios privados o centros médicos VIP de calidad.",
+                    "Sin copagos excesivos: Estructuras claras y en muchos casos, exenciones para servicios básicos de prevención.",
+                    "Cobertura ambulatoria: Ideal para tratamientos continuos, fisioterapia, odontología y medicina especializada."
                 ]
             },
             {
                 type: "heading",
-                text: "Una decisión estratégica"
+                text: "¿Por qué complementar tu EPS con un plan liviano?"
             },
             {
                 type: "paragraph",
-                text: "La estrategia ideal para proteger tu salud financiera y física no siempre es comprar el seguro más caro. Mantener tu EPS para urgencias vitales, hospitalizaciones y cirugías mayores, combinada con un seguro liviano para tu atención ambulatoria, te brinda lo mejor de ambos mundos."
+                text: "Las EPS están diseñadas para cobertura de urgencias y cirugías mayores, pero su estructura pública hace que se saturen fácilmente. Un plan liviano de SURA o Bolívar cubre exactamente donde las EPS flaquean: la medicina ambulatoria (consultas, especialistas, exámenes)."
+            },
+            {
+                type: "list",
+                items: [
+                    "Evita perder tiempo en filas del médico general para obtener una remisión",
+                    "Acceso a especialistas de alto nivel sin meses de espera",
+                    "Protege tu presupuesto: copagos predecibles y bajos",
+                    "Mejora significativamente tu calidad de vida e índices de salud preventiva"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Una decisión estratégica para tu salud"
             },
             {
                 type: "paragraph",
-                text: "En Roesan Seguros analizamos tu perfil, tu presupuesto y las clínicas de tu preferencia para recomendarte el plan liviano (Bolívar, SURA, entre otros) que mejor complemente tus necesidades de salud diarias."
+                text: "La estrategia ideal para proteger tu salud financiera y física no es siempre comprar el seguro más caro. Mantener tu EPS para urgencias vitales, hospitalizaciones y cirugías mayores, combinada con un seguro liviano de SURA o Bolívar para tu atención ambulatoria, te brinda lo mejor de ambos mundos: protección integral a bajo costo."
+            },
+            {
+                type: "heading",
+                text: "Asesoría especializada en Roesan Seguros"
+            },
+            {
+                type: "paragraph",
+                text: "En Roesan Seguros analizamos tu perfil de salud, edad, presupuesto mensual y las clínicas de tu preferencia para recomendarte el plan liviano (Bolívar 'Salud para Todos', SURA modular, o alternativas de otras aseguradoras) que mejor complemente tus necesidades de salud diarias. Cotizamos directamente con las aseguradoras para garantizarte las mejores tarifas del mercado."
+            },
+            {
+                type: "paragraph",
+                text: "Contáctanos hoy y descubre cuánto podrías estar ahorrando con un plan complementario bien estructurado."
             },
             { type: "cta", text: "" }
         ]

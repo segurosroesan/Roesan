@@ -344,36 +344,54 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "seguro-automovil-colombia-guia",
-        title: "Seguro de Auto Todo Riesgo en Colombia: No basta con el SOAT (Guía Definitiva)",
+        title: "Seguro de Automóvil en Colombia 2026: SOAT vs Todo Riesgo - Guía Definitiva y Comparativa",
         excerpt:
-            "Conducir en ciudades colombianas implica riesgos diarios. Aunque el SOAT es obligatorio por ley, este no respalda tus rayones, robos ni te salva de multas civiles millonarias. Entiende cómo blindar tu vehículo.",
+            "Guía completa sobre seguros de auto en Colombia. Entiende diferencias entre SOAT, Responsabilidad Civil y Todo Riesgo. Comparativa de SURA, Bolívar, Allianz, Mapfre y HDI con enlaces directos para cotizar.",
         date: "2026-03-15",
-        readTime: "7 min",
+        readTime: "9 min",
         category: "Seguros de Autos",
         categoryColor: "bg-cyan-100 text-cyan-700",
         coverImage: "/images/blog/cover_auto.png",
         content: [
             {
                 type: "intro",
-                text: "Con el constante volumen de tráfico en Bogotá, los cerros transitados de Medellín o el clima en la Costa, tener un vehículo en Colombia es un reto. Millones de conductores se encomiendan solo a su experiencia y al documento de SOAT, desconociendo el cráter legal y financiero al que se exponen.",
+                text: "Con el constante volumen de tráfico en Bogotá, los cerros transitados de Medellín o el clima impredecible en la Costa, tener un vehículo en Colombia es un reto diario. Millones de conductores se encomiendan solo a su experiencia y al documento de SOAT obligatorio, desconociendo el cráter legal y financiero al que se exponen. Esta guía definitiva te explica qué cubre realmente el SOAT, por qué es insuficiente, y cómo blindar tu patrimonio con seguros voluntarios. Incluye comparativa directa de SURA, Bolívar, Allianz, Mapfre y HDI.",
             },
             {
                 type: "heading",
-                text: "¿Por qué el SOAT es solo la 'punta del iceberg'?",
+                text: "¿Qué es el SOAT y qué cubre realmente?",
             },
             {
                 type: "paragraph",
-                text: "El Seguro Obligatorio (SOAT) es estricto en su alcance: está diseñado por el gobierno para salvar vidas, financiando la infraestructura hospitalaria de emergencias. Pero tu patrimonio queda a la deriva.",
+                text: "El Seguro Obligatorio de Accidentes de Tránsito (SOAT) es estrictamente obligatorio por ley en Colombia desde 1990. Su alcance es muy específico: está diseñado por el gobierno para financiar atención médica de urgencias en caso de accidentes viales, pero tu patrimonio NO está protegido.",
             },
             {
                 type: "list",
                 items: [
-                    "Cubre únicamente lesiones a peatones, conductores y pasajeros en el siniestro.",
-                    "El tope de cobertura hospitalaria en Colombia es delimitado a salarios mínimos legales diarios vigentes (SMLDV).",
-                    "NO paga rayones al bumper del vecino.",
-                    "NO repone tu carro si fue hurtado a mano armada.",
-                    "NO te defiende de demandas civiles si causaste un accidente mayor.",
-                ],
+                    "✓ Cubre ÚNICAMENTE lesiones a peatones, conductores y pasajeros en el siniestro.",
+                    "✓ El tope de cobertura hospitalaria en Colombia es delimitado a salarios mínimos legales diarios vigentes (SMLDV) - aproximadamente $1.3 millones COP en 2026.",
+                    "✗ NO paga daños materiales: rayones, golpes o destrucción de tu carro.",
+                    "✗ NO cubre rayones al bumper, espejo o vehículo de terceros.",
+                    "✗ NO repone tu carro si fue hurtado a mano armada.",
+                    "✗ NO te defiende de demandas civiles si causaste un accidente grave que injurie a personas.",
+                    "✗ NO cubre gastos de grúa, mecánica, vehículo de reemplazo ni asistencia vial."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Comparativa: SOAT vs Responsabilidad Civil vs Todo Riesgo",
+            },
+            {
+                type: "paragraph",
+                text: "Entender las diferencias entre estas tres opciones es crítico para proteger tu patrimonio. Aquí el desglose completo:"
+            },
+            {
+                type: "list",
+                items: [
+                    "SOAT (Obligatorio): Cubre daños a terceros en salud. Costo: $250k-$400k COP/año. Riesgo: Tu carro no está protegido.",
+                    "Responsabilidad Civil Voluntaria: Cubre daños materiales y corporales a terceros. Costo: $500k-$1.5M COP/año. Riesgo: Tu propio vehículo sigue sin protección.",
+                    "Todo Riesgo (Completo): Cubre tu vehículo + responsabilidad civil a terceros + beneficios adicionales. Costo: $1.2M-$4.5M COP/año. Protección: TOTAL."
+                ]
             },
             {
                 type: "image",
@@ -382,44 +400,172 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "heading",
+                text: "Responsabilidad Civil: El Amparo Más Crítico",
+            },
+            {
+                type: "paragraph",
+                text: "La Responsabilidad Civil Extracontractual (RCE) es el pilar que protege tu patrimonio personal. Aquí por qué es tan importante:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Demandas civiles: Si causas un accidente grave e injurias a personas, la familia puede demandarte por millones de pesos (lucro cesante, daño moral, gastos médicos).",
+                    "Daños a propiedad ajena: Colisionar con un vehículo premium (BMW, Audi, Mercedes) puede costarte $30-50 millones de pesos en reparaciones.",
+                    "Protección legal: La RCE no solo paga indemnizaciones, también asume gastos de defensa legal y honorarios de abogados especializados.",
+                    "Límites de cobertura recomendados: Mínimo $3.000 millones COP para RCE en áreas urbanas."
+                ]
+            },
+            {
+                type: "heading",
                 text: "La Póliza Todo Riesgo: Tu Escudo Completo",
             },
             {
                 type: "paragraph",
-                text: "Un seguro Todo Riesgo (Voluntario) es el contrato que ampara la estructura y valor comercial de tu vehículo (bajo estándares de referencias como Fasecolda). Incluye:",
+                text: "Un seguro Todo Riesgo (Voluntario) es el contrato que ampara la estructura y valor comercial de tu vehículo bajo estándares de Fasecolda (Federación Colombiana de Aseguradoras). Es la protección más integral disponible."
             },
             {
                 type: "list",
                 items: [
-                    "Cobertura ante Pérdida Total o Parcial (Daños propios ocasionados por choques, incendios o clima extremo).",
-                    "Responsabilidad Civil Extracontractual (RCE): El pilar más importante. Si colisionas con un auto de alta gama e hieres a sus ocupantes, tu póliza paga sentencias legales que podrían arruinar a tu familia.",
-                    "Protección por Hurto: Reembolso del valor comercial por robo total y reemplazo por hurto de autopartes.",
-                    "Carro Taller, Grúas, Vehículo de Reemplazo y Conductor Inteligente 24/7.",
-                ],
+                    "✓ Pérdida Total: Si tu carro es totalizado, recibís el 100% de su valor comercial.",
+                    "✓ Pérdida Parcial: Cubre reparaciones por choques, colisiones, incendios o daños por fuerza mayor.",
+                    "✓ Responsabilidad Civil: El pilar más importante, protege tu patrimonio de demandas.",
+                    "✓ Protección por Hurto: Reembolso total por robo y reemplazo de autopartes.",
+                    "✓ Beneficios Adicionales: Grúa 24/7, vehículo de reemplazo, mecánica en vía, auxilio vial sin límite de kilómetros.",
+                    "✓ Cobertura Ampliada: Granizo, vandalismo, accidentes naturales según la póliza."
+                ]
             },
             {
                 type: "heading",
-                text: "Cuidado: El error de cotizar únicamente buscando 'lo más barato'",
+                text: "Aseguradoras Principales en Colombia: Opciones de Cotización",
             },
             {
                 type: "paragraph",
-                text: "Comprar pólizas vehiculares solo guiándose por el último renglón de la factura de cobro es riesgoso en Colombia. Aseguradoras con deducibles ocultos (aquello que tú asumes del gasto final), redes de talleres multimarca ineficientes o cláusulas de menor cuantía pueden causar dolores de cabeza que anulan el 'ahorro' inicial.",
+                text: "Las cinco principales aseguradoras compiten agresivamente en el mercado colombiano. Aquí acceso directo a cotizaciones:"
+            },
+            {
+                type: "heading",
+                text: "SURA - Cobertura Integral",
             },
             {
                 type: "list",
                 items: [
-                    "Evita Deducibles excesivos en Pérdida Parcial.",
-                    "Garantiza RCE superiores a los 3.000 Millones de COP.",
-                    "Verifica beneficios como amparo patrimonial o defensa jurídica.",
-                ],
+                    "Prima Todo Riesgo: $1.8M - $2.9M COP/año",
+                    "Deducible mínimo: $500,000 COP",
+                    "RCE: Hasta $5,000 millones COP",
+                    "Red de talleres: 1,500+ en el país",
+                    "Diferencial: Amparo de granizo completo y vehículo de reemplazo automático"
+                ]
+            },
+            {
+                type: "links",
+                text: "Cotiza con SURA:",
+                items: ["https://www.sura.com.co - Portal principal", "https://www.sura.com.co/seguros-de-auto - Seguros de automóvil"]
             },
             {
                 type: "heading",
-                text: "Comparamos las mejores aseguradoras del país para ti",
+                text: "Seguros Bolívar - Mejor Precio-Cobertura",
+            },
+            {
+                type: "list",
+                items: [
+                    "Prima Todo Riesgo: $1.5M - $2.7M COP/año",
+                    "Deducible: $500k o $1M (ajustable)",
+                    "RCE: Hasta $4,000 millones COP",
+                    "Ventaja: Emisión en máximo 24 horas y aceptación rápida",
+                    "Plus: Rastreo GPS opcional sin costo adicional"
+                ]
+            },
+            {
+                type: "links",
+                text: "Solicita cotización Bolívar:",
+                items: ["https://www.segurosbolivar.com - Sitio oficial", "https://www.segurosbolivar.com/autos - Simulador de costos"]
+            },
+            {
+                type: "heading",
+                text: "Allianz - Innovación y Flexibilidad",
+            },
+            {
+                type: "list",
+                items: [
+                    "Prima Todo Riesgo: $1.7M - $3.0M COP/año",
+                    "Deducible flexible: Desde $300k (con sobreprime)",
+                    "RCE: Hasta $5,000 millones COP",
+                    "Novedad: Permite registrar 3 conductores sin recargo",
+                    "App Allianz: Reporte de siniestros por celular y seguimiento en tiempo real"
+                ]
+            },
+            {
+                type: "links",
+                text: "Cotiza con Allianz:",
+                items: ["https://www.allianz.com.co - Portal Allianz Colombia", "https://www.allianz.com.co/cotizador-auto - Cotizador en línea"]
+            },
+            {
+                type: "heading",
+                text: "Mapfre - Opciones Personalizadas",
+            },
+            {
+                type: "list",
+                items: [
+                    "Prima Todo Riesgo: $1.6M - $2.8M COP/año",
+                    "Deducible: $500k o $1M",
+                    "Especialidad: Excelente cobertura para vehículos comerciales",
+                    "Diferencial: Planes con agregados de cobertura ampliada"
+                ]
+            },
+            {
+                type: "heading",
+                text: "HDI - Alternativa Competitiva",
+            },
+            {
+                type: "list",
+                items: [
+                    "Prima Todo Riesgo: $1.4M - $2.6M COP/año",
+                    "Deducible: $500k (más económico del mercado)",
+                    "Ventaja: Una de las primas más competitivas",
+                    "Red de apoyo: Acuerdos con talleres de confianza"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Errores Críticos al Cotizar Seguro de Auto",
+            },
+            {
+                type: "list",
+                items: [
+                    "❌ Buscar únicamente 'lo más barato': Bajas primas suelen esconder deducibles ocultos o redes de talleres mediocres.",
+                    "❌ Confundir SOAT con Seguro Voluntario: SOAT es obligatorio pero INSUFICIENTE para proteger tu patrimonio.",
+                    "❌ No revisar detalle de RCE: Una RCE baja ($1.5M) es insuficiente para accidentes graves con vehículos costosos.",
+                    "❌ Ignorar deducibles por daño propio: Un deducible de $2M significa que tú asumes ese monto en cada siniestro.",
+                    "❌ No cotizar en múltiples aseguradoras: El mismo perfil puede variar $500k-$1M entre aseguradoras."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Checklist: ¿Qué debes revisar antes de comprar tu seguro auto?"
+            },
+            {
+                type: "list",
+                items: [
+                    "☑ Cobertura de Responsabilidad Civil: Mínimo $3.000 millones COP",
+                    "☑ Deducible en Pérdida Parcial: No mayor a $1.000 millones COP",
+                    "☑ Amparo de Granizo: Crítico en zonas andinas (Bogotá, Medellín, Cali)",
+                    "☑ Red de Talleres: Verifica que incluya talleres de tu confianza",
+                    "☑ Exclusiones: Lee letra pequeña (riesgo de uso comercial, conductores sin licencia, etc.)",
+                    "☑ Beneficios adicionales: Grúa, vehículo de reemplazo, asistencia médica",
+                    "☑ Documentación: Solicita póliza en PDF y certifica que incluya tus beneficiarios"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Asesoría especializada en Roesan Seguros",
             },
             {
                 type: "paragraph",
-                text: "En Roesan cruzamos coberturas, exclusiones y precios entre Sura, Bolívar, Allianz, Mapfre, HDI y más, para consolidar tu póliza Todo Riesgo. Consigue tu tranquilidad al volante HOY.",
+                text: "En Roesan Seguros analizamos tu perfil específico (ubicación, uso del vehículo, conductores habituales) y cotizamos directamente con SURA, Bolívar, Allianz, Mapfre, HDI y otras aseguradoras para consolidar tu póliza Todo Riesgo ideal."
+            },
+            {
+                type: "paragraph",
+                text: "Nuestro objetivo es que manejes en Colombia con tranquilidad total, sabiendo que cada centavo de prima está protegiendo efectivamente tu vehículo y tu patrimonio personal. Contáctanos hoy mismo para una asesoría sin compromiso."
             },
             { type: "cta", text: "" },
         ],

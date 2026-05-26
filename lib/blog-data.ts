@@ -1551,58 +1551,158 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "sarlaft-importancia-empresas-personas",
-        title: "¿Qué es el Formulario de Conocimiento de la Persona (SARLAFT)?",
-        excerpt: "El SARLAFT no es solo un trámite; es un requisito ineludible tanto para negocios como para individuos al interactuar con bancos y aseguradoras. Conoce su impacto legal.",
+        title: "SARLAFT en Colombia 2026: Requisito Legal para Empresas y Personas Naturales",
+        excerpt: "SARLAFT: qué es, quién debe hacerlo, multas por incumplimiento. Lavado de activos, regulador Superfinanciera y Supersociedades. Seguros D&O para directivos.",
         date: "2026-05-14",
-        readTime: "6 min",
+        readTime: "8 min",
         category: "Cumplimiento",
         categoryColor: "bg-blue-100 text-blue-700",
         coverImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
         content: [
             {
                 type: "intro",
-                text: "En Colombia, la prevención de delitos financieros es una prioridad absoluta. A menudo se piensa que el SARLAFT es un dolor de cabeza exclusivo para las grandes empresas, pero la realidad es que también impacta directamente a las personas naturales. Tanto si tienes un negocio como si vas a pedir un crédito o comprar una póliza de seguro a título personal, mantener esta información actualizada es obligatorio. Pero, ¿qué es exactamente y por qué es tan estricto?"
+                text: "En Colombia, el lavado de activos y la financiación del terrorismo son delitos perseguidos activamente por la Superfinanciera y la Superintendencia de Sociedades. El SARLAFT (Sistema de Administración del Riesgo de Lavado de Activos y Financiación del Terrorismo) no es un trámite administrativo más: es una obligación legal que afecta a empresas, trabajadores independientes, profesionales y personas naturales que interactúan con el sistema financiero o asegurador. Incumplir trae multas de $93M-$1.86 mil millones COP y riesgo criminal. Esta guía explica qué es, quién debe hacerlo, multas por incumplimiento, y cómo protegerse con seguros D&O."
             },
             {
                 type: "heading",
-                text: "¿Qué es el SARLAFT?"
+                text: "¿Qué es el SARLAFT y quién debe hacerlo?"
             },
             {
                 type: "paragraph",
-                text: "El Sistema de Administración del Riesgo de Lavado de Activos y de la Financiación del Terrorismo (SARLAFT) es un conjunto de políticas y controles implementados por el sector financiero y real. Su propósito es evitar que la economía legal sea utilizada para ocultar dineros ilícitos. Por esto, cada vez que abres una cuenta, compras un seguro o firmas un contrato, debes diligenciar y actualizar este formulario, declarando el origen lícito de tus fondos (ya seas empresa o persona)."
-            },
-            {
-                type: "heading",
-                text: "La importancia crítica de tenerlo actualizado"
+                text: "El SARLAFT es un sistema de controles y políticas obligatorias que bancos, aseguradoras, SURA, Bolívar y otras entidades financieras implementan para prevenir que la economía legal sea utilizada para ocultar dineros ilícitos. Su objetivo es identificar y bloquear transacciones sospechosas relacionadas con lavado de activos o terrorismo."
             },
             {
                 type: "list",
                 items: [
-                    "Evitar Sanciones Millonarias: Las multas por incumplimiento o desactualización de los manuales del SARLAFT por parte de Supersociedades o la Superfinanciera pueden ser devastadoras para el flujo de caja.",
-                    "Protección Reputacional: Estar involucrado, incluso por omisión o descuido de un tercero (clientes o proveedores), en una investigación por lavado de activos puede destruir la confianza del mercado en tu marca.",
-                    "Acceso al Sistema Financiero y Asegurador: Los bancos y aseguradoras exigen el cumplimiento estricto y actualizado del SARLAFT. Sin él, es casi imposible obtener créditos, abrir cuentas corporativas o emitir pólizas de cumplimiento.",
-                    "Evolución del Riesgo: Las modalidades de fraude y delitos financieros evolucionan constantemente. Un manual que no se actualiza es una puerta abierta a nuevos riesgos que tu empresa no está detectando."
+                    "Personas Naturales: Si abres una cuenta bancaria, solicitas un crédito, compras seguro, o recibes remesas internacionales, debes diligenciar formulario SARLAFT declarando el origen lícito de tus fondos.",
+                    "Empresas (todos los sectores): Todas las PYMES, empresas medias y grandes DEBEN implementar un programa SARLAFT formal con Oficial de Cumplimiento designado.",
+                    "Profesionales Independientes: Abogados, contadores, arquitectos que manejan fondos de clientes requieren programa SARLAFT.",
+                    "Trabajadores Independientes: Si recibes pagos por servicios frecuentes o internacionales, el banco/aseguradora puede solicitar actualización de SARLAFT."
                 ]
             },
             {
                 type: "heading",
-                text: "El rol de los Seguros de Responsabilidad (D&O)"
+                text: "Reguladores Clave: Superfinanciera y Superintendencia de Sociedades"
             },
             {
                 type: "paragraph",
-                text: "Implementar y mantener el SARLAFT implica designar un Oficial de Cumplimiento y asignar responsabilidades legales directas a la junta directiva y representantes legales. En caso de fallas operativas u omisiones involuntarias en el sistema de control, estas personas pueden enfrentar procesos investigativos complejos."
+                text: "Dos organismos supervisan el cumplimiento SARLAFT en Colombia:"
             },
             {
-                type: "paragraph",
-                text: "Aquí es donde entran las pólizas de Responsabilidad Civil para Directivos y Administradores (conocidas como D&O). Estos seguros respaldan el patrimonio personal de los líderes empresariales frente a reclamaciones, asumiendo gastos de defensa legal especializada siempre que se demuestre que no hubo dolo (intención de cometer el delito)."
+                type: "list",
+                items: [
+                    "Superfinanciera (Superintendencia Financiera): Supervisa a bancos, compañías de seguros, cooperativas financieras, corredores de seguros. Multas: $93M-$1.86 mil millones COP por incumplimiento.",
+                    "Superintendencia de Sociedades: Supervisa a PYMES y empresas del sector real (comercio, manufactura, servicios, etc.). Multas similares por falla en SARLAFT."
+                ]
             },
             {
                 type: "heading",
-                text: "Asegura el cumplimiento de tu empresa"
+                text: "Componentes Críticos de un Programa SARLAFT Completo"
+            },
+            {
+                type: "list",
+                items: [
+                    "Oficial de Cumplimiento: Persona designada responsable de monitorear riesgos de lavado de activos. En empresa grande: dedicado 100%. PYME: puede ser acumulativo.",
+                    "Conocimiento del Cliente (KYC): Recopilar información completa de clientes, proveedores, accionistas: identidad, ocupación, origen de fondos, relaciones comerciales.",
+                    "Monitoreo de Transacciones: Vigilancia continua de flujos de dinero. Alertas automáticas si hay patrones sospechosos (depósitos/giros estructurados, destinos de alto riesgo).",
+                    "Política Anti-Lavado: Documento que describe cómo la empresa identifica, reporta y maneja riesgos de lavado de activos.",
+                    "Capacitación Permanente: Entrenamientos anuales para empleados sobre detección de riesgos y prevención.",
+                    "Reportes a Autoridades: Obligación de reportar operaciones sospechosas a la UIAF (Unidad de Información y Análisis Financiero)."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Multas por Incumplimiento SARLAFT en Colombia"
             },
             {
                 type: "paragraph",
-                text: "En Roesan Seguros entendemos que el riesgo corporativo va más allá de un incendio o un robo. Asesoramos a tu empresa para garantizar que el riesgo legal, operativo y reputacional esté correctamente cubierto con pólizas de primer nivel, permitiéndote a ti y a tus directivos enfocarse en el crecimiento del negocio con total tranquilidad."
+                text: "Las sanciones son drásticas. La Superfinanciera y Supersociedades aplican:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Por no tener programa SARLAFT: Multa de $930M-$1.86 billones COP (hasta $234M en pesos de 2026 USD).",
+                    "Por desactualización de formularios: $250M-$500M COP.",
+                    "Por falla en designación de Oficial de Cumplimiento: $500M-$1 billón COP.",
+                    "Por no reportar transacciones sospechosas: $1 billón-$1.86 billones COP + procesos penales contra directivos.",
+                    "Por reincidencia: Multas duplicadas o triplicadas.",
+                    "Responsabilidad personal: El representante legal y directivos pueden enfrentar procesos criminales si hay complicidad o negligencia grave."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Responsabilidad de Directivos y Administradores: D&O"
+            },
+            {
+                type: "paragraph",
+                text: "La implementación del SARLAFT coloca responsabilidad directa en la junta directiva, representante legal y Oficial de Cumplimiento. Si hay falla en detección de riesgos u omisión involuntaria, estas personas pueden enfrentar:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Investigaciones de la Fiscalía General (procesos criminales por 'crimen de omisión').",
+                    "Demandas civiles de accionistas o terceros por daño reputacional.",
+                    "Inhabilitación profesional (Registro Nacional de Antecedentes Disciplinarios).",
+                    "Embargo de bienes personales para pago de multas administrativas.",
+                    "Pérdida de credibilidad empresarial / salida forzada de la junta directiva."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Seguros de Responsabilidad para Directivos (D&O)"
+            },
+            {
+                type: "paragraph",
+                text: "Para proteger el patrimonio personal de directivos, existen pólizas de Responsabilidad Civil para Directivos y Administradores (D&O). Estas cubren:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Gastos de defensa legal especializada en procesos administrativos y penales.",
+                    "Multas administrativas impuestas por Superfinanciera/Supersociedades (en caso de omisión involuntaria demostrada).",
+                    "Indemnizaciones civiles a terceros por daño reputacional.",
+                    "Costo de crisis management y asesoría en protección patrimonial.",
+                    "Beneficio CRÍTICO: Cubre incluso errores de Oficial de Cumplimiento asignado, siempre que haya diligencia razonable."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Costo de Seguros D&O en Colombia 2026"
+            },
+            {
+                type: "list",
+                items: [
+                    "PYME (ingresos $500M-$2 mil millones): Seguro D&O $500k-$2M/mes. Cobertura: $500M-$2 mil millones.",
+                    "Empresa mediana ($2 mil millones-$10 mil millones ingresos): Costo $2M-$8M/mes. Cobertura: $2 mil millones-$10 mil millones.",
+                    "Empresa grande ($10 mil millones+): Costo $8M-$30M+/mes. Cobertura: $10 mil millones+.",
+                    "Profesional independiente/consultor: Costo $200k-$500k/mes. Cobertura: $200M-$500M."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Checklist: Paso a Paso para Cumplir SARLAFT"
+            },
+            {
+                type: "list",
+                items: [
+                    "Paso 1: Designa un Oficial de Cumplimiento (interno o externo: abogado, consultor especializado).",
+                    "Paso 2: Implementa política Anti-Lavado documental y aprobada por junta directiva.",
+                    "Paso 3: Establece procedimiento de KYC (Know Your Customer) para clientes y proveedores.",
+                    "Paso 4: Desarrolla sistema de monitoreo de transacciones (manual o software especializado).",
+                    "Paso 5: Capacita a equipo anualmente sobre identificación de riesgos.",
+                    "Paso 6: Reporta operaciones sospechosas a UIAF inmediatamente (máx. 5 días).",
+                    "Paso 7: Contrata seguro D&O para proteger patrimonio personal de directivos.",
+                    "Paso 8: Actualiza formularios SARLAFT de clientes cada 24 meses (o si hay cambio significativo de perfil)."
+                ]
+            },
+            {
+                type: "links",
+                text: "Recursos y autoridades de SARLAFT en Colombia:",
+                items: [
+                    "https://www.superfinanciera.gov.co - Superintendencia Financiera (supervisión de bancos/aseguradoras)",
+                    "https://www.supersociedades.gov.co - Superintendencia de Sociedades (supervisión de PYMES/empresas)",
+                    "https://www.uiaf.gov.co - UIAF: reportar operaciones sospechosas"
+                ]
             },
             { type: "cta", text: "" }
         ]

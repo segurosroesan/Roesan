@@ -719,63 +719,192 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "seguro-de-vida-decision-importante",
-        title: "Seguro de Vida Integral: El acto de amor y responsabilidad definitivo con los tuyos",
+        title: "Seguro de Vida en Colombia 2026: Tipos, Coberturas y Cálculo de Suma Asegurada",
         excerpt:
-            "Comprar un seguro de vida genera fricción emocional, por eso muchas personas en Colombia lo evitan. Sin embargo, es el respaldo único que asegura el sustento, la educación y el pago de créditos a los tuyos si llegas a faltar.",
+            "Guía completa sobre seguro de vida. Entiende cobertura por invalidez, enfermedades graves, ahorro e inversión. Calcula cuánta suma asegurada necesitas según ingresos y familia. Comparativa de productos: Tradicional vs Flexible vs con Ahorro.",
         date: "2026-03-10",
-        readTime: "5 min",
+        readTime: "7 min",
         category: "Seguro de Vida",
         categoryColor: "bg-rose-100 text-rose-700",
         coverImage: "/images/card-seguro-vida-bogota.png",
         content: [
             {
                 type: "intro",
-                text: "Abordar el tema de nuestro propio fallecimiento nunca es cómodo. Por tabú o superstición, un alto porcentaje de hogares en el territorio colombiano carecen de seguro de vida o únicamente dependen del amparo pensional básico. La cruda realidad es que postergar esta decisión puede poner en jaque el futuro de las personas que más amamos.",
+                text: "Abordar el tema de nuestro propio fallecimiento nunca es cómodo. Por tabú o superstición, un porcentaje alarmante de hogares colombianos carecen de seguro de vida integral, dependiendo únicamente del amparo pensional básico estatal (que es insuficiente). La realidad es que postergar esta decisión puede destruir el futuro económico de las personas que más amas: cónyuge, hijos, padres dependientes. Este artículo te guía paso a paso para entender qué tipo de seguro necesitas, cómo calcular la suma asegurada correcta, y cuáles son las opciones disponibles en 2026."
             },
             {
                 type: "heading",
-                text: "¿Por qué el seguro de vida sirve Estando Vivo?",
+                text: "¿Por qué el Seguro de Vida sirve Estando Vivo?"
             },
             {
                 type: "paragraph",
-                text: "Existe el gran mito de que el seguro de vida es 'exclusivo para cuando falleces'. Las pólizas modernas de vida (Seguros Flexibles, Seguros con Ahorro, Seguros Vida Deudores, etc.) están llenas de anexos para protegerte en vida.",
+                text: "Existe el gran mito de que el seguro de vida es 'exclusivo para cuando falleces'. Las pólizas modernas de vida (Seguros Flexibles, Seguros con Ahorro, Seguros Vida Deudores) están llenas de coberturas que te protegen EN VIDA:"
             },
             {
                 type: "list",
                 items: [
-                    "Amparo por Invalidez o Desmembración: Si un accidente te impide volver a laborar, obtienes indemnización líquida.",
-                    "Enfermedades Graves (Diagnósticos críticos): Algunas pólizas adelantan capital al diagnosticar condiciones como cáncer, accidente cerebrovascular, etc., aliviando tu tratamiento.",
-                    "Seguros de acumulación / pensión: Inyectas primas mensuales y luego retiras el monto en inversión.",
-                ],
+                    "Amparo por Invalidez Total Temporal: Si un accidente o enfermedad te impide trabajar, el seguro adelanta un porcentaje de la suma asegurada para cubrir tu incapacidad.",
+                    "Invalidez Permanente (Desmembración): Si pierdes una extremidad o quedas parapléjico, recibes indemnización inmediata.",
+                    "Enfermedades Graves (Critical Illness): Algunos seguros adelantan hasta el 50% de la suma asegurada al diagnosticar cáncer, accidente cerebrovascular, infarto, insuficiencia renal, etc.",
+                    "Seguros de Acumulación/Pensión: Inyectas primas mensuales y acumulas capital que luego retiras al retirarte o en caso de emergencia."
+                ]
             },
             {
                 type: "heading",
-                text: "Perfiles prioritarios: ¿Quién necesita con urgencia un Seguro de Vida en Colombia?",
+                text: "Perfiles Prioritarios: ¿Quién Necesita Seguro de Vida AHORA?"
             },
             {
                 type: "list",
                 items: [
-                    "Padres de familia joven: Para asegurar toda la colegiatura de sus hijos hasta la universidad.",
-                    "Emprendedores / Autónomos: Su flujo de caja no da tregua económica en caso de hospitalización larga.",
-                    "Quienes pagan Créditos Hipotecarios: Los seguros vida obligatorios de los bancos a menudo solo saldan la deuda al banco, dejando en la marginalidad a los deudos. Tienes derecho a endosar el tuyo donde sea más barato.",
-                    "Hijos adultos que velan económicamente por sus padres mayores.",
-                ],
+                    "Padres jóvenes (25-45 años): Responsables del sustento de 2+ hijos. Un deceso impacta colegiatura, vivienda, alimentación. Prioridad CRÍTICA.",
+                    "Emprendedores/Autónomos: Sin empleador que asegure, eres el único ingreso del hogar. Una incapacidad larga es catastrófica.",
+                    "Deudores Hipotecarios: El seguro obligatorio del banco suele cobrar carísimo y solo salda la deuda, dejando a la familia sin casa. Endosa a un seguro independiente y ahorra.",
+                    "Hijos adultos que mantienen económicamente a padres mayores: Tu muerte significa que los adultos mayores pierden el único sustento.",
+                    "Cónyuges en pareja donde uno gana significativamente más: El de menor ingreso también necesita cobertura por muerte del principal."
+                ]
             },
             {
                 type: "heading",
-                text: "La matemática no miente: Compra joven, paga poco",
+                text: "Cálculo de Suma Asegurada: ¿Cuánto Necesitas Realmente?"
             },
             {
                 type: "paragraph",
-                text: "Asegurar tu vida a los 30 años sin prexistencias de peso (como hipertensión) puede salir en cuotas irrisoriamente bajas, permitiendo contratar sumas gigantescas. Cuando se intenta cotizar a los 55 años, el riesgo biométrico se dispara. No pospongas asegurar tu prima ideal de salud actual.",
+                text: "La suma asegurada debe cubrir: (1) deudas pendientes, (2) gastos funerarios, (3) educación de hijos hasta universidad, (4) sustento familiar durante 5 años mínimo. Aquí una guía rápida:"
+            },
+            {
+                type: "list",
+                items: [
+                    "Ingreso $2M-$4M/mes + 2 hijos: Mínimo $200M-$300M de suma asegurada (5-7 años de ingresos).",
+                    "Ingreso $4M-$8M/mes + 2 hijos: Mínimo $400M-$600M (cobertura más holgada).",
+                    "Ingreso $8M+/mes + familia dependiente: Mínimo $800M-$1,500M (riqueza/inversiones acumuladas).",
+                    "Fórmula práctica: [Ingreso mensual × 12 × 5 años] + [deudas] + [educación futura] = suma asegurada recomendada"
+                ]
             },
             {
                 type: "heading",
-                text: "Asesoría compasiva y especializada con Roesan",
+                text: "Tipos de Seguros de Vida: Tradicional vs Flexible vs con Ahorro"
             },
             {
                 type: "paragraph",
-                text: "Construimos portafolios a la medida, adaptándonos al presupuesto mensual familiar. Nuestro objetivo es que duermas sabiendo que, bajo cualquier circunstancia, el estatus económico de tu familia no declinará.",
+                text: "Existen tres categorías principales de seguros de vida disponibles en Colombia. Elige según tu perfil:"
+            },
+            {
+                type: "heading",
+                text: "1. Seguro de Vida Tradicional (Temporal/A Término)"
+            },
+            {
+                type: "list",
+                items: [
+                    "Concepto: Cobertura pura de muerte por N años (10, 15, 20 años típicamente).",
+                    "Costo: ULTRA económico ($15k-$50k/mes según edad y suma).",
+                    "Cobertura: Muerte e invalidez total permanente.",
+                    "Ventaja: Máxima protección, mínimo costo.",
+                    "Desventaja: Al finalizar el plazo, no hay valor acumulado.",
+                    "Ideal para: Padres jóvenes que necesitan cobertura máxima a costo mínimo."
+                ]
+            },
+            {
+                type: "heading",
+                text: "2. Seguro de Vida Flexible (Universal Life)"
+            },
+            {
+                type: "list",
+                items: [
+                    "Concepto: Cobertura de muerte + fondo de inversión interno.",
+                    "Costo: Moderado ($40k-$150k/mes según edad).",
+                    "Características: Puedes ajustar cobertura y primas según necesidad. Fondo genera rendimiento interno.",
+                    "Ventaja: Flexibilidad total + inversión + protección en vida (Critical Illness).",
+                    "Desventaja: Más costoso que tradicional, requiere monitoreo anual.",
+                    "Ideal para: Profesionales 35-50 años que quieren protección + ahorro simultáneamente."
+                ]
+            },
+            {
+                type: "heading",
+                text: "3. Seguro de Vida con Ahorro (Dotales/Capitalización)"
+            },
+            {
+                type: "list",
+                items: [
+                    "Concepto: Cobertura de muerte + acumulación de capital garantizado.",
+                    "Costo: Alto ($100k-$300k/mes, inversión a largo plazo).",
+                    "Características: Al final del plazo (10-20 años) recuperas TODO el capital acumulado (incluso si no moriste).",
+                    "Ventaja: Forzado de ahorro disciplinado + protección familiar.",
+                    "Desventaja: Capital no es muy alto comparado con inversiones directas, costo prohibitivo para jóvenes.",
+                    "Ideal para: Personas 45+ que quieren asegurar educación universitaria de hijos + jubilación propia."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Coberturas Adicionales (Agregados) Recomendadas"
+            },
+            {
+                type: "list",
+                items: [
+                    "Invalidez Total Temporal (ITT): Paga % de suma asegurada si quedas incapacitado temporalmente.",
+                    "Enfermedades Graves (Critical Illness): Adelanta capital al diagnosticar cáncer, infarto, ACV, etc.",
+                    "Incapacidad de Pago: Si pierdes empleo, la aseguradora paga tu prima por 6-12 meses.",
+                    "Cobertura de Hijos: Agregado que asegura a todos tus hijos automáticamente.",
+                    "Accidentes Personales (AD&D): Cobertura adicional de muerte por accidente (multiplica suma)."
+                ]
+            },
+            {
+                type: "heading",
+                text: "La Matemática Biométrica: Por Qué Comprar Joven"
+            },
+            {
+                type: "paragraph",
+                text: "Este es probablemente el consejo más importante: tu prima de seguro de vida es una función directa de tu edad y salud actual. Comprar joven puede ahorrate millones:"
+            },
+            {
+                type: "list",
+                items: [
+                    "A los 30 años sin pre-existencias: $300M suma asegurada = $25k-$35k/mes (BARATÍSIMO).",
+                    "A los 45 años con hipertensión controlada: Mismo $300M = $60k-$90k/mes (+150%).",
+                    "A los 55 años con antecedentes: Mismo $300M = $150k-$250k/mes (+400%).",
+                    "Después de los 60: Muchas aseguradoras RECHAZAN solicitudes nuevas. Solo aceptan aumentos en pólizas existentes."
+                ]
+            },
+            {
+                type: "heading",
+                text: "¿Qué Ocurre si Tengo Pre-existencias (Diabetes, Hipertensión, etc.)?"
+            },
+            {
+                type: "list",
+                items: [
+                    "Diabetes controlada: Sobreprime de 25-50%, pero SÍ te aceptan.",
+                    "Hipertensión controlada: Sobreprime de 10-25%, evaluación médica requerida.",
+                    "Obesidad (IMC>30): Sobreprime de 50-100%, posibles restricciones.",
+                    "Antecedentes de cáncer: Algunos rechazos, otros aceptan pero con período de espera de 5 años.",
+                    "Consumo de tabaco: Multiplica prima por 2-3x, muchas aseguradoras lo excluyen.",
+                    "Lo importante: Aunque tengas pre-existencias, SIGUE SIENDO más barato asegurar ahora que esperar."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Checklist: Qué Verificar Antes de Contratar"
+            },
+            {
+                type: "list",
+                items: [
+                    "☑ Suma asegurada correcta: Hiciste el cálculo de 5 años ingresos + deudas + educación?",
+                    "☑ Período de vigencia: ¿A qué edad vence la cobertura? (Crítico si aún tendrás dependientes).",
+                    "☑ Exclusiones permanentes: ¿Qué NO cubre? (Suicidio primeros 2 años es estándar, pero verifica otras).",
+                    "☑ Beneficiarios registrados: ¿Está correctamente designado cónyuge/hijos en póliza?",
+                    "☑ Coberturas agregadas: ¿Incluye Critical Illness, Invalidez, Accidentes?",
+                    "☑ Portabilidad: ¿Puedo mantener la póliza si cambio de empleo?"
+                ]
+            },
+            {
+                type: "heading",
+                text: "Asesoría Especializada en Roesan Seguros"
+            },
+            {
+                type: "paragraph",
+                text: "En Roesan construimos portafolios de vida personalizados según tu perfil familiar, ingresos y obligaciones financieras. Calculamos la suma asegurada correcta, te explicamos cada tipo de cobertura, y cotizamos con las principales aseguradoras (SURA, Bolívar, AXA, Allianz, Mapfre) para obtener las mejores tasas."
+            },
+            {
+                type: "paragraph",
+                text: "Nuestro objetivo es que tengas tranquilidad total sabiendo que, bajo cualquier circunstancia, el patrimonio y educación de tu familia estarán protegidos. Contáctanos hoy para una asesoría sin costo ni compromiso."
             },
             { type: "cta", text: "" },
         ],

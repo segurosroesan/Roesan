@@ -2,7 +2,6 @@ import { Hero } from "@/components/home/Hero";
 import { TrustBar } from "@/components/home/TrustBar";
 import { StatsSection } from "@/components/home/StatsSection";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
-import { Testimonials } from "@/components/home/Testimonials";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import Link from "next/link";
@@ -15,7 +14,6 @@ export default function Home() {
       <TrustBar />
       <ServicesGrid />
       <StatsSection />
-      <Testimonials />
 
       {/* Final CTA Section */}
       <section className="relative py-24 overflow-hidden">

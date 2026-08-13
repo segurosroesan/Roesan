@@ -31,10 +31,16 @@ interface LeadPayload {
   pipeline_tipo?: string;
 }
 
+export interface EnviarLeadResult {
+  ok: boolean;
+  /** id del lead creado en CRMREAL (distinto del id local de `insurance_leads`). */
+  leadId?: string;
+}
+
 /**
  * Envía un lead capturado en el sitio web al endpoint seguro del servidor.
  */
-export async function enviarLeadAlCRM(payload: LeadPayload): Promise<boolean> {
+export async function enviarLeadAlCRM(payload: LeadPayload): Promise<EnviarLeadResult> {
   try {
     const response = await fetch("/api/crm-lead", {
       method: "POST",
@@ -45,12 +51,12 @@ export async function enviarLeadAlCRM(payload: LeadPayload): Promise<boolean> {
     const result = await response.json().catch(() => null);
     if (!response.ok || result?.ok !== true) {
       console.error("❌ CRMREAL rechazó el lead:", result?.error || response.statusText);
-      return false;
+      return { ok: false };
     }
 
-    return true;
+    return { ok: true, leadId: result?.leadId };
   } catch (error) {
     console.error("❌ Error al conectar con CRMREAL:", error);
-    return false;
+    return { ok: false };
   }
 }

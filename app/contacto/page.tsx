@@ -39,7 +39,7 @@ export default function ContactPage() {
             const createdAt = Date.now();
             
             // Enviamos directamente al CRM usando la integración centralizada
-            const success = await enviarLeadAlCRM({
+            const { ok: success } = await enviarLeadAlCRM({
               nombre: formData.name,
               telefono: formData.phone,
               email: formData.email,
@@ -83,7 +83,7 @@ export default function ContactPage() {
                 // Mantener el evento de conversion específico para Ads si Jonathan lo usa directo
                 if ((window as any).gtag) {
                     (window as any).gtag('event', 'conversion', {
-                        'send_to': 'AW-18147237480',
+                        'send_to': 'AW-18147237480/P8WPCKX9vt8cEOi8o81D',
                         'value': 1.0,
                         'currency': 'COP'
                     });

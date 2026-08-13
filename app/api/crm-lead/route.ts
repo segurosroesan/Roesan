@@ -87,6 +87,8 @@ function leadRecord(payload: LeadPayload, now: number) {
     email: payload.email || "",
     source: "Sitio Web",
     status: "Nuevos",
+    // Los leads nuevos del sitio web se asignan a Alejandro por defecto.
+    asesorId: "alejandro",
     pipeline_tipo: payload.pipeline_tipo || "preventa",
     priority: "Media",
     score: 0,

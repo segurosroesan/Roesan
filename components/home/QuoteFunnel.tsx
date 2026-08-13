@@ -129,6 +129,19 @@ function getPresetValues(initialType: LegacyType | undefined): Pick<FormState, "
   }
 }
 
+// Ramos que ya tienen formulario detallado en el CRM. Debe reflejar
+// RAMOS_SOPORTADOS en app/api/crm-form-link/route.ts.
+const PRODUCT_TO_RAMO: Partial<Record<ProductId, string>> = {
+  "seguro-hogar": "hogar",
+  "seguro-mascotas": "mascotas",
+  "seguro-vida": "vida",
+  pyme: "pyme",
+  copropiedades: "copropiedades",
+};
+
+const CRM_FORM_BASE_URL =
+  process.env.NEXT_PUBLIC_CRM_FORM_BASE_URL || "https://crmreal-roesan.netlify.app";
+
 function getLeadType(customerType: CustomerType, selectedProducts: ProductId[]) {
   if (customerType === "empresa") return "empresarial";
   if (selectedProducts.includes("todo-riesgo-autos")) return "auto";
@@ -165,6 +178,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
   const [step, setStep] = useState(initialCustomerType ? 2 : 1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [formToken, setFormToken] = useState<string | null>(null);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [form, setForm] = useState<FormState>({
@@ -361,7 +375,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
         })
       );
 
-      const crmSuccess = await enviarLeadAlCRM({
+      const { ok: crmSuccess, leadId: crmLeadId } = await enviarLeadAlCRM({
         nombre: form.customerType === "persona" ? form.firstName.trim() : form.responsibleName.trim(),
         lastName: form.customerType === "persona" ? form.lastName.trim() : "",
         telefono: leadPhone,
@@ -409,6 +423,28 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
         throw new Error("CRMREAL no confirmó la creación del lead.");
       }
 
+      // Si el seguro elegido ya tiene formulario detallado en el CRM, lo
+      // generamos para mostrarlo incrustado en la pantalla de éxito. Si falla
+      // o el ramo no tiene formulario, el cliente igual ve el mensaje de gracias.
+      const ramoDetectado = form.selectedProducts
+        .map((productId) => PRODUCT_TO_RAMO[productId])
+        .find(Boolean);
+      if (ramoDetectado && crmLeadId) {
+        try {
+          const linkResponse = await fetch("/api/crm-form-link", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ leadId: crmLeadId, ramo: ramoDetectado }),
+          });
+          const linkResult = await linkResponse.json().catch(() => null);
+          if (linkResponse.ok && linkResult?.token) {
+            setFormToken(linkResult.token);
+          }
+        } catch (error) {
+          console.error("No se pudo generar el formulario detallado:", error);
+        }
+      }
+
       fetch("/api/lead-notify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -441,7 +477,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
       // Google Ads Conversion Tracking
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-18147237480',
+          'send_to': 'AW-18147237480/P8WPCKX9vt8cEOi8o81D',
           'value': 1.0,
           'currency': 'COP'
         });
@@ -472,17 +508,38 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           <p className="text-[11.5px] font-bold uppercase tracking-[0.2em] text-cyan-400">
             Solicitud enviada
           </p>
-          <h3 className="mt-2 font-serif text-[1.43rem] font-medium text-white sm:text-[1.72rem]">
-            ¡Gracias! Un asesor te contactará muy pronto.
-          </h3>
-          <p className="mt-3 max-w-sm text-[0.92rem] leading-5 text-slate-300 mx-auto">
-            Recibimos tu solicitud correctamente. Estamos procesando tu información para darte la mejor asesoría.
-          </p>
+          {formToken ? (
+            <>
+              <h3 className="mt-2 font-serif text-[1.25rem] font-medium text-white sm:text-[1.5rem]">
+                ¡Gracias! Completa estos datos para agilizar tu cotización
+              </h3>
+              <p className="mt-2 max-w-md text-[0.85rem] leading-5 text-slate-300 mx-auto">
+                Un asesor ya fue notificado. Mientras tanto, cuéntanos un poco más sobre lo que quieres asegurar.
+              </p>
+              <div className="mt-4 w-full overflow-hidden rounded-2xl border border-white/10 bg-white">
+                <iframe
+                  src={`${CRM_FORM_BASE_URL}/formulario/${formToken}`}
+                  title="Formulario de cotización"
+                  className="h-[720px] w-full"
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <h3 className="mt-2 font-serif text-[1.43rem] font-medium text-white sm:text-[1.72rem]">
+                ¡Gracias! Un asesor te contactará muy pronto.
+              </h3>
+              <p className="mt-3 max-w-sm text-[0.92rem] leading-5 text-slate-300 mx-auto">
+                Recibimos tu solicitud correctamente. Estamos procesando tu información para darte la mejor asesoría.
+              </p>
+            </>
+          )}
           <div className="mt-6 flex w-full max-w-xs flex-col gap-2 sm:flex-row sm:justify-center">
             <button
               type="button"
               onClick={() => {
                 setIsSuccess(false);
+                setFormToken(null);
                 setStep(1);
                 setAcceptedTerms(false);
                 setErrors({});

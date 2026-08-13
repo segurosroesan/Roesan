@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
+import { MetaPixelPageView } from "@/components/MetaPixelPageView";
 import Script from "next/script";
 import "./globals.css";
 
@@ -86,15 +87,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-18147237480');
-            gtag('config', 'G-DYVNSM6WJ2');
           `
         }} />
+        {/* Meta Pixel Code */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '957204397403639');
+            fbq('track', 'PageView');
+          `
+        }} />
+        {/* End Meta Pixel Code */}
       </head>
       <body
         className={`${roboto.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-transparent selection:bg-accent selection:text-accent-foreground`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2K8DN27" height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
+        {/* Meta Pixel Code (noscript) */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=957204397403639&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        <MetaPixelPageView />
         {/* Atmosphere Layer - Fixed and subtle */}
         <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
             {/* Main Gradient Base */}

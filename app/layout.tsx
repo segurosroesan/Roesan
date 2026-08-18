@@ -105,6 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           `
         }} />
         {/* End Meta Pixel Code */}
+        <meta name="google-site-verification" content="DcAsI4fT_Luffjv7NzHvSTcgR5MHKGQ-KUDqj3wN48k" />
       </head>
       <body
         className={`${roboto.variable} antialiased flex min-h-screen flex-col font-sans text-slate-600 bg-transparent selection:bg-accent selection:text-accent-foreground`}

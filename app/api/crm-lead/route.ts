@@ -107,7 +107,11 @@ function leadRecord(payload: LeadPayload, now: number) {
     pledgeDetails: payload.pledgeDetails || "",
     drivingZone: payload.drivingZone || "",
     documento: payload.documento || "",
+    // `driverBirthDate` no lo lee nadie en el CRM; el campo vivo —el que se ve
+    // en la ficha y el que prellena el formulario— es `fecha_nacimiento`. Se
+    // escriben los dos para no romper nada que dependa del viejo.
     driverBirthDate: payload.driverBirthDate || "",
+    fecha_nacimiento: payload.driverBirthDate || "",
     companyName: payload.companyName || "",
     companyNit: payload.companyNit || "",
     responsibleName: payload.responsibleName || "",

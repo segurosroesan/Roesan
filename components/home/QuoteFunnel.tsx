@@ -132,6 +132,7 @@ function getPresetValues(initialType: LegacyType | undefined): Pick<FormState, "
 // Ramos que ya tienen formulario detallado en el CRM. Debe reflejar
 // RAMOS_SOPORTADOS en app/api/crm-form-link/route.ts.
 const PRODUCT_TO_RAMO: Partial<Record<ProductId, string>> = {
+  "todo-riesgo-autos": "autos",
   "seguro-hogar": "hogar",
   "seguro-mascotas": "mascotas",
   "seguro-vida": "vida",

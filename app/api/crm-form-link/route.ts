@@ -11,6 +11,7 @@ export const runtime = "nodejs";
  * el cliente se queda con el mensaje de agradecimiento normal.
  */
 const RAMOS_SOPORTADOS: Record<string, string> = {
+  autos: "Automóviles",
   hogar: "Hogar",
   mascotas: "Mascotas",
   vida: "Vida",
@@ -74,6 +75,7 @@ export async function POST(request: NextRequest) {
   const token = randomBytes(32).toString("base64url");
   const linkId = id();
   const interaccionId = id();
+  const eventoId = id();
   const ahora = Date.now();
   const expiresAt = ahora + DEFAULT_EXPIRA_DIAS * 24 * 60 * 60 * 1000;
 
@@ -99,6 +101,22 @@ export async function POST(request: NextRequest) {
         createdAt: ahora,
       }),
       tx.interacciones[interaccionId].link({ lead: leadId }),
+      // El timeline de la ficha lee `lead_eventos`, no `interacciones`. Sin
+      // esto el asesor abre el lead y no ve que al cliente ya se le mandó el
+      // formulario, que es justo lo que necesita saber antes de llamarlo.
+      //
+      // Mismo `createdAt` que la interacción a propósito: el backfill del CRM
+      // deduplica por (leadId, tipo, createdAt) y así no lo duplica.
+      tx.lead_eventos[eventoId].update({
+        leadId,
+        tipo: "form_enviado",
+        descripcion: `Formulario de ${ramoName} enviado automáticamente tras la cotización en el sitio web.`,
+        // Lo disparó el funnel, no una persona del equipo.
+        automatico: true,
+        actor_nombre: "Sitio web de Roesan",
+        metadata: { ramo, formLinkId: linkId, canal: "sitio_web", interaccionId },
+        createdAt: ahora,
+      }),
     ]);
   } catch (error) {
     console.error("Error creating form link:", error);

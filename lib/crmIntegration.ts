@@ -26,7 +26,8 @@ interface LeadPayload {
   responsiblePhone?: string;
   driverBirthDate?: string;
   hasPledge?: boolean;
-  pledgeDetails?: string;
+  /** Con quién tiene la prenda. Va a `entidad_prenda` en el CRM. */
+  entidadPrenda?: string;
   drivingZone?: string;
   pipeline_tipo?: string;
 }

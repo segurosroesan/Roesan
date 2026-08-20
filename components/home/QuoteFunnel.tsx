@@ -61,7 +61,7 @@ interface FormState {
   vehiclePlate: string;
   driverId: string;
   hasPledge: boolean;
-  pledgeDetails: string;
+  pledgeEntity: string;
   drivingZone: string;
   customZone: string;
   companyName: string;
@@ -193,7 +193,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
     vehiclePlate: "",
     driverId: "",
     hasPledge: false,
-    pledgeDetails: "",
+    pledgeEntity: "",
     drivingZone: "",
     customZone: "",
     companyName: "",
@@ -364,7 +364,10 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           driverBirthDate: form.birthDate,
           vehiclePlate: form.vehiclePlate.trim().toUpperCase(),
           hasPledge: form.hasPledge,
-          pledgeDetails: form.hasPledge ? form.pledgeDetails.trim() : "",
+          // La tabla espejo del sitio conserva su nombre de columna: renombrarla
+          // partiría el histórico en dos, y no es la que se consulta a diario.
+          // Al CRM sí va como `entidadPrenda`.
+          pledgeDetails: form.hasPledge ? form.pledgeEntity.trim() : "",
           drivingZone: form.drivingZone === "Otra" ? form.customZone.trim() || "Otra" : form.drivingZone.trim(),
           companyName: form.customerType === "empresa" ? form.companyName.trim() : "",
           companyNit: form.customerType === "empresa"
@@ -388,7 +391,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
         // Datos vehículo (solo autos)
         vehiclePlate: form.vehiclePlate.trim().toUpperCase(),
         hasPledge: form.hasPledge,
-        pledgeDetails: form.hasPledge ? form.pledgeDetails.trim() : "",
+        entidadPrenda: form.hasPledge ? form.pledgeEntity.trim() : "",
         drivingZone: form.drivingZone === "Otra" ? form.customZone.trim() || "Otra" : form.drivingZone.trim(),
         // Datos personales
         documento: form.customerType === "persona" ? form.driverId.trim() : "",
@@ -413,7 +416,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           form.vehiclePlate.trim() ? `Placa: ${form.vehiclePlate.trim().toUpperCase()}` : "",
           (form.drivingZone === "Otra" ? form.customZone.trim() || "Otra" : form.drivingZone.trim()) ? `Zona de circulación: ${form.drivingZone === "Otra" ? form.customZone.trim() || "Otra" : form.drivingZone.trim()}` : "",
           form.selectedProducts.includes("todo-riesgo-autos") ? `¿Tiene prenda?: ${form.hasPledge ? "Sí" : "No"}` : "",
-          form.hasPledge && form.pledgeDetails.trim() ? `Detalles prenda: ${form.pledgeDetails.trim()}` : "",
+          form.hasPledge && form.pledgeEntity.trim() ? `Entidad de la prenda: ${form.pledgeEntity.trim()}` : "",
           cleanMessage ? `Observaciones: ${cleanMessage}` : "",
         ]
           .filter(Boolean)
@@ -467,7 +470,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           birthDate: form.birthDate,
           vehiclePlate: form.vehiclePlate.trim().toUpperCase(),
           hasPledge: form.hasPledge,
-          pledgeDetails: form.hasPledge ? form.pledgeDetails.trim() : "",
+          pledgeEntity: form.hasPledge ? form.pledgeEntity.trim() : "",
           drivingZone: form.drivingZone === "Otra" ? form.customZone.trim() || "Otra" : form.drivingZone.trim(),
           message: cleanMessage,
         }),
@@ -562,7 +565,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   message: "",
                   driverId: "",
                   hasPledge: false,
-                  pledgeDetails: "",
+                  pledgeEntity: "",
                   drivingZone: "",
                   customZone: "",
                 });
@@ -840,7 +843,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                           checked={form.hasPledge === false}
                           onChange={() => {
                             setField("hasPledge", false);
-                            setField("pledgeDetails", "");
+                            setField("pledgeEntity", "");
                           }}
                           className="h-3 w-3 text-cyan-400 focus:ring-cyan-400 bg-white/10 border-white/30"
                         />
@@ -850,10 +853,10 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
                   </div>
                   {form.hasPledge && (
                     <div className="space-y-0.5">
-                      <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">Detalles de la prenda (Opcional)</label>
+                      <label className="text-[10.5px] font-bold text-slate-400 uppercase px-1">¿Con quién tiene la prenda? (Opcional)</label>
                       <input
-                        value={form.pledgeDetails}
-                        onChange={(event) => setField("pledgeDetails", event.target.value.toUpperCase())}
+                        value={form.pledgeEntity}
+                        onChange={(event) => setField("pledgeEntity", event.target.value.toUpperCase())}
                         placeholder="Ej: Banco o entidad financiera"
                         className="h-9 w-full rounded-lg border border-white/20 bg-white/5 px-3 text-[0.86rem] text-white outline-none transition-colors placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/10 uppercase"
                       />

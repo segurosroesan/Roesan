@@ -22,7 +22,7 @@ const leadSchema = z.object({
   responsiblePhone: z.string().trim().max(30).optional(),
   driverBirthDate: z.string().trim().max(30).optional(),
   hasPledge: z.boolean().optional(),
-  pledgeDetails: z.string().trim().max(500).optional(),
+  entidadPrenda: z.string().trim().max(500).optional(),
   drivingZone: z.string().trim().max(120).optional(),
   pipeline_tipo: z.string().trim().max(40).optional(),
 });
@@ -104,7 +104,9 @@ function leadRecord(payload: LeadPayload, now: number) {
     selectedProducts: payload.selectedProducts || "",
     vehiclePlate: payload.vehiclePlate || "",
     hasPledge: payload.hasPledge ?? false,
-    pledgeDetails: payload.pledgeDetails || "",
+    // `pledgeDetails` era texto libre que en 721 leads nadie llenó nunca, y su
+    // placeholder pedía justo lo mismo que este campo. Queda uno solo.
+    entidad_prenda: payload.entidadPrenda || "",
     drivingZone: payload.drivingZone || "",
     documento: payload.documento || "",
     // `driverBirthDate` no lo lee nadie en el CRM; el campo vivo —el que se ve

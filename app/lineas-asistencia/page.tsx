@@ -6,6 +6,9 @@ import Image from "next/image";
 export const metadata: Metadata = {
     title: "Líneas de atención de las aseguradoras | Roesan Seguros",
     description: "Teléfonos de contacto y líneas de atención de las principales aseguradoras en Colombia.",
+    alternates: {
+        canonical: "/lineas-asistencia",
+    },
 };
 
 const aseguradoras = [

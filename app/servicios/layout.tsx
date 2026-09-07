@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Portafolio de Soluciones | Seguros para Empresas y Personas",
     description: "Explora nuestro portafolio de seguros. Vida, salud, vehículos, empresariales, cumplimiento y más. Cobertura premium con las mejores aseguradoras de Colombia.",
+    alternates: {
+        canonical: "/servicios",
+    },
 };
 
 export default function ServiciosLayout({

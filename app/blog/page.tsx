@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     title: "Blog de Seguros | Roesan Seguros",
     description:
         "Artículos educativos sobre seguros en Colombia. Aprende a proteger tu patrimonio, tu familia y tu empresa con las mejores coberturas.",
+    alternates: {
+        canonical: "/blog",
+    },
     openGraph: {
         title: "Blog de Seguros | Roesan Seguros",
         description:

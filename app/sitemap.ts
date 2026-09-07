@@ -5,7 +5,7 @@ import { blogPosts } from '@/lib/blog-data';
 import { colombiaTopCars } from '@/lib/car-catalog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://roesan.com.co';
+  const baseUrl = 'https://roesan.com';
 
   // Static routes — ordered by importance
   const staticRoutes: MetadataRoute.Sitemap = [

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Roesan Seguros" }],
   creator: "Roesan Seguros",
-  metadataBase: new URL("https://roesan.com.co"),
+  metadataBase: new URL("https://roesan.com"),
   openGraph: {
     type: "website",
     locale: "es_CO",

@@ -1,6 +1,15 @@
 import { id, init, tx } from "@instantdb/admin";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import {
+  analizarContenido,
+  detectarTrampas,
+  ipDeLaPeticion,
+  origenPermitido,
+  normalizarEmail,
+  superaLimitePorIp,
+  verificarTurnstile,
+} from "@/lib/antiSpam";
 
 export const runtime = "nodejs";
 
@@ -25,6 +34,15 @@ const leadSchema = z.object({
   entidadPrenda: z.string().trim().max(500).optional(),
   drivingZone: z.string().trim().max(120).optional(),
   pipeline_tipo: z.string().trim().max(40).optional(),
+
+  // Campos anti-spam. No se guardan en el lead: solo sirven para decidir si la
+  // solicitud entra. Ver lib/antiSpam.ts.
+  /** Token que genera el widget de Cloudflare Turnstile en el navegador. */
+  captchaToken: z.string().trim().max(4000).optional(),
+  /** Campo trampa, invisible para una persona. Si viene lleno, es un bot. */
+  empresaWeb: z.string().max(200).optional(),
+  /** Milisegundos en que se pintó el formulario, para medir cuánto tardó. */
+  formularioAbiertoEn: z.number().optional(),
 });
 
 type LeadPayload = z.infer<typeof leadSchema>;
@@ -61,25 +79,14 @@ function getTargets(): CrmTarget[] {
   return targets;
 }
 
-function isAllowedOrigin(request: NextRequest) {
-  const origin = request.headers.get("origin");
-  if (!origin) return true;
-
-  try {
-    const hostname = new URL(origin).hostname;
-    return (
-      hostname === "roesan.com" ||
-      hostname === "www.roesan.com" ||
-      hostname === "localhost" ||
-      hostname === "127.0.0.1" ||
-      hostname.endsWith(".netlify.app")
-    );
-  } catch {
-    return false;
-  }
+/** Rastro de dónde vino la solicitud. Sin esto no hay forma de investigar un abuso. */
+export interface Procedencia {
+  ip?: string;
+  userAgent?: string;
+  referer?: string;
 }
 
-function leadRecord(payload: LeadPayload, now: number) {
+function leadRecord(payload: LeadPayload, now: number, procedencia: Procedencia) {
   return {
     name: payload.nombre,
     lastName: payload.lastName || "",
@@ -118,6 +125,17 @@ function leadRecord(payload: LeadPayload, now: number) {
     companyNit: payload.companyNit || "",
     responsibleName: payload.responsibleName || "",
     responsiblePhone: payload.responsiblePhone || "",
+
+    // Procedencia técnica. Cuando en junio empezaron a llegar leads falsos no
+    // pudimos rastrear ni uno porque no guardábamos nada de esto.
+    // `ip_origen` ya existía en el esquema del CRM (consentimiento Ley 1581);
+    // se reutiliza en vez de abrir un campo paralelo con el mismo significado.
+    ip_origen: procedencia.ip || "",
+    origen_user_agent: (procedencia.userAgent || "").slice(0, 300),
+    origen_referer: (procedencia.referer || "").slice(0, 300),
+    // Gmail ignora los puntos: guardar la forma normalizada permite ver de un
+    // vistazo que varios "remitentes distintos" son en realidad un solo buzón.
+    email_normalizado: payload.email ? normalizarEmail(payload.email) : "",
   };
 }
 
@@ -126,12 +144,13 @@ async function createInTarget(
   payload: LeadPayload,
   leadId: string,
   now: number,
+  procedencia: Procedencia,
 ) {
   const db = init({ appId: target.appId, adminToken: target.adminToken });
 
   // El lead es la operación crítica. Las tareas y el timeline se crean después
   // para que un fallo auxiliar nunca haga desaparecer la solicitud principal.
-  await db.transact(tx.leads[leadId].update(leadRecord(payload, now)));
+  await db.transact(tx.leads[leadId].update(leadRecord(payload, now, procedencia)));
 
   const taskId = id();
   const interactionId = id();
@@ -168,11 +187,36 @@ async function createInTarget(
   return { target: target.name, ok: true, auxiliaryFailures };
 }
 
+/**
+ * Todos los rechazos por spam responden lo mismo y con el mismo código.
+ *
+ * Es a propósito: si le dijéramos al bot cuál capa lo frenó, le estaríamos
+ * dando el mapa para esquivarla. El motivo real queda solo en el log del
+ * servidor (Netlify → Functions → crm-lead).
+ */
+function rechazar(motivo: string, ip: string | undefined) {
+  console.warn(`[crm-lead] Solicitud rechazada (${motivo}) desde ip=${ip || "?"}`);
+  return NextResponse.json(
+    { ok: false, error: "No pudimos procesar la solicitud. Intenta de nuevo." },
+    { status: 400 },
+  );
+}
+
 export async function POST(request: NextRequest) {
-  if (!isAllowedOrigin(request)) {
+  const ip = ipDeLaPeticion(request.headers);
+
+  if (!origenPermitido(request.headers)) {
     return NextResponse.json(
       { ok: false, error: "Origen no autorizado." },
       { status: 403 },
+    );
+  }
+
+  if (superaLimitePorIp(ip, "crm-lead")) {
+    console.warn(`[crm-lead] Límite de envíos superado desde ip=${ip}`);
+    return NextResponse.json(
+      { ok: false, error: "Demasiados envíos seguidos. Espera unos minutos." },
+      { status: 429 },
     );
   }
 
@@ -183,6 +227,35 @@ export async function POST(request: NextRequest) {
       { status: 400 },
     );
   }
+
+  // Capa 1 — trampas del formulario: gratis, silenciosas y las cae un bot tonto.
+  const trampa = detectarTrampas({
+    honeypot: parsed.data.empresaWeb,
+    abiertoEn: parsed.data.formularioAbiertoEn,
+  });
+  if (trampa) return rechazar(trampa, ip);
+
+  // Capa 2 — captcha de Cloudflare: la defensa fuerte contra un bot con navegador.
+  const captcha = await verificarTurnstile(parsed.data.captchaToken, ip);
+  if (!captcha.ok) return rechazar(`captcha:${captcha.motivo}`, ip);
+
+  // Capa 3 — el contenido en sí. Ataja al bot que sí resolvió el captcha pero
+  // sigue inventando nombres y teléfonos imposibles.
+  const contenido = analizarContenido({
+    nombre: parsed.data.nombre,
+    email: parsed.data.email,
+    telefono: parsed.data.telefono,
+    mensaje: parsed.data.observaciones || parsed.data.notas,
+  });
+  if (contenido.puntaje >= 2) {
+    return rechazar(`contenido:${contenido.señales.join("+")}`, ip);
+  }
+
+  const procedencia: Procedencia = {
+    ip,
+    userAgent: request.headers.get("user-agent") || undefined,
+    referer: request.headers.get("referer") || undefined,
+  };
 
   const targets = getTargets();
   const crmrealTarget = targets.find((target) => target.name === "crmreal");
@@ -199,7 +272,7 @@ export async function POST(request: NextRequest) {
   const results = await Promise.all(
     targets.map(async (target) => {
       try {
-        return await createInTarget(target, parsed.data, leadId, now);
+        return await createInTarget(target, parsed.data, leadId, now, procedencia);
       } catch (error) {
         console.error(`Error creating lead in ${target.name}:`, error);
         return {

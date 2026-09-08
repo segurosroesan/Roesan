@@ -30,6 +30,12 @@ interface LeadPayload {
   entidadPrenda?: string;
   drivingZone?: string;
   pipeline_tipo?: string;
+
+  // Anti-spam. Los produce `useAntiSpam()` en el formulario y los valida el
+  // servidor; no se guardan en el lead. Ver components/ui/Turnstile.tsx.
+  captchaToken?: string;
+  empresaWeb?: string;
+  formularioAbiertoEn?: number;
 }
 
 export interface EnviarLeadResult {

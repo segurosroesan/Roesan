@@ -1,8 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ipDeLaPeticion, origenPermitido, superaLimitePorIp } from "@/lib/antiSpam";
 
-const LEAD_RECIPIENTS = ["Comercial@roesan.com", "Seguros@roesan.com"];
+const LEAD_RECIPIENTS = ["comercial@roesan.com", "seguros@roesan.com"];
 
+/**
+ * Avisa al equipo comercial de un lead nuevo.
+ *
+ * Este endpoint dispara correos hacia comercial@ y seguros@, así que estaba
+ * abierto a que cualquiera inundara esas bandejas desde fuera del sitio. Lleva
+ * las mismas dos barreras que `/api/crm-lead`; no lleva captcha porque se
+ * invoca desde el código después de que el lead ya pasó por él.
+ */
 export async function POST(request: NextRequest) {
+  if (!origenPermitido(request.headers)) {
+    return NextResponse.json(
+      { ok: false, error: "Origen no autorizado." },
+      { status: 403 },
+    );
+  }
+
+  const ip = ipDeLaPeticion(request.headers);
+  if (superaLimitePorIp(ip, "lead-notify")) {
+    console.warn(`[lead-notify] Límite de envíos superado desde ip=${ip}`);
+    return NextResponse.json(
+      { ok: false, error: "Demasiados envíos seguidos." },
+      { status: 429 },
+    );
+  }
+
   try {
     const body = await request.json();
     const webhookUrl = process.env.LEADS_WEBHOOK_URL || process.env.N8N_WEBHOOK_URL;

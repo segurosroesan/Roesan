@@ -23,6 +23,7 @@ import {
 import { id, tx } from "@instantdb/react";
 import { db } from "@/lib/instant";
 import { enviarLeadAlCRM } from "@/lib/crmIntegration";
+import { CampoTrampa, Turnstile, useAntiSpam } from "@/components/ui/Turnstile";
 
 type LegacyType = "auto" | "salud" | "empresarial" | "cumplimiento" | "vida";
 type CustomerType = "persona" | "empresa";
@@ -182,6 +183,8 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
   const [formToken, setFormToken] = useState<string | null>(null);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  // Captcha invisible + campo trampa + cronómetro de llenado. Ver Turnstile.tsx.
+  const antiSpam = useAntiSpam();
   const [form, setForm] = useState<FormState>({
     customerType: initialCustomerType,
     selectedProducts: initialSelectedProducts,
@@ -421,6 +424,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
         ]
           .filter(Boolean)
           .join(" | "),
+        ...antiSpam.camposAntiSpam(),
       });
 
       if (!crmSuccess) {
@@ -586,7 +590,7 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className={compact ? "space-y-2.5" : "space-y-8"}>
+        <form onSubmit={handleSubmit} className={compact ? "relative space-y-2.5" : "relative space-y-8"}>
           <div className="text-center">
             <p className="text-[11.5px] font-bold uppercase tracking-[0.24em] text-cyan-400">
               Cotiza sin compromiso
@@ -960,6 +964,16 @@ export default function QuoteFunnel({ initialType, initialProductId, variant = "
               {errors.acceptedTerms ? <p className="text-[9.2px] text-rose-400">{errors.acceptedTerms}</p> : null}
               {errors.submit ? <p className="text-[9.2px] text-rose-400">{errors.submit}</p> : null}
             </div>
+          ) : null}
+
+          <CampoTrampa
+            id={antiSpam.honeypotId}
+            value={antiSpam.honeypot}
+            onChange={antiSpam.setHoneypot}
+          />
+
+          {step === 3 ? (
+            <Turnstile onToken={antiSpam.setCaptchaToken} className="flex justify-center" />
           ) : null}
 
           <div className="flex flex-col gap-1.5 border-t border-white/10 pt-2.5 sm:flex-row sm:items-center sm:justify-between">

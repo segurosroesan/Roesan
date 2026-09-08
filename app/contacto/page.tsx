@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { enviarLeadAlCRM } from "@/lib/crmIntegration";
+import { CampoTrampa, Turnstile, useAntiSpam } from "@/components/ui/Turnstile";
 
 const INSURANCE_TOPICS = [
     "Seguro de Auto / Vehículo",
@@ -30,6 +31,8 @@ export default function ContactPage() {
     });
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [acceptedTerms, setAcceptedTerms] = useState(false);
+    // Captcha invisible + campo trampa + cronómetro de llenado. Ver Turnstile.tsx.
+    const antiSpam = useAntiSpam();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -48,7 +51,9 @@ export default function ContactPage() {
               notas: [
                 `Tema: ${formData.topic}`,
                 `Mensaje: ${formData.message}`
-              ].filter(Boolean).join(" | ")
+              ].filter(Boolean).join(" | "),
+              observaciones: formData.message,
+              ...antiSpam.camposAntiSpam(),
             });
 
             if (!success) throw new Error("CRM Integration failed");
@@ -272,7 +277,7 @@ export default function ContactPage() {
                                     </Button>
                                 </motion.div>
                             ) : (
-                                <form key="form" onSubmit={handleSubmit} className="space-y-5">
+                                <form key="form" onSubmit={handleSubmit} className="relative space-y-5">
                                     {/* Name + Phone */}
                                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                                         <div>
@@ -374,6 +379,17 @@ export default function ContactPage() {
                                             {" "}conforme a la Ley 1581 de 2012 (Habeas Data). La información será usada únicamente para asesoría en seguros.
                                         </label>
                                     </div>
+
+                                    <CampoTrampa
+                                        id={antiSpam.honeypotId}
+                                        value={antiSpam.honeypot}
+                                        onChange={antiSpam.setHoneypot}
+                                    />
+
+                                    <Turnstile
+                                        onToken={antiSpam.setCaptchaToken}
+                                        className="flex justify-center"
+                                    />
 
                                     <Button
                                         size="lg"

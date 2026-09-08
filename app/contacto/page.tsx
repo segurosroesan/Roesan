@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import {
@@ -120,10 +121,13 @@ export default function ContactPage() {
             <div className="relative overflow-hidden bg-slate-900 pb-32 pt-36 text-center lg:pt-48">
                 {/* Background Image / Overlay */}
                 <div className="absolute inset-0 z-0">
-                    <img
+                    <Image
                         src="/images/sede_roesan_clean_v2.png"
                         alt="Sede Roesan"
-                        className="object-cover w-full h-full opacity-40"
+                        fill
+                        priority
+                        sizes="100vw"
+                        className="object-cover opacity-40"
                     />
                     <div className="absolute inset-0 bg-slate-900/50 mix-blend-multiply" />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-900/40 to-transparent" />

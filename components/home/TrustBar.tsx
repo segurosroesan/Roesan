@@ -41,9 +41,12 @@ export function TrustBar() {
                                 key={`${partner.name}-${idx}`}
                                 className="relative flex items-center justify-center w-36 h-20 md:w-48 md:h-24 transition-all duration-300 group/logo bg-white/50 mix-blend-normal rounded-lg p-2"
                             >
-                                <img
+                                <Image
                                     src={`/images/${partner.file}`}
                                     alt={`Logo de ${partner.name}`}
+                                    width={192}
+                                    height={96}
+                                    sizes="(min-width: 768px) 192px, 144px"
                                     className="max-w-full max-h-full object-contain transition-transform duration-500 ease-out hover:scale-110"
                                 />
                             </div>

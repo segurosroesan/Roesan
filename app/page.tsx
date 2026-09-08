@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 const homeTitle = "Roesan Seguros | Protección que se adapta a tu vida";
 const homeDescription =
@@ -92,10 +93,16 @@ export default function Home() {
       {/* Final CTA Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/90 via-slate-900/90 to-cyan-900/90 backdrop-blur-sm" />
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: "url('/images/hero-familia.png')" }}
-        />
+        <div className="absolute inset-0 opacity-10">
+          <Image
+            src="/images/hero-familia.png"
+            alt=""
+            fill
+            aria-hidden="true"
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-serif text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6">

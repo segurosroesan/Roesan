@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Seguros para Personas y Familias | Roesan Seguros",
+export const metadata = createPageMetadata({
+    title: "Seguros para personas y familias",
     description: "Conoce nuestras opciones en Seguro de Vida, Salud, Automóviles, Exequial y más. Protege lo que más valoras con la asesoría de expertos.",
-};
+    path: "/servicios/personas",
+    image: "/images/banner-personas.png",
+});
 
 export default function PersonasHubLayout({
     children,

@@ -2,9 +2,10 @@ import { Container } from "@/components/ui/Container";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Términos y Condiciones | Roesan Seguros",
+    title: "Términos y Condiciones",
     description:
         "Términos y condiciones de uso del sitio web y los servicios de asesoría en seguros de Organización de Seguros Roesan Ltda.",
+    alternates: { canonical: "/terminos" },
 };
 
 export default function TerminosPage() {
@@ -91,7 +92,7 @@ export default function TerminosPage() {
                             Toda comunicación legal se dirigirá por medios formales a nuestra área encargada. Usted puede contactarnos para PQR o soporte a través de:
                         </p>
                         <ul>
-                            <li><strong>Correo Electrónico:</strong> <a href="mailto:administrativo@roesan.com.co" className="text-slate-800 hover:text-slate-600">administrativo@roesan.com.co</a></li>
+                            <li><strong>Correo Electrónico:</strong> <a href="mailto:administrativo@roesan.com" className="text-slate-800 hover:text-slate-600">administrativo@roesan.com</a></li>
                             <li><strong>Línea de Atención WhatsApp:</strong> Nuestro equipo de asesores mediante el botón oficial en la web.</li>
                         </ul>
 
@@ -117,4 +118,3 @@ export default function TerminosPage() {
         </div>
     );
 }
-

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Brochure Seguros Empresas 2026",
   description:
     "Portafolio completo de seguros empresariales Roesan: responsabilidad civil, todo riesgo, transporte, ciberseguridad, pólizas colectivas y más.",
+  robots: { index: false, follow: true },
 };
 
 export default function BrochureEmpresasPage() {

@@ -1,12 +1,13 @@
 import { Container } from "@/components/ui/Container";
-import type { Metadata } from "next";
 import { CreditCard, MonitorSmartphone, Phone } from "lucide-react";
 import Image from "next/image";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Líneas de atención de las aseguradoras | Roesan Seguros",
+export const metadata = createPageMetadata({
+    title: "Líneas de atención de las aseguradoras",
     description: "Teléfonos de contacto y líneas de atención de las principales aseguradoras en Colombia.",
-};
+    path: "/lineas-asistencia",
+});
 
 const aseguradoras = [
     {

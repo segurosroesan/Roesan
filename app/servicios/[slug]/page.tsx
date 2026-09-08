@@ -17,7 +17,7 @@ type Props = {
 
 function buildSeoTitle(service: ServiceData) {
     const audience = service.category === "empresa" ? "para empresas" : "para personas y familias";
-    return `${service.title} en Colombia ${audience} | Roesan Seguros`;
+    return `${service.title} en Colombia ${audience}`;
 }
 
 function buildSeoDescription(service: ServiceData) {
@@ -69,6 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!service) return { title: "Servicio no encontrado" };
 
     const title = buildSeoTitle(service);
+    const socialTitle = `${title} | Roesan Seguros`;
     const description = buildSeoDescription(service);
     const canonical = `/servicios/${service.slug}`;
 
@@ -80,7 +81,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             canonical,
         },
         openGraph: {
-            title,
+            title: socialTitle,
             description,
             url: canonical,
             type: "article",
@@ -88,7 +89,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         twitter: {
             card: "summary_large_image",
-            title,
+            title: socialTitle,
             description,
             images: service.image ? [service.image] : undefined,
         },
@@ -112,7 +113,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
     const seoParagraphs = buildSeoParagraphs(service);
     const idealForItems = buildIdealForItems(service);
-    const canonicalUrl = `https://roesan.com.co/servicios/${service.slug}`;
+    const canonicalUrl = `https://roesan.com/servicios/${service.slug}`;
     const jsonLd = {
         "@context": "https://schema.org",
         "@graph": [
@@ -124,7 +125,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                 provider: {
                     "@type": "InsuranceAgency",
                     name: "Roesan Seguros",
-                    url: "https://roesan.com.co",
+                    url: "https://roesan.com",
                 },
                 areaServed: {
                     "@type": "Country",

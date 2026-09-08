@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-    title: "Seguros para Empresas y PYMES | Roesan Seguros",
+export const metadata = createPageMetadata({
+    title: "Seguros para empresas y PYMES",
     description: "Te asesoramos en Seguros Colectivos, ARL, Cumplimiento, Responsabilidad Civil y Transporte. Protege tu negocio, empleados y activos corporativos.",
-};
+    path: "/servicios/empresas",
+    image: "/images/banner-empresas.png",
+});
 
 export default function EmpresasHubLayout({
     children,

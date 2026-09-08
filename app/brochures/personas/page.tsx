@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Brochure Seguros Personas 2026",
   description:
     "Portafolio completo de seguros personales Roesan: vehículos, vida, hogar, salud, mascotas, educativo y más.",
+  robots: { index: false, follow: true },
 };
 
 export default function BrochurePersonasPage() {

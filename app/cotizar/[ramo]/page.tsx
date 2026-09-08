@@ -17,26 +17,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const data = getQuoteData(ramo);
 
     if (!data) return {};
+    const title = data.title.replace(/\s*\|\s*Roesan(?: Seguros)?$/i, "");
+    const socialTitle = `${title} | Roesan Seguros`;
+    const canonical = `/cotizar/${data.slug}`;
 
     return {
-        title: data.title,
+        title,
         description: data.description,
         keywords: data.keywords.join(", "),
+        alternates: { canonical },
         openGraph: {
-            title: data.title,
+            title: socialTitle,
             description: data.description,
-            url: `https://roesan.com.co/cotizar/${data.slug}`,
+            url: canonical,
             siteName: "Roesan Seguros",
             images: [
                 {
-                    url: "/images/og-roesan.jpg",
-                    width: 1200,
-                    height: 630,
-                    alt: data.title,
+                    url: "/images/hero-auto.png",
+                    alt: socialTitle,
                 },
             ],
             locale: "es_CO",
             type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: socialTitle,
+            description: data.description,
+            images: ["/images/hero-auto.png"],
         },
     };
 }

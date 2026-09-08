@@ -18,27 +18,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!car) return {};
 
     const title = `Seguro Todo Riesgo para ${car.marca} ${car.modelo} | Precios 2026`;
+    const socialTitle = `${title} | Roesan Seguros`;
     const description = `Cotiza tu seguro todo riesgo para ${car.marca} ${car.modelo} en Colombia. Compara precios desde $${car.precioMensualEstimado.toLocaleString("es-CO")} mensuales. Asesoría experta.`;
+    const canonical = `/cotizar/auto/${marca}/${modelo}`;
 
     return {
         title,
         description,
         keywords: `seguro todo riesgo ${car.marca} ${car.modelo}, precio seguro ${car.marca} ${car.modelo}, póliza todo riesgo ${car.marca}, seguros para ${car.modelo} colombia`,
+        alternates: { canonical },
         openGraph: {
-            title,
+            title: socialTitle,
             description,
-            url: `https://roesan.com.co/cotizar/auto/${marca}/${modelo}`,
+            url: canonical,
             siteName: "Roesan Seguros",
             images: [
                 {
                     url: car.imagenReferencia,
-                    width: 1200,
-                    height: 630,
                     alt: `Seguro para ${car.marca} ${car.modelo}`,
                 },
             ],
             locale: "es_CO",
             type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: socialTitle,
+            description,
+            images: [car.imagenReferencia],
         },
     };
 }

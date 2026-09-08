@@ -2,9 +2,10 @@ import { Container } from "@/components/ui/Container";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Aviso Legal | Roesan Seguros",
+    title: "Aviso Legal",
     description:
         "Aviso legal de Roesan Seguros. La información publicada en este sitio es de carácter informativo y no constituye asesoría contractual.",
+    alternates: { canonical: "/aviso-legal" },
 };
 
 export default function AvisoLegalPage() {
@@ -47,8 +48,8 @@ export default function AvisoLegalPage() {
                             </li>
                             <li>
                                 <strong>Correo:</strong>{" "}
-                                <a href="mailto:administrativo@roesan.com.co">
-                                    administrativo@roesan.com.co
+                                <a href="mailto:administrativo@roesan.com">
+                                    administrativo@roesan.com
                                 </a>
                             </li>
                             <li>

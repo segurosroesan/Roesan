@@ -1,6 +1,5 @@
 "use client";
 
-import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { motion } from "framer-motion";

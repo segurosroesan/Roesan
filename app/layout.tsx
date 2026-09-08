@@ -4,7 +4,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import { MetaPixelPageView } from "@/components/MetaPixelPageView";
-import Script from "next/script";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -32,20 +31,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Roesan Seguros" }],
   creator: "Roesan Seguros",
-  metadataBase: new URL("https://roesan.com.co"),
+  metadataBase: new URL("https://roesan.com"),
   openGraph: {
     type: "website",
     locale: "es_CO",
-    url: "https://roesan.com.co",
     siteName: "Roesan Seguros",
     title: "Roesan Seguros | Protección que se adapta a tu vida",
     description:
       "Más de 40 años construyendo confianza y protegiendo el patrimonio de familias y empresas colombianas.",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "/images/hero-familia.png",
         alt: "Roesan Seguros",
       },
     ],
@@ -55,11 +51,7 @@ export const metadata: Metadata = {
     title: "Roesan Seguros | Protección que se adapta a tu vida",
     description:
       "Más de 40 años construyendo confianza y protegiendo el patrimonio de familias y empresas colombianas.",
-    images: ["/og-image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
+    images: ["/images/hero-familia.png"],
   },
 };
 
@@ -146,29 +138,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div className="relative z-10"><Footer /></div>
         <ChatWidget />
 
-        {/* Schema Markup */}
-        <Script id="schema-local-business" type="application/ld+json" strategy="afterInteractive">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Roesan Seguros",
-              "image": "https://roesan.com.co/logo-roesan.png",
-              "description": "Agencia de seguros fundada en 1982. Más de 40 años protegiendo el patrimonio y la tranquilidad de familias y empresas colombianas.",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Calle 109 #19-36 of. 203",
-                "addressLocality": "Bogotá",
-                "addressCountry": "CO"
-              },
-              "telephone": "+573002114998",
-              "areaServed": ["CO"],
-              "currenciesAccepted": "COP",
-              "openingHours": "Mo-Fr 08:30-17:00",
-              "url": "https://roesan.com.co"
-            }
-          `}
-        </Script>
       </body>
     </html>
   );

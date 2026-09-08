@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Brochures Roesan | Catálogo de Seguros 2026",
+export const metadata = createPageMetadata({
+  title: "Catálogo de seguros 2026",
   description:
     "Descarga o visualiza nuestros brochures de seguros para personas y empresas. Conoce todos los productos y coberturas que Roesan tiene para ti.",
-};
+  path: "/brochures",
+});
 
 const brochures = [
   {

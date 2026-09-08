@@ -6,10 +6,84 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import type { Metadata } from "next";
+
+const homeTitle = "Roesan Seguros | Protección que se adapta a tu vida";
+const homeDescription =
+  "Agencia de seguros con más de 40 años de experiencia. Seguros de vida, salud, vehículos y empresariales en Colombia.";
+
+export const metadata: Metadata = {
+  title: { absolute: homeTitle },
+  description: homeDescription,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: homeTitle,
+    description: homeDescription,
+    url: "/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homeTitle,
+    description: homeDescription,
+  },
+};
+
+const insuranceAgencyJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "@id": "https://roesan.com/#insurance-agency",
+  name: "Roesan Seguros",
+  legalName: "ORGANIZACION DE SEGUROS ROESAN LTDA.",
+  description:
+    "Agencia de seguros fundada en 1982. Más de 40 años protegiendo el patrimonio y la tranquilidad de familias y empresas colombianas.",
+  url: "https://roesan.com/",
+  logo: "https://roesan.com/logo-roesan.png",
+  image: "https://roesan.com/logo-roesan.png",
+  telephone: "+573002114998",
+  email: "administrativo@roesan.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Calle 109 #19-36 oficina 203",
+    addressLocality: "Bogotá",
+    addressCountry: "CO",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+573002114998",
+      email: "administrativo@roesan.com",
+      contactType: "administrative",
+      availableLanguage: "Spanish",
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+573126000414",
+      email: "comercial@roesan.com",
+      contactType: "sales",
+      availableLanguage: "Spanish",
+    },
+  ],
+  areaServed: { "@type": "Country", name: "Colombia" },
+  currenciesAccepted: "COP",
+  openingHours: "Mo-Fr 08:30-17:00",
+  sameAs: [
+    "https://www.facebook.com/Roesanltda/",
+    "https://www.instagram.com/roesanseguros",
+    "https://co.linkedin.com/company/roesan-agencia-de-seguros",
+  ],
+};
 
 export default function Home() {
   return (
     <>
+      <script
+        id="roesan-insurance-agency-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(insuranceAgencyJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Hero />
       <TrustBar />
       <ServicesGrid />

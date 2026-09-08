@@ -30,7 +30,7 @@ export function TrustBar() {
                     viewport={{ once: true }}
                     className="mb-10 text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-400"
                 >
-                    Respaldados por las mejores aseguradoras de Colombia
+                    Algunas aseguradoras con las que trabajamos
                 </motion.p>
                 
                 {/* Looping Carousel via CSS animation for better UX with many logos */}

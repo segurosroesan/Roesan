@@ -2,45 +2,13 @@
 
 import React from "react";
 import { Container } from "../ui/Container";
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import { Users, Shield, Calendar, Award } from "lucide-react";
-
-function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
-    const [count, setCount] = useState(0);
-    const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { once: true });
-
-    useEffect(() => {
-        if (!isInView) return;
-        let start = 0;
-        const duration = 1800;
-        const step = Math.ceil(target / (duration / 16));
-        const timer = setInterval(() => {
-            start += step;
-            if (start >= target) {
-                setCount(target);
-                clearInterval(timer);
-            } else {
-                setCount(start);
-            }
-        }, 16);
-        return () => clearInterval(timer);
-    }, [isInView, target]);
-
-    return (
-        <span ref={ref}>
-            {count.toLocaleString("es-CO")}
-            {suffix}
-        </span>
-    );
-}
+import { motion } from "framer-motion";
+import { Shield, Calendar, MapPin } from "lucide-react";
 
 const stats = [
     {
-        label: "Años de experiencia",
-        value: 40,
-        suffix: "+",
+        label: "Año de fundación",
+        value: "1982",
         icon: Calendar,
         color: "text-purple-600",
         bg: "bg-purple-50",
@@ -49,23 +17,21 @@ const stats = [
     },
     {
         label: "Aseguradoras aliadas",
-        value: 13,
-        suffix: "",
+        value: "13",
         icon: Shield,
         color: "text-emerald-600",
         bg: "bg-emerald-50",
         border: "border-emerald-100",
-        description: "Las mejores compañías del país como respaldo"
+        description: "Compañías aseguradoras con las que trabajamos"
     },
     {
-        label: "Satisfacción clientes",
-        value: 98,
-        suffix: "%",
-        icon: Award,
+        label: "Sede principal",
+        value: "Bogotá",
+        icon: MapPin,
         color: "text-amber-600",
         bg: "bg-amber-50",
         border: "border-amber-100",
-        description: "Índice de satisfacción en atención y servicio"
+        description: "Atención a personas y empresas en Colombia"
     },
 ];
 
@@ -87,7 +53,7 @@ export function StatsSection() {
                         Números que respaldan nuestra confianza
                     </h2>
                     <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto font-light">
-                        Décadas de experiencia y el respaldo de las mejores aseguradoras.
+                        Décadas de experiencia y el acompañamiento de aseguradoras aliadas.
                     </p>
                 </motion.div>
 
@@ -110,7 +76,7 @@ export function StatsSection() {
                             </div>
 
                             <div className={`relative text-5xl font-bold tracking-tight ${stat.color} leading-none mb-3`}>
-                                <CountUp target={stat.value} suffix={stat.suffix} />
+                                {stat.value}
                             </div>
 
                             <p className="relative text-sm font-bold text-slate-700 mb-2">{stat.label}</p>

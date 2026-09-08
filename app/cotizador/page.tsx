@@ -1,30 +1,16 @@
-import { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import QuoteFunnel from "@/components/home/QuoteFunnel";
 import { ArrowLeft, Clock, Shield, Star, Users, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-    title: "Cotizador Integral | Roesan Seguros",
+export const metadata = createPageMetadata({
+    title: "Cotizador integral de seguros",
     description: "Cotiza tu seguro en minutos. Comparamos las mejores aseguradoras de Colombia para darte la tarifa ideal, sin compromiso.",
-    openGraph: {
-        title: "Cotizador Integral | Roesan Seguros",
-        description: "Cotiza tu seguro en minutos. Comparamos las mejores aseguradoras de Colombia.",
-        url: "https://roesan.com.co/cotizador",
-        siteName: "Roesan Seguros",
-        images: [
-            {
-                url: "/images/og-roesan.jpg",
-                width: 1200,
-                height: 630,
-                alt: "Cotizador Roesan Seguros",
-            },
-        ],
-        locale: "es_CO",
-        type: "website",
-    },
-};
+    path: "/cotizador",
+    image: "/images/hero-auto.png",
+});
 
 export default function CotizadorGlobalPage() {
     return (

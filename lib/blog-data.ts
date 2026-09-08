@@ -1,4 +1,22 @@
-export interface BlogPost {
+import { blogEditorialOverrides } from "@/lib/blog-editorial";
+
+export type EditorialStatus = "maintain" | "update" | "urgent";
+
+export interface BlogSource {
+    id: string;
+    title: string;
+    publisher: string;
+    url: string;
+    accessedAt: string;
+}
+
+export interface BlogServiceLink {
+    label: string;
+    href: string;
+    description: string;
+}
+
+export interface LegacyBlogPost {
     slug: string;
     title: string;
     excerpt: string;
@@ -10,15 +28,36 @@ export interface BlogPost {
     content: BlogSection[];
 }
 
+export interface BlogPost extends LegacyBlogPost {
+    seoTitle?: string;
+    datePublished: string;
+    dateModified: string;
+    tags: string[];
+    topicSlug: string;
+    authorSlug: string;
+    reviewerSlug?: string;
+    quickAnswer?: string[];
+    sources: BlogSource[];
+    relatedArticleSlugs: string[];
+    relatedServices: BlogServiceLink[];
+    editorialStatus: EditorialStatus;
+    isReadyForPublication: boolean;
+}
+
 export interface BlogSection {
-    type: "intro" | "heading" | "paragraph" | "list" | "cta" | "image" | "links";
+    type: "intro" | "heading" | "paragraph" | "list" | "cta" | "image" | "links" | "table";
     text?: string;
     items?: string[];
     imageUrl?: string;
     imageAlt?: string;
+    level?: 2 | 3;
+    caption?: string;
+    headers?: string[];
+    rows?: string[][];
+    citations?: string[];
 }
 
-export const blogPosts: BlogPost[] = [
+const legacyBlogPosts: LegacyBlogPost[] = [
     {
         slug: "costo-seguro-contra-todo-riesgo-bogota",
         title: "Seguro Auto Todo Riesgo en Bogotá 2026: Costos, Comparativa y Coberturas Vitales",
@@ -558,9 +597,9 @@ export const blogPosts: BlogPost[] = [
                 type: "links",
                 text: "Conoce nuestras opciones de seguros con rentabilidad:",
                 items: [
-                    "https://www.roesan.co/seguros/vida - Seguros de vida con componente de ahorro",
-                    "https://www.roesan.co/seguros/salud - Planes de medicina prepagada",
-                    "https://www.roesan.co/seguros/auto - Seguros de vehículos con cobertura integral"
+                    "https://roesan.com/servicios/vida - Seguros de vida",
+                    "https://roesan.com/servicios/salud - Seguros de salud",
+                    "https://roesan.com/servicios/autos - Seguros de vehículos"
                 ]
             },
             { type: "cta", text: "" },
@@ -1420,8 +1459,8 @@ export const blogPosts: BlogPost[] = [
                 type: "links",
                 text: "Soluciones de seguros para copropiedades:",
                 items: [
-                    "https://www.roesan.co/empresas/seguros-condominios - Pólizas integrales para conjuntos residenciales",
-                    "https://www.roesan.co/empresas/responsabilidad-civil - Cobertura RCE para edificios y copropiedades"
+                    "https://roesan.com/servicios/copropiedades - Seguros para copropiedades",
+                    "https://roesan.com/servicios/responsabilidad-civil-empresarial - Responsabilidad civil empresarial"
                 ]
             },
             { type: "cta", text: "" }
@@ -1869,7 +1908,7 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "paragraph",
-                text: "Los riesgos de una vivienda en Colombia son variados y reales. Según el DANE y Fenaincol (Federación Nacional de Aseguradoras), el 18% de robo en hogares ocurre en Bogotá, 12% en Medellín, 10% en Cali. Además, eventos climáticos (granizadas en Bogotá, inundaciones en la Costa) destruyen viviendas regularmente."
+                text: "Los riesgos de una vivienda en Colombia son variados. Fasecolda identifica coberturas de hogar frente a eventos como incendio, terremoto, hurto, explosión, daños por agua, granizo y vientos fuertes."
             },
             {
                 type: "list",
@@ -2125,3 +2164,21 @@ export const blogPosts: BlogPost[] = [
         ]
     }
 ];
+
+export const blogPosts: BlogPost[] = legacyBlogPosts.map((post) => ({
+    ...post,
+    seoTitle: post.title,
+    datePublished: post.date,
+    dateModified: post.date,
+    tags: [post.category],
+    topicSlug: "educacion-seguros",
+    authorSlug: "equipo-editorial-roesan",
+    sources: [],
+    relatedArticleSlugs: [],
+    relatedServices: [],
+    editorialStatus: "urgent",
+    isReadyForPublication: false,
+    ...blogEditorialOverrides[post.slug],
+}));
+
+export const publishedBlogPosts = blogPosts.filter((post) => post.isReadyForPublication);

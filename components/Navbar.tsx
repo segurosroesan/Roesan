@@ -85,7 +85,11 @@ export function Navbar() {
                     {/* Mobile Menu Button */}
                     <div className="md:hidden">
                         <button
+                            type="button"
                             onClick={() => setIsOpen(!isOpen)}
+                            aria-label={isOpen ? "Cerrar menú principal" : "Abrir menú principal"}
+                            aria-expanded={isOpen}
+                            aria-controls="mobile-navigation"
                             className={`transition-colors duration-300 ${forceLightMode ? "text-purple-800" : "text-white"}`}
                         >
                             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -96,7 +100,7 @@ export function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden glass-panel border-t border-slate-200 animate-in fade-in slide-in-from-top-4 duration-300">
+                <div id="mobile-navigation" className="md:hidden glass-panel border-t border-slate-200 animate-in fade-in slide-in-from-top-4 duration-300">
                     <div className="space-y-1 px-4 pb-6 pt-4">
                         {[
                             { name: "Inicio", href: "/" },

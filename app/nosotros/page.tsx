@@ -155,7 +155,7 @@ export default function AboutPage() {
                                 </p>
 
                                 <p>
-                                    Actualmente trabajamos con <strong>13 aseguradoras líderes del país</strong>, lo que nos
+                                    Actualmente trabajamos con <strong>13 aseguradoras del país</strong>, lo que nos
                                     permite estructurar soluciones a la medida, con opciones competitivas y una asesoría verdaderamente independiente.
                                     Nuestro valor está en entender cada necesidad y diseñar la mejor combinación de coberturas y pólizas con
                                     criterio y conocimiento.

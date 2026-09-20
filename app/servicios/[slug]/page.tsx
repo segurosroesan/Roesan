@@ -68,9 +68,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!service) return { title: "Servicio no encontrado" };
 
-    const title = buildSeoTitle(service);
+    const title = service.seoTitle || buildSeoTitle(service);
     const socialTitle = `${title} | Roesan Seguros`;
-    const description = buildSeoDescription(service);
+    const description = service.seoDescription || buildSeoDescription(service);
     const canonical = `/servicios/${service.slug}`;
 
     return {

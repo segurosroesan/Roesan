@@ -8,9 +8,9 @@ import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import type { Metadata } from "next";
 
-const homeTitle = "Roesan Seguros | Protección que se adapta a tu vida";
+const homeTitle = "Empresa de Seguros en Colombia | Seguros para Personas y Empresas";
 const homeDescription =
-  "Agencia de seguros con más de 40 años de experiencia. Seguros de vida, salud, vehículos y empresariales en Colombia.";
+  "Corredora de seguros en Colombia con más de 40 años de experiencia. Encuentra seguros de vida, salud, autos, hogar y soluciones para empresas con asesoría personalizada.";
 
 export const metadata: Metadata = {
   title: { absolute: homeTitle },

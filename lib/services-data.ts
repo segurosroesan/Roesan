@@ -7,6 +7,8 @@ export interface ServiceData {
     quoteType: string;
     title: string;
     shortDescription: string;
+    seoTitle?: string;
+    seoDescription?: string;
     fullDescription: string;
     icon: LucideIcon;
     color: string;

@@ -13,19 +13,26 @@ const homeDescription =
   "Agencia de seguros con más de 40 años de experiencia. Seguros de vida, salud, vehículos y empresariales en Colombia.";
 
 export const metadata: Metadata = {
-  title: { absolute: homeTitle },
-  description: homeDescription,
-  alternates: { canonical: "/" },
+  title: {
+    absolute: "Empresa de Seguros en Colombia | Seguros para Personas y Empresas",
+  },
+  description:
+    "Corredora de seguros en Colombia con más de 40 años de experiencia. Encuentra seguros de vida, salud, autos, hogar y soluciones para empresas con asesoría personalizada.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: homeTitle,
-    description: homeDescription,
+    title: "Empresa de Seguros en Colombia | Seguros para Personas y Empresas",
+    description:
+      "Corredora de seguros en Colombia con más de 40 años de experiencia. Encuentra seguros de vida, salud, autos, hogar y soluciones para empresas con asesoría personalizada.",
     url: "/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: homeTitle,
-    description: homeDescription,
+    title: "Empresa de Seguros en Colombia | Seguros para Personas y Empresas",
+    description:
+      "Corredora de seguros en Colombia con más de 40 años de experiencia. Encuentra seguros de vida, salud, autos, hogar y soluciones para empresas con asesoría personalizada.",
   },
 };
 

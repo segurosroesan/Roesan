@@ -86,7 +86,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.5 }}
                         className="font-serif text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]"
                     >
-                        Nuestra Historia
+                        Más de 40 Años de Experiencia en Seguros
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}

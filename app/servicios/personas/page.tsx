@@ -12,50 +12,68 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import QuoteFunnel from "@/components/home/QuoteFunnel";
 
 export default function PersonasHubPage() {
-    const personasServices = servicesData.filter(s => s.category === "persona");
+    const personasServices = servicesData.filter(
+        (s) => s.category === "persona"
+    );
 
     return (
         <div className="bg-transparent">
             {/* Hero */}
             <section className="relative overflow-hidden pt-36 pb-24 text-center lg:pt-48 lg:pb-32">
                 <div className="absolute inset-0 z-0">
-                    <Image src="/images/banner-personas.png" alt="Seguros Personas" fill className="object-cover" priority />
+                    <Image
+                        src="/images/banner-personas.png"
+                        alt="Seguros Personas"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+
                     <div className="absolute inset-0 bg-slate-900/30"></div>
+
                     <div className="absolute inset-0 bg-gradient-to-r from-teal-900/20 to-blue-900/20" />
                 </div>
 
                 <Container className="relative z-10 pt-8">
                     <div className="mb-8">
-                        <Breadcrumbs 
+                        <Breadcrumbs
                             variant="dark"
                             items={[
-                                { label: 'Seguros Personas' }
-                            ]} 
+                                {
+                                    label: "Seguros Personas",
+                                },
+                            ]}
                         />
                     </div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="font-serif text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]"
+                        className="font-serif text-4xl font-medium leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
                     >
-                        Seguros para Personas y Familias
+                        Seguros para Personas y Familias en Colombia
                     </motion.h1>
+
                     <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="mt-6 text-xl text-slate-300 max-w-2xl mx-auto"
+                        className="mx-auto mt-6 max-w-2xl text-xl text-slate-300"
                     >
-                        Protege tu vida, tu salud y tu patrimonio con pólizas diseñadas a tu medida.
+                        Protege tu vida, tu salud y tu patrimonio con pólizas
+                        diseñadas a tu medida.
                     </motion.p>
+
                     <motion.div
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                         className="mt-8 flex flex-col items-center gap-3"
                     >
-                        <Link href="#cotiza-tu-seguro" className="inline-flex">
+                        <Link
+                            href="#cotiza-tu-seguro"
+                            className="inline-flex"
+                        >
                             <Button
                                 variant="secondary"
                                 size="lg"
@@ -64,6 +82,7 @@ export default function PersonasHubPage() {
                                 Cotiza tu seguro
                             </Button>
                         </Link>
+
                         <a
                             href="/assets/brochures/Brochure-seguros-personas-2026.pdf"
                             download="Brochure-seguros-personas-2026.pdf"
@@ -77,17 +96,35 @@ export default function PersonasHubPage() {
             </section>
 
             {/* Services Grid */}
-            <section className="py-24 bg-transparent" id="servicios">
+            <section
+                className="bg-transparent py-24"
+                id="servicios"
+            >
                 <Container>
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         {personasServices.map((service, idx) => (
-                            <Link key={service.slug} href={`/servicios/${service.slug}`} className="block h-full group">
+                            <Link
+                                key={service.slug}
+                                href={`/servicios/${service.slug}`}
+                                className="group block h-full"
+                            >
                                 <motion.div
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: idx * 0.08 }}
-                                    className="relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 h-full min-h-[300px]"
+                                    initial={{
+                                        opacity: 0,
+                                        y: 30,
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                    }}
+                                    viewport={{
+                                        once: true,
+                                    }}
+                                    transition={{
+                                        duration: 0.5,
+                                        delay: idx * 0.08,
+                                    }}
+                                    className="relative h-full min-h-[300px] overflow-hidden rounded-2xl shadow-md transition-all duration-500 hover:shadow-xl"
                                 >
                                     <div className="absolute inset-0">
                                         <Image
@@ -97,23 +134,30 @@ export default function PersonasHubPage() {
                                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                                             sizes="(max-width: 768px) 100vw, 33vw"
                                         />
+
                                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/40 to-slate-950/10" />
+
                                         <div className="absolute inset-0 bg-gradient-to-br from-primary/25 via-transparent to-transparent" />
                                     </div>
 
-                                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10 flex flex-col justify-end h-full">
+                                    <div className="absolute bottom-0 left-0 right-0 z-10 flex h-full flex-col justify-end p-5 sm:p-6">
                                         <div className="absolute inset-x-4 bottom-4 top-1/3 rounded-2xl bg-gradient-to-t from-slate-950/60 via-slate-950/45 to-primary/5 backdrop-blur-[1px]" />
+
                                         <div className="relative">
-                                            <div className="w-8 h-1 bg-cyan-500 rounded-full mb-3 group-hover:w-12 transition-all duration-500" />
-                                            <h4 className="font-serif text-xl font-medium text-slate-50 mb-2 [text-shadow:0_2px_10px_rgba(15,23,42,0.7)]">
+                                            <div className="mb-3 h-1 w-8 rounded-full bg-cyan-500 transition-all duration-500 group-hover:w-12" />
+
+                                            <h4 className="mb-2 font-serif text-xl font-medium text-slate-50 [text-shadow:0_2px_10px_rgba(15,23,42,0.7)]">
                                                 {service.title}
                                             </h4>
-                                            <p className="text-slate-200 text-sm leading-relaxed mb-4 line-clamp-2 [text-shadow:0_1px_6px_rgba(15,23,42,0.65)]">
+
+                                            <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-slate-200 [text-shadow:0_1px_6px_rgba(15,23,42,0.65)]">
                                                 {service.shortDescription}
                                             </p>
 
-                                            <div className="flex items-center gap-2 text-sm font-semibold text-cyan-400 group-hover:text-cyan-300 transition-colors mt-auto [text-shadow:0_1px_6px_rgba(15,23,42,0.65)]">
-                                                Ver detalles <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                            <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-cyan-400 transition-colors group-hover:text-cyan-300 [text-shadow:0_1px_6px_rgba(15,23,42,0.65)]">
+                                                Ver detalles
+
+                                                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +168,11 @@ export default function PersonasHubPage() {
                 </Container>
             </section>
 
-            <section id="cotiza-tu-seguro" className="bg-white py-20 scroll-mt-28">
+            {/* Quote Funnel */}
+            <section
+                id="cotiza-tu-seguro"
+                className="scroll-mt-28 bg-white py-20"
+            >
                 <Container className="max-w-3xl">
                     <QuoteFunnel variant="compact" />
                 </Container>
@@ -133,14 +181,21 @@ export default function PersonasHubPage() {
             {/* CTA */}
             <section className="bg-primary py-16">
                 <Container className="text-center">
-                    <h2 className="text-2xl font-bold text-white mb-6">
+                    <h2 className="mb-6 text-2xl font-bold text-white">
                         ¿Necesitas asesoría personalizada?
                     </h2>
-                    <p className="text-primary-100 mb-8 max-w-2xl mx-auto">
-                        Déjanos entender tus necesidades familiares y te recomendaremos el plan perfecto.
+
+                    <p className="mx-auto mb-8 max-w-2xl text-primary-100">
+                        Déjanos entender tus necesidades familiares y te
+                        recomendaremos el plan perfecto.
                     </p>
+
                     <Link href="/contacto">
-                        <Button variant="secondary" size="lg" className="bg-white !text-purple-900 font-semibold hover:bg-slate-100">
+                        <Button
+                            variant="secondary"
+                            size="lg"
+                            className="bg-white !text-purple-900 font-semibold hover:bg-slate-100"
+                        >
                             Hablar con un Asesor
                         </Button>
                     </Link>

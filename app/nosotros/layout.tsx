@@ -1,8 +1,9 @@
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-    title: "Nosotros | Historia y Experiencia",
-    description: "Conoce a Roesan Seguros. Más de 40 años protegiendo el patrimonio de las familias y empresas colombianas con honestidad, respaldo y cobertura personalizada.",
+    title: "Corredora de Seguros con Más de 40 Años de Experiencia",
+    description:
+        "Conoce la historia de una corredora de seguros con más de 40 años de experiencia en Colombia. Descubre nuestro equipo, trayectoria y enfoque de asesoría personalizada.",
     path: "/nosotros",
     image: "/images/banner_nosotros.png",
 });

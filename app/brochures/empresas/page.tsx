@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import BrochureViewer from "@/components/ui/BrochureViewer";
 
 export const metadata: Metadata = {
-  title: "Brochure Seguros Empresas 2026",
+  title: "Seguros para Empresas en Colombia: Portafolio 2026",
   description:
-    "Portafolio completo de seguros empresariales Roesan: responsabilidad civil, todo riesgo, transporte, ciberseguridad, pólizas colectivas y más.",
-  robots: { index: false, follow: true },
+    "Conoce el portafolio de seguros para empresas en Colombia: responsabilidad civil, todo riesgo, transporte, ciberseguridad, pólizas colectivas y otras soluciones empresariales.",
+  robots: { index: true, follow: true },
 };
 
 export default function BrochureEmpresasPage() {

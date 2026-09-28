@@ -143,7 +143,7 @@ export default function ContactPage() {
                         transition={{ delay: 0.1 }}
                         className="font-serif text-4xl font-medium leading-[1.1] text-white sm:text-5xl"
                     >
-                        Contacta a un asesor de segurps en Bogotá<br />
+                        Contacta a un asesor de seguros en Bogotá<br />
                         <span className="text-purple-400">a un mensaje</span>
                     </motion.h1>
                     <motion.p

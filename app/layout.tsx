@@ -92,7 +92,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '957204397403639');
+            fbq('set', 'autoConfig', false, '1819148702600644');
+            fbq('init', '1819148702600644');
             fbq('track', 'PageView');
           `
         }} />
@@ -110,7 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=957204397403639&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=1819148702600644&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>

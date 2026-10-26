@@ -93,6 +93,9 @@ export default function ContactPage() {
                         'currency': 'COP'
                     });
                 }
+
+                // Meta: solo tras confirmación del CRM y sin datos del formulario
+                window.fbq?.('track', 'Lead');
             }
             setFormData({ name: "", phone: "", email: "", topic: "", message: "" });
         } catch (err) {
